@@ -13,8 +13,8 @@
                                         <h3 class="h4 font-weight-bold text-theme">Login</h3>
                                     </div>
                                     <form>
-                                        <div class="form-group"><label for="exampleInputEmail1">Correo</label><input id="exampleInputEmail1" class="form-control" type="email" /></div>
-                                        <div class="form-group mb-5"><label for="exampleInputPassword1">Contraseña</label><input id="exampleInputPassword1" class="form-control" type="password" /></div><button class="btn btn-theme" type="submit">Acceder</button> &nbsp;<a class="forgot-link float-right text-primary" href="#l">Olvidaste la Contraseña?</a>
+                                        <div class="form-group"><label for="exampleInputEmail1">Correo</label><input id="exampleInputEmail1" class="form-control" type="email" required /></div>
+                                        <div class="form-group mb-5"><label for="exampleInputPassword1">Contraseña</label><input id="exampleInputPassword1" class="form-control" type="password" required/></div><button class="btn btn-theme" type="submit">Acceder</button> &nbsp;<a class="forgot-link float-right text-primary" href="#l">Olvidaste la Contraseña?</a>
                                     </form>
                                 </div>
                             </div>
@@ -27,6 +27,12 @@
                             </div>
                         </div>
                     </div>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+        <strong>{{ $errors->first('email') }}</strong>
+    </span>
+                    @endif
+
                 </div>
                </div>
         </div>
