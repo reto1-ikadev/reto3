@@ -54,7 +54,7 @@
                             </ul>
                             <form class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                <button class="btn btn-outline-success" id="boton" type="submit">Search</button>
                             </form>
                         </div>
                     </div>
@@ -63,7 +63,9 @@
         </div>
     </div>
     <h1>hola</h1>
+    <script src="/js/prueba.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
