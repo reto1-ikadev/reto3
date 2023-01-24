@@ -3,12 +3,6 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
-@media (max-width:575px){
-  .navbar{
-    background-color: red;
-  }
-}
-
 .navbar {
   // scss-docs-start navbar-css-vars
   --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
@@ -289,4 +283,8 @@
       --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
     }
   }
+}
+
+.navbar{
+  background-color: red;
 }
