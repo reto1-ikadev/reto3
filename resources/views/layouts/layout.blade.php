@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col">
                 <nav class="navbar bg-primary "><!-- navegador -->
-                     <img src="{{ asset('images/logo.svg') }}" class="h-25 w-25" alt="">
+                    <img src="{{ asset('images/logo.svg') }}" class="h-25 w-25" alt="">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -55,15 +55,71 @@
                 </nav>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col">
-                <h1>aqui va el carrousel</h1>
-            </div>
 
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('images/deusto3.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('images/campusVitoria.jpg') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('images/deusto2.png') }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- CAROUSEL -->
+
+        <div class="row">
+            <div class="col">
+                <footer class="text-center text-white" style="background-color: #f1f1f1;">
+                    <!-- Grid container -->
+                    <div class="container pt-4">
+                        <!-- Section: Social media -->
+                        <section class="mb-4">
+                            <!-- Facebook -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Facebook</a>
+
+                            <!-- Twitter -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Twitter</a>
+
+                            <!-- Google -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Google</a>
+
+                            <!-- Instagram -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Instagram</a>
+
+                            <!-- Linkedin -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Linkedin</a>
+                            <!-- Github -->
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Github</a>
+                        </section>
+                        <!-- Section: Social media -->
+                    </div>
+                    <!-- Grid container -->
+
+                    <!-- Copyright -->
+                    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                        
+                        <a class="text-dark" href="https://deusto.com/">Deusto</a>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+            </div>
+        </div>
 
 
 
