@@ -76,33 +76,40 @@
         <div class="row justify-content-center">
             <div class="col-10">
                 @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
-                <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ asset('images/deusto3.jpg') }}" class="d-block w-100" alt="...">
+                <div id="carouselExampleFade" class = "carousel slide carousel-fade">
+                    <div class = "carousel-inner">
+                        <div class = "carousel-item active">
+                            <img src = "{{ asset('images/deusto3.jpg') }}" class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('images/campusVitoria.jpg') }}" class="d-block w-100" alt="...">
+                        <div class = "carousel-item">
+                            <img src = "{{ asset('images/campusVitoria.jpg') }}" class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('images/deusto2.png') }}" class="d-block w-100" alt="...">
+                        <div class = "carousel-item">
+                            <img src = "{{ asset('images/deusto2.png') }}" class="d-block w-100" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                    <button class = "carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class = "carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class = "visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <button class = "carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class = "carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class = "visually-hidden">Next</span>
                     </button>
                 </div>
                 @else
                     @switch($tipo)
                         @case('estudiante')
+                            <table class="table mt-2">
+                                <tr>
+                                    <td>Nombre</td>
+                                </tr>
                             @foreach($estudiantes as $estudiante)
-                               <li><h1> <a href="{{ route('estudiantes.show', $estudiante) }}"> {{$estudiante}}</a></h1></li>
+                                <tr>
+                                    <td><a href="{{ route('estudiantes.show', $estudiante) }}"> {{$estudiante}}</a></td>
+                                </tr>
                             @endforeach
+                            </table>
                             @break
                         @case('empresa')
                             @foreach($empresas as $empresa)
