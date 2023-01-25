@@ -71,7 +71,7 @@
         </div>
         <!--CARROUSEL o TABLAS-->
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-4">
             <div class="col-10">
                 @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
                 <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -119,7 +119,7 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne{{$empresa}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$empresa}}" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                            <div class="accordion-body">Aqu&iacute; se muestran los datos de la empresa</div>
                         </div>
                     </div>
                 </div>
