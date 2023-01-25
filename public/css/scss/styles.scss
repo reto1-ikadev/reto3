@@ -2,3 +2,30 @@
     height: 100vh;
   
 }
+$azulImpar:rgba(204, 224, 241, 0.8);
+$azulPar:rgba(211, 220, 228, 0.8);
+$azulDetalles:rgba(164, 206, 246, 0.8);
+$azulBase:#0153CE;
+
+@function color($col){
+    $color:$azulImpar;
+    $resto:$col%2;
+    @if($resto%2==0){
+        $color:$azulPar;
+    }
+    @return $color;
+}
+
+.container-fluid {
+    height: 100vh;
+    
+}
+tr:nth-child(1){
+    background-color: $azulDetalles;
+    border-bottom: $azulBase;
+}
+@for $col from 2 to 10{
+    tr:nth-child(#{$col}){
+        background-color: color($col);
+    }
+}
