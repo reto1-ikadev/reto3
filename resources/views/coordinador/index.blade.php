@@ -10,7 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/dist/css/bootstrap.css') }}">
     <style>
-        
+        body {
+            height: 100vh;
+        }
     </style>
 </head>
 
@@ -31,16 +33,16 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Alumnos</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Estudiantes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Empresas</a>
+                                    <a class="nav-link" href="{{ route('empresas.index') }}">Empresas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Tutores acad&eacute;micos</a>
+                                    <a class="nav-link" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Tutores de empresa</a>
+                                    <a class="nav-link" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +55,7 @@
                                         <li><a class="dropdown-item" href="#">Alumnos</a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Estad&iacute;sticas</a>
                                 </li>
@@ -69,9 +71,11 @@
                 </nav>
             </div>
         </div>
+        <!--CARROUSEL-->
 
         <div class="row justify-content-center">
             <div class="col-10">
+                @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
                 <div id="carouselExampleFade" class="carousel slide carousel-fade">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -93,6 +97,30 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+                @else
+                    @switch($tipo)
+                        @case('estudiante')
+                            @foreach($estudiantes as $estudiante)
+                               <li><h1> <a href="{{ route('estudiantes.show', $estudiante) }}"> {{$estudiante}}</a></h1></li>
+                            @endforeach
+                            @break
+                        @case('empresa')
+                            @foreach($empresas as $empresa)
+                                <h1> {{$empresa}}</h1>
+                            @endforeach
+                            @break
+                        @case('tutoresAcademicos')
+                            @foreach($tutoresAcademicos as $tutorAcademico)
+                                <h1> {{$tutorAcademico}}</h1>
+                            @endforeach
+                            @break
+                        @case('tutoresEmpresa')
+                            @foreach($tutoresEmpresa as $tutorEmpresa)
+                                <h1> {{$tutorEmpresa}}</h1>
+                            @endforeach
+                            @break
+                    @endswitch
+                @endif
             </div>
         </div>
 
@@ -127,7 +155,7 @@
 
                     <!-- Copyright -->
                     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                        
+
                         <a class="text-dark" href="https://deusto.com/">Deusto</a>
                     </div>
                     <!-- Copyright -->
@@ -141,6 +169,9 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
 
 </body>
 
