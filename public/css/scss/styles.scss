@@ -1,7 +1,4 @@
-.container-fluid {
-    height: 100vh;
-  
-}
+
 $azulImpar:rgba(204, 224, 241, 0.8);
 $azulPar:rgba(211, 220, 228, 0.8);
 $azulDetalles:rgba(164, 206, 246, 0.8);
@@ -18,7 +15,7 @@ $azulBotonHover:rgb(16, 63, 133);
     @return $color;
 }
 
-.container-fluid {
+.body{
     height: 100vh;
     
 }
@@ -63,4 +60,10 @@ a{
 .foot{
     background-image: $azulBase;
     
+}
+.card-header{
+    background-color: $azulDetalles;
+}
+.card-footer{
+    background-color: $azulDetalles;
 }
