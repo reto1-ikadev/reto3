@@ -11,7 +11,8 @@ class EmpresaController extends Controller
                 
             "1"=>"Mercedes",
        
-            "2"=>"Michelin"
+            "2"=>"Michelin",
+            "3"=>"Auria"
         ];
 
         return view('coordinador.index', ['empresas'=>$empresas, 'tipo'=>'empresa']);

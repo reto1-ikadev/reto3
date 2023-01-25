@@ -10,17 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/dist/css/bootstrap.css') }}">
     <style>
-        body {
-            height: 100vh;
-        }
+        
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid"> 
         <div class="row">
             <div class="col">
-                <nav class="navbar bg-primary "><!-- navegador -->
+                <nav class="navbar bg-primary "><!-- Menu lateral -->
                     <img src="{{ asset('images/logo.svg') }}" id="logoCab" class="img-fluid h-20 w-25" alt="">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -71,7 +69,7 @@
                 </nav>
             </div>
         </div>
-        <!--CARROUSEL-->
+        <!--CARROUSEL o TABLAS-->
 
         <div class="row justify-content-center">
             <div class="col-10">
@@ -115,12 +113,12 @@
                     @foreach($empresas as $empresa)
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id = "flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <h2 class="accordion-header" id = "flush-headingOne{{$empresa}}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{$empresa}}" aria-expanded="false" aria-controls="flush-collapseOne">
                                 {{$empresa}}
                             </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseOne{{$empresa}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$empresa}}" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
                         </div>
                     </div>
