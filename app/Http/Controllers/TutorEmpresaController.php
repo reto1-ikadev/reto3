@@ -14,6 +14,6 @@ class TutorEmpresaController extends Controller
             "2"=>"Damian"
         ];
 
-        return view('coordinador.index', ['tutoresEmpresa'=>$tutoresEmpresa, 'tipo'=>'tutoresEmpresa']);
+        return view('coordinador.contenido', ['tutoresEmpresa'=>$tutoresEmpresa, 'tipo'=>'tutoresEmpresa']);
     }
 }

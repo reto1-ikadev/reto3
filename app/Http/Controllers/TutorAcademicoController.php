@@ -14,6 +14,6 @@ class TutorAcademicoController extends Controller
             "2"=>"Aritz"
         ];
 
-        return view('coordinador.index', ['tutoresAcademicos'=>$tutoresAcademicos, 'tipo'=>'tutoresAcademicos']);
+        return view('coordinador.contenido', ['tutoresAcademicos'=>$tutoresAcademicos, 'tipo'=>'tutoresAcademicos']);
     }
 }

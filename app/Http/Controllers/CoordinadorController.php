@@ -8,7 +8,7 @@ class CoordinadorController extends Controller
 {
     public function index()
     {
-        return view('coordinador.index');
+        return view('coordinador.contenido');
     }
 
 }
