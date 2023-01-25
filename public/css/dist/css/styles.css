@@ -1,9 +1,11 @@
 .body {
   height: 100vh; }
 
+thead {
+  background-color: rgba(164, 206, 246, 0.8); }
+
 tr:nth-child(1) {
-  background-color: rgba(164, 206, 246, 0.8);
-  border-bottom: linear-gradient(135deg, #13448d 0%, #0053ce 100%); }
+  background-color: rgba(204, 224, 241, 0.8); }
 
 tr:nth-child(2) {
   background-color: rgba(211, 220, 228, 0.8); }

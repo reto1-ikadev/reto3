@@ -69,7 +69,7 @@
                 @switch($tipo)
                 @case('estudiante')
                 <table class="table mt-2">
-                    <tr>
+                    <thead>
                         <td>Nombre</td>
                         <td>Apellido</td>
                         <td>Grado</td>
@@ -77,7 +77,7 @@
                         <td>Empresa</td>
                         <td>Detalles</td>
                         
-                    </tr>
+                    </thead>
                     @foreach($estudiantes as $estudiante)
                     <tr>
                         <td> {{$estudiante}}</td>

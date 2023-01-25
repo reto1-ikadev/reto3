@@ -19,11 +19,11 @@ $azulBotonHover:rgb(16, 63, 133);
     height: 100vh;
     
 }
-tr:nth-child(1){
+thead{
     background-color: $azulDetalles;
-    border-bottom: $azulBase;
+    
 }
-@for $col from 2 to 10{
+@for $col from 1 to 10{
     tr:nth-child(#{$col}){
         background-color: color($col);
     }
