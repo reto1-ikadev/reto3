@@ -73,27 +73,27 @@
 
         <div class="row">
             <div class="col">
-                <footer class="text-center text-white" style="background-color: #f1f1f1;">
+            <footer class="text-center text-white" style="background-color: #f1f1f1;">
                     <!-- Grid container -->
                     <div class="container pt-4">
                         <!-- Section: Social media -->
                         <section class="mb-4">
                             <!-- Facebook -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Facebook</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://es-es.facebook.com/UDeusto/" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/facebook.png') }}" alt="facebook"></a>
 
                             <!-- Twitter -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Twitter</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://twitter.com/deusto" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/twitter.png') }}" alt="twitter"></a>
 
                             <!-- Google -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Google</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.google.es/" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/google.png') }}" alt="google"></a>
 
                             <!-- Instagram -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Instagram</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/udeusto" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/insta.png') }}" alt="instagram"></a>
 
                             <!-- Linkedin -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Linkedin</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://es.linkedin.com/school/deusto/" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/linkedin.png') }}" alt="linkedin"></a>
                             <!-- Github -->
-                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark">Github</a>
+                            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/deusto-ess" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/git.png') }}" alt="github"></a>
                         </section>
                         <!-- Section: Social media -->
                     </div>
