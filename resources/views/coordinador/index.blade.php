@@ -110,30 +110,51 @@
                 </table>
                 @break
                 @case('empresa')
-                    @foreach($empresas as $empresa)
+                @foreach($empresas as $empresa)
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id = "flush-headingOne{{$empresa}}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{$empresa}}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                {{$empresa}}
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne{{$empresa}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$empresa}}" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Aqu&iacute; se muestran los datos de la empresa</div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id = "flush-headingOne{{$empresa}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{$empresa}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    {{$empresa}}
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne{{$empresa}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$empresa}}" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Aqu&iacute; se muestran los datos de la empresa</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
                 @endforeach
                 @break
                 @case('tutoresAcademicos')
                 @foreach($tutoresAcademicos as $tutorAcademico)
-                <h1> {{$tutorAcademico}}</h1>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id = "flush-headingOne{{$tutorAcademico}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{$tutorAcademico}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    {{$tutorAcademico}}
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne{{$tutorAcademico}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$tutorAcademico}}" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Aqu&iacute; se muestran los datos de la empresa</div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 @break
                 @case('tutoresEmpresa')
                 @foreach($tutoresEmpresa as $tutorEmpresa)
-                <h1> {{$tutorEmpresa}}</h1>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id = "flush-headingOne{{$tutorEmpresa}}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne{{$tutorEmpresa}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    {{$tutorEmpresa}}
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne{{$tutorEmpresa}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne{{$tutorEmpresa}}" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Aqu&iacute; se muestran los datos de la empresa</div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 @break
                 @endswitch
