@@ -15,7 +15,7 @@ class EstudianteController extends Controller
                
                     "2"=>"celia"
         ];
-        return view('coordinador.contenido', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
+        return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
     }
 
     public function show(/*Estudiante*/ $estudiante)

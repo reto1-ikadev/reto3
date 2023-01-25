@@ -15,6 +15,6 @@ class EmpresaController extends Controller
             "3"=>"Auria"
         ];
 
-        return view('coordinador.contenido', ['empresas'=>$empresas, 'tipo'=>'empresa']);
+        return view('coordinador.index', ['empresas'=>$empresas, 'tipo'=>'empresa']);
     }
 }
