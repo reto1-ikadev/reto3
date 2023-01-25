@@ -112,7 +112,6 @@
                 </table>
                 @break
                 @case('empresa')
-                
                     @foreach($empresas as $empresa)
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
