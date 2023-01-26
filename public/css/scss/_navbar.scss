@@ -157,7 +157,7 @@
   @include transition(var(--#{$prefix}navbar-toggler-transition));
 
   &:hover {
-    text-decoration: none;
+    font-size: 1.5em;
   }
 
   &:focus {
