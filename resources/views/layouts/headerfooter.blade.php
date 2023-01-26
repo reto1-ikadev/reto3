@@ -31,19 +31,22 @@
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('coordinador.index') }}">P&aacute;gina Principal</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Estudiantes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('empresas.index') }}">Empresas</a>
+                                    <a class="nav-link active" href="{{ route('empresas.index') }}">Empresas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
+                                    <a class="nav-link active" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
+                                    <a class="nav-link active" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Dar de alta
                                     </a>
                                     <ul class="dropdown-menu">
@@ -55,17 +58,16 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Estad&iacute;sticas</a>
+                                    <a class="nav-link active" href="#">Estad&iacute;sticas</a>
                                 </li>
                                 <li class="nav-item debajo">
                                     
-                                    <hr class="bg-danger border-2 border-top border-primary">  
-                                        <a class="nav-link" href="#">Cambiar modo</a>
-                                    </li>
-                                    <li class="nav-item"> 
-     
-                                        <a class="nav-link" href="#">Salir</a>
-                                    </li>
+                                <hr class="bg-danger border-2 border-top border-primary">  
+                                    <a class="nav-link active" href="#">Cambiar modo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Salir</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -77,11 +79,11 @@
 
         <div class="row">
             <div class="col">
-            <footer class="text-center text-white" style="background-color: #f1f1f1;">
-                    <!-- Grid container -->
-                    <div class="container pt-4">
+            <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+            <!-- Grid container -->
+                    <div class="container pt-1">
                         <!-- Section: Social media -->
-                        <section class="mb-4">
+                        <section class="mb-1">
                             <!-- Facebook -->
                             <a class="redes btn-link btn-floating btn-lg text-dark m-1" href="https://es-es.facebook.com/UDeusto/" role="button" data-mdb-ripple-color="dark"><img class="img-fluid" src="{{ asset('images/facebook.png') }}" alt="facebook"></a>
 
@@ -104,7 +106,7 @@
                     <!-- Grid container -->
 
                     <!-- Copyright -->
-                    <div class="foot text-center text-dark p-3" >
+                    <div class="foot text-center text-dark p-1" >
                         <a class="text-dark" href="https://deusto.com/">Universidad de Deusto | University of Deusto</a>
                     </div>
                     <!-- Copyright -->
