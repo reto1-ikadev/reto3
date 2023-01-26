@@ -33,16 +33,16 @@
                                     <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Estudiantes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('empresas.index') }}">Empresas</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ route('empresas.index') }}">Empresas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Dar de alta
                                     </a>
                                     <ul class="dropdown-menu">
@@ -54,13 +54,13 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Estad&iacute;sticas</a>
+                                    <a class="nav-link active" href="#">Estad&iacute;sticas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Cambiar modo</a>
+                                    <a class="nav-link active" href="#">Cambiar modo</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Salir</a>
+                                    <a class="nav-link active" href="#">Salir</a>
                                 </li>
                             </ul>
                         </div>
