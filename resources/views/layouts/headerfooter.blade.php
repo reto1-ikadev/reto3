@@ -57,12 +57,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Estad&iacute;sticas</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Cambiar modo</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Salir</a>
-                                </li>
+                                <li class="nav-item debajo">
+                                    
+                                    <hr class="bg-danger border-2 border-top border-primary">  
+                                        <a class="nav-link" href="#">Cambiar modo</a>
+                                    </li>
+                                    <li class="nav-item"> 
+     
+                                        <a class="nav-link" href="#">Salir</a>
+                                    </li>
                             </ul>
                         </div>
                     </div>
