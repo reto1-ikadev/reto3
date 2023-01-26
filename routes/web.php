@@ -8,7 +8,7 @@ use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
 //Rutas del coordinador
-Route::get('/', [CoordinadorController::class, 'index'])->name('coordinador.index');
+//Route::get('/', [CoordinadorController::class, 'index'])->name('coordinador.index');
 
 //Rutas de los estudiantes
 Route::get('/estudiantes',[EstudianteController::class,'index'])->name('estudiantes.index');
@@ -22,3 +22,11 @@ Route::get('/tutoresAcademicos',[TutorAcademicoController::class,'index'])->name
 
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
+
+Route::get('/', function () {
+    return view('welcome');
+})->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
