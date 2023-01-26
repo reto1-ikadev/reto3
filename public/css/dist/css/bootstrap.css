@@ -3333,8 +3333,11 @@ textarea.form-control-lg {
 .tab-content > .tab-pane {
   display: none; }
 .tab-content > .active {
-  display: block;
-}
+  display: block; }
+
+.nav-link:hover {
+  padding-left: 20px;
+  background-color: #97C0FE; }
 
 .navbar {
   --bs-navbar-padding-x: 0;
@@ -3427,21 +3430,16 @@ textarea.form-control-lg {
   background-color: transparent;
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
   border-radius: var(--bs-navbar-toggler-border-radius);
-  transition: var(--bs-navbar-toggler-transition);
-}
-@media (prefers-reduced-motion: reduce) {
-  .navbar-toggler {
-    transition: none;
-  }
-}
-.navbar-toggler:hover {
-  text-decoration: none;
-}
-.navbar-toggler:focus {
-  text-decoration: none;
-  outline: 0;
-  box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width);
-}
+  transition: var(--bs-navbar-toggler-transition); }
+  @media (prefers-reduced-motion: reduce) {
+    .navbar-toggler {
+      transition: none; } }
+  .navbar-toggler:hover {
+    font-size: 1.5em; }
+  .navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width); }
 
 .navbar-toggler-icon {
   display: inline-block;
@@ -5692,8 +5690,10 @@ textarea.form-control-lg {
 .offcanvas-body {
   flex-grow: 1;
   padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
-  overflow-y: auto;
-}
+  overflow-y: auto; }
+
+.debajo {
+  margin-top: 200px; }
 
 .placeholder {
   display: inline-block;

@@ -1,19 +1,8 @@
 
-$azulImpar:rgba(204, 224, 241, 0.8);
-$azulPar:rgba(211, 220, 228, 0.8);
-$azulDetalles:rgba(0, 0, 0, 0.3);
-$azulBase:linear-gradient(135deg, rgb(19, 68, 141) 0%, rgb(0, 83, 206) 100%);
-$azulBoton:rgb(0, 83, 206);
-$azulBotonHover:rgb(16, 63, 133);
+@import "misvariables";
+@import "misfunciones";
 
-@function color($col){
-    $color:$azulImpar;
-    $resto:$col%2;
-    @if($resto%2==0){
-        $color:$azulPar;
-    }
-    @return $color;
-}
+
 
 .body{
     height: 100vh;
