@@ -79,7 +79,7 @@
 
         <div class="row">
             <div class="col">
-            <footer class="text-center text-white bg-info fixed-bottom" style="background-color: #f1f1f1;">
+            <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
             <!-- Grid container -->
                     <div class="container pt-1">
                         <!-- Section: Social media -->
