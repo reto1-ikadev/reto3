@@ -1,11 +1,10 @@
-.container-fluid {
-    height: 100vh;
-  
-}
+
 $azulImpar:rgba(204, 224, 241, 0.8);
 $azulPar:rgba(211, 220, 228, 0.8);
-$azulDetalles:rgba(164, 206, 246, 0.8);
-$azulBase:#0153CE;
+$azulDetalles:rgba(0, 0, 0, 0.3);
+$azulBase:linear-gradient(135deg, rgb(19, 68, 141) 0%, rgb(0, 83, 206) 100%);
+$azulBoton:rgb(0, 83, 206);
+$azulBotonHover:rgb(16, 63, 133);
 
 @function color($col){
     $color:$azulImpar;
@@ -16,16 +15,55 @@ $azulBase:#0153CE;
     @return $color;
 }
 
-.container-fluid {
+.body{
     height: 100vh;
     
 }
-tr:nth-child(1){
+thead{
     background-color: $azulDetalles;
-    border-bottom: $azulBase;
+    
 }
-@for $col from 2 to 10{
+@for $col from 1 to 10{
     tr:nth-child(#{$col}){
         background-color: color($col);
     }
+}
+tr:hover{
+    background-color: $azulDetalles;
+}
+td > a{
+    color:black;
+    text-decoration: none;
+}
+td > a:hover{
+    color:black;
+}
+.btn{
+    background-color: $azulBoton; 
+}
+.btn:hover{
+    background-color: $azulBotonHover;
+}
+.navbar{
+    background-image: $azulBase;
+}
+.redes:hover{
+    background-image: rgba(0, 0, 0, 0.2);
+}
+a{
+    text-decoration: none;
+}
+.filtrosEst{
+    justify-content: space-between;
+}
+
+.foot{
+    background-image: $azulBase;
+    
+}
+.card-header{
+    background-color: $azulDetalles;
+}
+.card-footer{
+    background-color: $azulDetalles;
 }

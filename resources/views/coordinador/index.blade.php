@@ -28,15 +28,64 @@
                     </button>
                 </div>
                 @else
+                <h2>{{$tipo}}</h2>
+                <form id="filtrosEstudiantes" action="" method="post">
+                    <div class="row" id="filtrosEst">
+                        <div class="col">
+                            <select class="form-select" aria-label="select">
+                                <option selected>Filtrar por grado</option>
+                                <option value="1">Primero</option>
+                                <option value="2">Segundo</option>
+                                <option value="3">Tercero</option>
+                                <option value="3">Cuarto</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="select">
+                                <option selected>Filtrar por curso</option>
+                                <option value="1">Primero</option>
+                                <option value="2">Grado dos</option>
+                                <option value="3">Grado tres</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="form-select" aria-label="select">
+                                <option selected>Filtrar por empresa</option>
+                                <option value="1">Empresa1</option>
+                                <option value="2">Empresa2</option>
+                                <option value="3">Empresa3</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <input class="form-control" placeholder="Buscar por nombre">
+                        </div>
+                        <div class="col-2">
+                            <input class="btn btn-primary" type="submit" value="Filtrar">
+                        </div>
+                    </div>
+                    
+                    
+                </form>
                 @switch($tipo)
                 @case('estudiante')
                 <table class="table mt-2">
-                    <tr>
+                    <thead>
                         <td>Nombre</td>
-                    </tr>
+                        <td>Apellido</td>
+                        <td>Grado</td>
+                        <td>Curso</td>
+                        <td>Empresa</td>
+                        <td>Detalles</td>
+                        
+                    </thead>
                     @foreach($estudiantes as $estudiante)
                     <tr>
-                        <td><a href="{{ route('estudiantes.show', $estudiante) }}"> {{$estudiante}}</a></td>
+                        <td> {{$estudiante}}</td>
+                        <td>El apellido</td>
+                        <td>El grado</td>
+                        <td>El curso</td>
+                        <td>La Empresa</td>
+                        <td><a href="{{ route('estudiantes.show', $estudiante) }}"> Ver</a></td>
                     </tr>
                     @endforeach
                 </table>
