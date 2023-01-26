@@ -22,4 +22,10 @@ class EstudianteController extends Controller
     {
         return view('coordinador.show', ['estudiante' => $estudiante]);
     }
+    /**
+     * Funcion que devuelve la vista con el formulario para crear nuevos estudiantes
+     */
+    public function create(){
+        return view('estudiante.create');
+    }
 }

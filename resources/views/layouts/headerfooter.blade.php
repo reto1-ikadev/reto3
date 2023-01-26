@@ -47,10 +47,11 @@
                                         Dar de alta
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Coordinador</a></li>
-                                        <li><a class="dropdown-item" href="#">Tutor</a></li>
-                                        <li><a class="dropdown-item" href="#">Tutor de empresa</a></li>
-                                        <li><a class="dropdown-item" href="#">Alumnos</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('coordinador.create') }}">Coordinador</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Tutor acad&eacute;mico</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Tutor de empresa</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Estudiantes</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('empresas.create') }}">Empresa</a></li>
                                     </ul>
                                 </li>
 

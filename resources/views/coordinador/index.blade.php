@@ -3,7 +3,7 @@
 
         <!--CARROUSEL o TABLAS-->
 
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center mt-5">
             <div class="col-10">
                 @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
                 <div id="carouselExampleFade" class="carousel slide carousel-fade">
@@ -30,7 +30,7 @@
                 @else
                 <h2>{{$tipo}}</h2>
                 <form id="filtrosEstudiantes" action="" method="post">
-                    <div class="row" id="filtrosEst">
+                    <div class="row mb-5" id="filtrosEst">
                         <div class="col">
                             <select class="form-select" aria-label="select">
                                 <option selected>Filtrar por grado</option>
@@ -76,7 +76,6 @@
                         <td>Curso</td>
                         <td>Empresa</td>
                         <td>Detalles</td>
-                        
                     </thead>
                     @foreach($estudiantes as $estudiante)
                     <tr>
