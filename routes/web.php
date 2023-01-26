@@ -8,7 +8,7 @@ use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
 //Rutas del coordinador
-//Route::get('/', [CoordinadorController::class, 'index'])->name('coordinador.index');
+Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 
 //Rutas de los estudiantes
 Route::get('/estudiantes',[EstudianteController::class,'index'])->name('estudiantes.index');
