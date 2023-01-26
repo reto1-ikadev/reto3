@@ -20,6 +20,6 @@ class EmpresaController extends Controller
      * Funcion que devuelve la vista con el formulario para crear nuevas empresas
      */
     public function create(){
-        return view('empresas.create');
+        return view('empresa.create');
     }
 }
