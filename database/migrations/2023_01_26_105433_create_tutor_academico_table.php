@@ -16,7 +16,7 @@ return new class extends Migration
        //create child table
         Schema::create('tutores_academicos', function (Blueprint $table) {
             $table->foreignId('id_tutor_academico')->constrained('personas')->onDelete('cascade');
-            $table->string('telefono_academico', 9);
+            $table->string('telefono_academico', 20);
             $table->timestamps();
         });
     }

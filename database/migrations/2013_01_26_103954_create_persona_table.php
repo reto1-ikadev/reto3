@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre', 50);
             $table->string('apellidos',100);
             $table->string('dni', 9);
-            $table->string('telefono', 9);
+            $table->string('telefono', 20);
             $table->string('tipo', 20);
             $table->timestamps();
         });
