@@ -12,7 +12,7 @@ Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordi
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
 Route::get('/estudiantes',[EstudianteController::class,'index'])->name('estudiantes.index');
-Route::get('/estudiantes/{estudiante}',[EstudianteController::class,'show'])->name('estudiantes.show');
+Route::get('/estudiantes/detalle/{estudiante}',[EstudianteController::class,'show'])->name('estudiantes.show');
 Route::get('/estudiantes/create',[EstudianteController::class,'create'])->name('estudiantes.create');
 
 //Rutas de las empresas
@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-/*Auth::routes();*/
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
