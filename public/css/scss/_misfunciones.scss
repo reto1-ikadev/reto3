@@ -1,8 +1,0 @@
-@function color($col){
-    $color:$azulImpar;
-    $resto:$col%2;
-    @if($resto%2==0){
-        $color:$azulPar;
-    }
-    @return $color;
-}
