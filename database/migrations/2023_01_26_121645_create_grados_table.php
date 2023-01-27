@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('grados', function (Blueprint $table) {
-            $table->id('id_grado');
+            $table->id();
             $table->string('nombre', 100);
-            $table->foreignId('id_cordinador')->constrained('tutores_academicos')->onDelete('set null');
+            $table->unsignedBigInteger('id_coordinador')->nullable();
+            $table->foreign('id_coordinador')->references('id_tutor_academico')->on('tutores_academicos')->onDelete('set null');
             $table->timestamps();
         });
     }

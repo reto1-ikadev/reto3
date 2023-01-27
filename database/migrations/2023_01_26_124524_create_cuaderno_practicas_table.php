@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cuaderno_practicas', function (Blueprint $table) {
-            $table->id('id_cuaderno_practicas');
+            $table->id();
             $table->string('periodo', 100);
             $table->string('actividades_realizadas', 200);
             $table->string('aprendizaje', 200);
             $table->string('problemas', 200);
             $table->string('comentario_tutor', 200);
-            $table->foreignId('id_alumno')->constrained('alumnos')->onDelete('cascade');
+            $table->unsignedBigInteger('id_alumno');
+            $table->foreign('id_alumno')->references('id_alumno')->on('alumnos')->onDelete('cascade');
             $table->timestamps();
         });
     }

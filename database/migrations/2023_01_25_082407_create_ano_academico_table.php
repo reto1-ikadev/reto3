@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personas', function (Blueprint $table) {
-            $table->id('id_persona');
-            $table->string('nombre', 50);
-            $table->string('apellidos',100);
-            $table->string('dni', 9);
-            $table->string('telefono', 9);
+        Schema::create('anos_academicos', function (Blueprint $table) {
+            $table->id();
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personas');
+        Schema::dropIfExists('ano_academico');
     }
 };
