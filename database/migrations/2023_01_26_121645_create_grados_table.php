@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('grados', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->unsignedBigInteger('id_coordinador')->nullable();
-            $table->foreign('id_coordinador')->references('id_tutor_academico')->on('tutores_academicos')->onDelete('set null');
             $table->timestamps();
         });
     }

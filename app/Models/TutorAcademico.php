@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class TutorAcademico extends Model
 {
     use HasFactory;
+
+    protected $table = 'tutores_academicos';
+    protected $primaryKey = 'id_tutor_academico';
+    protected $fillable = [
+        'telefono_academico',
+    ];
+
+    public $incrementing = false;
+
+    public function persona()
+    {
+        return $this->belongsTo(Persona::class, 'id_persona');
+    }
+
 }
