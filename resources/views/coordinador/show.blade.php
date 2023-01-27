@@ -28,7 +28,7 @@
     <div class="col">
         <div class="card ">
             <h5 class="card-header ">
-                Ficha dual
+                Ficha dual de {{$estudiante}}
             </h5>
             <div class="card-body">
                 <p class="card-text">Email:</p>
@@ -47,74 +47,45 @@
     </div>
     <hr class="hr hr-blurry" />
     <div class="row">
-        
-        <div class="col-md-12">
-            <div class="card ">
-                <h5 class="card-header ">
-                    Ficha dual
-                </h5> 
-                <select class="form-select w-25" aria-label="select">
-                <option selected>Semana</option>
-                <option value="1">01/09/2022-07/09/2022</option>
-                <option value="2">01/09/2022-07/09/2022</option>
-                <option value="3">01/09/2022-07/09/2022</option>
-                <option value="3">01/09/2022-07/09/2022</option>
+        <div class="col-md-6"><!--En esta columna los desplegables para elegir año y curso -->
+            <select class="form-select" aria-label="select">
+                <option selected>Año academico</option>
+                <option value="1">2022-2023</option>
+                <option value="2">2021-2022</option>
+                <option value="3">2020-2021</option>
             </select>
-
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Indicador</th>
-                                <th>Valoraci&oacute;n</th>
-                                <th>Observaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Esfuerzo y regularidad</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-
-                            </tr>
-                            <tr class="table">
-                                <td>Orden, estructura y presentación</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Contenido</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Terminolog&iacute;a y notaci&oacute;n</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Calidad en el trabajo</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Relaciona conceptos</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Reflexi&oacute;n sobre el aprendizaje</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer ">
-                    <p></p>
-                </div>
-            </div>
+            <select class="form-select" aria-label="select">
+                <option selected>Curso</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            
+        </div><!-- FIN COLUMNA DESPLEGABLES -->
+        <div class="col-md-6">
+            <!--En esta columna los datos del tutor de la empresa -->
+            <p display-2>Tutor por parte de la empresa</p>
+            <p>Nombre y apellidos se cargan de la bd</p>
+            <p>Email carga de la bd</p>
+            <p>Departamento se carga de la bd</p>
         </div>
+        <div class="col-md-6">
+            <!--En esta columna los datos del tutor de la universidad -->
+            <p display-2>Tutor por parte de la empresa</p>
+            <p>Nombre y apellidos se cargan de la bd</p>
+            <p>Email carga de la bd</p>
+            <p>Departamento se carga de la bd</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <!-- En esta columna el desplegable para elegir la semana -->
+        </div>
+        <div class="col-12">
+            <!-- En esta columna la tabla para mostrar el diario -->
+        </div>
+
     </div>
 
 
