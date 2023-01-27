@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TutorAcademico;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
-class TutorAcademicoController extends Controller
+class PersonasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TutorAcademicoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TutorAcademico  $tutorAcademico
+     * @param  \App\Models\Persona  $persona
      * @return \Illuminate\Http\Response
      */
-    public function show(TutorAcademico $tutorAcademico)
+    public function show(Persona $persona)
     {
         //
     }
@@ -52,10 +52,10 @@ class TutorAcademicoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TutorAcademico  $tutorAcademico
+     * @param  \App\Models\Persona  $persona
      * @return \Illuminate\Http\Response
      */
-    public function edit(TutorAcademico $tutorAcademico)
+    public function edit(Persona $persona)
     {
         //
     }
@@ -64,10 +64,10 @@ class TutorAcademicoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TutorAcademico  $tutorAcademico
+     * @param  \App\Models\Persona  $persona
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TutorAcademico $tutorAcademico)
+    public function update(Request $request, Persona $persona)
     {
         //
     }
@@ -75,10 +75,10 @@ class TutorAcademicoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TutorAcademico  $tutorAcademico
+     * @param  \App\Models\Persona  $persona
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TutorAcademico $tutorAcademico)
+    public function destroy(Persona $persona)
     {
         //
     }
