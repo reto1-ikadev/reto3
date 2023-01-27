@@ -14,7 +14,7 @@ class CoordinadorController extends Controller
      */
     public function index()
     {
-        //
+        return view('coordinador.index');
     }
 
     /**
@@ -25,6 +25,7 @@ class CoordinadorController extends Controller
     public function create()
     {
         //
+        return view('coordinador.create');
     }
 
     /**

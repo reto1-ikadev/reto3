@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresaController;
-use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
@@ -11,9 +11,9 @@ use App\Http\Controllers\TutorEmpresaController;
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
-Route::get('/estudiantes',[EstudianteController::class,'index'])->name('estudiantes.index');
-Route::get('/estudiantes/detalle/{estudiante}',[EstudianteController::class,'show'])->name('estudiantes.show');
-Route::get('/estudiantes/create',[EstudianteController::class,'create'])->name('estudiantes.create');
+Route::get('/estudiantes',[AlumnoController::class,'index'])->name('estudiantes.index');
+Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])->name('estudiantes.show');
+Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
 
 //Rutas de las empresas
 Route::get('/empresas',[EmpresaController::class,'index'])->name('empresas.index');
