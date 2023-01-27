@@ -7,25 +7,31 @@ use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+        //select de todos los estudiantes
+       // $estudiantes = Estudiante::all();
+        $estudiantes=[
+                
+                    "1"=>"iker",
+               
+                    "2"=>"celia"
+        ];
+        return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show(/*Estudiante*/ $estudiante)
     {
-        //
+        return view('coordinador.show', ['estudiante' => $estudiante]);
     }
+    /**
+     * Funcion que devuelve la vista con el formulario para crear nuevos estudiantes
+     */
+    public function create(){
+        return view('estudiante.create');
+    }
+   
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -38,16 +44,7 @@ class AlumnoController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Alumno  $alumno
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Alumno $alumno)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

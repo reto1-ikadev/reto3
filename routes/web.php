@@ -16,8 +16,8 @@ Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
 
 //Rutas de las empresas
-Route::get('/empresas',[EmpresaController::class,'index'])->name('empresas.index');
-Route::get('/empresas/create',[EmpresaController::class,'create'])->name('empresas.create');
+Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
+Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
 
 //Rutas de los tutores academicos
 Route::get('/tutoresAcademicos',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
