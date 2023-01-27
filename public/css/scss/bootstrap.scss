@@ -3,6 +3,7 @@
 @import "misvariables";
 @import "misfunciones";
 
+
 // scss-docs-start import-stack
 // Configuration
 @import "functions";
@@ -51,12 +52,14 @@
 // Utilities
 @import "utilities/api";
 // scss-docs-end import-stack
-.body{
+
+body{
     height: 100vh;
+
     
 }
 thead{
-    background-color: $azulDetalles;
+    background-color: white;
     
 }
 @for $col from 1 to 10{

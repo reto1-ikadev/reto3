@@ -15,4 +15,10 @@ class TutorEmpresaController extends Controller
 
         return view('coordinador.index', ['tutoresEmpresa'=>$tutoresEmpresa, 'tipo'=>'tutoresEmpresa']);
     }
+    /**
+     * Funcion que devuelve la vista con el formulario para crear nuevas empresas
+     */
+    public function create(){
+        return view('tutorEmpresa.create');
+    }
 }

@@ -16,4 +16,10 @@ class TutorAcademicoController extends Controller
 
         return view('coordinador.index', ['tutoresAcademicos'=>$tutoresAcademicos, 'tipo'=>'tutoresAcademicos']);
     }
+    /**
+     * Funcion que devuelve la vista con el formulario para crear nuevas empresas
+     */
+    public function create(){
+        return view('tutorAcademico.create');
+    }
 }

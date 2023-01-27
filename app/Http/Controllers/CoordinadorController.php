@@ -10,5 +10,12 @@ class CoordinadorController extends Controller
     {
         return view('coordinador.index');
     }
+    /**
+     * Funcion que devuelve la vista con el formulario para crear nuevos coordinadores
+     */
+    public function create(){
+    return view('coordinador.create');
+    }
 
 }
+
