@@ -10,7 +10,20 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     
     <style>
-        
+        /*Codigo necesario para poder hacer que el footer este abajo*/
+
+        footer {
+            position: relative;
+            clear:both;
+            padding-top:20px;
+        }
+
+        /*Este codigo nos permite quitar espacios hechos por la clase row*/
+
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
     </style>
 </head>
 
@@ -80,7 +93,8 @@
 
         <div class="row">
             <div class="col">
-            <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+                <!-- fixed-bottom funciona pero nos deja el footer pegado todo el tiempo abajo de la pagina web. -->
+            <footer class="text-center text-white" style="background-color: #f1f1f1;">
             <!-- Grid container -->
                     <div class="container pt-1">
                         <!-- Section: Social media -->
