@@ -44,9 +44,10 @@ class CuadernoPracticasController extends Controller
      * @param  \App\Models\CuadernoPracticas  $cuadernoPracticas
      * @return \Illuminate\Http\Response
      */
-    public function show(CuadernoPracticas $cuadernoPracticas)
+    public function show()
     {
-        //
+        
+        return view('diario.show');
     }
 
     /**

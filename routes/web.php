@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\CuadernoPracticasController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
@@ -18,7 +20,10 @@ Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estu
 //Rutas de las empresas
 Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
-
+//Rutas del diario
+Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
+//Rutas de las reuniones
+Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
 //Rutas de los tutores academicos
 Route::get('/tutoresAcademicos',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
