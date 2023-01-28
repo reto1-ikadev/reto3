@@ -11,13 +11,37 @@
     
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
-
+        .divFoto{
+            padding: 2em;
+        }
+        #datosPersonales{
+            
+            border-radius: 5px;
+        }
+        
+        #formularioDP{
+            border-radius: 5px;
+        }
+        
         footer {
             position: relative;
             clear:both;
             padding-top:20px;
         }
 
+        
+        input[type=text]:disabled{
+            border:none;
+            border-bottom: black 1px solid;
+            background-color: white;
+        }
+        input[type=text]{
+            border:none;
+            border-bottom: black 1px solid;
+            background-color: white;
+        }
+
+        
         /*Este codigo nos permite quitar espacios hechos por la clase row*/
 
         .row {
