@@ -25,5 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TutoresAcademicosSeeder::class
         ]);
+        $this->call([
+            TutorEmpresaSeeder::class
+        ]);
     }
 }
