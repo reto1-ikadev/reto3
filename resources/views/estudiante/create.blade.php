@@ -11,39 +11,50 @@
 <div class="row justify-content-center mb-5" id="formAlta" >
     <div class="col-6">
         
-        <form action="" class="row my-3">
+        <form id="formulario" class="row my-3">
             <div class="col-md-6">
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido" required>
             </div>
 
             <div class="row my-2"></div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control" id="dni" placeholder="Dni" required>
+                <input type="text" class="form-control" name="dni" id="dni" placeholder="Dni" required>
             </div>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="email" placeholder="Email">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
                     <span class="input-group-text" id="prefijo">@</span>
                 </div>
             </div>
-
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Avda general nº5 piso 7 letra A" required>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Vitoria" required>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="provincia" id="provincia" placeholder="Alava" required>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="cp" id="cp" placeholder="01003" required>
+            </div>
             <div class="row my-2"></div>
 
             <div class="col-md-4">
-                <input type="text" class="form-control" id="telefono" placeholder="Tel&eacute;fono" required>
+                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Tel&eacute;fono" required>
             </div>
             <div class="col-4">
-                <select class="form-select" id="grado">
+                <select class="form-select" id="grado" name="grado" required>
                     <option selected disabled value="seleccionar">Grado</option>
                     <option  value="industriaD">Industria digital</option>
                 </select>
             </div>
             <div class="col-md-4">
-                <select class="form-select" id="curso">
+                <select class="form-select" name="curso" id="curso"required>
                     <option selected disabled value="seleccionar">Curso</option>
                     <option  value="primero">Primero</option>
                     <option  value="segundo">Segundo</option>
@@ -55,13 +66,12 @@
             <div class="col-md-2"></div>
             <div class="row my-2"></div>
 
-            
-            
-            <div class="col-md-3">
-                <input type="text" class="form-control" id="anyoAcademico" placeholder="Año academico" required>
+            <div class="col-md-5">
+                <input type="text" class="form-control"name="anyoAcademico" id="anyoAcademico" placeholder="Año academico" required>
             </div>
-            <div class="col-md-3">
-                <select class="form-select" id="tutorA">
+            
+            <div class="col-md-5">
+                <select class="form-select" name="tutorA" id="tutorA" required>
                     <option selected disabled value="seleccionar">Tutor academico</option>
                     <option  value="1">Pedro</option>
                     <option  value="2">Juan</option>
@@ -69,8 +79,9 @@
                     <option  value="4">Pablo</option>
                 </select>
             </div>
-             <div class="col-md-3">
-                <select class="form-select" id="empresa">
+            <div class="row mb-3"></div>
+             <div class="col-md-5">
+                <select class="form-select" nmae="empresa" id="empresa"required>
                     <option selected disabled value="seleccionar">Empresa</option>
                     <option  value="1">Mercedes</option>
                     <option  value="2">Michelin</option>
@@ -78,8 +89,8 @@
                     <option  value="4">Otra</option>
                 </select>
             </div>
-            <div class="col-md-3">
-                <select class="form-select" id="tutorE">
+            <div class="col-md-5">
+                <select class="form-select" name="tutorE" id="tutorE"required>
                     <option selected disabled value="seleccionar">Tutor empresa</option>
                     <option  value="1">Pedro</option>
                     <option  value="2">Juan</option>
@@ -89,12 +100,13 @@
             </div>
            
             <div class="row my-2"></div>
-            <div class="col-12 ">
-                <button class="btn btn-primary" type="submit">Guardar</button>
+            <div class="col-12">
+                <!--AQUI EL BTON COMPONENTE -->
+                <input type="hidden" name="accion" value="altaEst">
+                <btn-validar></btn-validar>
             </div>
         </form>
     </div>
 </div>
-
 
 @endsection
