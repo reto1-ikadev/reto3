@@ -11,10 +11,11 @@ use App\Http\Controllers\TutorEmpresaController;
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
-Route::get('/estudiantes',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.index');
+Route::get('/estudiantes',[AlumnoController::class,'index'])->name('estudiantes.index');
 Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])->name('estudiantes.show');
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
-Route::post('/estudiantes',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.index');
+Route::get('/estudiantes/filtrar',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.filtrar');
+
 //Rutas de las empresas
 Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');

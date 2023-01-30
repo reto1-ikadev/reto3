@@ -35,7 +35,7 @@
                     <div class="row mb-5" id="filtrosEst">
                         <div class="col">
                             <select class="form-select" aria-label="select" name="grado">
-                                <option value="%" selected>Filtrar por grado</option>
+                                <option value="0" selected>Filtrar por grado</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Segundo</option>
                                 <option value="3">Tercero</option>
@@ -43,23 +43,23 @@
                             </select>
                         </div>
                         <div class="col">
-                            <select class="form-select" aria-label="select">
-                                <option value="%" selected>Filtrar por curso</option>
+                            <select class="form-select" aria-label="select" name="curso">
+                                <option value="0" selected>Filtrar por curso</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Grado dos</option>
                                 <option value="3">Grado tres</option>
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="form-select" aria-label="select">
-                                <option value="%" selected>Filtrar por empresa</option>
+                            <select class="form-select" aria-label="select" name="empresa">
+                                <option value="0" selected>Filtrar por empresa</option>
                                 <option value="1">Empresa1</option>
                                 <option value="2">Empresa2</option>
                                 <option value="3">Empresa3</option>
                             </select>
                         </div>
                         <div class="col">
-                            <input class="form-control" placeholder="Buscar por nombre">
+                            <input class="form-control" name="nombre" placeholder="Buscar por nombre">
                         </div>
                         <div class="col-2">
                             <button type="submit" id="btn" class="btn btn-primary">Filtrar</button>

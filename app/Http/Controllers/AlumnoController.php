@@ -10,13 +10,8 @@ class AlumnoController extends Controller
     public function index(){
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
-        $estudiantes=[
 
-                    "1"=>"iker",
-
-                    "2"=>"celia"
-        ];
-        return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
+        return view('estudiante.index' );
     }
 
     public function show(/*Estudiante*/ $estudiante)
@@ -81,20 +76,35 @@ class AlumnoController extends Controller
     }
 
     //funcion select all alumnos
-    public static function selectAllAlumnos($filtros)
+    public static function selectAllAlumnos(Request $request)
     {
-        $filtros =
+        $request->validate([
+            'nombre' => 'string|max:255|nullable',
+            'curso' => 'numeric',
+            'grado' => 'numeric',
+            'empresa' => 'numeric',
+        ]);
+        $request->grado = $request->grado == 0 ? '%' : $request->grado;
+        $request->curso = $request->curso == 0 ? '%' : $request->curso;
+        $request->empresa = $request->empresa == 0 ? '%' : $request->empresa;
+        $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         //query with join id_alumno, id_persona
         $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
             ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
             ->join('grados', 'cursos.id_grado', '=', 'grados.id')
             ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
             ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
-            ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'personas.dni', 'personas.telefono', 'alumnos.direccion', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
-            ->where('alumnos.id_curso', '=', )
+            ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
+            ->where([
+                ['personas.nombre', 'like', '%' . $request->nombre . '%'],
+                ['cursos.id', 'like', $request->curso],
+                ['grados.id', 'like', $request->grado],
+                ['empresas.id', 'like', $request->empresa],
+            ])
             ->get();
 
-        return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
-
+       return ['success' => true, 'data' => $estudiantes, 'message' => 'Estudiantes obtenidos correctamente'];
     }
 }
+
+
