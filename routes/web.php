@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
-use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
