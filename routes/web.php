@@ -8,7 +8,7 @@ use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
-
+use Illuminate\Http\Request;
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
@@ -16,7 +16,8 @@ Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name(
 Route::get('/estudiantes',[AlumnoController::class,'index'])->name('estudiantes.index');
 Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])->name('estudiantes.show');
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
-
+Route::post('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
+Route::get('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
 //Rutas de las empresas
 Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');

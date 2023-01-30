@@ -11,7 +11,7 @@
 <div class="row justify-content-center mb-5" id="formAlta" >
     <div class="col-6">
         
-        <form id="formulario" class="row my-3">
+        <form id="formulario" method="post" action="" class="row my-3">
             <div class="col-md-6">
                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
             </div>
@@ -102,7 +102,7 @@
             <div class="row my-2"></div>
             <div class="col-12">
                 <!--AQUI EL BTON COMPONENTE -->
-                <input type="hidden" name="accion" value="altaEst">
+                <input type="hidden" name="tipo" value="alumno">
                 <btn-validar></btn-validar>
             </div>
         </form>

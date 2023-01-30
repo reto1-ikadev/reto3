@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Persona;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
 
@@ -40,8 +40,8 @@ class AlumnoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+return view('coordinador.index', ['tipo'=>'estudiante']);
     }
 
     
