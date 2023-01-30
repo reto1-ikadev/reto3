@@ -174,3 +174,17 @@ export function validar(datos: FormData) {
     }
 }
 
+export async function enviarDatos(datos:FormData){
+    let response = await fetch("store",{
+        headers:{
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+         },
+        method:'POST',
+        body: JSON.stringify(datos),
+    });
+    let result = await response.json();
+    if( result.sucess){
+        console.log("insert ok");
+    }
+}

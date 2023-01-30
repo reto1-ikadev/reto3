@@ -6,12 +6,13 @@ use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
-//Rutas de los usuarios
-Route::post('/usuarios/store',[AlumnoController::class,'store'])->name('estudiantes.store');
-Route::get('/usuarios/store',[AlumnoController::class,'store'])->name('estudiantes.store');
+//Rutas de las personas
+Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
+Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
