@@ -25,7 +25,9 @@ export function validar(datos) {
         var dniValido = false;
         var emailValido = false;
         var calleValida = false;
-        var nombre = datos.get("nombre");
+        var telefonoAcademicoValido = false;
+        var departamentoValido = false;
+        
         if (datos.get("nombre") == "") {
             throw "El nombre es un campo obligatorio";
         }
@@ -117,11 +119,39 @@ export function validar(datos) {
             ;
         }
         else {
-            //Cuando no es estudiante
-            if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido) {
-                datosValidos = true;
+            if(datos.get("tipo")=="tutor_academico"){
+                if(datos.get("coordinador")=="on"){
+                    datos.set("tipo","coordinador");
+                    console.log("He cambiado el tipo a coordinador "+ datos.get("tipo"));
+                }
+                if (datos.get("telefonoAcademico") == "") {
+                    throw "El telefono academico es un campo obligatorio";
+                }
+                else {
+                    var expRegTelf = new RegExp(/^[6-9][0-9]{8}$/);
+                    if (!expRegTelf.test(datos.get("telefonoAcademico"))) {
+                        throw "El telefono academico no tiene el formato correcto";
+                    }
+                    else {
+                        telefonoAcademicoValido = true;
+                    }
+                }
+                if(nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && telefonoAcademicoValido){
+                    datosValidos = true;
+                }
             }
-            ;
+            else{
+                if(datos.get("tipo")=="tutor_empresa"){
+                    departamentoValido = validarCadena(datos.get("departamento"));
+                }
+                if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido) {
+                        datosValidos = true;
+                     };
+            }
+            //Cuando no es estudiante
+            // if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido) {
+            //     datosValidos = true;
+            // };
         }
         return datosValidos;
     }
@@ -187,7 +217,29 @@ export function validar(datos) {
     }
 }
 
-export function enviarDatos(datos) {
+export function enviarDatosPersona(datos) {
+    console.log(datos.get("nombre"));
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch("http://localhost/personas/store", {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': window.CSRF_TOKEN
+            },
+            method: 'POST',
+            body: JSON.stringify({"nombre":datos.get('nombre'),
+            "apellido":datos.get('apellido'),
+            "dni":datos.get('dni'),
+            "telefono":datos.get('telefono'),
+            "tipo":datos.get('tipo')})
+        });
+        if(response.ok){
+            window.location.href = "http://localhost/estudiantes/detalle/iker";
+        }
+        
+        
+    });
+}
+export function enviarDatosAlumno(datos) {
     console.log(datos.get("nombre"));
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch("http://localhost/personas/store", {

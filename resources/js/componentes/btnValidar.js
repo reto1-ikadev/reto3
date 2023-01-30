@@ -1,6 +1,6 @@
 "use strict";
 
-import { validar, enviarDatos } from "../funciones/validar.js";
+import { validar, enviarDatosPersona, enviarDatosAlumno } from "../funciones/validar.js";
 
 class btnValidar extends HTMLElement {
     constructor() {
@@ -33,7 +33,14 @@ class btnValidar extends HTMLElement {
         
         console.log("validados = " + validados);
         if(validados){
-            enviarDatos(datos);
+            if(datos.get("tipo")=="alumno"){
+                enviarDatosPersona(datos);
+               // enviarDatosAlumno(datos);
+            }
+            if(datos.get("tipo")=="tutor_academico"||datos.get("tipo")=="coordinador"||datos.get("tipo")=="tutor_empresa"){
+                enviarDatosPersona(datos);
+            }
+            
         }
     }
 }
