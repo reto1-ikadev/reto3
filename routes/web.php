@@ -14,7 +14,7 @@ Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name(
 Route::get('/estudiantes',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.index');
 Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])->name('estudiantes.show');
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
-
+Route::post('/estudiantes',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.index');
 //Rutas de las empresas
 Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');

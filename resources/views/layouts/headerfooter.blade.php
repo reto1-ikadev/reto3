@@ -8,7 +8,7 @@
     <title>@yield('titulo')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    
+    @vite([ 'resources/js/app.js'])
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
 
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container-fluid"> 
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <nav class="navbar"><!-- Menu lateral -->
@@ -63,7 +63,7 @@
                                         Dar de alta
                                     </a>
                                     <ul class="dropdown-menu">
-                                        
+
                                         <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Tutor acad&eacute;mico/Coordinador</a></li>
                                         <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Tutor de empresa</a></li>
                                         <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Estudiantes</a></li>
@@ -75,8 +75,8 @@
                                     <a class="nav-link active" href="#">Estad&iacute;sticas</a>
                                 </li>
                                 <li class="nav-item debajo">
-                                    
-                                <hr class="bg-danger border-2 border-top border-primary">  
+
+                                <hr class="bg-danger border-2 border-top border-primary">
                                     <a class="nav-link active" href="#">Cambiar modo</a>
                                 </li>
                                 <li class="nav-item">
@@ -88,7 +88,7 @@
                 </nav>
             </div>
         </div>
-    
+
         @yield('content')
 
         <div class="row">
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

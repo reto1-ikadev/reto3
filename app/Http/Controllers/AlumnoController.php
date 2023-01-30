@@ -81,8 +81,9 @@ class AlumnoController extends Controller
     }
 
     //funcion select all alumnos
-    public static function selectAllAlumnos()
+    public static function selectAllAlumnos($filtros)
     {
+        $filtros =
         //query with join id_alumno, id_persona
         $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
             ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
@@ -90,6 +91,7 @@ class AlumnoController extends Controller
             ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
             ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
             ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'personas.dni', 'personas.telefono', 'alumnos.direccion', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
+            ->where('alumnos.id_curso', '=', )
             ->get();
 
         return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
