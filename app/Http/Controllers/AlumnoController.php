@@ -41,7 +41,7 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     { 
-return view('coordinador.index', ['tipo'=>'estudiante']);
+        return true;
     }
 
     

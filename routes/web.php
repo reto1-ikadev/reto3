@@ -2,13 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
-use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
-use Illuminate\Http\Request;
+
+//Rutas de los usuarios
+Route::post('/usuarios/store',[AlumnoController::class,'store'])->name('estudiantes.store');
+Route::get('/usuarios/store',[AlumnoController::class,'store'])->name('estudiantes.store');
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
