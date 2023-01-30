@@ -201,6 +201,10 @@ export function enviarDatos(datos) {
             "dni":datos.get('dni'),
             "telefono":datos.get('telefono')})
         });
+        if(response.ok){
+            window.location.href = "http://localhost/estudiantes/detalle/iker";
+        }
+        
         
     });
 }
