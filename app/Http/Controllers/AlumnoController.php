@@ -11,9 +11,9 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
         $estudiantes=[
-                
+
                     "1"=>"iker",
-               
+
                     "2"=>"celia"
         ];
         return view('coordinador.index', ['estudiantes'=>$estudiantes , 'tipo'=>'estudiante']);
@@ -29,9 +29,9 @@ class AlumnoController extends Controller
     public function create(){
         return view('estudiante.create');
     }
-   
 
-    
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -44,7 +44,7 @@ class AlumnoController extends Controller
         //
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.

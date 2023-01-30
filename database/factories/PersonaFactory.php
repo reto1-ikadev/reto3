@@ -21,8 +21,7 @@ class PersonaFactory extends Factory
             'apellidos' => $this->faker->lastName,
             'dni' => $this->faker->unique()->randomNumber(8).$this->faker->randomLetter,
             'telefono' => $this->faker->phoneNumber,
-            //tipo es  alumno
-            'tipo' => 'alumnos',
+            'tipo' => 'alumno',
         ];
     }
     public function coordinador()
