@@ -6,7 +6,7 @@ use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
-use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\Auth\LogoutController;
 
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
@@ -26,9 +26,13 @@ Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
+
+//Indicamos en que blade se dirigira el login después de iniciar sesión.
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->middleware('auth');
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 //Deshabilitamos el registro.
 Auth::routes(['register' => false]);
