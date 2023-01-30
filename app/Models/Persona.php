@@ -14,7 +14,7 @@ class Persona extends Model
         'nombre',
         'apellido',
         'dni',
-        'telefono',
+        'telefono'
     ];
 
     public function opcion_tipo(){

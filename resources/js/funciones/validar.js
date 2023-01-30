@@ -197,9 +197,10 @@ export function enviarDatos(datos) {
             },
             method: 'POST',
             body: JSON.stringify({"nombre":datos.get('nombre'),
-            "apellidos":datos.get('apellidos'),
+            "apellido":datos.get('apellido'),
             "dni":datos.get('dni'),
-            "telefono":datos.get('telefono')})
+            "telefono":datos.get('telefono'),
+            "tipo":datos.get('tipo')})
         });
         if(response.ok){
             window.location.href = "http://localhost/estudiantes/detalle/iker";

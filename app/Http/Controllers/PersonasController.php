@@ -35,14 +35,15 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            "nombre"=>"required",
-            "apellidos"=>"required",
-            "dni"=>"required",
-            "telefono"=>"required"
-        ]);
+        $persona = new Persona;
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        $persona->tipo = request('tipo');
+        $persona->save();
         
-        Persona::create($validated);
+        
         return true;
     }
 
