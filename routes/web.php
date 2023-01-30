@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
+use App\Http\Controllers\CustomAuthController;
 
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
@@ -29,6 +30,7 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-Auth::routes();
+//Deshabilitamos el registro.
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

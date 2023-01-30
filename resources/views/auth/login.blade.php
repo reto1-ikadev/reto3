@@ -12,9 +12,10 @@
                                     <div class="mb-5">
                                         <h3 class="h4 font-weight-bold text-theme">Login</h3>
                                     </div>
-                                    <form>
-                                        <div class="form-group"><label for="exampleInputEmail1">Correo</label><input id="exampleInputEmail1" class="form-control" type="email" required /></div>
-                                        <div class="form-group mb-5"><label for="exampleInputPassword1">Contraseña</label><input id="exampleInputPassword1" class="form-control" type="password" required/></div><button class="btn btn-theme" type="submit">Acceder</button> &nbsp;<a class="forgot-link float-right text-primary" href="#l">Olvidaste la Contraseña?</a>
+                                    <form action=" {{ route('login') }} " method="POST">
+                                        @csrf
+                                        <div class="form-group"><label for="email">Correo</label><input id="email" class="form-control" type="email" required /></div>
+                                        <div class="form-group mb-5"><label for="password">Contraseña</label><input id="password" class="form-control" type="password" required/></div><button class="btn btn-theme" type="submit">Acceder</button> &nbsp;<a class="forgot-link float-right text-primary" href="#l">Olvidaste la Contraseña?</a>
                                     </form>
                                 </div>
                             </div>
