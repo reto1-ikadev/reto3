@@ -79,11 +79,11 @@
                             </thead>
                             @foreach($estudiantes as $estudiante)
                                 <tr>
-                                    <td> {{$estudiante}}</td>
-                                    <td>El apellido</td>
-                                    <td>El grado</td>
-                                    <td>El curso</td>
-                                    <td>La Empresa</td>
+                                    <td> {{$estudiante['nombre']}}</td>
+                                    <td> {{$estudiante['apellidos']}}</td>
+                                    <td>{{$estudiante['grado']}}</td>
+                                    <td>{{$estudiante['curso']}}</td>
+                                    <td>{{$estudiante['empresa']}}</td>
                                     <td><a href="{{ route('estudiantes.show', $estudiante) }}"> Ver</a></td>
                                 </tr>
                             @endforeach
