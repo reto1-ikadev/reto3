@@ -1,12 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 /**
  * Función que valida los datos que el usuario a introducido en el
  * formulario de alta
@@ -27,7 +18,6 @@ export function validar(datos) {
         var calleValida = false;
         var telefonoAcademicoValido = false;
         var departamentoValido = false;
-        
         if (datos.get("nombre") == "") {
             throw "El nombre es un campo obligatorio";
         }
@@ -119,10 +109,10 @@ export function validar(datos) {
             ;
         }
         else {
-            if(datos.get("tipo")=="tutor_academico"){
-                if(datos.get("coordinador")=="on"){
-                    datos.set("tipo","coordinador");
-                    console.log("He cambiado el tipo a coordinador "+ datos.get("tipo"));
+            if (datos.get("tipo") == "tutor_academico") {
+                if (datos.get("coordinador") == "on") {
+                    datos.set("tipo", "coordinador");
+                    console.log("He cambiado el tipo a coordinador " + datos.get("tipo"));
                 }
                 if (datos.get("telefonoAcademico") == "") {
                     throw "El telefono academico es un campo obligatorio";
@@ -136,17 +126,18 @@ export function validar(datos) {
                         telefonoAcademicoValido = true;
                     }
                 }
-                if(nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && telefonoAcademicoValido){
+                if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && telefonoAcademicoValido) {
                     datosValidos = true;
                 }
             }
-            else{
-                if(datos.get("tipo")=="tutor_empresa"){
+            else {
+                if (datos.get("tipo") == "tutor_empresa") {
                     departamentoValido = validarCadena(datos.get("departamento"));
                 }
                 if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido) {
-                        datosValidos = true;
-                     };
+                    datosValidos = true;
+                }
+                ;
             }
             //Cuando no es estudiante
             // if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido) {
@@ -215,49 +206,4 @@ export function validar(datos) {
             return false;
         }
     }
-}
-
-export function enviarDatosPersona(datos) {
-    console.log(datos.get("nombre"));
-    return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/personas/store", {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': window.CSRF_TOKEN
-            },
-            method: 'POST',
-            body: JSON.stringify({"nombre":datos.get('nombre'),
-            "apellido":datos.get('apellido'),
-            "dni":datos.get('dni'),
-            "telefono":datos.get('telefono'),
-            "tipo":datos.get('tipo')})
-        });
-        if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
-        }
-        
-        
-    });
-}
-export function enviarDatosAlumno(datos) {
-    console.log(datos.get("nombre"));
-    return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/personas/store", {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': window.CSRF_TOKEN
-            },
-            method: 'POST',
-            body: JSON.stringify({"nombre":datos.get('nombre'),
-            "apellido":datos.get('apellido'),
-            "dni":datos.get('dni'),
-            "telefono":datos.get('telefono'),
-            "tipo":datos.get('tipo')})
-        });
-        if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
-        }
-        
-        
-    });
 }

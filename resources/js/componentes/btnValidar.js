@@ -1,6 +1,8 @@
 "use strict";
+import { validar } from "../funciones/validar.js";
+import { enviarDatosPersona } from "../funciones/enviarDatosPersonas.js";
+import { enviarDatosAlumno } from "../funciones/enviarDatosAlumno.js";
 
-import { validar, enviarDatosPersona, enviarDatosAlumno } from "../funciones/validar.js";
 
 class btnValidar extends HTMLElement {
     constructor() {

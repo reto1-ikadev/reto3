@@ -67,11 +67,7 @@
             
             <div class="col-md-5">
                 <select class="form-select" name="tutorA" id="tutorA" required>
-                    <option selected disabled value="seleccionar">Tutor academico</option>
-                    <option  value="1">Pedro</option>
-                    <option  value="2">Juan</option>
-                    <option  value="3">Maria</option>
-                    <option  value="4">Pablo</option>
+                    
                 </select>
             </div>
             <div class="row mb-3"></div>
@@ -82,11 +78,7 @@
             </div>
             <div class="col-md-5">
                 <select class="form-select" name="tutorE" id="tutorE"required>
-                    <option selected disabled value="seleccionar">Tutor empresa</option>
-                    <option  value="1">Pedro</option>
-                    <option  value="2">Juan</option>
-                    <option  value="3">Maria</option>
-                    <option  value="4">Pablo</option>
+                    
                 </select>
             </div>
            

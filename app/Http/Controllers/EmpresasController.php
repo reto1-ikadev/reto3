@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empresas;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class EmpresasController extends Controller
@@ -14,7 +14,7 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        $empresas = Empresas::all();
+        $empresas = Empresa::all();
         $resultado = ['sucess' => true, "data" => $empresas];
         return $resultado;
     }
