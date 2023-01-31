@@ -36,7 +36,7 @@ class Persona extends Model
     }
     public function user()
     {
-        return $this->hasOne(User::class, 'id_persona');
+        return $this->hasOne(User::class, 'id');
     }
 
 

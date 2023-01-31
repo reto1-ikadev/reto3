@@ -37,7 +37,15 @@
                             <input class="form-control" name="nombre"  placeholder="Buscar por nombre">
                         </div>
                         <div class="col-2">
-                            <button type="submit" id="btn" class="btn btn-primary">Filtrar</button>
+                            <button type="button" id="btn" class="btn btn-primary">Filtrar</button>
+                        </div>
+
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination" id="pagination">
+
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </form>
@@ -53,6 +61,7 @@
                            <tbody id="tabla">
 
                            </tbody>
+
                         </table>
         </div>
     </div>

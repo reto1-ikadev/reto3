@@ -11,7 +11,7 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
 
-        return view('estudiante.index' );
+        return view('alumno.index' );
     }
 
     public function show(int $id){
@@ -86,11 +86,15 @@ class AlumnoController extends Controller
             'curso' => 'numeric',
             'grado' => 'numeric',
             'empresa' => 'numeric',
+            'pagina' => 'numeric|nullable',
         ]);
+        $pagina = $request->pagina;
+
         $request->grado = $request->grado == 0 ? '%' : $request->grado;
         $request->curso = $request->curso == 0 ? '%' : $request->curso;
         $request->empresa = $request->empresa == 0 ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
+        $request->page = $request->page == '' ? 1 : $request->page;
         //query with join id_alumno, id_persona
         $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
             ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
@@ -104,9 +108,19 @@ class AlumnoController extends Controller
                 ['grados.id', 'like', $request->grado],
                 ['empresas.id', 'like', $request->empresa],
             ])
-            ->get();
 
-       return ['success' => true, 'data' => $estudiantes, 'message' => 'Estudiantes obtenidos correctamente'];
+            ->orderBy('personas.id', 'desc');
+
+        $resultados = $estudiantes->offset(($pagina - 1) * 10)->limit(10)->get();
+        $estudiantesTotal = $estudiantes->count();
+
+        $datos = [
+            'estudiantes' => $resultados,
+            'total' => $estudiantesTotal,
+            'pagina' => intval($pagina),
+            'por_pagina' => 10,
+        ];
+       return ['success' => true, 'data' => $datos, 'message' => 'Estudiantes obtenidos correctamente'];
     }
 
     //funcion select one alumno by id
