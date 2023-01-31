@@ -14,7 +14,9 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        //
+        $personas = Persona::all();
+        $resultado = ['sucess' => true, "data" => $personas];
+        return $resultado;
     }
 
     /**
@@ -35,7 +37,16 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $persona = new Persona;
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        $persona->tipo = request('tipo');
+        $persona->save();
+        
+        
+        return true;
     }
 
     /**

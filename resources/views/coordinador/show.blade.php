@@ -1,122 +1,181 @@
 @extends('layouts.headerfooter')
 @section('content')
+    @vite('resources/js/detalleEstudiante.js')
 
-<div class="container-fluid">
-    <div class="row mt-4">
-        <div class="col-md-3">
-            <img class="img-fluid" alt="foto estudiante" src="{{ asset('images/campusVitoria.jpg') }}" />
-        </div>
-
-        <div class="col-md-9">
-            <div class="card ">
-                <h5 class="card-header ">
-                    {{$estudiante}}
-                </h5>
-                <div class="card-body">
-                    <p class="card-text">Apellido:</p>
-
-                    <p class="card-text">Dni:</p>
-
-                </div>
-                <div class="card-footer ">
-                    <p></p>
-                </div>
-            </div>
-        </div>
+<div class="row p-4 mb-4" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
+    <div class="d-none d-md-block col-md-4" id="foto">
+        <img class="img-fluid" alt="foto estudiante" src="{{ asset('images/campusVitoria.jpg') }}" />
     </div>
-    <hr class="hr hr-blurry" />
+    <div class="col-md-7 p-4 ms-5" id="formularioDP">
+        <form action="" method="post" class="row gx-2 gy-2">
+            <!-- Formulario para editar los datos personales del alumno -->
+            <div class="col-12 d-flex mb-3">
+                <h5>Datos personales</h5><button type="button" class="ms-5 align-center btn bg-primary btn-sm ms-2">Editar </button>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control " id="nombreE" placeholder="Nombre y Apellido" value="Iker Gomez" disabled>
+            </div>
+
+            <div class="col-md-6">
+                <input type="text" class="form-control " id="dni" placeholder="Dni" value="12345678A" disabled>
+            </div>
+
+            <div class="col-md-6">
+                <input type="text" class="form-control " id="telefono" placeholder="Telefono" value="666777888" disabled>
+            </div>
+
+            <div class="col-md-6">
+                <input type="text" class="form-control " id="email" placeholder="Email" value="iker.gomez@deusto.com" disabled>
+            </div>
+
+            <div class="col-md-6 ">
+                <input type="text" class="form-control " id="direccion" placeholder="Direccion" value="avda Principal 5, 6ºA Vitoria" disabled>
+            </div>
+
+            <div class="col-md-6 ">
+                <input type="text" class="form-control " id="curso" placeholder="Curso" value="1º grado en industria digital" disabled>
+            </div>
+            <div class="col-4 offset-8">
+                <button type="submit" class="ms-5 align-center btn bg-primary btn-sm ms-2">Guardar cambios </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="row mt-4">
     <div class="col">
-        <div class="card ">
-            <h5 class="card-header ">
-                Ficha dual
-            </h5>
-            <div class="card-body">
-                <p class="card-text">Email:</p>
-                <p class="card-text">Curso:</p>
-                <p class="card-text">Año academico:</p>
-                <p class="card-text">Empresa:</p>
-                <p class="card-text">Tutor universidad:</p>
-                <p class="card-text">Contacto tutor universidad:</p>
-                <p class="card-text">Tutor Empresa:</p>
-                <p class="card-text">Contacto tutor empresa:</p>
-            </div>
-            <div class="card-footer ">
-                <p></p>
-            </div>
-        </div>
+        <h5>Entradas del diario</h5>
     </div>
-    <hr class="hr hr-blurry" />
-    <div class="row">
-        
-        <div class="col-md-12">
-            <div class="card ">
-                <h5 class="card-header ">
-                    Ficha dual
-                </h5> 
-                <select class="form-select w-25" aria-label="select">
-                <option selected>Semana</option>
-                <option value="1">01/09/2022-07/09/2022</option>
-                <option value="2">01/09/2022-07/09/2022</option>
-                <option value="3">01/09/2022-07/09/2022</option>
-                <option value="3">01/09/2022-07/09/2022</option>
+    <div class="row"> <!-- FILTROS DIARIO-->
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por año</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
             </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por curso</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por semana</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
+            </select>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary">Filtrar</button>
+        </div>
+    </div><!--FIN FILTROS-->
 
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Indicador</th>
-                                <th>Valoraci&oacute;n</th>
-                                <th>Observaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Esfuerzo y regularidad</td>
-                                <td>Suficiente</td>
-                                <td> </td>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Semana</th>
+                            <th scope="col">Comentario del tutor</th>
+                            <th scope="col">Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td scope="row">12/09/2022</td>
+                            <td>No se que comentar. No se que comentar</td>
+                            <td><a href="{{ route('diario.show') }}">Ver m&aacute;s</a></td>
 
-                            </tr>
-                            <tr class="table">
-                                <td>Orden, estructura y presentación</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Contenido</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Terminolog&iacute;a y notaci&oacute;n</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Calidad en el trabajo</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Relaciona conceptos</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                            <tr class="table">
-                                <td>Reflexi&oacute;n sobre el aprendizaje</td>
-                                <td>Suficiente</td>
-                                <td> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer ">
-                    <p></p>
-                </div>
+                        </tr>
+                        <tr class="">
+                            <td scope="row">12/09/2022</td>
+                            <td>No se que comentar. No se que comentar</td>
+                            <td><a href="{{ route('diario.show') }}">Ver m&aacute;s</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
 
 </div>
+
+<div class="row mt-4">
+    <div class="col">
+        <h5>Seguimiento del alumno/Reuniones</h5>
+    </div>
+    <div class="row"> <!-- FILTROS DIARIO-->
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por año</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por curso</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <select class="form-select" aria-label="select">
+                <option selected>Filtrar por fecha</option>
+                <option value="1">Empresa1</option>
+                <option value="2">Empresa2</option>
+                <option value="3">Empresa3</option>
+            </select>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary">Filtrar</button>
+        </div>
+    </div><!--FIN FILTROS-->
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Asistentes</th>
+                            <th scope="col">Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td scope="row">12/09/2022</td>
+                            <td>No se que comentar. No se que comentar</td>
+                            <td>TA,TE</td>
+                            <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
+                        </td>
+
+                        </tr>
+                        <tr class="">
+                            <td scope="row">12/09/2022</td>
+                            <td>No se que comentar. No se que comentar</td>
+                            <td>TA,TE</td>
+                            <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 @endsection

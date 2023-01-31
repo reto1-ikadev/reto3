@@ -15,7 +15,6 @@
                 <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
             </div>
             <div class="col-6">
-               
                 <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
             </div>
             <div class="row my-2"></div>
