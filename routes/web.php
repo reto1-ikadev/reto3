@@ -23,7 +23,7 @@ Route::get('/personas/store',[PersonasController::class,'store'])->name('persona
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
-Route::get('/estudiantes',[AlumnoController::class,'index'])->name('estudiantes.index');
+Route::get('/estudiantes/index',[AlumnoController::class,'index'])->name('estudiantes.index');
 Route::get('/estudiantes/detalle/{id}',[AlumnoController::class,'show'])->name('estudiantes.detalle')->where('id','[0-9]+');
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
 Route::get('/estudiantes/filtrar',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.filtrar');
