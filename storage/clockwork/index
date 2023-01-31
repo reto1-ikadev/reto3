@@ -1,1 +1,3 @@
 1674551000-2586-1082340241,1674551000.1743,GET,/,Closure,200,187.26015090942,request
+1675174519-4701-159665636,1675174519.466,GET,/estudiantes,"App\Http\Controllers\AlumnoController@index",200,9.9849700927734,request
+1675174527-5688-1675109457,1675174527.5652,GET,/estudiantes/detalle/iker,"App\Http\Controllers\AlumnoController@show",200,13.949871063232,request
