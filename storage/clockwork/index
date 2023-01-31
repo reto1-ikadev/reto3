@@ -1,4 +1,8 @@
 1674551000-2586-1082340241,1674551000.1743,GET,/,Closure,200,187.26015090942,request
+<<<<<<< HEAD
+1675174519-4701-159665636,1675174519.466,GET,/estudiantes,"App\Http\Controllers\AlumnoController@index",200,9.9849700927734,request
+1675174527-5688-1675109457,1675174527.5652,GET,/estudiantes/detalle/iker,"App\Http\Controllers\AlumnoController@show",200,13.949871063232,request
+=======
 1675111773-9799-756165909,1675111773.9682,GET,/estudiantes/filtrar,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,27.166128158569,request
 1675111825-5874-1348251974,1675111825.5838,GET,/estudiantes/filtrar,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,17.750978469849,request
 1675111836-4589-1643542380,1675111836.4557,GET,/,Closure,302,9.0868473052979,request
@@ -190,3 +194,4 @@
 1675115242-7471-698954133,1675115242.7429,GET,/estudiantes/filtrar?grado=0&curso=7&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,14.550924301147,request
 1675115244-6674-1411965960,1675115244.6633,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,11.675834655762,request
 1675115264-4118-386306672,1675115264.4075,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=Carmela,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,13.570070266724,request
+>>>>>>> 157a22754db044402c2331ee2aa0a0b1140531e0
