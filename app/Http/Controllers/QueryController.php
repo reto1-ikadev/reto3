@@ -1,5 +1,7 @@
 <?php
 
+// Este controlador es para DESARROLLO, no se usa para produccion.
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
