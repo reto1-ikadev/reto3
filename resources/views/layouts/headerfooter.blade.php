@@ -11,9 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
     @vite('resources/js/app.js')
-    @vite(['resources/js/estudiantes/estudiantesCreate.js'])
-    @vite(['resources/js/tutoresEmpresa/tutorEmpresaCreate.js'])
-    @vite(['resources/js/tutoresEmpresa/tutoresAcademicosCreate.js'])
+    @vite(['resources/js/formularios/llenarCombos.js'])
     @vite(['resources/js/componentes/btnValidar.js'])
 
     <style>

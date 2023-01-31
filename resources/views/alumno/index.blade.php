@@ -9,7 +9,7 @@
                 <form id="filtrosEstudiantes" action="" method="get" >
                     <div class="row mb-5" id="filtrosEst">
                         <div class="col">
-                            <select class="form-select" aria-label="select" name="grado">
+                            <select class="form-select" aria-label="select" id="grado" name="grado">
                                 <option value="0" selected>Filtrar por grado</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Segundo</option>
@@ -18,7 +18,7 @@
                             </select>
                         </div>
                         <div class="col">
-                            <select class="form-select" aria-label="select" name="curso">
+                            <select class="form-select" aria-label="select" id="curso" name="curso">
                                 <option value="0" selected>Filtrar por curso</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Grado dos</option>
@@ -26,7 +26,7 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="form-select" aria-label="select" name="empresa">
+                            <select class="form-select" aria-label="select" id="empresa" name="empresa">
                                 <option value="0" selected>Filtrar por empresa</option>
                                 <option value="1">Empresa1</option>
                                 <option value="2">Empresa2</option>
@@ -34,10 +34,11 @@
                             </select>
                         </div>
                         <div class="col">
-                            <input class="form-control" name="nombre"  placeholder="Buscar por nombre">
+                            <input class="form-control" name="nombre" placeholder="Buscar por nombre">
                         </div>
                         <div class="col-2">
                             <button type="submit" id="btn" class="btn btn-primary">Filtrar</button>
+                            <input type="hidden" name="tipo" id="tipo" value="filtros_estudiante">
                         </div>
                     </div>
                 </form>

@@ -28,96 +28,140 @@ export function cargarCombos() {
                     "</option>";
         });
     });
-    if (oculto.value == "alumno") {
-        var comboCursos = (document.getElementById("curso"));
-        var comboTutorEmpresa = (document.getElementById("tutorE"));
-        var comboTutorAcademico = (document.getElementById("tutorA"));
-        var comboEmpresas = (document.getElementById("empresa"));
-        var cursos = pedirCursos();
-        /**
-         * cursos recibe los datos que devuelve el servidor de la base de datos
-         * y con esos datos se llenan los combos con los cursos
-         */
-        cursos.then((data) => {
-            console.log(data.data);
-            comboCursos.innerHTML =
-                "<option selected disabled value='seleccionar'>Curso</option>";
-            data.data.forEach(function mostrar(element) {
-                comboCursos.innerHTML +=
-                    "<option id='" +
-                        element.id +
-                        "'>" +
-                        element.nombre +
-                        "</option>";
-            });
-        });
-        var tutor = pedirTutores();
-        /**
-         * Tutor recibe los datos que devuelve el servidor de la base de datos
-         * y con esos datos se llenan los combos con los nombres de los tutores
-         */
-        tutor.then((data) => {
-            console.log(data.data);
-            comboTutorAcademico.innerHTML =
-                "<option selected disabled value='seleccionar'>Tutor empresa</option>";
-            data.data.forEach(function mostrar(element) {
-                if (element.tipo == "tutor_academico") {
-                    comboTutorAcademico.innerHTML +=
+    switch (oculto.value) {
+        case "alumno":
+            var comboCursos = (document.getElementById("curso"));
+            var comboTutorEmpresa = (document.getElementById("tutorE"));
+            var comboTutorAcademico = (document.getElementById("tutorA"));
+            var comboEmpresas = (document.getElementById("empresa"));
+            var cursos = pedirCursos();
+            /**
+             * cursos recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los cursos
+             */
+            cursos.then((data) => {
+                console.log(data.data);
+                comboCursos.innerHTML =
+                    "<option selected disabled value='seleccionar'>Curso</option>";
+                data.data.forEach(function mostrar(element) {
+                    comboCursos.innerHTML +=
                         "<option id='" +
                             element.id +
                             "'>" +
                             element.nombre +
                             "</option>";
-                }
-                if (element.tipo == "tutor_empresa") {
-                    comboTutorEmpresa.innerHTML +=
+                });
+            });
+            var tutor = pedirTutores();
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los tutores
+             */
+            tutor.then((data) => {
+                console.log(data.data);
+                comboTutorAcademico.innerHTML =
+                    "<option selected disabled value='seleccionar'>Tutor empresa</option>";
+                data.data.forEach(function mostrar(element) {
+                    if (element.tipo == "tutor_academico") {
+                        comboTutorAcademico.innerHTML +=
+                            "<option id='" +
+                                element.id +
+                                "'>" +
+                                element.nombre +
+                                "</option>";
+                    }
+                    if (element.tipo == "tutor_empresa") {
+                        comboTutorEmpresa.innerHTML +=
+                            "<option id='" +
+                                element.id +
+                                "'>" +
+                                element.nombre +
+                                "</option>";
+                    }
+                });
+            });
+            /**
+                 * Empresas recibe los datos que devuelve el servidor de la base de datos
+                 * y con esos datos se llenan los combos con los nombres de las empresas
+                 */
+            var empresas = pedirEmpresas();
+            empresas.then((data) => {
+                console.log(data.data);
+                comboEmpresas.innerHTML =
+                    "<option selected disabled value='seleccionar'>Empresa</option>";
+                data.data.forEach(function mostrar(element) {
+                    comboEmpresas.innerHTML +=
                         "<option id='" +
                             element.id +
                             "'>" +
                             element.nombre +
                             "</option>";
-                }
+                });
             });
-        });
-        /**
-             * Empresas recibe los datos que devuelve el servidor de la base de datos
-             * y con esos datos se llenan los combos con los nombres de las empresas
+            break;
+        case "tutor_empresa":
+            var comboEmpresas = (document.getElementById("empresa"));
+            /**
+                 * Empresas recibe los datos que devuelve el servidor de la base de datos
+                 * y con esos datos se llenan los combos con los nombres de las empresas
+                 */
+            var empresas = pedirEmpresas();
+            empresas.then((data) => {
+                console.log(data.data);
+                comboEmpresas.innerHTML =
+                    "<option selected disabled value='seleccionar'>Empresa</option>";
+                data.data.forEach(function mostrar(element) {
+                    comboEmpresas.innerHTML +=
+                        "<option id='" +
+                            element.id +
+                            "'>" +
+                            element.nombre +
+                            "</option>";
+                });
+            });
+            break;
+        case "filtros_estudiante":
+            var comboCursos = (document.getElementById("curso"));
+            var comboEmpresas = (document.getElementById("empresa"));
+            /**
+                 * Empresas recibe los datos que devuelve el servidor de la base de datos
+                 * y con esos datos se llenan los combos con los nombres de las empresas
+                 */
+            var empresas = pedirEmpresas();
+            empresas.then((data) => {
+                console.log(data.data);
+                comboEmpresas.innerHTML =
+                    "<option selected disabled value='seleccionar'>Empresa</option>";
+                data.data.forEach(function mostrar(element) {
+                    comboEmpresas.innerHTML +=
+                        "<option id='" +
+                            element.id +
+                            "'>" +
+                            element.nombre +
+                            "</option>";
+                });
+            });
+            var cursos = pedirCursos();
+            /**
+             * cursos recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los cursos
              */
-        var empresas = pedirEmpresas();
-        empresas.then((data) => {
-            console.log(data.data);
-            comboEmpresas.innerHTML =
-                "<option selected disabled value='seleccionar'>Empresa</option>";
-            data.data.forEach(function mostrar(element) {
-                comboEmpresas.innerHTML +=
-                    "<option id='" +
-                        element.id +
-                        "'>" +
-                        element.nombre +
-                        "</option>";
+            cursos.then((data) => {
+                console.log(data.data);
+                comboCursos.innerHTML =
+                    "<option selected disabled value='seleccionar'>Curso</option>";
+                data.data.forEach(function mostrar(element) {
+                    comboCursos.innerHTML +=
+                        "<option id='" +
+                            element.id +
+                            "'>" +
+                            element.nombre +
+                            "</option>";
+                });
             });
-        });
-    }
-    if (oculto.value == "tutor_empresa") {
-        var comboEmpresas = (document.getElementById("empresa"));
-        /**
-             * Empresas recibe los datos que devuelve el servidor de la base de datos
-             * y con esos datos se llenan los combos con los nombres de las empresas
-             */
-        var empresas = pedirEmpresas();
-        empresas.then((data) => {
-            console.log(data.data);
-            comboEmpresas.innerHTML =
-                "<option selected disabled value='seleccionar'>Empresa</option>";
-            data.data.forEach(function mostrar(element) {
-                comboEmpresas.innerHTML +=
-                    "<option id='" +
-                        element.id +
-                        "'>" +
-                        element.nombre +
-                        "</option>";
-            });
-        });
+            break;
+        default:
+            break;
     }
 }
 /**
