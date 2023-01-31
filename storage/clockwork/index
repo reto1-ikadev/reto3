@@ -190,3 +190,5 @@
 1675115242-7471-698954133,1675115242.7429,GET,/estudiantes/filtrar?grado=0&curso=7&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,14.550924301147,request
 1675115244-6674-1411965960,1675115244.6633,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,11.675834655762,request
 1675115264-4118-386306672,1675115264.4075,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=Carmela,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,13.570070266724,request
+1675174419-3907-1981706830,1675174419.3118,GET,/estudiantes,"App\Http\Controllers\AlumnoController@index",200,200.61087608337,request
+1675174419-7591-45850372,1675174419.7559,GET,/estudiantes/filtrar,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,103.51705551147,request
