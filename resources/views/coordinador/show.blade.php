@@ -1,6 +1,6 @@
 @extends('layouts.headerfooter')
 @section('content')
-
+    @vite('resources/js/detalleEstudiante.js')
 
 <div class="row p-4 mb-4" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
     <div class="d-none d-md-block col-md-4" id="foto">
@@ -92,7 +92,7 @@
                             <td scope="row">12/09/2022</td>
                             <td>No se que comentar. No se que comentar</td>
                             <td><a href="{{ route('diario.show') }}">Ver m&aacute;s</a></td>
-                            
+
                         </tr>
                         <tr class="">
                             <td scope="row">12/09/2022</td>
@@ -101,7 +101,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -160,7 +160,7 @@
                             <td>TA,TE</td>
                             <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
                         </td>
-                            
+
                         </tr>
                         <tr class="">
                             <td scope="row">12/09/2022</td>
@@ -171,7 +171,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div> 
+            </div>
         </div>
     </div>
 

@@ -17,6 +17,6 @@ class Curso extends Model
 
     public function grado()
     {
-        return $this->belongsTo(Grado::class);
+        return $this->belongsTo(Grado::class, 'id_grado');
     }
 }

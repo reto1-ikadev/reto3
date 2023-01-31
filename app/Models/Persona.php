@@ -20,14 +20,14 @@ class Persona extends Model
     public function opcion_tipo(){
         switch ($this->tipo) {
             case 'alumno':
-                return $this->hasOne(Alumno::class);
+                return $this->hasOne(Alumno::class,'id_alumno');
                 break;
             case 'tutor_academico':
             case 'coordinador':
-                return $this->hasOne(TutorAcademico::class);
+                return $this->hasOne(TutorAcademico::class, 'id_tutor_academico');
                 break;
             case 'tutor_empresa':
-                return $this->hasOne(TutorEmpresa::class);
+                return $this->hasOne(TutorEmpresa::class, 'id_tutor_empresa');
                 break;
             default:
                 return null;
@@ -36,7 +36,7 @@ class Persona extends Model
     }
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id_persona');
     }
 
 

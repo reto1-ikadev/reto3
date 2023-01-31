@@ -24,10 +24,12 @@ Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordi
 Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
 Route::get('/estudiantes',[AlumnoController::class,'index'])->name('estudiantes.index');
-Route::get('/estudiantes/detalle/{estudiante}',[AlumnoController::class,'show'])->name('estudiantes.show');
+Route::get('/estudiantes/detalle/{id}',[AlumnoController::class,'show'])->name('estudiantes.detalle')->where('id','[0-9]+');
 Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estudiantes.create');
+Route::get('/estudiantes/filtrar',[AlumnoController::class,'selectAllAlumnos'])->name('estudiantes.filtrar');
 Route::post('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
 Route::get('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
+
 //Rutas de las empresas
 Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
