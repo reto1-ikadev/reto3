@@ -23,8 +23,7 @@ function hola(e) {
                     <td>${element.grado}</td>
                     <td>${element.curso}</td>
                     <td>${element.empresa}</td>
-                    <td><a class="btn btn-danger" href="/estudiantes/${element.id}/eliminar">Eliminar</a></td>
-                </tr>
+                    <td><a href="/estudiantes/detalle?id=${element.id_alumno}" class="btn btn-primary">Ver</a></td>           </tr>
                 `;
 
             });
@@ -51,7 +50,8 @@ function primeracarga() {
                     <td>${element.grado}</td>
                     <td>${element.curso}</td>
                     <td>${element.empresa}</td>
-                    <td><a class="btn btn-danger" href="/estudiantes/${element.id}/eliminar">Eliminar</a></td>
+                    <td><a href="/estudiantes/detalle/${element.id_alumno}" class="btn btn-primary">Ver</a></td>           </tr>
+
                 </tr>
                 `;
 

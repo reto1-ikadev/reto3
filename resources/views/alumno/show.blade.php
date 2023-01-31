@@ -13,27 +13,27 @@
                 <h5>Datos personales</h5><button type="button" class="ms-5 align-center btn bg-primary btn-sm ms-2">Editar </button>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control " id="nombreE" placeholder="Nombre y Apellido" value="Iker Gomez" disabled>
+                <input type="text" class="form-control " id="nombreE" placeholder="Nombre y Apellido" value="{{$estudiante->nombre." ".$estudiante->apellidos}}" disabled>
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control " id="dni" placeholder="Dni" value="12345678A" disabled>
+                <input type="text" class="form-control " id="dni" placeholder="Dni" value="{{$estudiante->dni}}" disabled>
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control " id="telefono" placeholder="Telefono" value="666777888" disabled>
+                <input type="text" class="form-control " id="telefono" placeholder="Telefono" value="{{$estudiante->telefono}}" disabled>
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control " id="email" placeholder="Email" value="iker.gomez@deusto.com" disabled>
+                <input type="text" class="form-control " id="email" placeholder="Email" value="{{$estudiante->user->email}}" disabled>
             </div>
 
             <div class="col-md-6 ">
-                <input type="text" class="form-control " id="direccion" placeholder="Direccion" value="avda Principal 5, 6ºA Vitoria" disabled>
+                <input type="text" class="form-control " id="direccion" placeholder="Direccion" value="{{$estudiante->opcion_tipo->direccion}}" disabled>
             </div>
 
             <div class="col-md-6 ">
-                <input type="text" class="form-control " id="curso" placeholder="Curso" value="1º grado en industria digital" disabled>
+                <input type="text" class="form-control " id="curso" placeholder="Curso" value="{{$estudiante->opcion_tipo->curso->nombre." ". $estudiante->opcion_tipo->curso->grado->nombre}}" disabled>
             </div>
             <div class="col-4 offset-8">
                 <button type="submit" class="ms-5 align-center btn bg-primary btn-sm ms-2">Guardar cambios </button>
