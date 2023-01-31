@@ -8,7 +8,7 @@ use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\QueryController;
-use App\Http\Controllers\CredencialesUsuarioController;
+//use App\Http\Controllers\CredencialesUsuarioController;
 
 //Rutas del coordinador
 Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
@@ -31,7 +31,7 @@ Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->n
 
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
 Route::get('/', function () {
-    return redirect('/dirigir');
+    return view('home');
 })->middleware('auth');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
@@ -39,8 +39,24 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 //Deshabilitamos el registro.
 Auth::routes(['register' => false]);
 
+/*
+Route::middleware(['auth', 'can:alumno'])->group(function() {
+    Route::get('/alumnos', function() {
+        return "Hola";
+    });
+});*/
+
+
+
+
+
+
+
+
+
+
 // Ruta que nos permite comprobar y saber que clase de usuario a iniciado sesión.
-Route::get('/dirigir', [CredencialesUsuarioController::class, 'dirigir'])->name('dirigir');
+//Route::get('/dirigir', [CredencialesUsuarioController::class, 'dirigir'])->name('dirigir');
 
 /*
 

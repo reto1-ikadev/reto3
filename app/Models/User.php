@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Http\Models\Persona;
+use App\Models\Persona;
 
 class User extends Authenticatable
 {
@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function persona() {
-        return $this->belongsTo(Persona::class);
+        return $this->belongsTo(Persona::class, 'id_persona');
     }
 }
