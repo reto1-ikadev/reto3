@@ -14,7 +14,9 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Curso::all();
+        $resultado = ['sucess' => true, "data" => $cursos];
+        return $resultado;
     }
 
     /**
@@ -46,7 +48,7 @@ class CursoController extends Controller
      */
     public function show(Curso $curso)
     {
-        //
+        return(view('reuniones.show'));
     }
 
     /**

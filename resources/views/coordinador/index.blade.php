@@ -3,9 +3,10 @@
 
     <!--CARROUSEL o TABLAS-->
 
-    <div class="row justify-content-center mt-5">
-        <div class="col-10">
-            @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
+        <div class="row justify-content-center mt-5">
+            <div class="col-10">
+                
+                @if(!isset($estudiantes)&&!isset($empresas)&&!isset($tutoresAcademicos)&&!isset($tutoresEmpresa))
                 <div id="carouselExampleFade" class="carousel slide carousel-fade">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

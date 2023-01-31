@@ -14,7 +14,9 @@ class GradoController extends Controller
      */
     public function index()
     {
-        //
+        $grados = Grado::all();
+        $resultado = ['sucess' => true, "data" => $grados];
+        return $resultado;
     }
 
     /**

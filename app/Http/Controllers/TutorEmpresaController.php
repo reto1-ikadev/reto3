@@ -24,7 +24,7 @@ class TutorEmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('tutorEmpresa.create');
     }
 
     /**

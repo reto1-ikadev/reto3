@@ -24,7 +24,7 @@ class TutorAcademicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tutorAcademico.create');
     }
 
     /**
