@@ -1,4 +1,6 @@
 <?php
+//Este controlador es para desarrollo unicamente.
+
 
 namespace App\Http\Controllers;
 
@@ -14,6 +16,8 @@ class CredencialesUsuarioController extends Controller
         // Con la funcion auth() podemos obtener información sobre el usuario loggeado.
         $userID = DB::table('users')->where('id', auth()->user()->id)->value('id');
         self::$tipoUsuario = DB::table('personas')->where('id', $userID)->value('tipo');
+
+        /*
         switch(self::$tipoUsuario) {
             case 'tutor_academico': {
                 return redirect('/tutoresAcademicos');
@@ -27,7 +31,7 @@ class CredencialesUsuarioController extends Controller
                 //No debería acceder aquí ya que siempre debería a ver un dato.
                 break;
             }
-        }
-        //return view('peticiones.index', ['tipo' => self::$tipoUsuario]);
+        }*/
+        return view('peticiones.index', ['tipo' => self::$tipoUsuario]);
     }
 }
