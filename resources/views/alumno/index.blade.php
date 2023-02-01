@@ -10,7 +10,7 @@
                     <div class="row mb-5" id="filtrosEst">
                         <div class="col">
                             <select class="form-select" aria-label="select" name="grado">
-                                <option value="0" selected>Filtrar por grado</option>
+                                <option value="0" selected>Grado</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Segundo</option>
                                 <option value="3">Tercero</option>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="col">
                             <select class="form-select" aria-label="select" name="curso">
-                                <option value="0" selected>Filtrar por curso</option>
+                                <option value="0" selected>Curso</option>
                                 <option value="1">Primero</option>
                                 <option value="2">Grado dos</option>
                                 <option value="7">Grado tres</option>
@@ -27,17 +27,17 @@
                         </div>
                         <div class="col-3">
                             <select class="form-select" aria-label="select" name="empresa">
-                                <option value="0" selected>Filtrar por empresa</option>
+                                <option value="0" selected>Empresa</option>
                                 <option value="1">Empresa1</option>
                                 <option value="2">Empresa2</option>
                                 <option value="3">Empresa3</option>
                             </select>
                         </div>
                         <div class="col">
-                            <input class="form-control" name="nombre"  placeholder="Buscar por nombre">
+                            <input class="form-control" name="nombre"  placeholder="Nombre">
                         </div>
-                        <div class="col-2">
-                            <button type="button" id="btn" class="btn btn-primary">Filtrar</button>
+                        <div class="col-2 d-flex flex-row">
+                            <button type="button" id="btn" class="btn btn-primary">Filtrar</button>&nbsp;<button type="button" id="btnReset" class="btn btn-primary">Reset</button>
                         </div>
 
                         <div class="row mt-3 d-flex justify-content-end">
@@ -65,4 +65,5 @@
                         </table>
         </div>
     </div>
+    <script src="{{asset("js/estudiantes.js")}}"></script>
 @endsection

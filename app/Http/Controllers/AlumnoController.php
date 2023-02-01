@@ -110,9 +110,9 @@ class AlumnoController extends Controller
             ])
 
             ->orderBy('personas.id', 'desc');
-
-        $resultados = $estudiantes->offset(($pagina - 1) * 10)->limit(10)->get();
         $estudiantesTotal = $estudiantes->count();
+        $resultados = $estudiantes->offset(($pagina - 1) * 10)->limit(10)->get();
+
 
         $datos = [
             'estudiantes' => $resultados,
