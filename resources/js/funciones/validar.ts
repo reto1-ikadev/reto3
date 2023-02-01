@@ -66,12 +66,33 @@ export function validar(datos:FormData) {
         }
         /*Campos que se comprueban solo si es estudiante*/
         if (datos.get("tipo") == "alumno") {
+
+            var selectGrado:HTMLSelectElement =<HTMLSelectElement> document.getElementById("grado");
+            var idGrado = selectGrado.options[selectGrado.selectedIndex].id;
+            datos.set("idGrado",idGrado);
+
+            var selectCurso:HTMLSelectElement =<HTMLSelectElement> document.getElementById("curso");
+            var idCurso = selectGrado.options[selectCurso.selectedIndex].id;
+            datos.set("idCurso",idCurso);
+
+            var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
+            var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
+            datos.set("idEmpresa",idEmpresa);
+
+            var selectTutorA:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorA");
+            var idTutorA = selectTutorA.options[selectTutorA.selectedIndex].id;
+            datos.set("idTutorA",idTutorA);
+
+            var selectTutorE:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorE");
+            var idTutorE = selectTutorE.options[selectTutorE.selectedIndex].id;
+            datos.set("idTutorE",idTutorE);
+
             if (datos.get("ciudad") == "") {
                 throw "La ciudad es un campo obligatorio";
             }
             else {
                 ciudadValida = validarCadena(<string>datos.get("ciudad"));
-                console.log(ciudadValida);
+                console.log(ciudadValida+"ciudad");
             }
             if (datos.get("provincia") == "") {
                 throw "La provincia es un campo obligatorio";
@@ -140,10 +161,7 @@ export function validar(datos:FormData) {
                         datosValidos = true;
                      };
             }
-            //Cuando no es estudiante
-            // if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido) {
-            //     datosValidos = true;
-            // };
+            
         }
         return datosValidos;
     }

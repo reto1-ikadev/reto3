@@ -39,6 +39,7 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        
         return true;
     }
 
