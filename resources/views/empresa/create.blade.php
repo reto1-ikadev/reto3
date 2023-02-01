@@ -47,7 +47,7 @@
             </div>
             <div class="row my-2"></div>
             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direcci&oacute;n" hidden>
-
+            <input type="hidden" id="tipo" value="empresa">
             <btn-validarempresa></btn-validarempresa>
         </form>
     </div>

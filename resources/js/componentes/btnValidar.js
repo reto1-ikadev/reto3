@@ -3,7 +3,6 @@ import { validar } from "../funciones/validar.js";
 import { enviarDatosPersona } from "../funciones/enviarDatosPersonas.js";
 import { enviarDatosAlumno } from "../funciones/enviarDatosAlumno.js";
 
-
 class btnValidar extends HTMLElement {
     constructor() {
         super();

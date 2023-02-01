@@ -10,23 +10,12 @@
     <title>@yield('titulo')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-
-    @vite('resources/js/app.js')
-    @vite(['resources/js/formularios/llenarCombos.js'])  
+    @vite(['resources/js/estudiantes/estudianteCreate.js'])
     @vite(['resources/js/componentes/btnValidar.js'])
     @vite(['resources/js/componentes/btnValidarEmpresa.js'])
 
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
-
-        #datosPersonales {
-
-            border-radius: 5px;
-        }
-
-        #formularioDP {
-            border-radius: 5px;
-        }
 
         .contenido{
             margin-top: 12em;
@@ -36,26 +25,19 @@
             border-bottom: black 1px solid;
             background-color: white;
         }
-
         input[type=text] {
             border: none;
             border-bottom: black 1px solid;
             background-color: white;
         }
-
         /*Este codigo nos permite quitar espacios hechos por la clase row*/
-
         .row {
             margin-left: 0px;
             margin-right: 0px;
         }
-
-
         #logoCab {
             margin-left: 2em;
-
         }
-
         @media (max-width:1000px) {
             #logoCab{
                 width: 8em;
@@ -68,14 +50,8 @@
                 height: 8em;
             }
         }
-        @media (min-width:900px) {
-            #logoCab{
-                width: 8em;
-                height: 8em;
-            }
-        }
-      
 
+      
     </style>
 
 </head>
