@@ -10,6 +10,10 @@ use App\Http\Controllers\GradoController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\QueryController;
+//Controlador para developing
+use App\Http\Controllers\CredencialesUsuarioController;
 
 //Rutas de los grados
 Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
@@ -43,10 +47,48 @@ Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
+
+//Indicamos en que blade se dirigira el login después de iniciar sesión.
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->middleware('auth');
 
-Auth::routes();
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+//Deshabilitamos el registro.
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*
+Route::middleware(['auth', 'can:tutor_academico'])->group(function() {
+    Route::get('/alumnos', function() {
+        return "Hola";
+    });
+});
+
+Route::get('/tutores', function() {
+    return "Hola tutores";
+})->middleware(['auth', 'can:tutores']);
+
+*/
+
+// Ruta que nos permite comprobar y saber que clase de usuario a iniciado sesión.
+//Route::get('/dirigir', [CredencialesUsuarioController::class, 'dirigir'])->name('dirigir');
+
+/*
+
+---------------- Rutas para SOLO desarrollo -----------------------
+
+Route::get('/listar', [QueryController::class, 'index'])->name('peticiones');
+Route::get('/listar/{id}', [QueryController::class, 'insertar'])->name('peticionesconid');
+Route::get('/crear', [QueryController::class, 'crearNuevo'])->name('crear');
+
+Route::get('/dirigir', [CredencialesUsuarioController::class, 'dirigir'])->name('dirigir');
+
+-------------------------------------------------------------------
+
+*/
+
+// Ruta para developing
+Route::get('/dirigir', [CredencialesUsuarioController::class, 'dirigir'])->name('dirigir');
