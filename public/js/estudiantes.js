@@ -2,12 +2,13 @@ var button = document.getElementById('btn');
 button.addEventListener('click', alumnosFiltrado);
 var buttonReset = document.getElementById('btnReset');
 buttonReset.addEventListener('click', resetearFiltros);
-function alumnosFiltrado(evento,pagina = 1) {
+
+function alumnosFiltrado(evento, pagina = 1) {
 
     let formulario = new FormData(document.getElementById("filtrosEstudiantes"));
     let parametros = new URLSearchParams(formulario);
     //fecht para enviar los datos
-    fetch('/estudiantes/filtrar?pagina='+pagina+"&"+parametros, {
+    fetch('/estudiantes/filtrar?pagina=' + pagina + "&" + parametros, {
         method: 'GET',
     })
         .then(response => response.json())
@@ -16,10 +17,26 @@ function alumnosFiltrado(evento,pagina = 1) {
             tabla.innerHTML = '';
             let paginacion = document.getElementById('pagination');
             paginacion.innerHTML = '';
-            let paginas = Math.ceil(data.data['total']/data.data['por_pagina']);
+            let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
 
             for (let i = 1; i <= paginas; i++) {
-                paginacion.innerHTML += `<li class="page-item"><button type="button" id="${i}" class="page-link" onclick="alumnosFiltrado(null,${i})">${i}</button></li>`;
+                if (i == pagina) {
+                    paginacion.innerHTML += `
+                        <li class="page-item active"><a class="page-link" onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                    `;
+                } else if (i == pagina - 1 || i == pagina + 1) {
+                    paginacion.innerHTML += `
+                        <li class="page-item"><a class="page-link"  onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                    `;
+                } else if (i == 1 || i == paginas) {
+                    paginacion.innerHTML += `
+                        <li class="page-item"><a class="page-link"  onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                    `;
+                } else if (i == pagina - 2 || i == pagina + 2) {
+                    paginacion.innerHTML += `
+                        <li class="page-item disabled"><a class="page-link">...</a></li>
+                    `;
+                }
             }
             data.data['estudiantes'].forEach(element => {
                 tabla.innerHTML += `
@@ -40,8 +57,8 @@ function alumnosFiltrado(evento,pagina = 1) {
         });
 
 }
-function resetearFiltros(){
+function resetearFiltros() {
     document.getElementById("filtrosEstudiantes").reset();
     alumnosFiltrado();
 }
-alumnosFiltrado(null,1);
+alumnosFiltrado(null, 1);
