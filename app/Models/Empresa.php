@@ -13,7 +13,7 @@ class Empresa extends Model
 protected $fillable = [
         'nombre',
         'cif',
-        'email',
+        'email_contacto',
         'direccion',
         'sector',
     ];

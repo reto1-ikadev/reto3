@@ -11,8 +11,10 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
     @vite('resources/js/app.js')
-    @vite(['resources/js/formularios/llenarCombos.js'])
+    @vite(['resources/js/formularios/llenarCombos.js'])  
     @vite(['resources/js/componentes/btnValidar.js'])
+    @vite(['resources/js/componentes/btnValidarEmpresa.js'])
+
 
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
