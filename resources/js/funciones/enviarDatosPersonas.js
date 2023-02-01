@@ -11,7 +11,9 @@ export function enviarDatosPersona(datos) {
             "apellido":datos.get('apellido'),
             "dni":datos.get('dni'),
             "telefono":datos.get('telefono'),
-            "tipo":datos.get('tipo')})
+            "tipo":datos.get('tipo')
+        }),
+            
         });
         if(response.ok){
             
@@ -19,3 +21,4 @@ export function enviarDatosPersona(datos) {
         }
     ;
 }
+

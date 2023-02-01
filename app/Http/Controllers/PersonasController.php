@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use Illuminate\Http\Request;
+use App\Models\Alumno;
 
 class PersonasController extends Controller
 {
@@ -44,7 +45,6 @@ class PersonasController extends Controller
         $persona->telefono = request('telefono');
         $persona->tipo = request('tipo');
         $persona->save();
-        
         
         return true;
     }
