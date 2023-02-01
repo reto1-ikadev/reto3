@@ -44,8 +44,8 @@ class EmpresasController extends Controller
         $empresa->email_contacto = request('email');
         $empresa->sector = request('sector');
         $empresa->save();
-        
-        
+
+
         return true;
     }
 

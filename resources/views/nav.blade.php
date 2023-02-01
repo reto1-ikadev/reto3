@@ -16,6 +16,7 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('coordinador.index') }}">P&aacute;gina Principal</a>
                             </li>
+                            @can('tutor_academico')
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Estudiantes</a>
                             </li>
@@ -49,6 +50,7 @@
                                 <hr class="bg-danger border-2 border-top border-primary">
                                 <a class="nav-link active" href="#">Cambiar modo</a>
                             </li>
+                            @endcan
                             <li class="nav-item">
                                 <a class="nav-link active" href="/logout">Salir</a>
                             </li>

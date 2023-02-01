@@ -55,5 +55,7 @@
                         </table>
         </div>
     </div>
-    <script src="{{asset("js/estudiantes.js")}}"></script>
+
+    @vite(['resources/js/estudiantes.js'])
+
 @endsection
