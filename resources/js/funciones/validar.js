@@ -104,6 +104,7 @@ export function validar(datos) {
             }
             if (nombreValido && apellidoValido && dniValido && emailValido &&
                 telefonoValido && ciudadValida && provinciaValida && cpValido && calleValida) {
+                    
                 datosValidos = true;
             }
             ;

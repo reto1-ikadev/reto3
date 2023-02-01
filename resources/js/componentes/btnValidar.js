@@ -3,7 +3,6 @@ import { validar } from "../funciones/validar.js";
 import { enviarDatosPersona } from "../funciones/enviarDatosPersonas.js";
 import { enviarDatosAlumno } from "../funciones/enviarDatosAlumno.js";
 
-
 class btnValidar extends HTMLElement {
     constructor() {
         super();
@@ -42,7 +41,6 @@ class btnValidar extends HTMLElement {
             if(datos.get("tipo")=="tutor_academico"||datos.get("tipo")=="coordinador"||datos.get("tipo")=="tutor_empresa"){
                 enviarDatosPersona(datos);
             }
-            
         }
     }
 }
