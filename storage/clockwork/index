@@ -1791,3 +1791,12 @@
 1675243080-2624-35021071,1675243080.2504,GET,/estudiantes/filtrar?pagina=5&grado=0&curso=0&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,41.197061538696,request
 1675243082-2111-1627620475,1675243082.2034,GET,/estudiantes/filtrar?pagina=1&grado=0&curso=1&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,29.438018798828,request
 1675243084-0948-1691507025,1675243084.0831,GET,/estudiantes/filtrar?pagina=1&grado=0&curso=0&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,47.456979751587,request
+1675248827-5887-2103458931,1675248827.5538,GET,/,Closure,200,74.20802116394,request
+1675248827-6526-1500881608,1675248827.6402,GET,/home,"App\Http\Controllers\HomeController@index",200,67.590951919556,request
+1675248827-7256-1258998199,1675248827.7154,GET,/home,"App\Http\Controllers\HomeController@index",200,51.434993743896,request
+1675248827-7881-1686137768,1675248827.7766,GET,/home,"App\Http\Controllers\HomeController@index",200,59.128046035767,request
+1675248827-8557-1473647133,1675248827.8445,GET,/,Closure,200,49.225807189941,request
+1675248827-9145-1451627824,1675248827.9036,GET,/home,"App\Http\Controllers\HomeController@index",200,56.900024414062,request
+1675248827-9924-473288181,1675248827.9698,GET,/,Closure,200,66.601037979126,request
+1675248828-0857-86260432,1675248828.0727,GET,/home,"App\Http\Controllers\HomeController@index",200,55.556058883667,request
+1675248828-1887-1158548490,1675248828.1654,GET,/css/dist/css/bootstrap.css,,404,86.323022842407,request
