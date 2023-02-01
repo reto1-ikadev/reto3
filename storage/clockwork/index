@@ -195,3 +195,19 @@
 1675115244-6674-1411965960,1675115244.6633,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,11.675834655762,request
 1675115264-4118-386306672,1675115264.4075,GET,/estudiantes/filtrar?grado=0&curso=0&empresa=0&nombre=Carmela,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,13.570070266724,request
 >>>>>>> 157a22754db044402c2331ee2aa0a0b1140531e0
+1675244247-1224-334421723,1675244246.9225,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,372.77698516846,request
+1675244247-3266-898603011,1675244247.3139,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,38.234949111938,request
+1675244247-3690-1955490315,1675244247.3598,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,25.154113769531,request
+1675244247-4033-1404401162,1675244247.393,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,29.96301651001,request
+1675244247-4418-2116362631,1675244247.4324,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,30.632019042969,request
+1675244247-4831-1539135521,1675244247.4732,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,29.204845428467,request
+1675244247-5208-2103289744,1675244247.511,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,28.766870498657,request
+1675244247-5599-2086461016,1675244247.5493,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,28.841972351074,request
+1675244247-6394-1607932769,1675244247.5892,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,78.0189037323,request
+1675244247-6867-1498743170,1675244247.676,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,29.319047927856,request
+1675244247-7275-559700186,1675244247.7169,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,32.217979431152,request
+1675244247-7650-1741320512,1675244247.7572,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,28.294086456299,request
+1675244247-8031-1420019752,1675244247.7927,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,27.156114578247,request
+1675244247-8359-1528230722,1675244247.8268,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,27.132034301758,request
+1675244247-8716-428277669,1675244247.862,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,25.370836257935,request
+1675244247-9024-1910262076,1675244247.8948,GET,/empresas/create,"App\Http\Controllers\EmpresasController@create",200,22.104024887085,request
