@@ -15,8 +15,8 @@ class EmpresasController extends Controller
     public function index()
     {
         $empresas = Empresa::all();
-        $resultado = ['sucess' => true, "data" => $empresas];
-        return $resultado;
+
+        return view('empresa.index', ['empresas' => $empresas]);
     }
 
     /**
