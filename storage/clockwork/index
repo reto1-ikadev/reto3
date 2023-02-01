@@ -273,3 +273,13 @@
 1675244628-6843-849923136,1675244628.6763,GET,/personas/index,"App\Http\Controllers\PersonasController@index",200,247.65491485596,request
 1675244628-9456-346177862,1675244628.9358,GET,/cursos/index,"App\Http\Controllers\CursoController@index",200,36.370992660522,request
 1675244628-9918-137368150,1675244628.9829,GET,/grados/index,"App\Http\Controllers\GradoController@index",200,48.854112625122,request
+1675248758-4546-1450208701,1675248758.2033,GET,/,Closure,200,572.59392738342,request
+1675248758-8366-1402638956,1675248758.8221,GET,/home,"App\Http\Controllers\HomeController@index",200,60.438871383667,request
+1675248759-1661-1299232563,1675248759.1534,GET,/cursos/index,"App\Http\Controllers\CursoController@index",200,181.53691291809,request
+1675248759-3731-1083974906,1675248759.3577,GET,/grados/index,"App\Http\Controllers\GradoController@index",200,51.345825195312,request
+1675248759-4381-148953446,1675248759.4233,GET,/personas/index,"App\Http\Controllers\PersonasController@index",200,56.646108627319,request
+1675248759-5087-2017386624,1675248759.4948,GET,/empresas/index,"App\Http\Controllers\EmpresasController@index",200,45.428991317749,request
+1675248759-6842-1855820942,1675248759.6731,GET,/personas/index,"App\Http\Controllers\PersonasController@index",200,45.918941497803,request
+1675248759-7531-1227119000,1675248759.7351,GET,/grados/index,"App\Http\Controllers\GradoController@index",200,97.875118255615,request
+1675248759-8625-895468079,1675248759.8499,GET,/empresas/index,"App\Http\Controllers\EmpresasController@index",200,37.946939468384,request
+1675248759-9168-520681749,1675248759.9038,GET,/cursos/index,"App\Http\Controllers\CursoController@index",200,40.093898773193,request
