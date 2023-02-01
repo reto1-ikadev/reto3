@@ -42,7 +42,6 @@ class btnValidar extends HTMLElement {
             if(datos.get("tipo")=="tutor_academico"||datos.get("tipo")=="coordinador"||datos.get("tipo")=="tutor_empresa"){
                 enviarDatosPersona(datos);
             }
-            
         }
     }
 }

@@ -17,18 +17,7 @@
             </div>
                
             <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="calle" id="calle" value="Avda general nº5 piso 7 letra A" required>
-            </div>
-            <div class="row my-2"></div>
-            <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="ciudad" id="ciudad" value="Vitoria" required>
-            </div>
-            <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="provincia" id="provincia" value="Alava" required>
-            </div>
-            <div class="row my-2"></div>
-            <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="cp" id="cp" value="01003" required>
+                <input type="text" class="form-control" id="direccion" placeholder="Direcci&oacute;n" required>
             </div>
 
 

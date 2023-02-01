@@ -31,34 +31,3 @@ function hola(e) {
         .catch(error => {
             console.log(error);
         });
-
-}
-
-function primeracarga() {
-    fetch('/estudiantes/filtrar', {
-        method: 'GET',
-    })
-        .then(response => response.json())
-        .then(data => {
-            let tabla = document.getElementById('tabla');
-            tabla.innerHTML = '';
-            data.data.forEach(element => {
-                tabla.innerHTML += `
-                <tr>
-                    <td>${element.nombre}</td>
-                    <td>${element.apellidos}</td>
-                    <td>${element.grado}</td>
-                    <td>${element.curso}</td>
-                    <td>${element.empresa}</td>
-                    <td><a href="/estudiantes/detalle/${element.id_alumno}" class="btn btn-primary">Ver</a></td>           </tr>
-
-                </tr>
-                `;
-
-            });
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
-primeracarga();
