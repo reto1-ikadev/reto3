@@ -13,11 +13,7 @@
     @vite(['resources/js/estudiantes/estudianteCreate.js'])
     @vite(['resources/js/componentes/btnValidar.js'])
     @vite(['resources/js/componentes/btnValidarEmpresa.js'])
-<<<<<<< HEAD
-    @vite(['resources/js/componentes/btnValidarEmpresa.js'])
-=======
-    
->>>>>>> 3b9781a14eca9eb69638668a1602dab1126061cd
+
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
 
