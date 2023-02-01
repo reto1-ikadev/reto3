@@ -50,7 +50,7 @@
                                 <a class="nav-link active" href="#">Cambiar modo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Salir</a>
+                                <a class="nav-link active" href="/logout">Salir</a>
                             </li>
                         </ul>
                     </div>

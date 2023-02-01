@@ -34,11 +34,10 @@ class Persona extends Model
                 break;
         }
     }
+    
     public function user()
     {
-        return $this->hasOne(User::class, 'id_persona');
+        return $this->hasOne(User::class, 'id');
     }
-
-
 
 }

@@ -1,23 +1,50 @@
-@extends('layouts.app')
+@extends('layouts.headerfooter')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    @can('alumno')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">{{ __('Alumno') }}</div>
+
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
+                            {{ __('Hola Alumno !') }}
                         </div>
-                    @endif
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    {{ __('You are logged in!') }}
+    @endcan
+
+    @can('tutores')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Tutor Academico') }}</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        {{ __('Hola Tutor !') }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    @endcan
+
 @endsection

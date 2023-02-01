@@ -60,6 +60,7 @@
 <body class="vh-100 d-flex flex-column">
 
 @include('nav')
+
         @yield('content')
 
       @include('footer')
