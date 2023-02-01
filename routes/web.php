@@ -52,7 +52,7 @@ Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->n
 
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
 Route::get('/', function () {
-    return view('home');
+    return view('coordinador.index');
 })->middleware('auth');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
