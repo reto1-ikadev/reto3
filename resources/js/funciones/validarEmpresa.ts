@@ -14,7 +14,6 @@ export function validarEmpresa(datos: FormData) {
         var cpValido: boolean = false;
         var calleValida: boolean = false;
         var cifValido: boolean = false;
-        var telefonoValido: boolean = false;
         var emailValido: boolean = false;
         var sectorValido: boolean = false;
 
@@ -83,25 +82,13 @@ export function validarEmpresa(datos: FormData) {
                 emailValido = true;
             }
         }
-
-        if (datos.get("telefono") == "") {
-            throw "El telefono es un campo obligatorio";
-        } else {
-            var expRegTelf: RegExp = new RegExp(/^[6-9][0-9]{8}$/);
-            if (!expRegTelf.test(<string>datos.get("telefono"))) {
-                throw "El telefono no tiene el formato correcto"
-            } else {
-                telefonoValido = true;
-            }
-        }
-
         if (datos.get("sector") == "") {
             throw "El sector es un campo obligatorio";
         } else {
             sectorValido = validarCadena(<string>datos.get("sector"));
             console.log(sectorValido);
         }
-        if(nombreValido && cifValido && emailValido && telefonoValido && ciudadValida && provinciaValida 
+        if(nombreValido && cifValido && emailValido && ciudadValida && provinciaValida 
             && cpValido && calleValida && sectorValido) {
             datosValidos = true
 

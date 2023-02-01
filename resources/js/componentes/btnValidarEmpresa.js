@@ -1,6 +1,6 @@
 "use strict";
 import { validarEmpresa } from "../funciones/validarEmpresa.js";
-import { enviarDatosEmpresa} from "../funciones/enviarDatosEmpresa";
+import { enviarDatosEmpresa} from "../funciones/enviarDatosEmpresa.js";
 
 class btnValidarempresa extends HTMLElement {
     constructor() {
@@ -34,7 +34,7 @@ class btnValidarempresa extends HTMLElement {
         console.log("validados = " + validados);
         if(validados){
             enviarDatosEmpresa(datos);
+                };
         }
-    }
 }
 customElements.define('btn-validarempresa', btnValidarempresa);

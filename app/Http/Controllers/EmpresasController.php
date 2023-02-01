@@ -42,7 +42,6 @@ class EmpresasController extends Controller
         $empresa->nombre = request('nombre');
         $empresa->direccion = request('direccion');
         $empresa->cif = request('cif');
-        $empresa->telefono = request('telefono');
         $empresa->email_contacto = request('email');
         $empresa->sector = request('sector');
         $empresa->save();

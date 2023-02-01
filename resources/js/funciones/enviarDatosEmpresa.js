@@ -2,17 +2,14 @@
 
 export function enviarDatosEmpresa(datos) {
     console.log(datos.get("nombre"));
-    return  function () {
         let response = fetch("http://localhost/empresas/store", {
             headers: {
-                'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': window.CSRF_TOKEN
             },
             method: 'POST',
-            body: JSON.stringify({"nombre":datos.get('nombre')})
+            body: datos
         });
         if(response.ok){
             window.location.href = "http://localhost/estudiantes/detalle/iker";
         }
     };
-}

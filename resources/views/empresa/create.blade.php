@@ -42,11 +42,6 @@
                 </div>
             </div>
 
-            <div class="row my-2"></div>
-
-            <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Tel&eacute;fono" required>
-            </div>
             <div class="col-md-6 gy-2">
                 <input type="text" class="form-control" id="sector" name="sector" placeholder="Sector" required>
             </div>
