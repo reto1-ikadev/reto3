@@ -49,17 +49,12 @@
             </div>
             <div class="col-4">
                 <select class="form-select" id="grado" name="grado" required>
-                    <option selected disabled value="seleccionar">Grado</option>
-                    <option  value="industriaD">Industria digital</option>
+                    <!-- Se llena con los datos de la base de datos -->
                 </select>
             </div>
             <div class="col-md-4">
                 <select class="form-select" name="curso" id="curso"required>
-                    <option selected disabled value="seleccionar">Curso</option>
-                    <option  value="primero">Primero</option>
-                    <option  value="segundo">Segundo</option>
-                    <option  value="tercero">Tercero</option>
-                    <option  value="cuarto">Cuarto</option>
+                    
                 </select>
             </div>
 
@@ -82,11 +77,7 @@
             <div class="row mb-3"></div>
              <div class="col-md-5">
                 <select class="form-select" nmae="empresa" id="empresa"required>
-                    <option selected disabled value="seleccionar">Empresa</option>
-                    <option  value="1">Mercedes</option>
-                    <option  value="2">Michelin</option>
-                    <option  value="3">Regui</option>
-                    <option  value="4">Otra</option>
+                    
                 </select>
             </div>
             <div class="col-md-5">

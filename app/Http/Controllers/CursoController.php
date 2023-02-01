@@ -14,7 +14,9 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Curso::all();
+        $resultado = ['sucess' => true, "data" => $cursos];
+        return $resultado;
     }
 
     /**

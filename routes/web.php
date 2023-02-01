@@ -6,11 +6,17 @@ use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\GradoController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 
+//Rutas de los grados
+Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
+//Rutas de los cursos
+Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
 //Rutas de las personas
+Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');
 Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
 Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
 //Rutas del coordinador
@@ -23,7 +29,7 @@ Route::get('/estudiantes/create',[AlumnoController::class,'create'])->name('estu
 Route::post('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
 Route::get('/estudiantes/store',[AlumnoController::class,'store'])->name('estudiantes.store');
 //Rutas de las empresas
-Route::get('/empresas',[EmpresasController::class,'index'])->name('empresas.index');
+Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
 Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
 Route::post('/empresas/store', [EmpresasController::class, 'store'])->name('empresas.store');
 Route::get('/empresas/store', [EmpresasController::class, 'store'])->name('empresas.store');
@@ -32,10 +38,10 @@ Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.
 //Rutas de las reuniones
 Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
 //Rutas de los tutores academicos
-Route::get('/tutoresAcademicos',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
+Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
 //Rutas de los tutores de empresa
-Route::get('/tutoresEmpresa',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
+Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
 Route::get('/', function () {
     return view('welcome');

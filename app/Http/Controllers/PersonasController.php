@@ -14,7 +14,9 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        //
+        $personas = Persona::all();
+        $resultado = ['sucess' => true, "data" => $personas];
+        return $resultado;
     }
 
     /**

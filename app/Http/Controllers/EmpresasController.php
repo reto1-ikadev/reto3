@@ -14,7 +14,9 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        //
+        $empresas = Empresas::all();
+        $resultado = ['sucess' => true, "data" => $empresas];
+        return $resultado;
     }
 
     /**
