@@ -11,7 +11,7 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
 
-        return view('estudiante.index' );
+        return view('alumno.index' );
     }
 
     public function show(int $id){
@@ -25,7 +25,7 @@ class AlumnoController extends Controller
      * Funcion que devuelve la vista con el formulario para crear nuevos estudiantes
      */
     public function create(){
-        return view('estudiante.create');
+        return view('alumno.create');
     }
 
 

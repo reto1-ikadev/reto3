@@ -38,8 +38,7 @@
             </div>
             <div class="col-md-4">
                 <select class="form-select" id="grado" name="grado">
-                    <option selected disabled value="seleccionar">Grado</option>
-                    <option  value="industriaD">Industria digital</option>
+                    
                 </select>
             </div>
             <div class="col-md-2"></div>
@@ -49,15 +48,13 @@
             </div>
             <div class="col-md-4">
                 <select class="form-select" id="empresa" name="empresa">
-                    <option selected disabled value="seleccionar">Empresa</option>
-                    <option  value="industriaD" selected>Mercedes</option>
-                    <option  value="industriaD">Michelin</option>
+                    
                 </select>
             </div>
             <div class="row my-2"></div>
             <div class="col-12 ">
                 <!--AQUI EL BTON COMPONENTE -->
-                <input type="hidden" name="tipo" value="tutor_empresa">
+                <input type="hidden" name="tipo" id="tipo" value="tutor_empresa">
                 <btn-validar></btn-validar>
             </div>
         </form>
