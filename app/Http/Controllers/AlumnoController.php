@@ -83,9 +83,9 @@ class AlumnoController extends Controller
     {
         $request->validate([
             'nombre' => 'string|max:255|nullable',
-            'curso' => 'numeric',
-            'grado' => 'numeric',
-            'empresa' => 'numeric',
+            'curso' => 'string|max:255|nullable',
+            'grado' => 'string|max:255|nullable',
+            'empresa' => 'string|max:255|nullable',
             'pagina' => 'numeric|nullable',
         ]);
         $pagina = $request->pagina;
@@ -123,26 +123,6 @@ class AlumnoController extends Controller
        return ['success' => true, 'data' => $datos, 'message' => 'Estudiantes obtenidos correctamente'];
     }
 
-    //funcion select one alumno by id
-    public static function selectOneAlumno(Request $request)
-    {
-        $request->validate([
-            'id' => 'required|numeric',
-        ]);
-        $estudiante = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
-            ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
-            ->join('grados', 'cursos.id_grado', '=', 'grados.id')
-            ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
-            ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
-            ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
-            ->where('alumnos.id_alumno', '=', $request->id)
-            ->get();
-
-        if (count($estudiante) == 0) {
-            return ['success' => false, 'data' => null, 'message' => 'No se ha encontrado el estudiante'];
-        }
-        return ['success' => true, 'data' => $estudiante, 'message' => 'Estudiante obtenido correctamente'];
-    }
 }
 
 

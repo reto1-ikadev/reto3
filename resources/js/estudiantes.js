@@ -3,7 +3,7 @@ button.addEventListener('click', alumnosFiltrado);
 var buttonReset = document.getElementById('btnReset');
 buttonReset.addEventListener('click', resetearFiltros);
 
-function alumnosFiltrado(evento, pagina = 1) {
+function alumnosFiltrado(evento,pagina = 1) {
 
     let formulario = new FormData(document.getElementById("filtrosEstudiantes"));
     let parametros = new URLSearchParams(formulario);
@@ -52,13 +52,11 @@ function alumnosFiltrado(evento, pagina = 1) {
 
             });
         })
-        .catch(error => {
-            console.log(error);
-        });
+
 
 }
 function resetearFiltros() {
     document.getElementById("filtrosEstudiantes").reset();
-    alumnosFiltrado();
+    alumnosFiltrado(null);
 }
-alumnosFiltrado(null, 1);
+alumnosFiltrado(null);
