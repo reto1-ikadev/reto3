@@ -24,7 +24,7 @@ class EmpresasController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa.create');
     }
 
     /**
@@ -35,7 +35,18 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $empresa = new Empresas();
+        $empresa->nombre = request('nombre');
+        $empresa->direccion = request('direccion');
+        $empresa->cif = request('cif');
+        $empresa->telefono = request('telefono');
+        $empresa->email_contacto = request('email');
+        $empresa->sector = request('sector');
+        $empresa->save();
+        
+        
+        return true;
     }
 
     /**
