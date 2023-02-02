@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AnosAcademicosController;
 use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\GradoController;
@@ -16,11 +17,16 @@ use App\Http\Controllers\QueryController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
 use App\Http\Controllers\GradoCoordinadorController;
+use App\Models\AnosAcademicos;
 
 Route::middleware(['auth'])->group( function (){
     Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
 //Rutas de los cursos
     Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
+//Rutas de los años
+    Route::get('/anyo/create',[AnosAcademicosController::class,'create'])->name('anyo.create');
+    Route::post('/anyo/store',[AnosAcademicosController::class,'store'])->name('anyo.store');
+    Route::get('/anyo/store',[AnosAcademicosController::class,'store'])->name('anyo.store');
 //Rutas de las personas
     Route::get('/personas/show/{tipo}', [PersonasController::class, 'show'])->name('personas.show');
     Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');

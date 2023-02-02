@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AnosAcademicos extends Model
 {
     use HasFactory;
+    protected $table = 'anos_academicos';
+    protected $fillable = [
+        'fecha_inicio',
+        'fecha_fin'
+    ];
 }

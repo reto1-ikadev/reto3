@@ -24,7 +24,7 @@ class AnosAcademicosController extends Controller
      */
     public function create()
     {
-        //
+        return view('anyo.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class AnosAcademicosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'fecha_inicio'=>'required',
+            'fecha_fin'=>'required'
+        ]);
+        AnosAcademicos::create($validated);
+        return redirect(route('cursos.index'));
     }
 
     /**
