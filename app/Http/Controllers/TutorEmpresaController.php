@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TutorEmpresa;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class TutorEmpresaController extends Controller
@@ -35,7 +36,15 @@ class TutorEmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tutorE = new TutorEmpresa();
+        $ide_tutorE = Persona::select('id')->latest()->first();
+       
+        $tutorE->id_tutor_empresa= $ide_tutorE->id;
+        $tutorE->id_empresa = request('id_empresa');
+        $tutorE->departamento = request('departamento');
+       
+        $tutorE->save();
+        return true;
     }
 
     /**
