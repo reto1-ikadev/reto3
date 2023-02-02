@@ -52,7 +52,8 @@ export function cargarCombos() {
                             "</option>";
                 });
             });
-            var tutor = pedirTutores();
+            var tipo = "tutor_academico";
+            var tutor = pedirTutoresAcademicos(tipo);
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los nombres de los tutores
@@ -60,7 +61,7 @@ export function cargarCombos() {
             tutor.then((data) => {
                 console.log(data.data);
                 comboTutorAcademico.innerHTML =
-                    "<option selected disabled value='seleccionar'>Tutor empresa</option>";
+                    "<option selected disabled value='seleccionar'>Tutor academico</option>";
                 data.data.forEach(function mostrar(element) {
                     if (element.tipo == "tutor_academico") {
                         comboTutorAcademico.innerHTML +=
@@ -70,6 +71,19 @@ export function cargarCombos() {
                                 element.nombre +
                                 "</option>";
                     }
+                });
+            });
+            var tipo = "tutor_empresa";
+            var tutor = pedirTutoresAcademicos(tipo);
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los tutores
+             */
+            tutor.then((data) => {
+                console.log(data.data);
+                comboTutorEmpresa.innerHTML =
+                    "<option selected disabled value='seleccionar'>Tutor empresa</option>";
+                data.data.forEach(function mostrar(element) {
                     if (element.tipo == "tutor_empresa") {
                         comboTutorEmpresa.innerHTML +=
                             "<option id='" +
@@ -81,9 +95,9 @@ export function cargarCombos() {
                 });
             });
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -102,9 +116,9 @@ export function cargarCombos() {
         case "tutor_empresa":
             var comboEmpresas = (document.getElementById("empresa"));
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -124,9 +138,9 @@ export function cargarCombos() {
             var comboCursos = (document.getElementById("curso"));
             var comboEmpresas = (document.getElementById("empresa"));
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -162,24 +176,22 @@ export function cargarCombos() {
             break;
         case "grado":
             var comboTutorAcademico = (document.getElementById("tutorA"));
-            var tutor = pedirTutores();
+            var tipo = "tutor_academico";
+            var tutor = pedirTutoresAcademicos(tipo);
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los nombres de los tutores
              */
             tutor.then((data) => {
-                console.log(data.data);
                 comboTutorAcademico.innerHTML =
                     "<option selected disabled value='seleccionar'>Coordinador</option>";
                 data.data.forEach(function mostrar(element) {
-                    if (element.tipo == "tutor_academico") {
-                        comboTutorAcademico.innerHTML +=
-                            "<option id='" +
-                                element.id +
-                                "'>" +
-                                element.nombre +
-                                "</option>";
-                    }
+                    comboTutorAcademico.innerHTML +=
+                        "<option id='" +
+                            element.id +
+                            "'>" +
+                            element.nombre +
+                            "</option>";
                 });
             });
             break;
@@ -200,16 +212,27 @@ export function pedirTutores() {
         return result;
     });
 }
+export function pedirTutoresAcademicos(tipo) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch("http://localhost/personas/show/" + tipo, {
+            method: "GET",
+        });
+        let result = yield response.json();
+        return result;
+    });
+}
 /**
  * Funcion que envia una peticion de datos de empresa al servidor
  * @returns Devuelve un array con las empresas que hay en la base de datos
  */
 export function pedirEmpresas() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/empresas/index", {
+        console.log("antes del response");
+        let response = yield fetch("http://localhost/empresas/index/combo", {
             method: "GET",
         });
         let result = yield response.json();
+        console.log(result);
         return result;
     });
 }

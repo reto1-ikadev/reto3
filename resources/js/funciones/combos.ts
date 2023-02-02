@@ -1,13 +1,25 @@
 export function cargarCombos() {
-     var oculto: HTMLInputElement = <HTMLInputElement>(document.getElementById("tipo"));
+    var oculto: HTMLInputElement = <HTMLInputElement>(
+        document.getElementById("tipo")
+    );
     switch (oculto.value) {
         case "alumno":
-            var comboCursos: HTMLElement = <HTMLElement>(document.getElementById("curso"));
-            var comboTutorEmpresa: HTMLElement = <HTMLElement>(document.getElementById("tutorE"));
-            var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
-            var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
-            var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
-            
+            var comboCursos: HTMLElement = <HTMLElement>(
+                document.getElementById("curso")
+            );
+            var comboTutorEmpresa: HTMLElement = <HTMLElement>(
+                document.getElementById("tutorE")
+            );
+            var comboTutorAcademico: HTMLElement = <HTMLElement>(
+                document.getElementById("tutorA")
+            );
+            var comboEmpresas: HTMLElement = <HTMLElement>(
+                document.getElementById("empresa")
+            );
+            var comboGrados: HTMLElement = <HTMLElement>(
+                document.getElementById("grado")
+            );
+
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los nombres de los grados
@@ -27,10 +39,10 @@ export function cargarCombos() {
                 });
             });
             var cursos = pedirCursos();
-        /**
-         * cursos recibe los datos que devuelve el servidor de la base de datos
-         * y con esos datos se llenan los combos con los cursos
-         */
+            /**
+             * cursos recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los cursos
+             */
             cursos.then((data) => {
                 console.log(data.data);
                 comboCursos.innerHTML =
@@ -44,8 +56,9 @@ export function cargarCombos() {
                         "</option>";
                 });
             });
-    
-            var tutor = pedirTutores();
+
+            var tipo = "tutor_academico";
+            var tutor = pedirTutoresAcademicos(tipo);
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los nombres de los tutores
@@ -53,7 +66,7 @@ export function cargarCombos() {
             tutor.then((data) => {
                 console.log(data.data);
                 comboTutorAcademico.innerHTML =
-                    "<option selected disabled value='seleccionar'>Tutor empresa</option>";
+                    "<option selected disabled value='seleccionar'>Tutor academico</option>";
                 data.data.forEach(function mostrar(element: any) {
                     if (element.tipo == "tutor_academico") {
                         comboTutorAcademico.innerHTML +=
@@ -63,6 +76,20 @@ export function cargarCombos() {
                             element.nombre +
                             "</option>";
                     }
+                });
+            });
+
+            var tipo = "tutor_empresa";
+            var tutor = pedirTutoresAcademicos(tipo);
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los tutores
+             */
+            tutor.then((data) => {
+                console.log(data.data);
+                comboTutorEmpresa.innerHTML =
+                    "<option selected disabled value='seleccionar'>Tutor empresa</option>";
+                data.data.forEach(function mostrar(element: any) {
                     if (element.tipo == "tutor_empresa") {
                         comboTutorEmpresa.innerHTML +=
                             "<option id='" +
@@ -73,11 +100,11 @@ export function cargarCombos() {
                     }
                 });
             });
-            
+
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -94,11 +121,13 @@ export function cargarCombos() {
             });
             break;
         case "tutor_empresa":
-            var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
+            var comboEmpresas: HTMLElement = <HTMLElement>(
+                document.getElementById("empresa")
+            );
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -115,12 +144,16 @@ export function cargarCombos() {
             });
             break;
         case "filtros_estudiante":
-            var comboCursos: HTMLElement = <HTMLElement>(document.getElementById("curso"));
-            var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
+            var comboCursos: HTMLElement = <HTMLElement>(
+                document.getElementById("curso")
+            );
+            var comboEmpresas: HTMLElement = <HTMLElement>(
+                document.getElementById("empresa")
+            );
             /**
-                 * Empresas recibe los datos que devuelve el servidor de la base de datos
-                 * y con esos datos se llenan los combos con los nombres de las empresas
-                 */
+             * Empresas recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de las empresas
+             */
             var empresas = pedirEmpresas();
             empresas.then((data) => {
                 console.log(data.data);
@@ -140,50 +173,47 @@ export function cargarCombos() {
              * cursos recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los cursos
              */
-                cursos.then((data) => {
-                    console.log(data.data);
-                    comboCursos.innerHTML =
-                        "<option selected disabled value='seleccionar'>Curso</option>";
-                    data.data.forEach(function mostrar(element: any) {
-                        comboCursos.innerHTML +=
-                            "<option id='" +
-                            element.id +
-                            "'>" +
-                            element.nombre +
-                            "</option>";
-                    });
+            cursos.then((data) => {
+                console.log(data.data);
+                comboCursos.innerHTML =
+                    "<option selected disabled value='seleccionar'>Curso</option>";
+                data.data.forEach(function mostrar(element: any) {
+                    comboCursos.innerHTML +=
+                        "<option id='" +
+                        element.id +
+                        "'>" +
+                        element.nombre +
+                        "</option>";
                 });
-
+            });
 
             break;
         case "grado":
-            var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
-        var tutor = pedirTutores();
-        /**
-         * Tutor recibe los datos que devuelve el servidor de la base de datos
-         * y con esos datos se llenan los combos con los nombres de los tutores
-         */
-        tutor.then((data) => {
-            console.log(data.data);
-            comboTutorAcademico.innerHTML =
-                "<option selected disabled value='seleccionar'>Coordinador</option>";
-            data.data.forEach(function mostrar(element: any) {
-                if (element.tipo == "tutor_academico") {
+            var comboTutorAcademico: HTMLElement = <HTMLElement>(
+                document.getElementById("tutorA")
+            );
+            var tipo = "tutor_academico";
+            var tutor = pedirTutoresAcademicos(tipo);
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los tutores
+             */
+            tutor.then((data: any) => {
+                comboTutorAcademico.innerHTML =
+                    "<option selected disabled value='seleccionar'>Coordinador</option>";
+                data.data.forEach(function mostrar(element: any) {
                     comboTutorAcademico.innerHTML +=
                         "<option id='" +
                         element.id +
                         "'>" +
                         element.nombre +
                         "</option>";
-                }
-                
+                });
             });
-        });
             break;
         default:
             break;
     }
-
 }
 
 /**
@@ -198,15 +228,25 @@ export async function pedirTutores() {
 
     return result;
 }
+export async function pedirTutoresAcademicos(tipo: string) {
+    let response = await fetch("http://localhost/personas/show/" + tipo, {
+        method: "GET",
+    });
+    let result = await response.json();
+
+    return result;
+}
 /**
  * Funcion que envia una peticion de datos de empresa al servidor
  * @returns Devuelve un array con las empresas que hay en la base de datos
  */
 export async function pedirEmpresas() {
-    let response = await fetch("http://localhost/empresas/index", {
+    console.log("antes del response");
+    let response = await fetch("http://localhost/empresas/index/combo", {
         method: "GET",
     });
     let result = await response.json();
+    console.log(result);
 
     return result;
 }
