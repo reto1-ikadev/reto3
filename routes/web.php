@@ -52,8 +52,7 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
 
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
-    Route::get('/', [AlumnoController::class, 'index'])->name('index')->middleware('auth');
-
+    Route::get('/', [AlumnoController::class, 'index'])->name('index');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 

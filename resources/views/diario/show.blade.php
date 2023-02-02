@@ -1,4 +1,4 @@
-@extends('layouts.headerfooter')
+
 @section('content')
 <!-- DIARIO DEL ALUMNO -->
 <div class="row mt-4  p-4">
@@ -29,13 +29,13 @@
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('tutor_academico') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('alumno') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                             </tr>
@@ -44,13 +44,13 @@
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('tutor_academico') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('alumno') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                             </tr>
@@ -59,13 +59,13 @@
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('tutor_academico') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                                 <td width="40%">
                                     <div class="mb-3">
                                         <label for="" class="form-label "></label>
-                                        <textarea class="form-control bg-default" name="" id="" rows="3"></textarea>
+                                        <textarea @can('alumno') disabled @endcan class="form-control bg-default" name="" id="" rows="3"></textarea>
                                     </div>
                                 </td>
                             </tr>

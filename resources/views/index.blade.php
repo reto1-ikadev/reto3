@@ -9,7 +9,7 @@
                 @include('alumno.tabla')
             @endcan
             @can('tutor_academico')
-                @include('tutor_academico.tabla')
+                @include('tutor.tabla')
             @endcan
         </div>
     </div>
