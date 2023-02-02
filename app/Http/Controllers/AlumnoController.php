@@ -46,11 +46,18 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $alumno = new Alumno;
+        $ide_alumno = Persona::select('id')->latest()->first();
+       
+        $alumno->id_alumno= $ide_alumno->id;
+        $alumno->id_curso = request('id_curso');
+        $alumno->id_tutor_academico = request('id_tutor_academico');
+        $alumno->id_tutor_empresa = request('id_tutor_empresa');
+        $alumno->direccion = request('direccion');
+        $alumno->save();
         return true;
     }
-
-
-
+    
     /**
      * Show the form for editing the specified resource.
      *

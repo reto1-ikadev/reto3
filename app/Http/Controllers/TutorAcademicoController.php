@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TutorAcademico;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class TutorAcademicoController extends Controller
@@ -36,8 +37,15 @@ class TutorAcademicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $tutorA = new TutorAcademico();
+        $ide_tutorA = Persona::select('id')->latest()->first();
+       
+        $tutorA->id_tutor_academico= $ide_tutorA->id;
+        $tutorA->telefono_academico = request('telefono_academico');
+       
+        $tutorA->save();
+        return true;
+    }//
 
     /**
      * Display the specified resource.
