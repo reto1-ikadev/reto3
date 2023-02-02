@@ -44,7 +44,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('tutores', function($user) {
-            return $user->persona->tipo == 'tutor_empresa' ||  $user->persona->tipo == 'tutor_academico';
+            return $user->persona->tipo == 'tutor_empresa' ||  $user->persona->tipo == 'tutor_academico' || $user->persona->tipo == 'coordinador';
         });
     }
 }

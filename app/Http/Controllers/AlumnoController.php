@@ -16,8 +16,6 @@ class AlumnoController extends Controller
            $id = auth()->user()->persona->id;
            if (auth()->user()->persona->tipo == 'tutor_academico'){
               return view('alumno.index');
-           }else if (auth()->user()->persona->tipo == 'tutor_academico'){
-
            }
     }
 

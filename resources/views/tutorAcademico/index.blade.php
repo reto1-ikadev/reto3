@@ -68,6 +68,6 @@
         </div>
     </div>
 
-    @vite(['resources/js/buscarEstudiantes.js'])
+    @vite(['resources/js/buscarEstudiantesTutor.js'])
 
 @endsection

@@ -26,14 +26,18 @@ Route::middleware(['auth'])->group( function (){
 //Rutas del coordinador
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
+    Route::get('/coordinador/update',[CoordinadorController::class,'update'])->name('coordinador.update');
 //Rutas de los estudiantes
         Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
 
-    Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
+    Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
         Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');
         Route::get('/estudiantes/filtrar', [AlumnoController::class, 'selectAllAlumnos'])->name('estudiantes.filtrar');
+        Route::get('/misestudiantes/index', [TutorAcademicoController::class, 'index'])->name('misestudiantes.index');
+        Route::get('/misestudiantes/filtrar', [TutorAcademicoController::class, 'selectAllAlumnosIdTutor'])->name('misestudiantes.filtrar');
+
         Route::post('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');

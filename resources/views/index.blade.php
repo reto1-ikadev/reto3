@@ -10,6 +10,7 @@
             @can('tutores')
                 @include('tutorAcademico.tabla')
             @endcan
+
         </div>
     </div>
 

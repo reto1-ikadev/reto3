@@ -16,10 +16,15 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('inicio.index') }}">P&aacute;gina Principal</a>
                             </li>
-                            @can('tutor_academico')
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Estudiantes</a>
-                            </li>
+                            @can('tutores')
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('misestudiantes.index') }}">Mis Estudiantes</a>
+                                </li>
+@endcan
+                                @can('coordinador')
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{ route('estudiantes.index') }}">Todos los Estudiantes</a>
+                                    </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('empresas.index') }}">Empresas</a>
                             </li>
@@ -44,11 +49,11 @@
 
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Estad&iacute;sticas</a>
-                            </li>
+                            </li> @endcan
+                            @can('tutores')
                             <li class="nav-item debajo">
-
                                 <hr class="bg-danger border-2 border-top border-primary">
-                                <a class="nav-link active" href="#">Cambiar modo</a>
+                                <a class="nav-link active" href="{{route('coordinador.update')}}">Cambiar modo</a>
                             </li>
                             @endcan
                             <li class="nav-item">
