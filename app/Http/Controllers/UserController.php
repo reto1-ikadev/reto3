@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         $validate = $request->validate([
             'email' => 'required'
-        ])
+        ]);
     }
 
 }

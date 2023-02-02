@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 use App\Models\Persona;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+session_start();
+
 
 class AlumnoController extends Controller
 {
     public function index(){
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
+        //get session user id
+        $id = auth()->user()->persona->id;
+        $alumno = Persona::find($id);
+        $tutor_academico = Persona::find($alumno->opcion_tipo->id_tutor_academico);
+        $tutor_empresa = Persona::find($alumno->opcion_tipo->id_tutor_empresa);
+        return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa]);
 
-        return view('alumno.index' );
     }
 
     public function show(int $id){
@@ -92,7 +99,7 @@ class AlumnoController extends Controller
 
         $request->grado = $request->grado == 0 ? '%' : $request->grado;
         $request->curso = $request->curso == 0 ? '%' : $request->curso;
-        $request->empresa = $request->empresa == 0 ? '%' : $request->empresa;
+        $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
         //query with join id_alumno, id_persona
@@ -106,7 +113,7 @@ class AlumnoController extends Controller
                 ['personas.nombre', 'like', '%' . $request->nombre . '%'],
                 ['cursos.id', 'like', $request->curso],
                 ['grados.id', 'like', $request->grado],
-                ['empresas.id', 'like', $request->empresa],
+                ['empresas.nombre', 'like', $request->empresa],
             ])
 
             ->orderBy('personas.id', 'desc');

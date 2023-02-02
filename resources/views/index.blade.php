@@ -8,6 +8,10 @@
             @can('alumno')
                 @include('alumno.tabla')
             @endcan
+            @can('tutor_academico')
+                @include('tutor_academico.tabla')
+            @endcan
         </div>
     </div>
+
 @endsection
