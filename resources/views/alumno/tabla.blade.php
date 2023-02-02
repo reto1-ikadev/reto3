@@ -1,3 +1,4 @@
+<!-- RESUMEN DEL ALUMNO -->
 <h5>Informacion del Tutor Academico</h5>
 <table class="table table-striped mb-3">
     <tr>

@@ -14,7 +14,7 @@ export function enviarDatosAlumno(datos) {
         })
         });
         if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
+            window.location.href = "http://localhost/empresas/index";
         }
     ;
 }

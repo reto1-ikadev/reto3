@@ -15,8 +15,8 @@ class EmpresasController extends Controller
     public function index()
     {
         $empresas = Empresa::all();
-        $resultado = ['sucess' => true, "data" => $empresas];
-        return $resultado;
+
+        return view('empresa.index', ['empresas' => $empresas]);
     }
 
     /**
@@ -92,5 +92,38 @@ class EmpresasController extends Controller
     public function destroy(Empresa $Empresa)
     {
         //
+    }
+
+    public static function selectAllEmpresas(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'sector' => 'string|nullable',
+            'pagina' => 'numeric|nullable'
+        ]);
+
+        $pagina = $request->pagina; 
+
+        $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
+        $request->sector = $request->sector == '' ? '%' : $request->sector;
+        $request->page = $request->page == '' ? 1 : $request->page;
+
+        $empresas = Empresa::select('empresas.nombre', 'empresas.cif', 'empresas.email_contacto', 'empresas.direccion', 'empresas.sector')
+                ->where([
+                    ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
+                    ['empresas.sector', 'like', '%' . $request->sector . '%'],
+                ])
+                ->orderby('empresas.id', 'desc');
+
+        $empresasTotal = $empresas->count();
+        $resultados = $empresas->offset(($pagina -1) * 10)->limit(10)->get();
+        $datos = [
+            'empresas' => $resultados,
+            'total' => $empresasTotal,
+            'pagina' => intval($pagina),
+            'por_pagina' => 10
+        ];
+
+        return ['success' => true, 'data' => $datos, 'message' => 'Empresas obtenidas correctamente'];
     }
 }
