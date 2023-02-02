@@ -14,7 +14,7 @@ class AlumnoController extends Controller
        // $estudiantes = Estudiante::all();
         //get session user id
            $id = auth()->user()->persona->id;
-           if (auth()->user()->persona->tipo == 'tutor_academico'){
+           if (auth()->user()->persona->tipo == 'coordinador'){
               return view('alumno.index');
            }
     }
