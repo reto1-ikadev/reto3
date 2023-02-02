@@ -7,13 +7,8 @@
                 @include('alumno.tabla')
                 @include('diario.show')
             @endcan
-<<<<<<< HEAD
             @can('tutor_academico')
                 
-=======
-            @can('tutores')
-            <h3>Tutor</h3>
->>>>>>> 0c98d596d04c7547274f512f166c44c5ed580750
             @endcan
         </div>
     </div>

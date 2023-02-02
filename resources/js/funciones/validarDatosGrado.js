@@ -20,11 +20,11 @@ function validarDatosGrado(e){
        if(cadenaValida){
             console.log(datos.get("nombre"));
             enviarDatosGrado(datos);
-            var selectCoordinador = document.getElementById("tutorA");
-            var idCoordinador = selectCoordinador.options[selectCoordinador.selectedIndex].id;
-            datos.set("coordinador",idCoordinador);
-            datos.delete("nombre");
-            enviarDatosGradoCoordinador(datos);
+            // var selectCoordinador = document.getElementById("tutorA");
+            // var idCoordinador = selectCoordinador.options[selectCoordinador.selectedIndex].id;
+            // datos.set("coordinador",idCoordinador);
+            // datos.delete("nombre");
+           // enviarDatosGradoCoordinador(datos);
        }
 
     } catch (error) {
@@ -33,21 +33,6 @@ function validarDatosGrado(e){
     }
 }
 
-function enviarDatosGrado(datos) {
-    console.log(datos.get("nombre"));
-    
-        let response = fetch("http://localhost/grado/store", {
-            headers: {
-                'X-CSRF-TOKEN': window.CSRF_TOKEN
-            },
-            method: 'POST',
-            body: datos
-        });
-        if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
-        }
-    
-}
 function enviarDatosGrado(datos) {
     console.log(datos.get("nombre"));
     
