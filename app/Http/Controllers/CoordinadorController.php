@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
 use App\Models\Coordinador;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class CoordinadorController extends Controller
@@ -14,7 +16,6 @@ class CoordinadorController extends Controller
      */
     public function index()
     {
-        return view('coordinador.index');
     }
 
     /**
