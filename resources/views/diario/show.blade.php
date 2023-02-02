@@ -1,5 +1,3 @@
-
-@section('content')
 <!-- DIARIO DEL ALUMNO -->
 <div class="row mt-4  p-4">
     <div class="col-md-5 d-flex mb-3">
@@ -8,7 +6,6 @@
     <div class="col">
         <button type="button" class="btn btn-primary">Habilitar edici&oacute;n</button>
     </div>
-
     <div class="col-12">
         <div class="row justify-content-center mt-5"> <!-- Para que pueda escribir el tutor y el alumno -->
             <form action="" method="post" class="col">
@@ -79,5 +76,3 @@
         </form>
     </div>
 </div>
-
-@endsection
