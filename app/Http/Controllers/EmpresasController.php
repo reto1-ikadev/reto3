@@ -44,18 +44,18 @@ class EmpresasController extends Controller
         $empresa->email_contacto = request('email');
         $empresa->sector = request('sector');
         $empresa->save();
-        
-        
+
+
         return true;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Empresas  $empresas
+     * @param  \App\Models\Empresa  $Empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresas $empresas)
+    public function show(Empresa $Empresa)
     {
         //
     }
@@ -63,10 +63,10 @@ class EmpresasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Empresas  $empresas
+     * @param  \App\Models\Empresa  $Empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresas $empresas)
+    public function edit(Empresa $Empresa)
     {
         //
     }
@@ -75,10 +75,10 @@ class EmpresasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Empresas  $empresas
+     * @param  \App\Models\Empresa  $Empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresas $empresas)
+    public function update(Request $request, Empresa $Empresa)
     {
         //
     }
@@ -86,10 +86,10 @@ class EmpresasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Empresas  $empresas
+     * @param  \App\Models\Empresa  $empresas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresas $empresas)
+    public function destroy(Empresa $Empresa)
     {
         //
     }

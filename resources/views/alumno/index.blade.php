@@ -10,25 +10,32 @@
                     <div class="row mb-5" id="filtrosEst">
                         <div class="col">
                             <select class="form-select" aria-label="select" id="grado" name="grado">
-                                
+
                             </select>
                         </div>
                         <div class="col">
                             <select class="form-select" aria-label="select" id="curso" name="curso">
-                                
+
                             </select>
                         </div>
                         <div class="col-3">
                             <select class="form-select" aria-label="select" id="empresa" name="empresa">
-                                
+
                             </select>
                         </div>
                         <div class="col">
                             <input class="form-control" name="nombre" placeholder="Buscar por nombre">
                         </div>
-                        <div class="col-2">
-                            <button type="submit" id="btn" class="btn btn-primary">Filtrar</button>
+                        <div class="col-2 d-flex flex-row">
+                            <button type="button" id="btn" class="btn btn-primary">Filtrar</button>&nbsp;<button type="button" id="btnReset" class="btn btn-primary">Reset</button>
                             <input type="hidden" name="tipo" id="tipo" value="filtros_estudiante">
+                        </div>
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination" id="pagination">
+
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </form>
@@ -44,7 +51,11 @@
                            <tbody id="tabla">
 
                            </tbody>
+
                         </table>
         </div>
     </div>
+
+    @vite(['resources/js/estudiantes.js'])
+
 @endsection

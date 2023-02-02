@@ -176,7 +176,7 @@ export function cargarCombos() {
                 data.data.forEach(function mostrar(element) {
                     comboEmpresas.innerHTML +=
                         "<option id='" +
-                        element.id +
+                        element.nombre +
                         "'>" +
                         element.nombre +
                         "</option>";
