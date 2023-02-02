@@ -13,12 +13,12 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
         //get session user id
-        $id = auth()->user()->persona->id;
-        $alumno = Persona::find($id);
-        $tutor_academico = Persona::find($alumno->opcion_tipo->id_tutor_academico);
-        $tutor_empresa = Persona::find($alumno->opcion_tipo->id_tutor_empresa);
-        return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa]);
+           $id = auth()->user()->persona->id;
+           if (auth()->user()->persona->tipo == 'tutor_academico'){
+              return view('alumno.index');
+           }else if (auth()->user()->persona->tipo == 'tutor_academico'){
 
+           }
     }
 
     public function show(int $id){
@@ -48,7 +48,7 @@ class AlumnoController extends Controller
     {
         $alumno = new Alumno;
         $ide_alumno = Persona::select('id')->latest()->first();
-       
+
         $alumno->id_alumno= $ide_alumno->id;
         $alumno->id_curso = request('id_curso');
         $alumno->id_tutor_academico = request('id_tutor_academico');
@@ -57,7 +57,7 @@ class AlumnoController extends Controller
         $alumno->save();
         return true;
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *

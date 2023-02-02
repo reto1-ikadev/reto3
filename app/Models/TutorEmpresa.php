@@ -24,7 +24,7 @@ class TutorEmpresa extends Model
 
     public function empresa()
     {
-        return $this->belongsTo(Empresas::class, 'id_empresa');
+        return $this->belongsTo(Empresa::class, 'id_empresa');
     }
 
 

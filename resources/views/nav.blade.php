@@ -14,7 +14,7 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('coordinador.index') }}">P&aacute;gina Principal</a>
+                                <a class="nav-link active" aria-current="page" href="{{ route('inicio.index') }}">P&aacute;gina Principal</a>
                             </li>
                             @can('tutor_academico')
                             <li class="nav-item">

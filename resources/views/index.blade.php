@@ -8,7 +8,7 @@
                 @include('diario.show')
             @endcan
             @can('tutores')
-            <h3>Tutor</h3>
+                @include('tutorAcademico.tabla')
             @endcan
         </div>
     </div>

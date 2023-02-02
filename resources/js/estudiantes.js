@@ -2,9 +2,7 @@ var button = document.getElementById('btn');
 button.addEventListener('click', alumnosFiltrado);
 var buttonReset = document.getElementById('btnReset');
 buttonReset.addEventListener('click', resetearFiltros);
-
-function alumnosFiltrado(evento,pagina = 1) {
-
+function alumnosFiltrado(evento, pagina = 1) {
     let formulario = new FormData(document.getElementById("filtrosEstudiantes"));
     let parametros = new URLSearchParams(formulario);
     //fecht para enviar los datos
@@ -22,19 +20,19 @@ function alumnosFiltrado(evento,pagina = 1) {
             for (let i = 1; i <= paginas; i++) {
                 if (i == pagina) {
                     paginacion.innerHTML += `
-                        <li class="page-item active"><a class="page-link" onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                        <li class="page-item active"><button class="page-link">${i}</button></li>
                     `;
                 } else if (i == pagina - 1 || i == pagina + 1) {
                     paginacion.innerHTML += `
-                        <li class="page-item"><a class="page-link"  onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                        <li class="page-item"><button class="page-link" onclick="alumnosFiltrado()">${i}</button></li>
                     `;
                 } else if (i == 1 || i == paginas) {
                     paginacion.innerHTML += `
-                        <li class="page-item"><a class="page-link"  onclick="alumnosFiltrado(null,${i})">${i}</a></li>
+                        <li class="page-item"><button class="page-link"  >${i}</button></a></li>
                     `;
                 } else if (i == pagina - 2 || i == pagina + 2) {
                     paginacion.innerHTML += `
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
+                        <li class="page-item disabled"><button class="page-link">...</button></li>
                     `;
                 }
             }
@@ -60,3 +58,4 @@ function resetearFiltros() {
     alumnosFiltrado(null);
 }
 alumnosFiltrado(null);
+

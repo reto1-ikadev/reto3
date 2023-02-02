@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresasController;
@@ -26,6 +27,8 @@ Route::middleware(['auth'])->group( function (){
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
+        Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+
     Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
@@ -56,7 +59,6 @@ Route::post('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->na
 Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
 
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
-    Route::get('/', [AlumnoController::class, 'index'])->name('index');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 

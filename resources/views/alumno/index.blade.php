@@ -30,6 +30,8 @@
                             <button type="button" id="btn" class="btn btn-primary">Filtrar</button>&nbsp;<button type="button" id="btnReset" class="btn btn-primary">Reset</button>
                             <input type="hidden" name="tipo" id="tipo" value="filtros_estudiante">
                         </div>
+                    </div>
+                </form>
                         <div class="row mt-3 d-flex justify-content-end">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination" id="pagination">
@@ -38,7 +40,7 @@
                             </nav>
                         </div>
                     </div>
-                </form>
+
                         <table class="table mt-2">
                             <thead>
                             <td>Nombre</td>
