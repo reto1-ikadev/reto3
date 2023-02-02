@@ -1,6 +1,6 @@
 @extends('layouts.headerfooter')
 @section('content')
-
+@vite('resources/js/formularios/llenarCombos.js')
 
 <div class="row justify-content-center mb-5 mt-5 ">
     <div class="col-12">

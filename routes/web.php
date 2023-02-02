@@ -62,7 +62,9 @@ Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->nam
 
 });
 //Rutas de los grados
-
+Route::get('/grado/create',[GradoController::class,'create'])->name('grado.create');
+Route::post('/grado/store',[GradoController::class,'store'])->name('grado.store');
+Route::get('/grado/store',[GradoController::class,'store'])->name('grado.store');
 //Deshabilitamos el registro.
 Auth::routes(['register' => false]);
 

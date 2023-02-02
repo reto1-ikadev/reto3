@@ -1,32 +1,31 @@
 export function cargarCombos() {
-    var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
-    var oculto: HTMLInputElement = <HTMLInputElement>(document.getElementById("tipo"));
-    /**
-     * Tutor recibe los datos que devuelve el servidor de la base de datos
-     * y con esos datos se llenan los combos con los nombres de los grados
-     */
-    var grados = pedirGrados();
-    grados.then((data) => {
-        console.log(data.data);
-        comboGrados.innerHTML =
-            "<option selected disabled value='seleccionar'>Grado</option>";
-        data.data.forEach(function mostrar(element: any) {
-            comboGrados.innerHTML +=
-                "<option id='" +
-                element.id +
-                "'>" +
-                element.nombre +
-                "</option>";
-        });
-    });
-
+     var oculto: HTMLInputElement = <HTMLInputElement>(document.getElementById("tipo"));
     switch (oculto.value) {
         case "alumno":
             var comboCursos: HTMLElement = <HTMLElement>(document.getElementById("curso"));
             var comboTutorEmpresa: HTMLElement = <HTMLElement>(document.getElementById("tutorE"));
             var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
             var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
-    
+            var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
+            
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los grados
+             */
+            var grados = pedirGrados();
+            grados.then((data) => {
+                console.log(data.data);
+                comboGrados.innerHTML =
+                    "<option selected disabled value='seleccionar'>Grado</option>";
+                data.data.forEach(function mostrar(element: any) {
+                    comboGrados.innerHTML +=
+                        "<option id='" +
+                        element.id +
+                        "'>" +
+                        element.nombre +
+                        "</option>";
+                });
+            });
             var cursos = pedirCursos();
         /**
          * cursos recibe los datos que devuelve el servidor de la base de datos
@@ -156,6 +155,30 @@ export function cargarCombos() {
                 });
 
 
+            break;
+        case "grado":
+            var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
+        var tutor = pedirTutores();
+        /**
+         * Tutor recibe los datos que devuelve el servidor de la base de datos
+         * y con esos datos se llenan los combos con los nombres de los tutores
+         */
+        tutor.then((data) => {
+            console.log(data.data);
+            comboTutorAcademico.innerHTML =
+                "<option selected disabled value='seleccionar'>Coordinador</option>";
+            data.data.forEach(function mostrar(element: any) {
+                if (element.tipo == "tutor_academico") {
+                    comboTutorAcademico.innerHTML +=
+                        "<option id='" +
+                        element.id +
+                        "'>" +
+                        element.nombre +
+                        "</option>";
+                }
+                
+            });
+        });
             break;
         default:
             break;

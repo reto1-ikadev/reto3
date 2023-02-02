@@ -39,6 +39,7 @@
                                     <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Tutor de empresa</a></li>
                                     <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Estudiantes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('empresas.create') }}">Empresa</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('grado.create') }}">Grado</a></li>
                                 </ul>
                             </li>
 
