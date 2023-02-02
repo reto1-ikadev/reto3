@@ -2845,3 +2845,9 @@
 1675256934-5502-765206043,1675256934.5375,GET,/estudiantes/filtrar?pagina=1&curso=2%C2%BA+SMI&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,40.719032287598,request
 1675256936-7488-1057958358,1675256936.7397,GET,/estudiantes/filtrar?pagina=1&curso=1%C2%BA+SMI&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,31.280994415283,request
 1675256939-6072-2055691556,1675256939.597,GET,/estudiantes/filtrar?pagina=1&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,36.719083786011,request
+1675335053-1693-1296128340,1675335053.1551,GET,/,Closure,200,67.490100860596,request
+1675335053-2374-36387375,1675335053.2297,GET,/,Closure,200,34.883975982666,request
+1675335053-2883-219837423,1675335053.2799,GET,/,Closure,200,42.004108428955,request
+1675335053-3389-991958005,1675335053.3294,GET,/,Closure,200,53.308010101318,request
+1675335053-3993-774102888,1675335053.3902,GET,/,Closure,200,37.912130355835,request
+1675335053-4486-259541093,1675335053.4369,GET,/,Closure,200,39.882898330688,request
