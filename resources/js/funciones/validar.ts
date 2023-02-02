@@ -74,11 +74,12 @@ export function validar(datos:FormData) {
             var selectCurso:HTMLSelectElement =<HTMLSelectElement> document.getElementById("curso");
             var idCurso = selectGrado.options[selectCurso.selectedIndex].id;
             datos.set("idCurso",idCurso);
+            
 
             var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
             var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
             datos.set("idEmpresa",idEmpresa);
-
+            
             var selectTutorA:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorA");
             var idTutorA = selectTutorA.options[selectTutorA.selectedIndex].id;
             datos.set("idTutorA",idTutorA);
@@ -155,7 +156,13 @@ export function validar(datos:FormData) {
             }
             else{
                 if(datos.get("tipo")=="tutor_empresa"){
+                    var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
+                    var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
+
+                    datos.set("idEmpresa",idEmpresa);
+                    console.log("id Empresa "+datos.get("idEmpresa"));
                     departamentoValido = validarCadena(<string>datos.get("departamento"));
+                    console.log(datos.get("departamento"));
                 }
                 if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido) {
                         datosValidos = true;
@@ -211,8 +218,7 @@ export function validar(datos:FormData) {
             var cadenaValida: boolean = false;
             var regExp: RegExp = new RegExp(/^(?=.{3,15}$)[A-ZÁÉÍÓÚ][a-zñáéíóú]+(?: [A-ZÁÉÍÓÚ][a-zñáéíóú]+)?$/gm);
             if (!regExp.test(<string>cadena)) {
-                var prueba = regExp.test(<string>cadena);
-                //console.log(prueba + cadena);
+                
                 throw cadena + " no tiene el formato adecuado";
             } else {
                 cadenaValida = true;

@@ -147,7 +147,12 @@ export function validar(datos) {
             }
             else {
                 if (datos.get("tipo") == "tutor_empresa") {
+                    var selectEmpresa = document.getElementById("empresa");
+                    var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
+                    datos.set("idEmpresa", idEmpresa);
+                    console.log("id Empresa " + datos.get("idEmpresa"));
                     departamentoValido = validarCadena(datos.get("departamento"));
+                    console.log(datos.get("departamento"));
                 }
                 if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido) {
                     datosValidos = true;
@@ -202,8 +207,6 @@ export function validar(datos) {
             var cadenaValida = false;
             var regExp = new RegExp(/^(?=.{3,15}$)[A-ZÁÉÍÓÚ][a-zñáéíóú]+(?: [A-ZÁÉÍÓÚ][a-zñáéíóú]+)?$/gm);
             if (!regExp.test(cadena)) {
-                var prueba = regExp.test(cadena);
-                //console.log(prueba + cadena);
                 throw cadena + " no tiene el formato adecuado";
             }
             else {
