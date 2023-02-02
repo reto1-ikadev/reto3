@@ -15,7 +15,6 @@
 
     <style>
         /*Codigo necesario para poder hacer que el footer este abajo*/
-
         .contenido{
             margin-top: 12em;
         }
@@ -66,7 +65,7 @@
         </div>
 
 
-                <footer class="footer mt-auto text-center" style="background-color: #f1f1f1;">
+                <footer class="footer mt-5 text-center" style="background-color: #f1f1f1;">
                     <!-- Grid container -->
                     <div class="container-fluid pt-4">
                         <!-- Section: Social media -->
