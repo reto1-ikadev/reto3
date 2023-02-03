@@ -41,8 +41,6 @@
             <div class="col-md-6">
                 <input type="text" class="form-control" name="cp" id="cp" value="01003" required>
             </div>
-
-
             <div class="col-md-6    ">
                 <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Tel&eacute;fono" required>
             </div>
@@ -56,20 +54,15 @@
 
                 </select>
             </div>
-
             <div class="col-md-6">
                 <select class="form-select" name="tutorA" id="tutorA" required>
 
                 </select>
             </div>
-
-
             <div class="col-md-6">
                 <select class="form-select" name="tutorE" id="tutorE" required>
-
                 </select>
             </div>
-
             <div class="row my-2"></div>
             <div class="col-12">
                 <!--AQUI EL BTON COMPONENTE -->

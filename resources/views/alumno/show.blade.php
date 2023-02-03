@@ -10,30 +10,30 @@
         <form action="" method="post" class="row gx-2 gy-2">
             <!-- Formulario para editar los datos personales del alumno -->
             <div class="col-12 d-flex mb-3">
-                <h5>Datos personales</h5><button type="button" class="ms-5 align-center btn bg-primary btn-sm ms-2">Editar </button>
+                <h5>Datos personales</h5><a href="/estudiantes/detalle/{{$estudiante->id}}?accion=habilitar"><button type="button" class="ms-5 align-center btn bg-primary btn-sm ms-2">Editar</button></a>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control " id="nombreE" placeholder="Nombre y Apellido" value="{{$estudiante->nombre." ".$estudiante->apellidos}}" disabled>
-            </div>
-
-            <div class="col-md-6">
-                <input type="text" class="form-control " id="dni" placeholder="Dni" value="{{$estudiante->dni}}" disabled>
+                <input type="text" class="form-control"name="nombreApellido" id="nombreE" placeholder="Nombre y Apellido" value="{{$estudiante->nombre}} {{$estudiante->apellidos}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp >
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control " id="telefono" placeholder="Telefono" value="{{$estudiante->telefono}}" disabled>
+                <input type="text" class="form-control "name="dni" id="dni" placeholder="Dni" value="{{$estudiante->dni}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp>
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control " id="email" placeholder="Email" value="{{$estudiante->user->email}}" disabled>
+                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" value="{{$estudiante->telefono}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp>
+            </div>
+
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{$estudiante->user->email}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp>
             </div>
 
             <div class="col-md-6 ">
-                <input type="text" class="form-control " id="direccion" placeholder="Direccion" value="{{$estudiante->opcion_tipo->direccion}}" disabled>
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion" value="{{$estudiante->opcion_tipo->direccion}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp>
             </div>
 
             <div class="col-md-6 ">
-                <input type="text" class="form-control " id="curso" placeholder="Curso" value="{{$estudiante->opcion_tipo->curso->nombre." ". $estudiante->opcion_tipo->curso->grado->nombre}}" disabled>
+                <input type="text" class="form-control" name="curso" id="curso" placeholder="Curso" value="{{$estudiante->opcion_tipo->curso->nombre}} {{ $estudiante->opcion_tipo->curso->grado->nombre}}" @php if(isset($_GET["accion"])&&$_GET["accion"] =="habilitar"){echo 'enabled';} else{ echo 'disabled'; } @endphp>
             </div>
             <div class="col-4 offset-8">
                 <button type="submit" class="ms-5 align-center btn bg-primary btn-sm ms-2">Guardar cambios </button>
