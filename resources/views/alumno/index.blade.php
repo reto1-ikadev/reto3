@@ -1,6 +1,6 @@
 @extends('layouts.headerfooter')
 @section('content')
-
+@vite('resources/js/formularios/llenarCombos.js')
     <!--CARROUSEL o TABLAS-->
 
     <div class="row justify-content-center mt-5">
