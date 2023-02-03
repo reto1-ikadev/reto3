@@ -26,7 +26,7 @@ export function cargarCombos() {
             var comboTutorEmpresa: HTMLElement = <HTMLElement>(document.getElementById("tutorE"));
             var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
             var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
-    
+
             var cursos = pedirCursos();
         /**
          * cursos recibe los datos que devuelve el servidor de la base de datos
@@ -45,7 +45,7 @@ export function cargarCombos() {
                         "</option>";
                 });
             });
-    
+
             var tutor = pedirTutores();
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
@@ -74,7 +74,7 @@ export function cargarCombos() {
                     }
                 });
             });
-            
+
             /**
                  * Empresas recibe los datos que devuelve el servidor de la base de datos
                  * y con esos datos se llenan los combos con los nombres de las empresas

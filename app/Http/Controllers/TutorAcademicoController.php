@@ -105,8 +105,8 @@ class TutorAcademicoController extends Controller
         ]);
         $pagina = $request->pagina;
         $id_tutor = auth()->user()->id;
-        $request->grado = $request->grado == 0 ? '%' : $request->grado;
-        $request->curso = $request->curso == 0 ? '%' : $request->curso;
+        $request->grado = $request->grado == '' ? '%' : $request->grado;
+        $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
@@ -115,16 +115,15 @@ class TutorAcademicoController extends Controller
             ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
             ->join('grados', 'cursos.id_grado', '=', 'grados.id')
             ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
-            //join con tutores academicos
             ->join('tutores_academicos', 'alumnos.id_tutor_academico', '=', 'tutores_academicos.id_tutor_academico')
             ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
             ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
             ->where([
                 ['personas.nombre', 'like', '%' . $request->nombre . '%'],
-                ['cursos.id', 'like', $request->curso],
-                ['grados.id', 'like', $request->grado],
+                ['cursos.nombre', 'like', $request->curso],
+                ['grados.nombre', 'like', $request->grado],
                 ['empresas.nombre', 'like', $request->empresa],
-                ['tutores_academicos.id_tutor_academico', '=', $id_tutor],
+                ['alumnos.id_tutor_academico', '=', $id_tutor],
             ])
 
             ->orderBy('personas.id', 'desc');

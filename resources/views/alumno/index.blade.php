@@ -3,11 +3,12 @@
 
     <!--CARROUSEL o TABLAS-->
 
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-1 mb-2">
         <div class="col-10">
+            <div class="row">
                 <h2>Estudiante</h2>
                 <form id="filtrosEstudiantes" action="" method="get" >
-                    <div class="row mb-5" id="filtrosEst">
+                    <div class="row mb-2" id="filtrosEst">
                         <div class="col">
                             <select class="form-select" aria-label="select" id="grado" name="grado">
 
@@ -32,8 +33,8 @@
                         </div>
                     </div>
                 </form>
-                        <div class="row mt-3 d-flex justify-content-end">
-                            <nav aria-label="Page navigation example">
+                        <div class="row d-flex justify-content-end">
+                            <nav class="col" >
                                 <ul class="pagination" id="pagination">
                                     <li class="page-item">
                                         <button class="page-link" href="#" id="anterior" aria-label="Previous">
@@ -49,9 +50,9 @@
                                 </ul>
                             </nav>
                         </div>
-                    </div>
-
-                        <table class="table mt-2">
+            </div>
+            <div class="row">
+                        <table class="table mt-2 ">
                             <thead>
                             <td>Nombre</td>
                             <td>Apellido</td>
@@ -65,6 +66,7 @@
                            </tbody>
 
                         </table>
+            </div>
         </div>
     </div>
 

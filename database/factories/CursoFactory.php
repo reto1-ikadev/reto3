@@ -18,7 +18,8 @@ class CursoFactory extends Factory
     {
         return [
             //
-            'nombre' => $this->faker->randomElement(['1º DAW', '2º DAW', '1º SMI', '2º SMI', '1º ASIR', '2º ASIR']),
+            'nombre' => $this->faker->randomElement(['1º', '2º', '3º', '3+4º']),
         ];
+
     }
 }
