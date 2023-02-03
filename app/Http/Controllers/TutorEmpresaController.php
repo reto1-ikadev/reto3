@@ -15,7 +15,7 @@ class TutorEmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return view('tutorEmpresa.index');
     }
 
     /**
@@ -90,5 +90,43 @@ class TutorEmpresaController extends Controller
     public function destroy(TutorEmpresa $tutorEmpresa)
     {
         //
+    }
+
+    public function selectAllTutoresEmpresas(Request $request){
+        $request->validate([
+            'empresa' => 'string|nullable',
+            'departamento' => 'string|nullable',
+            'nombre' => 'string|nullable',
+            'pagina' => 'numeric|nullable'
+        ]);
+
+        $pagina = $request->pagina;
+
+        $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
+        $request->departamento = $request->departamento == '' ? '%' : $request->departamento;
+        $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
+        $request->page = $request->page == '' ? 1 : $request->page;
+
+        $empresas = TutorEmpresa::join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
+                ->join('personas', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
+                ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
+                ->join('')
+                ->select('tutores_empresas.nombre', 'tutores_empresas.apellido', 'tutores_empresas.email', 'tutores_empresas.empresa', 'tutores_empresas.departamento')
+                ->where([
+                    ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
+                    ['empresas.sector', 'like', '%' . $request->sector . '%'],
+                ])
+                ->orderby('empresas.id', 'desc');
+
+        $empresasTotal = $empresas->count();
+        $resultados = $empresas->offset(($pagina -1) * 10)->limit(10)->get();
+        $datos = [
+            'empresas' => $resultados,
+            'total' => $empresasTotal,
+            'pagina' => intval($pagina),
+            'por_pagina' => 10
+        ];
+
+        return ['success' => true, 'data' => $datos, 'message' => 'Empresas obtenidas correctamente'];
     }
 }
