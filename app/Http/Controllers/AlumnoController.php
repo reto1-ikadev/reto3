@@ -13,12 +13,10 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
         //get session user id
-        $id = auth()->user()->persona->id;
-        $alumno = Persona::find($id);
-        $tutor_academico = Persona::find($alumno->opcion_tipo->id_tutor_academico);
-        $tutor_empresa = Persona::find($alumno->opcion_tipo->id_tutor_empresa);
-        return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa]);
-
+           $id = auth()->user()->persona->id;
+           if (auth()->user()->persona->tipo == 'coordinador'){
+              return view('alumno.index');
+           }
     }
 
     public function show(int $id){
@@ -48,7 +46,7 @@ class AlumnoController extends Controller
     {
         $alumno = new Alumno;
         $ide_alumno = Persona::select('id')->latest()->first();
-       
+
         $alumno->id_alumno= $ide_alumno->id;
         $alumno->id_curso = request('id_curso');
         $alumno->id_tutor_academico = request('id_tutor_academico');
@@ -57,7 +55,7 @@ class AlumnoController extends Controller
         $alumno->save();
         return true;
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -104,8 +102,8 @@ class AlumnoController extends Controller
         ]);
         $pagina = $request->pagina;
 
-        $request->grado = $request->grado == 0 ? '%' : $request->grado;
-        $request->curso = $request->curso == 0 ? '%' : $request->curso;
+        $request->grado = $request->grado == '' ? '%' : $request->grado;
+        $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
@@ -118,8 +116,8 @@ class AlumnoController extends Controller
             ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
             ->where([
                 ['personas.nombre', 'like', '%' . $request->nombre . '%'],
-                ['cursos.id', 'like', $request->curso],
-                ['grados.id', 'like', $request->grado],
+                ['cursos.nombre', 'like', $request->curso],
+                ['grados.nombre', 'like', $request->grado],
                 ['empresas.nombre', 'like', $request->empresa],
             ])
 

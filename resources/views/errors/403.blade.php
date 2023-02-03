@@ -7,7 +7,7 @@
             <h5 class="card-title">Acceso denegado</h5>
             <img src="https://pbs.twimg.com/media/D6ileuEX4AEQa26.jpg" class="mb-3" alt="" width="75%" height="75%" srcset="">
             <br>
-            <a href="{{ route('index') }}" class="btn btn-primary">Volver</a>
+            <a href="{{ route('inicio.index') }}" class="btn btn-primary">Volver</a>
         </div>
     </div>
 

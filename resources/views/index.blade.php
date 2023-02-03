@@ -7,14 +7,11 @@
                 @include('alumno.tabla')
                 @include('diario.show')
             @endcan
-
-            @can('tutor_academico')
-                
-
-
-            <h3>Tutor</h3>
+            @can('tutores')
+                @include('tutorAcademico.tabla')
 
             @endcan
+
         </div>
     </div>
 
