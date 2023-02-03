@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Persona;
 use App\Models\User;
 use App\Models\Alumno;
+use App\Models\Grado;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 session_start();
 
@@ -90,9 +92,33 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, Alumno $estudiante)
     {
-        //
+        $persona = new Persona;
+        $persona = Persona::find($estudiante->id_alumno);
+
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        
+        $persona->update();
+        $usuario = new User;
+        $usuario = User::find($persona->id);
+
+        $usuario->email = request('email');
+        $usuario->update();
+
+        $estudiante->direccion = $request->direccion;
+        $estudiante->update();
+
+        $estudiante->curso->nombre = request('curso');
+        $estudiante->curso->update();
+
+        $estudiante->curso->grado->nombre = request('grado');
+        $estudiante->curso->grado->update();
+
+        return redirect(route('estudiantes.index'));
     }
 
     /**

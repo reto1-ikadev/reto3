@@ -43,8 +43,9 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/coordinador/update',[CoordinadorController::class,'update'])->name('coordinador.update');
 //Rutas de los estudiantes
         Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+        
 
-    Route::middleware(['auth', 'can:tutores'])->group( function() {
+        Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
         Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');
@@ -55,6 +56,7 @@ Route::middleware(['auth'])->group( function (){
         Route::post('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
+        Route::put('estudiantes/{estudiante}',[AlumnoController::class,'update'])->name('estudiantes.update');
     });
 //Rutas de las empresas
     Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
