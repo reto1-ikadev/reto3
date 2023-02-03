@@ -1,59 +1,57 @@
-let button = document.getElementById('btn');
-button.addEventListener('click', llamarFiltrado);
-let buttonReset = document.getElementById('btnReset');
-buttonReset.addEventListener('click', resetearFiltros);
-let paginaActual = 1;
-let botonAnterior = document.getElementById('anterior');
-let botonpaginaActual = document.getElementById('paginaActual');
-let botonSiguiente = document.getElementById('siguiente');
-botonAnterior.addEventListener('click', function () {
-    paginaActual--;
-    empresasFiltrado(null, paginaActual);
+let buttonEmpresa = document.getElementById('btn');
+buttonEmpresa.addEventListener('click', llamarFiltrado);
+let buttonResetEmpresa = document.getElementById('btnReset');
+buttonResetEmpresa.addEventListener('click', resetearFiltrosEmpresas);
+let paginaActualEmpresa = 1;
+let botonAnteriorEmpresa = document.getElementById('anterior');
+let botonpaginaActualEmpresa = document.getElementById('paginaActual');
+let botonSiguienteEmpresa = document.getElementById('siguiente');
+botonAnteriorEmpresa.addEventListener('click', function () {
+    paginaActualEmpresa--;
+    empresasFiltrado(null, paginaActualEmpresa);
 });
-botonSiguiente.addEventListener('click', function () {
-    paginaActual++;
-    empresasFiltrado(null, paginaActual);
+botonSiguienteEmpresa.addEventListener('click', function () {
+    paginaActualEmpresa++;
+    empresasFiltrado(null, paginaActualEmpresa);
 });
-
 function llamarFiltrado(evento) {
-    paginaActual=1;
-    empresasFiltrado(evento, paginaActual);
+    paginaActualEmpresa = 1;
+    empresasFiltrado(evento, paginaActualEmpresa);
 }
 function empresasFiltrado(evento, pagina = 1) {
-
     let formulario = new FormData(document.getElementById("filtrosEmpresas"));
     let parametros = new URLSearchParams(formulario);
-    let x=1;
+    let x = 1;
     //fetch para enviar los datos
     fetch('/empresas/filtrar?pagina=' + pagina + "&" + parametros, {
         method: 'GET',
     })
         .then(response => response.json())
         .then(data => {
-            let accordion = document.getElementById('accordion');
-            accordion.innerHTML = '';
-            let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
-            botonpaginaActual.innerHTML = data.data['pagina'];
-            if (data.data['pagina'] == 1) {
-                botonAnterior.classList.add('disabled');
-            }
-            else {
-                botonAnterior.classList.remove('disabled');
-            }
-            if (data.data['pagina'] == paginas) {
-                botonSiguiente.classList.add('disabled');
-            }
-            else {
-                botonSiguiente.classList.remove('disabled');
-            }
-            if (data.data['total'] == 0) {
-                botonAnterior.classList.add('disabled');
-                botonSiguiente.classList.add('disabled');
-            }
-            data.data['empresas'].forEach(element => {
-                x++;
-                accordion.innerHTML += `
-            
+        let accordion = document.getElementById('accordion');
+        accordion.innerHTML = '';
+        let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
+        botonpaginaActualEmpresa.innerHTML = data.data['pagina'];
+        if (data.data['pagina'] == 1) {
+            botonAnteriorEmpresa.classList.add('disabled');
+        }
+        else {
+            botonAnteriorEmpresa.classList.remove('disabled');
+        }
+        if (data.data['pagina'] == paginas) {
+            botonSiguienteEmpresa.classList.add('disabled');
+        }
+        else {
+            botonSiguienteEmpresa.classList.remove('disabled');
+        }
+        if (data.data['total'] == 0) {
+            botonAnteriorEmpresa.classList.add('disabled');
+            botonSiguienteEmpresa.classList.add('disabled');
+        }
+        data.data['empresas'].forEach(function (element) {
+            x++;
+            accordion.innerHTML += `
+
             <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne${x}">
@@ -73,14 +71,14 @@ function empresasFiltrado(evento, pagina = 1) {
         </div>
         `;
         });
-        })
+    })
         .catch(error => {
-            console.log(error);
-        });
-
+        console.log(error);
+    });
 }
-function resetearFiltros() {
-    document.getElementById("filtrosEmpresas").reset();
-    empresasFiltrado();
+function resetearFiltrosEmpresas() {
+    let formulario = document.getElementById("filtrosEmpresas");
+    formulario.reset();
+    empresasFiltrado(null);
 }
 empresasFiltrado(null, 1);
