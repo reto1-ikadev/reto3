@@ -1,8 +1,24 @@
-var button = document.getElementById('btn');
-button.addEventListener('click', empresasFiltrado);
-var buttonReset = document.getElementById('btnReset');
+let button = document.getElementById('btn');
+button.addEventListener('click', llamarFiltrado);
+let buttonReset = document.getElementById('btnReset');
 buttonReset.addEventListener('click', resetearFiltros);
+let paginaActual = 1;
+let botonAnterior = document.getElementById('anterior');
+let botonpaginaActual = document.getElementById('paginaActual');
+let botonSiguiente = document.getElementById('siguiente');
+botonAnterior.addEventListener('click', function () {
+    paginaActual--;
+    empresasFiltrado(null, paginaActual);
+});
+botonSiguiente.addEventListener('click', function () {
+    paginaActual++;
+    empresasFiltrado(null, paginaActual);
+});
 
+function llamarFiltrado(evento) {
+    paginaActual=1;
+    empresasFiltrado(evento, paginaActual);
+}
 function empresasFiltrado(evento, pagina = 1) {
 
     let formulario = new FormData(document.getElementById("filtrosEmpresas"));
@@ -16,28 +32,23 @@ function empresasFiltrado(evento, pagina = 1) {
         .then(data => {
             let accordion = document.getElementById('accordion');
             accordion.innerHTML = '';
-            let paginacion = document.getElementById('pagination');
-            paginacion.innerHTML = '';
             let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
-
-            for (let i = 1; i <= paginas; i++) {
-                if (i == pagina) {
-                    paginacion.innerHTML += `
-                        <li class="page-item active"><a class="page-link" onclick="empresasFiltrado(null,${i})">${i}</a></li>
-                    `;
-                } else if (i == pagina - 1 || i == pagina + 1) {
-                    paginacion.innerHTML += `
-                        <li class="page-item"><a class="page-link"  onclick="empresasFiltrado(null,${i})">${i}</a></li>
-                    `;
-                } else if (i == 1 || i == paginas) {
-                    paginacion.innerHTML += `
-                        <li class="page-item"><a class="page-link"  onclick="empresasFiltrado(null,${i})">${i}</a></li>
-                    `;
-                } else if (i == pagina - 2 || i == pagina + 2) {
-                    paginacion.innerHTML += `
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                    `;
-                }
+            botonpaginaActual.innerHTML = data.data['pagina'];
+            if (data.data['pagina'] == 1) {
+                botonAnterior.classList.add('disabled');
+            }
+            else {
+                botonAnterior.classList.remove('disabled');
+            }
+            if (data.data['pagina'] == paginas) {
+                botonSiguiente.classList.add('disabled');
+            }
+            else {
+                botonSiguiente.classList.remove('disabled');
+            }
+            if (data.data['total'] == 0) {
+                botonAnterior.classList.add('disabled');
+                botonSiguiente.classList.add('disabled');
             }
             data.data['empresas'].forEach(element => {
                 x++;
