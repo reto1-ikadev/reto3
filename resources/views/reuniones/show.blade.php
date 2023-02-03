@@ -8,51 +8,61 @@
         <button type="button" class="btn btn-primary">Habilitar edici&oacute;n</button>
     </div>
     <div class="table-responsive">
-        <form action="" method="post">
-            <table class="table">
+        <form action="/crear_reunion" method="post">
+            @csrf
+            <table class="table" style="list-style: none;">
                 <tr>
                     <th>Fecha</th>
-                    <td>22/09/2022</th>
+                    <td>{{ $fecha }}</th>
                 </tr>
 
                 <tr class="">
                     <th>Asistentes</th>
                     <td>
-                        <ul>
-                            <li><input type="text" class="form-control " value="Asistente" disabled></li>
-                            <li><input type="text" class="form-control " value="Asistente" disabled></li>
-                            <li><input type="text" class="form-control " value="Asistente" disabled></li>
+                        <ul id="lista">
+                            <li><input name="asistente1" type="text" class="form-control" placeholder="Asistente"></li>
+                            <!--<li><input type="text" class="form-control" value="Asistente" disabled></li>
+                            <li><input type="text" class="form-control" value="Asistente" disabled></li>-->
                         </ul>
+                        <div class="d-inline-flex p-2">
+                            <button style="margin: 20px;" type="button" class="btn btn-primary" name="aniadirAsistente" value="aniadirAsistente" id="aniadirAsistente">Añadir Asistente</button>
+                            <button style="margin: 20px;" type="button" class="btn btn-primary" name="quitarAsistente" value="quitarAsistente" id="quitarAsistente">Quitar Asistente</button>
+                        </div>    
                     </td>
                 </tr>
                 <tr class="">
                     <th>Tipo</th>
                     <td>
-                        Presencial
+                        <select class="form-select" id="selectTipoReunion" name="selectTipoReunion">
+                            <option default value="presencial">Presencial</option>
+                            <option value="llamada">Llamada</option>
+                        </select>
                     </td>
                 </tr>
                 <tr class="">
                     <th>Objetivos</th>
                     <td>
-                        <li><input type="text" class="form-control " value="Comentario" disabled></li>
-                        <li><input type="text" class="form-control " value="Comentario" disabled></li>
-                        <li><input type="text" class="form-control " value="Comentario" disabled></li>
+                        <!--<li><input type="text" class="form-control" placeholder="Comentario"></li>
+                        <li><input type="text" class="form-control" value="Comentario" disabled></li>
+                        <li><input type="text" class="form-control" value="Comentario" disabled></li>-->
+                        <li><div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div></li>
                     </td>
                 </tr>
                 <tr class="">
                     <th>Aspectos comentados</th>
                     <td>
-                        <li><input type="text" class="form-control " value="Asistente" disabled></li>
-                        <li><input type="text" class="form-control " value="Asistente" disabled></li>
-                        <li><input type="text" class="form-control " value="Asistente" disabled></li>
+                        <li><input type="text" class="form-control" placeholder="Aspectos"></li>
+                        <!--<li><input type="text" class="form-control" value="Asistente" disabled></li>
+                        <li><input type="text" class="form-control" value="Asistente" disabled></li>-->
                     </td>
                 </tr>
             </table>
             <div class="col">
-                <button class="btn mb-5" type="submit"> Guardar cambios</button>
+                <button class="btn mb-5" type="submit">Guardar cambios</button>
             </div>
         </form>
     </div>
-
-
-    @endsection
+    @vite(['resources/js/reuniones_script.js'])
+@endsection

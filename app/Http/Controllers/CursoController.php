@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+// Clase que nos permite obtener la fecha
+use Carbon\Carbon;
 
 class CursoController extends Controller
 {
@@ -20,13 +22,20 @@ class CursoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
      *
+     * Esta funcion de aque nos permite obtener los datos escritos en asistentes.
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $arr = array();
+        $num = 1;
+        while($request->input('asistente' . $num)) {
+            $arr[$num - 1] = $request->input('asistente' . $num);
+            $num++;
+        }
+        return $arr;
     }
 
     /**
@@ -48,7 +57,8 @@ class CursoController extends Controller
      */
     public function show(Curso $curso)
     {
-        return(view('reuniones.show'));
+        $tiempo = Carbon::now()->format('d/m/Y'); // Variable que almacena la fecha en dicho formato
+        return(view('reuniones.show', ['fecha' => $tiempo]));
     }
 
     /**

@@ -14,57 +14,61 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\QueryController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
-Route::middleware(['auth'])->group( function (){
-    Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
-//Rutas de los cursos
-    Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
-//Rutas de las personas
-    Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');
-    Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
-    Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
-//Rutas del coordinador
 
-    Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
-//Rutas de los estudiantes
-    Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
-        Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
-        Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
-        Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');
-        Route::get('/estudiantes/filtrar', [AlumnoController::class, 'selectAllAlumnos'])->name('estudiantes.filtrar');
-        Route::post('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
-        Route::get('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
-        Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
+
+// Todas las rutas de los usuarios
+    Route::middleware(['auth'])->group( function (){
+        Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
+    //Rutas de los cursos
+        Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
+    //Rutas de las personas
+        Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');
+        Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
+        Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
+    //Rutas del coordinador
+
+        Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
+    //Rutas de los estudiantes
+        Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
+            Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
+            Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
+            Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');
+            Route::get('/estudiantes/filtrar', [AlumnoController::class, 'selectAllAlumnos'])->name('estudiantes.filtrar');
+            Route::post('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
+            Route::get('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
+            Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
+        });
+    //Rutas de las empresas
+        Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
+        Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
+        Route::post('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
+        Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
+    //Rutas del diario
+        Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
+    //Rutas de las reuniones
+        Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
+        Route::post('/crear_reunion',[CursoController::class,'create'])->name('reunion.create');
+    //Rutas de los tutores academicos
+        Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
+        Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
+        Route::post('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
+        Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
+    //Rutas de los tutores de empresa
+        Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
+        Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
+        Route::post('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
+        Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
+
+    //Indicamos en que blade se dirigira el login después de iniciar sesión.
+        Route::get('/', [AlumnoController::class, 'index'])->name('index');
+
+        Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
     });
-//Rutas de las empresas
-    Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
-    Route::get('/empresas/create',[EmpresasController::class,'create'])->name('empresas.create');
-    Route::post('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
-    Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
-//Rutas del diario
-    Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
-//Rutas de las reuniones
-    Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
-//Rutas de los tutores academicos
-Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
-Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
-Route::post('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
-Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
-//Rutas de los tutores de empresa
-Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
-Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
-Route::post('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
-Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
-
-//Indicamos en que blade se dirigira el login después de iniciar sesión.
-    Route::get('/', [AlumnoController::class, 'index'])->name('index');
-
-    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
-
-});
 //Rutas de los grados
 
 //Deshabilitamos el registro.
-Auth::routes(['register' => false]);
+    Auth::routes(['register' => false]);
 
 
 /*
