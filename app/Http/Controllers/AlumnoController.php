@@ -102,8 +102,8 @@ class AlumnoController extends Controller
         ]);
         $pagina = $request->pagina;
 
-        $request->grado = $request->grado == 0 ? '%' : $request->grado;
-        $request->curso = $request->curso == 0 ? '%' : $request->curso;
+        $request->grado = $request->grado == '' ? '%' : $request->grado;
+        $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
@@ -116,8 +116,8 @@ class AlumnoController extends Controller
             ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
             ->where([
                 ['personas.nombre', 'like', '%' . $request->nombre . '%'],
-                ['cursos.id', 'like', $request->curso],
-                ['grados.id', 'like', $request->grado],
+                ['cursos.nombre', 'like', $request->curso],
+                ['grados.nombre', 'like', $request->grado],
                 ['empresas.nombre', 'like', $request->empresa],
             ])
 

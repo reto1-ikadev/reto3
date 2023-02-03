@@ -18,7 +18,7 @@ class GradoFactory extends Factory
     {
         return [
             //
-            'nombre' => $this->faker->randomElement(['Informatica', 'Mecanica', 'Industrial', 'Quimica']),
+            'nombre' => $this->faker->randomElement(['Informatica', 'Mecanica', 'Industrial', 'Aeronautica', 'Electronica','Robotica']),
         ];
     }
 }
