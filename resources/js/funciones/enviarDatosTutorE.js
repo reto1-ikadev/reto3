@@ -7,8 +7,15 @@ export function enviarDatosTutorE(datos) {
         },
         method: 'POST',
         body: JSON.stringify({
-        "id_empresa":datos.get('idEmpresa'),
-        "departamento":datos.get('departamento')
+            "nombre":datos.get('nombre'),
+            "apellido":datos.get('apellido'),
+            "dni":datos.get('dni'),
+            "telefono":datos.get('telefono'),
+            "tipo":datos.get('tipo'),
+            "id_empresa":datos.get('idEmpresa'),
+            "departamento":datos.get('departamento'),
+            "email":datos.get('email'),
+            "password":datos.get('password')
     })
     });
     if(response){

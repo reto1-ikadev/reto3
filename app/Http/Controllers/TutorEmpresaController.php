@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TutorEmpresa;
 use App\Models\Persona;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TutorEmpresaController extends Controller
@@ -36,10 +37,24 @@ class TutorEmpresaController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $persona = new Persona;
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        $persona->tipo = request('tipo');
+        $persona->save();
+        $idPersona = $persona->id;
+
+        $usuario = new User;
+        $usuario->id_persona = $idPersona;
+        $usuario->email = request('email');
+        $usuario->password = request('password');
+        $usuario->save();
+
         $tutorE = new TutorEmpresa();
-        $ide_tutorE = Persona::select('id')->latest()->first();
-       
-        $tutorE->id_tutor_empresa= $ide_tutorE->id;
+        $tutorE->id_tutor_empresa = $idPersona;
         $tutorE->id_empresa = request('id_empresa');
         $tutorE->departamento = request('departamento');
        

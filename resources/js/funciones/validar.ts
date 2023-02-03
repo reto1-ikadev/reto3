@@ -7,18 +7,23 @@
  */
 export function validar(datos:FormData) {
     try {
-        var datosValidos = false;
-        var nombreValido = false;
-        var apellidoValido = false;
-        var ciudadValida = false;
-        var provinciaValida = false;
-        var cpValido = false;
-        var telefonoValido = false;
-        var dniValido = false;
-        var emailValido = false;
-        var calleValida = false;
-        var telefonoAcademicoValido = false;
-        var departamentoValido = false;
+        var datosValidos:boolean = false;
+        var nombreValido:boolean = false;
+        var apellidoValido:boolean = false;
+        var ciudadValida:boolean = false;
+        var provinciaValida:boolean = false;
+        var cpValido:boolean = false;
+        var telefonoValido:boolean = false;
+        var dniValido:boolean = false;
+        var emailValido:boolean = false;
+        var calleValida:boolean = false;
+        var telefonoAcademicoValido:boolean = false;
+        var departamentoValido:boolean = false;
+        var empresaValida:boolean = false;
+        var tutorAValido:boolean = false;
+        var tutorEValido:boolean = false;
+        var gradoValido:boolean = false;
+        var cursoValido:boolean = false;
         
         if (datos.get("nombre") == "") {
             throw "El nombre es un campo obligatorio";
@@ -27,6 +32,7 @@ export function validar(datos:FormData) {
             nombreValido = validarCadena(<string>datos.get("nombre"));
             console.log(nombreValido);
         }
+
         if (datos.get("apellido") == "") {
             throw "El apellido es un campo obligatorio";
         }
@@ -34,15 +40,18 @@ export function validar(datos:FormData) {
             apellidoValido = validarCadena(<string>datos.get("apellido"));
             console.log(apellidoValido);
         }
+
         if (datos.get("dni") == "") {
             throw "El dni es un campo obligatorio";
         }
         else {
             dniValido = validarDni(<string>datos.get("dni"));
         }
+
         if (datos.get("email") == "") {
             throw "El email es un campo obligatorio";
         }
+
         else {
             var expRegEmail = new RegExp(/[\w]+@{1}[\w]+\.[a-z]{2,3}/);
             if (!expRegEmail.test(<string>datos.get("email"))) {
@@ -52,6 +61,7 @@ export function validar(datos:FormData) {
                 emailValido = true;
             }
         }
+
         if (datos.get("telefono") == "") {
             throw "El telefono es un campo obligatorio";
         }
@@ -64,74 +74,93 @@ export function validar(datos:FormData) {
                 telefonoValido = true;
             }
         }
+
         /*Campos que se comprueban solo si es estudiante*/
-        if (datos.get("tipo") == "alumno") {
-
-            var selectGrado:HTMLSelectElement =<HTMLSelectElement> document.getElementById("grado");
-            var idGrado = selectGrado.options[selectGrado.selectedIndex].id;
-            datos.set("idGrado",idGrado);
-
-            var selectCurso:HTMLSelectElement =<HTMLSelectElement> document.getElementById("curso");
-            var idCurso = selectCurso.options[selectCurso.selectedIndex].id;
-            datos.set("idCurso",idCurso);
-            
-
-            
-            
-            var selectTutorA:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorA");
-            var idTutorA = selectTutorA.options[selectTutorA.selectedIndex].id;
-            datos.set("idTutorA",idTutorA);
-
-            var selectTutorE:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorE");
-            var idTutorE = selectTutorE.options[selectTutorE.selectedIndex].id;
-            datos.set("idTutorE",idTutorE);
-
-            if (datos.get("ciudad") == "") {
-                throw "La ciudad es un campo obligatorio";
-            }
-            else {
-                ciudadValida = validarCadena(<string>datos.get("ciudad"));
-                console.log(ciudadValida+"ciudad");
-            }
-            if (datos.get("provincia") == "") {
-                throw "La provincia es un campo obligatorio";
-            }
-            else {
-                provinciaValida = validarCadena(<string>datos.get("provincia"));
-                console.log(ciudadValida);
-            }
-            if (datos.get("cp") == "") {
-                throw "El código postal es un campo obligatorio";
-            }
-            else {
-                var regExpCp = new RegExp(/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/);
-                if (!regExpCp.test(<string>datos.get("cp"))) {
-                    throw "El código postal no es válido";
-                }
-                else {
-                    cpValido = true;
-                }
-            }
-            if (datos.get("calle") == "") {
-                throw "La calle es un campo obligatorio";
-            }
-            else {
-                var regExpCalle = new RegExp(/\w/);
-                if (!regExpCalle.test(<string>datos.get("calle"))) {
-                    throw "La direccion no tiene el formato correcto";
-                }
-                else {
-                    calleValida = true;
-                }
-            }
-            if (nombreValido && apellidoValido && dniValido && emailValido &&
-                telefonoValido && ciudadValida && provinciaValida && cpValido && calleValida) {
-                datosValidos = true;
-            }
-            ;
-        }
-        else {
-            if(datos.get("tipo")=="tutor_academico"){
+        switch (datos.get("tipo")) {
+            case "alumno":
+                    var selectGrado:HTMLSelectElement =<HTMLSelectElement> document.getElementById("grado");
+                    var idGrado = selectGrado.options[selectGrado.selectedIndex].id;
+                    if(idGrado==""){
+                        throw "El grado es un campo obligatorio";
+                    }else{
+                        datos.set("idGrado",idGrado);
+                        gradoValido = true;
+                    }
+                    
+                    var selectCurso:HTMLSelectElement =<HTMLSelectElement> document.getElementById("curso");
+                    var idCurso = selectCurso.options[selectCurso.selectedIndex].id;
+                    if(idCurso==""){
+                        throw "El curso es un campo obligatorio";
+                    }else{
+                        datos.set("idCurso",idCurso);
+                        cursoValido = true;
+                    }
+                    
+                
+                    var selectTutorA:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorA");
+                    var idTutorA = selectTutorA.options[selectTutorA.selectedIndex].id;
+                    if(idTutorA==""){
+                        throw "El tutor académico es un campo obligatorio";
+                    }else{
+                        datos.set("idTutorA",idTutorA);
+                        tutorAValido = true;
+                    }
+        
+                    var selectTutorE:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorE");
+                    var idTutorE = selectTutorE.options[selectTutorE.selectedIndex].id;
+                    if(idTutorE==""){
+                        throw "El tutor de empresa es un campo obligatorio";
+                    }else{
+                        datos.set("idTutorE",idTutorE);
+                        tutorEValido = true;
+                    }
+                    
+                    if (datos.get("ciudad") == "") {
+                        throw "La ciudad es un campo obligatorio";
+                    }
+                    else {
+                        ciudadValida = validarCadena(<string>datos.get("ciudad"));
+                        console.log(ciudadValida+"ciudad");
+                    }
+                    if (datos.get("provincia") == "") {
+                        throw "La provincia es un campo obligatorio";
+                    }
+                    else {
+                        provinciaValida = validarCadena(<string>datos.get("provincia"));
+                        console.log(ciudadValida);
+                    }
+                    if (datos.get("cp") == "") {
+                        throw "El código postal es un campo obligatorio";
+                    }
+                    else {
+                        var regExpCp = new RegExp(/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/);
+                        if (!regExpCp.test(<string>datos.get("cp"))) {
+                            throw "El código postal no es válido";
+                        }
+                        else {
+                            cpValido = true;
+                        }
+                    }
+                    if (datos.get("calle") == "") {
+                        throw "La calle es un campo obligatorio";
+                    }
+                    else {
+                        var regExpCalle = new RegExp(/\w/);
+                        if (!regExpCalle.test(<string>datos.get("calle"))) {
+                            throw "La direccion no tiene el formato correcto";
+                        }
+                        else {
+                            calleValida = true;
+                        }
+                    }
+                    if (nombreValido && apellidoValido && dniValido && emailValido &&
+                        telefonoValido && ciudadValida && provinciaValida && cpValido && calleValida &&gradoValido&&cursoValido&&tutorAValido&&tutorEValido) {
+                        datosValidos = true;
+                    }
+                    ;
+                
+                break;
+            case "tutor_academico":
                 if(datos.get("coordinador")=="on"){
                     datos.set("tipo","coordinador");
                     console.log("He cambiado el tipo a coordinador "+ datos.get("tipo"));
@@ -151,23 +180,28 @@ export function validar(datos:FormData) {
                 if(nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && telefonoAcademicoValido){
                     datosValidos = true;
                 }
-            }
-            else{
-                if(datos.get("tipo")=="tutor_empresa"){
-                    var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
-                    var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
-
+                break;
+            case "tutor_empresa":
+                var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
+                var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
+                departamentoValido = validarCadena(<string>datos.get("departamento"));
+                console.log(datos.get("departamento"));
+                if(idEmpresa==""){
+                    throw "La empresa es un campo obligatorio";
+                }else{
                     datos.set("idEmpresa",idEmpresa);
                     console.log("id Empresa "+datos.get("idEmpresa"));
-                    departamentoValido = validarCadena(<string>datos.get("departamento"));
-                    console.log(datos.get("departamento"));
+                    empresaValida=true;
                 }
-                if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido) {
-                        datosValidos = true;
-                     };
-            }
             
+                if (nombreValido && apellidoValido && dniValido && emailValido && telefonoValido && departamentoValido&&empresaValida) {
+                    datosValidos = true;
+                 };
+                 break;
+            default:
+                break;
         }
+        
         return datosValidos;
     }
     catch (error) {
