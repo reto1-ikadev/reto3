@@ -19,6 +19,12 @@ class EmpresasController extends Controller
         return view('empresa.index', ['empresas' => $empresas]);
     }
 
+    public function indexCombo()
+    {
+        $empresas = Empresa::all();
+        $resultado = ['success' => true, 'data' => $empresas];
+        return $resultado;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -102,7 +108,7 @@ class EmpresasController extends Controller
             'pagina' => 'numeric|nullable'
         ]);
 
-        $pagina = $request->pagina; 
+        $pagina = $request->pagina;
 
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->sector = $request->sector == '' ? '%' : $request->sector;
