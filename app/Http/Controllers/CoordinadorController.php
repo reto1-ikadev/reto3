@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
 use App\Models\Coordinador;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class CoordinadorController extends Controller
@@ -14,7 +16,6 @@ class CoordinadorController extends Controller
      */
     public function index()
     {
-        return view('coordinador.index');
     }
 
     /**
@@ -68,9 +69,18 @@ class CoordinadorController extends Controller
      * @param  \App\Models\Coordinador  $coordinador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coordinador $coordinador)
+    public function update()
     {
         //
+        $id = auth()->user()->id;
+        $tipo = Persona::find($id)->tipo;
+        if ($tipo == 'coordinador') {
+            Persona::where('id', $id)->update(['tipo' => 'tutor_academico']);
+            return redirect()->route('inicio.index');
+        } else if ($tipo == 'tutor_academico') {
+            Persona::where('id', $id)->update(['tipo' => 'coordinador']);
+            return redirect()->route('inicio.index');
+        }
     }
 
     /**

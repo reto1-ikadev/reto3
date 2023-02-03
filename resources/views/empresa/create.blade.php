@@ -7,14 +7,13 @@
     </div>
 </div>
 
-<div class="row justify-content-center mb-5" id="formAlta" >
-    <div class="col-md-6">
-        
-        <form action="" id="formulario" method="post" class="row my-4">
-        <div class="col-md-6 gy-2">
+<form id="formulario" method="post" action="" class="row my-3 justify-content-center">
+    <div class="col-6">
+        <div class="row gy-3">
+            <div class="col-md-6 gy-2">
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
             </div>
-               
+
             <div class="col-md-6 gy-2">
                 <input type="text" class="form-control" name="calle" id="calle" value="Avda general nº5 piso 7 letra A" required>
             </div>
@@ -49,9 +48,10 @@
             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direcci&oacute;n" hidden>
             <input type="hidden" id="tipo" value="empresa">
             <btn-validarempresa></btn-validarempresa>
-        </form>
+        </div>
     </div>
-</div>
+
+</form>
 
 
 @endsection

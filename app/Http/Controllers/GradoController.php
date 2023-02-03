@@ -26,7 +26,7 @@ class GradoController extends Controller
      */
     public function create()
     {
-        //
+        return view('grado.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class GradoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $grado = new Grado();
+        $grado->nombre = request('nombre');
+        $grado->save();
+
+        return true;
     }
 
     /**
