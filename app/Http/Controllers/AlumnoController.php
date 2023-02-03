@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Persona;
+use App\Models\User;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
 session_start();
@@ -44,15 +45,30 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        $alumno = new Alumno;
-        $ide_alumno = Persona::select('id')->latest()->first();
+        $persona = new Persona;
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        $persona->tipo = request('tipo');
+        $persona->save();
+        $idAlumno = $persona->id;
 
-        $alumno->id_alumno= $ide_alumno->id;
+        $usuario = new User;
+        $usuario->id_persona = $idAlumno;
+        $usuario->email = request('email');
+        $usuario->password = request('password');
+        $usuario->save();
+
+
+        $alumno = new Alumno;
+        $alumno->id_alumno= $idAlumno;
         $alumno->id_curso = request('id_curso');
         $alumno->id_tutor_academico = request('id_tutor_academico');
         $alumno->id_tutor_empresa = request('id_tutor_empresa');
         $alumno->direccion = request('direccion');
         $alumno->save();
+
         return true;
     }
 

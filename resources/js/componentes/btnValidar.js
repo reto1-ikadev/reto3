@@ -38,9 +38,9 @@ class btnValidar extends HTMLElement {
         console.log("validados = " + validados);
         if(validados){
             if(datos.get("tipo")=="alumno"){
-                enviarDatosPersona(datos);
-                enviarDatosAlumno(datos);
-                enviarDatosUsuario(datos);
+                //enviarDatosPersona(datos);
+                 enviarDatosAlumno(datos);
+                // enviarDatosUsuario(datos);
             }
             if(datos.get("tipo")=="tutor_academico"||datos.get("tipo")=="coordinador"){
                 enviarDatosPersona(datos);

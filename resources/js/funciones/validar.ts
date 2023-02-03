@@ -76,9 +76,7 @@ export function validar(datos:FormData) {
             datos.set("idCurso",idCurso);
             
 
-            var selectEmpresa:HTMLSelectElement =<HTMLSelectElement> document.getElementById("empresa");
-            var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;
-            datos.set("idEmpresa",idEmpresa);
+            
             
             var selectTutorA:HTMLSelectElement =<HTMLSelectElement> document.getElementById("tutorA");
             var idTutorA = selectTutorA.options[selectTutorA.selectedIndex].id;
