@@ -19,13 +19,7 @@ class EmpresasController extends Controller
         return view('empresa.index', ['empresas' => $empresas]);
     }
     
-    public function indexCombo() 
-    {
-        $empresas = Empresa::all();
 
-        $resultado = ['sucess' => true, "data" => $empresas];
-        return $resultado;
-    }
 
     public function indexCombo()
     {

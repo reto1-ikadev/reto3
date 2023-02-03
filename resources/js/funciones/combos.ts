@@ -178,6 +178,26 @@ export function cargarCombos() {
                         "</option>";
                 });
             });
+            var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
+
+            /**
+             * Tutor recibe los datos que devuelve el servidor de la base de datos
+             * y con esos datos se llenan los combos con los nombres de los grados
+             */
+            var grados = pedirGrados();
+            grados.then((data) => {
+                console.log(data.data);
+                comboGrados.innerHTML =
+                    "<option selected disabled value='seleccionar'>Grado</option>";
+                data.data.forEach(function mostrar(element: any) {
+                    comboGrados.innerHTML +=
+                        "<option id='" +
+                        element.id +
+                        "'>" +
+                        element.nombre +
+                        "</option>";
+                });
+            });
 
             break;
         case "grado":
@@ -202,7 +222,8 @@ export function cargarCombos() {
                         "</option>";
                 }
 
-            });
+            )}
+            );
             break;
         default:
             break;
