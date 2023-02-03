@@ -6,14 +6,16 @@ let objBotonAsisA = document.getElementById('aniadirAsistente'); // Boton que a√
 
 let objBotonAsisQ = document.getElementById('quitarAsistente'); // Boton que quita asistentes
 
+
+//Event Listener para a√±adir los asistentes que queramos.
 objBotonAsisA.addEventListener('click', function() {
-    //alert("Hola ?");
     var asisNuevo = document.createElement('input');
     asisNuevo.name = "asistente" + asistentes;
     asistentes++;
-    asisNuevo.type = "text";
+    asisNuevo.type = "email";
     asisNuevo.classList.add("form-control");
     asisNuevo.placeholder = "Asistente";
+    asisNuevo.required = true;
     var lista = document.createElement('li');
     lista.id = "listaAsis" + (asistentes - 1);
     lista.appendChild(asisNuevo);
@@ -21,8 +23,9 @@ objBotonAsisA.addEventListener('click', function() {
     fila.appendChild(lista);
 });
 
+
+//Event Listener para quitar los asistentes que ya no queramos.
 objBotonAsisQ.addEventListener('click', function() {
-    //alert("Hola ?");
     if(asistentes != 2) {
         document.getElementsByName("asistente" + (asistentes - 1))[0].remove();
         document.getElementById("listaAsis" + (asistentes - 1)).remove();

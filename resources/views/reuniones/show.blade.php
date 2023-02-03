@@ -4,9 +4,9 @@
     <div class="col mb-3">
         <h2>Detalles de la reuni&oacute;n</h2>
     </div>
-    <div class="col">
+    <!--<div class="col">
         <button type="button" class="btn btn-primary">Habilitar edici&oacute;n</button>
-    </div>
+    </div>-->
     <div class="table-responsive">
         <form action="/crear_reunion" method="post">
             @csrf
@@ -17,10 +17,10 @@
                 </tr>
 
                 <tr class="">
-                    <th>Asistentes</th>
+                    <th>Correo de los asistentes</th>
                     <td>
                         <ul id="lista">
-                            <li><input name="asistente1" type="text" class="form-control" placeholder="Asistente"></li>
+                            <li><input name="asistente1" type="email" class="form-control" placeholder="Asistente" required></li>
                             <!--<li><input type="text" class="form-control" value="Asistente" disabled></li>
                             <li><input type="text" class="form-control" value="Asistente" disabled></li>-->
                         </ul>
@@ -46,14 +46,14 @@
                         <li><input type="text" class="form-control" value="Comentario" disabled></li>
                         <li><input type="text" class="form-control" value="Comentario" disabled></li>-->
                         <li><div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="textArea" rows="3" required></textarea>
                         </div></li>
                     </td>
                 </tr>
                 <tr class="">
                     <th>Aspectos comentados</th>
                     <td>
-                        <li><input type="text" class="form-control" placeholder="Aspectos"></li>
+                        <li><input type="text" class="form-control" name="aspectos" placeholder="Aspectos" required></li>
                         <!--<li><input type="text" class="form-control" value="Asistente" disabled></li>
                         <li><input type="text" class="form-control" value="Asistente" disabled></li>-->
                     </td>
