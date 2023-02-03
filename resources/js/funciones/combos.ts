@@ -148,7 +148,7 @@ export function cargarCombos() {
                 document.getElementById("curso")
             );
             var comboEmpresas: HTMLElement = <HTMLElement>(
-                document.getElementById("empresa")
+                document.getElementById("empresa") 
             );
             /**
              * Empresas recibe los datos que devuelve el servidor de la base de datos

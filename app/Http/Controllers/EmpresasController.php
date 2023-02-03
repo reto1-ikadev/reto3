@@ -19,7 +19,7 @@ class EmpresasController extends Controller
         return view('empresa.index', ['empresas' => $empresas]);
     }
     
-    public function indexCombo()
+    public function indexCombo() 
     {
         $empresas = Empresa::all();
 

@@ -55,6 +55,7 @@
             <div class="col-12 ">
                 <!--AQUI EL BTON COMPONENTE -->
                 <input type="hidden" name="tipo" id="tipo" value="tutor_empresa">
+                <input type="hidden"id="pass" name="password" value="password">
                 <btn-validar></btn-validar>
             </div>
         </form>

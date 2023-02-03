@@ -11,8 +11,8 @@ export function enviarDatosTutorE(datos) {
         "departamento":datos.get('departamento')
     })
     });
-    if(response.ok){
-        window.location.href = "http://localhost/estudiantes/detalle/iker";
+    if(response){
+        window.location.href = "http://localhost/estudiantes/index";
     }
 ;
 }

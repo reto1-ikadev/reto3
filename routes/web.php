@@ -10,6 +10,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\GradoController;
 
 use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -23,6 +24,9 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
 //Rutas de los cursos
     Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
+//Rutas de los usuarios
+    Route::post('/user/store',[UserController::class,'store'])->name('user.store');
+    Route::get('/user/store',[UserController::class,'store'])->name('user.store');
 //Rutas de los años
     Route::get('/anyo/create',[AnosAcademicosController::class,'create'])->name('anyo.create');
     Route::post('/anyo/store',[AnosAcademicosController::class,'store'])->name('anyo.store');
@@ -36,7 +40,7 @@ Route::middleware(['auth'])->group( function (){
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
-    Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
+        Route::middleware(['auth', 'can:tutor_academico'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
         Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');

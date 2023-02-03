@@ -15,9 +15,8 @@ export function enviarDatosPersona(datos) {
         }),
             
         });
-        if(response.ok){
-            
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
+        if(response){
+            window.location.href = "http://localhost/estudiantes/index";
         }
     ;
 }

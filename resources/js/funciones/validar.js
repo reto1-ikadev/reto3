@@ -68,7 +68,7 @@ export function validar(datos) {
             var idGrado = selectGrado.options[selectGrado.selectedIndex].id;
             datos.set("idGrado", idGrado);
             var selectCurso = document.getElementById("curso");
-            var idCurso = selectGrado.options[selectCurso.selectedIndex].id;
+            var idCurso = selectCurso.options[selectCurso.selectedIndex].id;
             datos.set("idCurso", idCurso);
             var selectEmpresa = document.getElementById("empresa");
             var idEmpresa = selectEmpresa.options[selectEmpresa.selectedIndex].id;

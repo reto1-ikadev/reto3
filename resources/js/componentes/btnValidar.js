@@ -4,6 +4,7 @@ import { enviarDatosPersona } from "../funciones/enviarDatosPersonas.js";
 import { enviarDatosAlumno } from "../funciones/enviarDatosAlumno.js";
 import { enviarDatosTutorA } from "../funciones/enviarDatosTutorA.js";
 import { enviarDatosTutorE } from "../funciones/enviarDatosTutorE.js";
+import { enviarDatosUsuario } from "../funciones/enviarDatosUsuario.js";
 class btnValidar extends HTMLElement {
     constructor() {
         super();
@@ -20,6 +21,7 @@ class btnValidar extends HTMLElement {
     static get observedAttributes() {
         return ['name'];
     }
+   
 
     /**
      * Se llama a esta función cuando se hace click sobre el boton Guardar
@@ -38,14 +40,17 @@ class btnValidar extends HTMLElement {
             if(datos.get("tipo")=="alumno"){
                 enviarDatosPersona(datos);
                 enviarDatosAlumno(datos);
+                enviarDatosUsuario(datos);
             }
             if(datos.get("tipo")=="tutor_academico"||datos.get("tipo")=="coordinador"){
                 enviarDatosPersona(datos);
                 enviarDatosTutorA(datos);
+                enviarDatosUsuario(datos);
             }
             if(datos.get("tipo")=="tutor_empresa"){
                 enviarDatosPersona(datos);
                 enviarDatosTutorE(datos);
+                enviarDatosUsuario(datos);
             }
         }
     }

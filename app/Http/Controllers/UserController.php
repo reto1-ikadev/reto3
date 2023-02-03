@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -34,9 +36,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'email' => 'required'
-        ]);
+        $usuario = new User();
+        $ide_usuario = Persona::select('id')->latest()->first();
+       
+        $usuario->id_persona = $ide_usuario->id;
+        $usuario->email = request('email');
+        $usuario->password = request('password');
+        
+        $usuario->save();
+        
+        return true;
     }
 
 }
