@@ -60,6 +60,8 @@ export function cargarCombos() {
             tutor.then((data) => {
                 console.log(data.data);
                 comboTutorAcademico.innerHTML =
+                    "<option selected disabled value='seleccionar'>Tutor Academico</option>";
+                comboTutorEmpresa.innerHTML =
                     "<option selected disabled value='seleccionar'>Tutor empresa</option>";
                 data.data.forEach(function mostrar(element) {
                     if (element.tipo == "tutor_academico") {

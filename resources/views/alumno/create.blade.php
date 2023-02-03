@@ -8,18 +8,17 @@
     </div>
 </div>
 
-<div class="row justify-content-center mb-5" id="formAlta" >
+
+
+<form id="formulario" method="post" action="" class="row my-3 justify-content-center">
     <div class="col-6">
-        
-        <form id="formulario" method="post" action="" class="row my-3">
+        <div class="row gy-3">
             <div class="col-md-6">
                 <input type="text" class="form-control" name="nombre" id="nombre" value="Nombre" required>
             </div>
             <div class="col-md-6">
                 <input type="text" class="form-control" name="apellido" id="apellido" value="Apellido" required>
             </div>
-
-            <div class="row my-2"></div>
 
             <div class="col-md-6">
                 <input type="text" class="form-control" name="dni" id="dni" value="58018296Z" required>
@@ -42,54 +41,44 @@
             <div class="col-md-6">
                 <input type="text" class="form-control" name="cp" id="cp" value="01003" required>
             </div>
-            <div class="row my-2"></div>
 
-            <div class="col-md-4">
+
+            <div class="col-md-6    ">
                 <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Tel&eacute;fono" required>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <select class="form-select" id="grado" name="grado" required>
                     <!-- Se llena con los datos de la base de datos -->
                 </select>
             </div>
-            <div class="col-md-4">
-                <select class="form-select" name="curso" id="curso"required>
-                    
+            <div class="col-md-6">
+                <select class="form-select" name="curso" id="curso" required>
+
                 </select>
             </div>
 
-            <div class="col-md-2"></div>
-            <div class="row my-2"></div>
-
-            <div class="col-md-5">
-                <input type="text" class="form-control"name="anyoAcademico" id="anyoAcademico" placeholder="Año academico" required>
-            </div>
-            
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <select class="form-select" name="tutorA" id="tutorA" required>
-                    
+
                 </select>
             </div>
-            <div class="row mb-3"></div>
-             <div class="col-md-5">
-                <select class="form-select" nmae="empresa" id="empresa"required>
-                    
+
+
+            <div class="col-md-6">
+                <select class="form-select" name="tutorE" id="tutorE" required>
+
                 </select>
             </div>
-            <div class="col-md-5">
-                <select class="form-select" name="tutorE" id="tutorE"required>
-                    
-                </select>
-            </div>
-           
+
             <div class="row my-2"></div>
             <div class="col-12">
                 <!--AQUI EL BTON COMPONENTE -->
-                <input type="hidden"id="tipo" name="tipo" value="alumno">
+                <input type="hidden" id="tipo" name="tipo" value="alumno">
                 <btn-validar></btn-validar>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
+
 
 @endsection

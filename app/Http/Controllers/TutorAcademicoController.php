@@ -16,7 +16,7 @@ class TutorAcademicoController extends Controller
     public function index()
     {
         //
-        return view('cordinador.index');
+        return view('tutorAcademico.index');
     }
 
     /**
