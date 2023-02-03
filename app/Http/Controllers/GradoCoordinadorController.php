@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Persona;
+use App\Models\GradoCoordinadores;
+use App\Models\Grado;
 use Illuminate\Http\Request;
-use App\Models\Alumno;
 
-class PersonasController extends Controller
+class GradoCoordinadorController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $personas = Persona::all();
-        $resultado = ['sucess' => true, "data" => $personas];
-        return $resultado;
+        //
     }
 
     /**
@@ -37,39 +35,40 @@ class PersonasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
-        $persona = new Persona;
-        $persona->nombre = request('nombre');
-        $persona->apellidos = request('apellido');
-        $persona->dni = request('dni');
-        $persona->telefono = request('telefono');
-        $persona->tipo = request('tipo');
-        $persona->save();
-        
+        $gradoCoordinador = new GradoCoordinadores();
+        $ide_grado = Grado::select('id')->latest()->first();
+
+       
+        $gradoCoordinador->id_grado = $ide_grado->id;
+        $gradoCoordinador->id_coordinador = request('coordinador');
+
+        $gradoCoordinador->save();
+
         return true;
     }
+
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Grado  $grado
      * @return \Illuminate\Http\Response
      */
-    public function show(string $tipo)
+    public function show(GradoCoordinadores $gradoCoordinador)
     {
-        $tutores = Persona::where("tipo",$tipo)->get();
-
-        $resultado = $resultado = ['sucess' => true, "data" => $tutores];
-        return $resultado;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Grado  $grado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Persona $persona)
+    public function edit(GradoCoordinadores $gradoCoordinador)
     {
         //
     }
@@ -78,10 +77,10 @@ class PersonasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Grado  $grado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Persona $persona)
+    public function update(Request $request, GradoCoordinadores $gradoCoordinador)
     {
         //
     }
@@ -89,10 +88,10 @@ class PersonasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Grado  $grado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Persona $persona)
+    public function destroy(GradoCoordinadores $gradoCoordinador)
     {
         //
     }

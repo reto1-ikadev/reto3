@@ -13,8 +13,8 @@ export function enviarDatosAlumno(datos) {
             "direccion":datos.get('direccion')
         })
         });
-        if(response.ok){
-            window.location.href = "http://localhost/empresas/index";
+        if(response){
+            window.location.href = "http://localhost/estudiantes/index";
         }
     ;
 }

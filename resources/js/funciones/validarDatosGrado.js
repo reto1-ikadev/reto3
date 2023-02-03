@@ -35,7 +35,6 @@ function validarDatosGrado(e){
 
 function enviarDatosGrado(datos) {
     console.log(datos.get("nombre"));
-    
         let response = fetch("http://localhost/grado/store", {
             headers: {
                 'X-CSRF-TOKEN': window.CSRF_TOKEN
@@ -48,18 +47,18 @@ function enviarDatosGrado(datos) {
         }
     
 }
-function enviarDatosGrado(datos) {
-    console.log(datos.get("nombre"));
-    
-        let response = fetch("http://localhost/grado/store", {
-            headers: {
-                'X-CSRF-TOKEN': window.CSRF_TOKEN
-            },
-            method: 'POST',
-            body: datos
-        });
-        if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
-        }
-    
+function enviarDatosGradoCoordinador(datos){
+    let response = fetch("http://localhost/gradoCoordinadores/store",{
+        headers: {
+            'X-CSRF-TOKEN': window.CSRF_TOKEN
+        },
+        method:'POST',
+        body: datos
+    });
+    if(response.ok){
+        console.log("insertado");
+    }
 }
+
+
+

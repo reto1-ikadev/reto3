@@ -73,7 +73,8 @@
             <div class="row my-2"></div>
             <div class="col-12">
                 <!--AQUI EL BTON COMPONENTE -->
-                <input type="hidden" id="tipo" name="tipo" value="alumno">
+                <input type="hidden"id="tipo" name="tipo" value="alumno">
+                <input type="hidden"id="pass" name="password" value="password">
                 <btn-validar></btn-validar>
             </div>
         </div>

@@ -47,6 +47,10 @@
                                     <li><a class="dropdown-item" href="{{ route('grado.create') }}">Grado</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ route('anyo.create') }}">Nuevo año</a>
+                            </li>
+                            <li class="nav-item debajo">
 
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Estad&iacute;sticas</a>

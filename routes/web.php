@@ -5,21 +5,35 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AnosAcademicosController;
 use App\Http\Controllers\CuadernoPracticasController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\GradoController;
+
 use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\QueryController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
+use App\Http\Controllers\GradoCoordinadorController;
+use App\Models\AnosAcademicos;
+
 Route::middleware(['auth'])->group( function (){
     Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
 //Rutas de los cursos
     Route::get('/cursos/index',[CursoController::class,'index'])->name('cursos.index');
+//Rutas de los usuarios
+    Route::post('/user/store',[UserController::class,'store'])->name('user.store');
+    Route::get('/user/store',[UserController::class,'store'])->name('user.store');
+//Rutas de los años
+    Route::get('/anyo/create',[AnosAcademicosController::class,'create'])->name('anyo.create');
+    Route::post('/anyo/store',[AnosAcademicosController::class,'store'])->name('anyo.store');
+    Route::get('/anyo/store',[AnosAcademicosController::class,'store'])->name('anyo.store');
 //Rutas de las personas
+    Route::get('/personas/show/{tipo}', [PersonasController::class, 'show'])->name('personas.show');
     Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');
     Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
     Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
@@ -73,8 +87,13 @@ Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->nam
 Route::get('/grado/create',[GradoController::class,'create'])->name('grado.create');
 Route::post('/grado/store',[GradoController::class,'store'])->name('grado.store');
 Route::get('/grado/store',[GradoController::class,'store'])->name('grado.store');
+
+//Rutas de los gradosCoordinadores
+Route::post('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');
+Route::get('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');
 //Deshabilitamos el registro.
 Auth::routes(['register' => false]);
+
 
 
 /*

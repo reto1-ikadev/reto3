@@ -1,13 +1,14 @@
-export function enviarDatosTutorA(datos) {
+export function enviarDatosUsuario(datos) {
     
-    let response =  fetch("http://localhost/tutoresAcademicos/store", {
+    let response =  fetch("http://localhost/user/store", {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': window.CSRF_TOKEN
         },
         method: 'POST',
         body: JSON.stringify({
-        "telefono_academico":datos.get('telefonoAcademico')
+        "email":datos.get('email'),
+        "password":datos.get('password')
     })
     });
     if(response){

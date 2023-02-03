@@ -72,7 +72,7 @@ export function validar(datos:FormData) {
             datos.set("idGrado",idGrado);
 
             var selectCurso:HTMLSelectElement =<HTMLSelectElement> document.getElementById("curso");
-            var idCurso = selectGrado.options[selectCurso.selectedIndex].id;
+            var idCurso = selectCurso.options[selectCurso.selectedIndex].id;
             datos.set("idCurso",idCurso);
             
 
