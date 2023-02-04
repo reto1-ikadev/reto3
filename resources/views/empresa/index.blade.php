@@ -10,17 +10,17 @@
             <form id="filtrosEmpresas" action="" method="get">
 
                 <div class="row mb-2" id="filtrosEmp">
-                    <div class="col">
+                    <div class="col-12 col-md-4  mb-2">
                         <input class="form-control" name="nombre" id="nombre" placeholder="Buscar por nombre">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-4 mb-2">
                         <input class="form-control" name="sector" id="sector" placeholder="Buscar por sector">
                     </div>
-                    <div class="col-2 d-flex flex-row">
+                    <div class="col-2 d-flex flex-row mb-2">
                         <button type="button" id="btn" class="btn btn-primary">Filtrar</button>&nbsp;<button type="button" id="btnReset" class="btn btn-primary">Reset</button>
                         <input type="hidden" name="tipo" id="tipo" value="filtros_empresas">
                     </div>
-
+                </div>
             </form>
             <div class="row d-flex justify-content-end">
                 <nav class="col">
