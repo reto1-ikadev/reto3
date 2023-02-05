@@ -137,6 +137,9 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <a href="{{ route('calificacionesHistorial.create',$estudiante) }}"><button class="btn btn-primary">Evaluar</button></a>
+    </div>
 
 </div>
 

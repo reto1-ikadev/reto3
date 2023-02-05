@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CalificacionesHistorialController;
 use App\Http\Controllers\QueryController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
@@ -69,6 +70,11 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
 //Rutas de las reuniones
     Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
+//Rutas de clasificaciones_historial
+Route::get('/calificacionesHistorial/create/{estudiante}',[CalificacionesHistorialController::class,'create'])->name('calificacionesHistorial.create');
+Route::post('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
+Route::get('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
+
 //Rutas de los tutores academicos
 Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');

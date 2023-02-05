@@ -31,7 +31,6 @@ class AlumnoController extends Controller
         $tutorE = Persona::find($alumno->id_tutor_empresa);
         $tutorA = Persona::find($alumno->id_tutor_academico);
 
-        
         return view('alumno.show', ['estudiante' => $estudiante,"tutorE"=>$tutorE,"tutorA"=>$tutorA]);
     }
     public function showTutor(int $id){
