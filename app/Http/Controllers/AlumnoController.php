@@ -112,7 +112,8 @@ class AlumnoController extends Controller
         $persona->telefono = request('telefono');
         
         $persona->update();
-        $usuario = new User;
+        
+
         $usuario = User::find($persona->id);
 
         $usuario->email = request('email');
