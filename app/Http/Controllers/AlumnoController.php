@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Alumno;
 use App\Models\Grado;
 use App\Models\Curso;
+use App\Models\TutorAcademico;
+use App\Models\TutorEmpresa;
 use Illuminate\Http\Request;
 session_start();
 
@@ -25,8 +27,15 @@ class AlumnoController extends Controller
     public function show(int $id){
         //select de un estudiante
         $estudiante = Persona::find($id);
+        $alumno = Alumno::find($id);
+        $tutorE = Persona::find($alumno->id_tutor_empresa);
+        $tutorA = Persona::find($alumno->id_tutor_academico);
 
-        return view('alumno.show', ['estudiante' => $estudiante]);
+        
+        return view('alumno.show', ['estudiante' => $estudiante,"tutorE"=>$tutorE,"tutorA"=>$tutorA]);
+    }
+    public function showTutor(int $id){
+
     }
 
     /**
@@ -109,14 +118,35 @@ class AlumnoController extends Controller
         $usuario->email = request('email');
         $usuario->update();
 
+        
+        //Obtener el id del curso al que se va a cambiar el alumno
+        $nombreNuevoCurso = $request->curso;
+       
+        $nuevoCurso = Curso::where('nombre','=', $nombreNuevoCurso)->first();
+        
+        $idNuevoCurso = $nuevoCurso->id;
+        $estudiante->id_curso = $idNuevoCurso;
         $estudiante->direccion = $request->direccion;
+       
+        if(isset($_REQUEST['nombreTA'])){
+            $estudiante->id_tutor_academico = $request->nombreTA;
+        }
+        if(isset($_REQUEST['nombreTE'])){
+            $estudiante->id_tutor_empresa = $request->nombreTE;
+        }
+
         $estudiante->update();
 
-        $estudiante->curso->nombre = request('curso');
-        $estudiante->curso->update();
+        
+        
 
-        $estudiante->curso->grado->nombre = request('grado');
-        $estudiante->curso->grado->update();
+
+        // $estudiante->curso->nombre = request('curso');
+        // $estudiante->curso->update();
+
+        // $estudiante->curso->grado->nombre = request('grado');
+        // $estudiante->curso->grado->update();
+        // $estudiante->tutor_academico->id = request($tutorA->id);
 
         return redirect(route('estudiantes.index'));
     }
