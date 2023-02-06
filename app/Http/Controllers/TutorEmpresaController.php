@@ -1,11 +1,11 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
-
+ 
 use App\Models\TutorEmpresa;
 use App\Models\Persona;
 use Illuminate\Http\Request;
-
+ 
 class TutorEmpresaController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class TutorEmpresaController extends Controller
     {
         return view('tutorEmpresa.index');
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +27,7 @@ class TutorEmpresaController extends Controller
     {
         return view('tutorEmpresa.create');
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -38,15 +38,15 @@ class TutorEmpresaController extends Controller
     {
         $tutorE = new TutorEmpresa();
         $ide_tutorE = Persona::select('id')->latest()->first();
-       
+ 
         $tutorE->id_tutor_empresa= $ide_tutorE->id;
         $tutorE->id_empresa = request('id_empresa');
         $tutorE->departamento = request('departamento');
-       
+ 
         $tutorE->save();
         return true;
     }
-
+ 
     /**
      * Display the specified resource.
      *
@@ -57,7 +57,7 @@ class TutorEmpresaController extends Controller
     {
         //
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,7 +68,7 @@ class TutorEmpresaController extends Controller
     {
         //
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -80,7 +80,7 @@ class TutorEmpresaController extends Controller
     {
         //
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      *
@@ -91,7 +91,7 @@ class TutorEmpresaController extends Controller
     {
         //
     }
-
+ 
     public function selectAllTutoresEmpresas(Request $request){
         $request->validate([
             'empresa' => 'string|nullable',
@@ -99,25 +99,24 @@ class TutorEmpresaController extends Controller
             'nombre' => 'string|nullable',
             'pagina' => 'numeric|nullable'
         ]);
-
+ 
         $pagina = $request->pagina;
-
+ 
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->departamento = $request->departamento == '' ? '%' : $request->departamento;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
-
+ 
         $empresas = TutorEmpresa::join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
-                ->join('personas', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
-                ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
-                ->join('')
-                ->select('tutores_empresas.nombre', 'tutores_empresas.apellido', 'tutores_empresas.email', 'tutores_empresas.empresa', 'tutores_empresas.departamento')
-                ->where([
-                    ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
-                    ['empresas.sector', 'like', '%' . $request->sector . '%'],
-                ])
-                ->orderby('empresas.id', 'desc');
-
+            ->join('personas', 'tutores_empresas.id_tutor_empresa', '=', 'personas.id')
+            ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
+            ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento')
+            ->where([
+                ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
+                ['tutores_empresas.departamento', 'like', '%' . $request->departamento . '%'],
+            ])
+            ->orderby('tutores_empresas.id_tutor_empresa', 'desc');
+ 
         $empresasTotal = $empresas->count();
         $resultados = $empresas->offset(($pagina -1) * 10)->limit(10)->get();
         $datos = [
@@ -126,7 +125,7 @@ class TutorEmpresaController extends Controller
             'pagina' => intval($pagina),
             'por_pagina' => 10
         ];
-
-        return ['success' => true, 'data' => $datos, 'message' => 'Empresas obtenidas correctamente'];
+ 
+        return ['success' => true, 'data' => $datos, 'message' => 'Tutores de empresas obtenidos correctamente'];
     }
 }
