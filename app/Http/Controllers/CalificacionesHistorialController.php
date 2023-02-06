@@ -7,6 +7,7 @@ use App\Models\EvaluacionDiario;
 use App\Models\EvaluacionEmpresa;
 use App\Models\Persona;
 use App\Models\Alumno;
+use App\Models\AnosAcademicos;
 use Illuminate\Http\Request;
 
 class CalificacionesHistorialController extends Controller
@@ -31,7 +32,8 @@ class CalificacionesHistorialController extends Controller
         $alumno = Alumno::find($estudiante->id);
         $tutorE = Persona::find($alumno->id_tutor_empresa);
         $tutorA = Persona::find($alumno->id_tutor_academico);
-        return view('calificacionesHistorial.create',["estudiante"=>$estudiante ,"tutorA"=>$tutorA,"tutorE"=>$tutorE]);
+        $ano_academico = AnosAcademicos::orderBy('id', 'desc')->first();
+        return view('calificacionesHistorial.create',["estudiante"=>$estudiante ,"tutorA"=>$tutorA,"tutorE"=>$tutorE,"anoAcademico"=>$ano_academico]);
     }
 
     /**
@@ -69,10 +71,10 @@ class CalificacionesHistorialController extends Controller
         $evaluacionEmpresa->puntualidad_obs = request('puntualidad_obs');
         $evaluacionEmpresa->responsabilidad_nota = request('responsabilidad_nota');
         $evaluacionEmpresa->responsabilidad_obs = request('responsabilidad_obs');
-        $evaluacionEmpresa->resolucion_nota = request('resolucion_nota');
-        $evaluacionEmpresa->resolucion_obs = request('resolucion_obs');
-        $evaluacionEmpresa->calidad_nota = request('calidad_nota');
-        $evaluacionEmpresa->calidad_obs = request('calidad_obs');
+        $evaluacionEmpresa->resolucion_nota = request('resolucion_problemas_nota');
+        $evaluacionEmpresa->resolucion_obs = request('resolucion_problemas_obs');
+        $evaluacionEmpresa->calidad_trabajos_nota = request('calidad_trabajos_nota');
+        $evaluacionEmpresa->calidad_trabajos_obs = request('calidad_trabajos_obs');
         $evaluacionEmpresa->implicacion_nota = request('implicacion_nota');
         $evaluacionEmpresa->implicacion_obs = request('implicacion_obs');
         $evaluacionEmpresa->decisiones_nota = request('decisiones_nota');
@@ -85,7 +87,19 @@ class CalificacionesHistorialController extends Controller
         $evaluacionEmpresa->aprendizaje_obs = request('aprendizaje_obs');
         $evaluacionEmpresa->nota_final = request('nota_final_empresa');
 
+        $evaluacionEmpresa->save();
+        $idEvaluacionEmpresa = $evaluacionEmpresa->id;
 
+
+        $calificacionesHistorial = new CalificacionesHistorial;
+        $calificacionesHistorial->id_evaluacion_diario = request($idEvaluacionDiario);
+        $calificacionesHistorial->id_evaluacion_empresa = request($idEvaluacionEmpresa);
+        $calificacionesHistorial->id_alumno = request('id_alumno');
+        $calificacionesHistorial->id_tutor_academico = request('id_tutor_academico');
+        $calificacionesHistorial->id_tutor_empresa = request('id_tutor_empresa');
+        $calificacionesHistorial->id_curso = request('id_curso');
+        $calificacionesHistorial->id_ano_academico = request('id_ano_academico');
+        $calificacionesHistorial->save(); 
     }
 
     /**

@@ -7,6 +7,7 @@
         <p>Curso: {{ $estudiante->opcion_tipo->curso->nombre }}</p>
         <p>Tutor de universidad: {{ $tutorA->nombre }}</p>
         <p>Tutor de empresa: {{ $tutorE->nombre }}</p>
+        <p>Año academico: {{ $anoAcademico->nombre }}</p>
     </div>
 </div>
 <div class="row">
@@ -14,10 +15,11 @@
         
             <form class="row justify-content-center" action="{{ route('calificacionesHistorial.store') }}" method="post">
             @csrf
-                <input type="hidden" name="id_alumno" value="{{ $estudiante->id }}">
-                <input type="hidden" name="id_tutor_academico" value="{{ $tutorA->id }}">
-                <input type="hidden" name="id_tutor_empresa" value="{{ $tutorE->id }}">
-                <input type="hidden" name="id_tutor_academico" value="{{ $estudiante->opcion_tipo->curso->nombre }}">
+                <input type="text" name="id_alumno" value="{{ $estudiante->id }}">
+                <input type="text" name="id_tutor_academico" value="{{ $tutorA->id }}">
+                <input type="text" name="id_tutor_empresa" value="{{ $tutorE->id }}">
+                <input type="text" name="id_ano_academico" value="{{ $anoAcademico->id }}">
+                <input type="text" name="id_curso" value="{{ $estudiante->opcion_tipo->curso->id }}">
                 <div class="table-responsive col-8">
                     <h4>Evaluaci&oacute;n del diario</h4>
                     <table class="table">
@@ -49,7 +51,7 @@
                                     <option value="8">NOTABLE</option>
                                     <option value="10">EXCELENTE</option>
                                 </select></td>
-                                <td><textarea class="form-control" name="nota_obs" id="nota_obs" cols="30" rows="2"></textarea></td>
+                                <td><textarea class="form-control" name="orden_obs" id="orden_obs" cols="30" rows="2"></textarea></td>
                             </tr>
                             <tr class="">
                                 <td>Contenido</td>
@@ -242,11 +244,12 @@
                                     <option value="8">NOTABLE</option>
                                     <option value="10">EXCELENTE</option>
                                 </select></td>
-                                <td><textarea class="form-control" name="papredizaje_obs" id="aprendizaje_obs" cols="30" rows="2"></textarea></td>
+                                <td><textarea class="form-control" name="aprendizaje_obs" id="aprendizaje_obs" cols="30" rows="2"></textarea></td>
                             </tr>
                             <tr>
                                 <td>Nota final</td>
-                                <td><input type="text" name="nota_final_empresa" id="nota_final"></td>
+                                <td><input type="text" name="nota_final_empresa" id="nota_final_empresa" required readonly></td>
+                                <td><span id='calcularEmpresa' class="material-symbols-outlined">calculate</span></td>
                             </tr>
                         </tbody>
                     </table>

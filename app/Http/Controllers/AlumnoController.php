@@ -6,7 +6,7 @@ use App\Models\GradoCordinador;
 use App\Models\Persona;
 use App\Models\User;
 use App\Models\Alumno;
-use App\Models\Grado;
+
 use App\Models\Curso;
 use App\Models\TutorAcademico;
 use App\Models\TutorEmpresa;

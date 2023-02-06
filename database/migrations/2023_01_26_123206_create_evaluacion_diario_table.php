@@ -16,19 +16,19 @@ return new class extends Migration
         Schema::create('evaluacion_diario', function (Blueprint $table) {
             $table->id();
             $table->string('regularidad_nota',20);
-            $table->string('regularidad_obs',200);
+            $table->string('regularidad_obs',200)->nullable();
             $table->string('orden_nota',20);
-            $table->string('orden_obs',200);
+            $table->string('orden_obs',200)->nullable();
             $table->string('contenido_nota',20);
-            $table->string('contenido_obs',200);
+            $table->string('contenido_obs',200)->nullable();
             $table->string('terminologia_nota',20);
-            $table->string('terminologia_obs',200);
+            $table->string('terminologia_obs',200)->nullable();
             $table->string('calidad_nota',20);
-            $table->string('calidad_obs',200);
+            $table->string('calidad_obs',200)->nullable();
             $table->string('conceptos_nota',20);
-            $table->string('conceptos_obs',200);
+            $table->string('conceptos_obs',200)->nullable();
             $table->string('reflexion_nota',20);
-            $table->string('reflexion_obs',200);
+            $table->string('reflexion_obs',200)->nullable();
             $table->string('nota_final',20);
             $table->timestamps();
         });
