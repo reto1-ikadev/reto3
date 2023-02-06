@@ -84,6 +84,7 @@ Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])
 Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
 Route::post('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
+Route::get('/tutoresEmpresa/filtrar', [TutorEmpresaController::class, 'selectAllTutoresEmpresas'])->name('tutoresEmpresa.filtrar');
 Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
 
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
