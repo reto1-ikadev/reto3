@@ -19,7 +19,7 @@ class TutorAcademicoController extends Controller
     {
         //
 
-            return view('tutorAcademico.index');
+            return view('alumno.index');
 
     }
 

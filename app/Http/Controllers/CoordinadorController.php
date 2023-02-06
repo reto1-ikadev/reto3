@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Coordinador;
+use App\Models\Grado;
+use App\Models\GradoCordinador;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 
@@ -73,11 +75,11 @@ class CoordinadorController extends Controller
     {
         //
         $id = auth()->user()->id;
-        $tipo = Persona::find($id)->tipo;
-        if ($tipo == 'coordinador') {
+        $existe = GradoCordinador::where('id_coordinador', $id)->first();
+        if ($existe == null) {
             Persona::where('id', $id)->update(['tipo' => 'tutor_academico']);
             return redirect()->route('inicio.index');
-        } else if ($tipo == 'tutor_academico') {
+        } else {
             Persona::where('id', $id)->update(['tipo' => 'coordinador']);
             return redirect()->route('inicio.index');
         }

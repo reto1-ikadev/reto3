@@ -41,7 +41,6 @@ Route::middleware(['auth'])->group( function (){
 //Rutas del coordinador
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
-    Route::get('/coordinador/update',[CoordinadorController::class,'update'])->name('coordinador.update');
 //Rutas de los estudiantes
     Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
         

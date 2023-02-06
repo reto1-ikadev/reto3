@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Grado;
+use App\Models\GradoCordinador;
 use App\Models\Persona;
 use App\Models\User;
 use App\Models\Alumno;
@@ -18,8 +20,10 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
         //get session user id
-           $id = auth()->user()->persona->id;
-           if (auth()->user()->persona->tipo == 'coordinador'){
+
+        $id = auth()->user()->id;
+        $existe = GradoCordinador::where('id_coordinador', $id)->first();
+        if($existe != null){
               return view('alumno.index');
            }
     }
@@ -168,13 +172,18 @@ class AlumnoController extends Controller
         $request->validate([
             'nombre' => 'string|max:255|nullable',
             'curso' => 'string|max:255|nullable',
-            'grado' => 'string|max:255|nullable',
             'empresa' => 'string|max:255|nullable',
             'pagina' => 'numeric|nullable',
         ]);
         $pagina = $request->pagina;
+        //only grado of the coordinator logged
+        $id = auth()->user()->id;
+        $existe = GradoCordinador::where('id_coordinador', $id)->first();
+        $nombre = Grado::where('id', $existe->id_grado)->first();
+        if($existe != null){
+            $request->grado = $nombre->nombre;
+        }
 
-        $request->grado = $request->grado == '' ? '%' : $request->grado;
         $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;

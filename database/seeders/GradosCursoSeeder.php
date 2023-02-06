@@ -17,7 +17,9 @@ class GradosCursoSeeder extends Seeder
     public function run()
     {
         //
-        Grado::factory(6)->create();
+       //dont repeat the same grado
+        Grado::factory(5)->create();
+
         //create cursos and asign one grado to each curso
         Grado::all()->each(function ($grado) {
             Curso::factory(5)->create([
