@@ -11,7 +11,6 @@ function validarDatosGrado(e){
         var cadenaValida = false;
         var regExp = new RegExp(/^(?=.{3,15}$)[A-ZÁÉÍÓÚ][a-zñáéíóú]+(?: [A-ZÁÉÍÓÚ][a-zñáéíóú]+)?$/gm);
         if (!regExp.test(datos.get("nombre"))) {
-            
             throw datos.get("nombre") + " no tiene el formato adecuado";
         } else {
             cadenaValida = true;
@@ -42,8 +41,8 @@ function enviarDatosGrado(datos) {
             method: 'POST',
             body: datos
         });
-        if(response.ok){
-            window.location.href = "http://localhost/estudiantes/detalle/iker";
+        if(response){
+            window.location.href = "http://localhost/estudiantes/index";
         }
     
 }

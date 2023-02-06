@@ -37,8 +37,12 @@ class GradoController extends Controller
      */
     public function store(Request $request)
     {
+        
+       $request->validate([
+            'nombre' => 'string|max:255|nullable'
+        ]);
         $grado = new Grado();
-        $grado->nombre = request('nombre');
+        $grado->nombre = $request('nombre');
         $grado->save();
 
         return true;
