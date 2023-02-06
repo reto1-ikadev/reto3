@@ -48,7 +48,45 @@ class CuadernoPracticasController extends Controller
             'id_alumno' => 
         ]);*/
 
-        return "Completado";
+        try {
+
+            $cuadernoPracticas = new CuadernoPracticas;
+
+            $data = $request->input();
+
+            $cuadernoPracticas->periodo = Carbon::now()->format('d/m/Y');
+
+            $cuadernoPracticas->actividades_realizadas = $data['actDesCor'];
+
+            $cuadernoPracticas->actividades_comentario = $data['actDesCom'];
+
+            $cuadernoPracticas->aprendizaje = $data['apreCor'];
+
+            $cuadernoPracticas->aprendizaje_comentario = $data['apreCom'];
+
+            $cuadernoPracticas->problemas = $data['problemCor'];
+
+            $cuadernoPracticas->problemas_comentario = $data['problemCom'];
+
+            $cuadernoPracticas->id_alumno = $data['id_alumno'];
+
+            $cuadernoPracticas->save();
+        
+        } catch(Exception $e) {
+            return "Error a la hora de guardar en la base de datos el diario.";
+        }
+
+        return redirect('/misestudiantes/index');
+    }
+
+    public function obtenerDiarios(Request $request) {
+        $cuadernoPracticas = new CuadernoPracticas;
+
+        $resul = $cuadernoPracticas::select('periodo', 'actividades_realizadas', 'actividades_comentario', 'aprendizaje', 'aprendizaje_comentario', 'problemas', 'problemas_comentario')->where('id_alumno', $request->input('id'))->get();
+        
+        return json_encode($resul);
+        //return json_encode(array('periodo' => $resul[0]->periodo, 'actividades_realizadas' => $resul[0]->actividades_realizadas, 'actividades_comentario' => $resul[0]->actividades_comentario, 'aprendizaje' => $resul[0]->aprendizaje, 'aprendizaje_comentario' => $resul[0]->aprendizaje_comentario, 'problemas' => $resul[0]->problemas, 'problemas_comentario' => $resul[0]->problemas_comentario));
+        //return var_dump($resul);
     }
 
     /**

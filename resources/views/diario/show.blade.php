@@ -1,6 +1,5 @@
 <!-- DIARIO DEL ALUMNO -->
 <div class="row mt-4  p-4">
-    <p>{{$id}}</p>
     <div class="col-md-5 d-flex mb-3">
         <h2>Diario del alumno</h2>
     </div>
@@ -12,6 +11,7 @@
         <div class="row justify-content-center mt-5"> <!-- Para que pueda escribir el tutor y el alumno -->
             <form action="/diarioGuardar" method="post" class="col">
                 @csrf
+                <input type="hidden" name="id_alumno" value="{{$id}}">
                 <div class="table-responsive">
                     <table class="table table-ligth align-middle">
                         <thead>
@@ -74,7 +74,7 @@
                 </div>
         </div>
         <div class="col">
-            <button class="btn mb-5" type="submit"> Guardar cambios</button>
+            <button class="btn mb-5" type="submit">Guardar cambios</button>
         </div>
         </form>
     </div>

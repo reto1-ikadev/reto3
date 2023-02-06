@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/diario',[CuadernoPracticasController::class, 'show'])->name('diario.show');
     Route::get('/diario/{id}',[CuadernoPracticasController::class, 'create'])->name('diario.create');
     Route::post('/diarioGuardar', [CuadernoPracticasController::class, 'store'])->name('diario.store');
+    Route::get('/diariosObtener', [CuadernoPracticasController::class, 'obtenerDiarios'])->name('diarios.obtener');
 //Rutas de las reuniones
     Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
 //Rutas de clasificaciones_historial
