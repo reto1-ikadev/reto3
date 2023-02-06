@@ -26,6 +26,8 @@ class TutorEmpresa extends Model
     {
         return $this->belongsTo(Empresa::class, 'id_empresa');
     }
-
+    public function calificaciones_historial(){
+        return $this->hasMany(CalificacionesHistorial::class,'id');
+    }
 
 }

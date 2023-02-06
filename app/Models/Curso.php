@@ -19,4 +19,7 @@ class Curso extends Model
     {
         return $this->belongsTo(Grado::class, 'id_grado');
     }
+    public function calificaciones_historial(){
+        return $this->hasMany(CalificacionesHistorial::class,'id');
+    }
 }

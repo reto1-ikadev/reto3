@@ -26,5 +26,7 @@ class TutorAcademico extends Model
     {
         return $this->hasMany(Alumno::class, 'id_tutor_academico');
     }
-
+    public function calificaciones_historial(){
+        return $this->hasMany(CalificacionesHistorial::class,'id');
+    }
 }

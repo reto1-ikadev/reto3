@@ -38,6 +38,8 @@ class Alumno extends Model
     {
         return $this->belongsTo(TutorEmpresa::class, 'id_tutor_empresa');
     }
-
+    public function calificaciones_historial(){
+        return $this->hasMany(CalificacionesHistorial::class,'id');
+    }
 
 }

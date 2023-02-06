@@ -11,6 +11,10 @@ class AnosAcademicos extends Model
     protected $table = 'anos_academicos';
     protected $fillable = [
         'fecha_inicio',
-        'fecha_fin'
+        'fecha_fin',
+        'nombre'
     ];
+    public function calificaciones_historial(){
+        return $this->hasMany(CalificacionesHistorial::class,'id');
+    }
 }
