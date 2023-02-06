@@ -15,11 +15,11 @@
         
             <form class="row justify-content-center" action="{{ route('calificacionesHistorial.store') }}" method="post">
             @csrf
-                <input type="text" name="id_alumno" value="{{ $estudiante->id }}">
-                <input type="text" name="id_tutor_academico" value="{{ $tutorA->id }}">
-                <input type="text" name="id_tutor_empresa" value="{{ $tutorE->id }}">
-                <input type="text" name="id_ano_academico" value="{{ $anoAcademico->id }}">
-                <input type="text" name="id_curso" value="{{ $estudiante->opcion_tipo->curso->id }}">
+                <input type="hidden" name="id_alumno" value="{{ $estudiante->id }}">
+                <input type="hidden" name="id_tutor_academico" value="{{ $tutorA->id }}">
+                <input type="hidden" name="id_tutor_empresa" value="{{ $tutorE->id }}">
+                <input type="hidden" name="id_ano_academico" value="{{ $anoAcademico->id }}">
+                <input type="hidden" name="id_curso" value="{{ $estudiante->opcion_tipo->curso->id }}">
                 <div class="table-responsive col-8">
                     <h4>Evaluaci&oacute;n del diario</h4>
                     <table class="table">
