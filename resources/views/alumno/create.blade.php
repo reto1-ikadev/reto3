@@ -11,6 +11,7 @@
 
 
 <form id="formulario" method="post" action="" class="row my-3 justify-content-center">
+
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-md-6">

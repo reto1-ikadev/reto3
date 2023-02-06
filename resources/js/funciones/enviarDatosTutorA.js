@@ -7,7 +7,14 @@ export function enviarDatosTutorA(datos) {
         },
         method: 'POST',
         body: JSON.stringify({
-        "telefono_academico":datos.get('telefonoAcademico')
+            "nombre":datos.get('nombre'),
+            "apellido":datos.get('apellido'),
+            "dni":datos.get('dni'),
+            "telefono":datos.get('telefono'),
+            "tipo":datos.get('tipo'),
+            "telefono_academico":datos.get('telefonoAcademico'),
+            "email":datos.get('email'),
+            "password":datos.get('password')
     })
     });
     if(response){

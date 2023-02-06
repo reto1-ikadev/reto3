@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CalificacionesHistorialController;
 use App\Http\Controllers\QueryController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
@@ -42,9 +43,10 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
     Route::get('/coordinador/update',[CoordinadorController::class,'update'])->name('coordinador.update');
 //Rutas de los estudiantes
-        Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+    Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
+        
 
-    Route::middleware(['auth', 'can:tutores'])->group( function() {
+        Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
         Route::get('/estudiantes/create', [AlumnoController::class, 'create'])->name('estudiantes.create');
@@ -55,6 +57,7 @@ Route::middleware(['auth'])->group( function (){
         Route::post('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/estudiantes/store', [AlumnoController::class, 'store'])->name('estudiantes.store');
         Route::get('/cordinador', [CoordinadorController::class, 'index'])->name('coordinador.index');
+        Route::put('estudiantes/{estudiante}',[AlumnoController::class,'update'])->name('estudiantes.update');
     });
 //Rutas de las empresas
     Route::get('/empresas/index',[EmpresasController::class,'index'])->name('empresas.index');
@@ -67,6 +70,11 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
 //Rutas de las reuniones
     Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
+//Rutas de clasificaciones_historial
+Route::get('/calificacionesHistorial/create/{estudiante}',[CalificacionesHistorialController::class,'create'])->name('calificacionesHistorial.create');
+Route::post('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
+Route::get('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
+
 //Rutas de los tutores academicos
 Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');

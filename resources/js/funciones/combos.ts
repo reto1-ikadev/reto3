@@ -7,7 +7,7 @@ export function cargarCombos() {
             var comboCursos: HTMLElement = <HTMLElement>(document.getElementById("curso"));
             var comboTutorEmpresa: HTMLElement = <HTMLElement>(document.getElementById("tutorE"));
             var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
-            var comboEmpresas: HTMLElement = <HTMLElement>(document.getElementById("empresa"));
+           
             var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
 
             /**
@@ -93,24 +93,7 @@ export function cargarCombos() {
                 });
             });
 
-            /**
-             * Empresas recibe los datos que devuelve el servidor de la base de datos
-             * y con esos datos se llenan los combos con los nombres de las empresas
-             */
-            var empresas = pedirEmpresas();
-            empresas.then((data) => {
-                console.log(data.data);
-                comboEmpresas.innerHTML =
-                    "<option selected disabled value='seleccionar'>Empresa</option>";
-                data.data.forEach(function mostrar(element: any) {
-                    comboEmpresas.innerHTML +=
-                        "<option id='" +
-                        element.id +
-                        "'>" +
-                        element.nombre +
-                        "</option>";
-                });
-            });
+            
             break;
         case "tutor_empresa":
             var comboEmpresas: HTMLElement = <HTMLElement>(
