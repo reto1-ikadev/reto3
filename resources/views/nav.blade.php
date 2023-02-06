@@ -54,7 +54,7 @@
                             @can('tutores')
                             <li class="nav-item debajo">
                                 <hr class="bg-danger border-2 border-top border-primary">
-                                <a class="nav-link active" href="{{route('coordinador.update')}}">Cambiar modo</a>
+
                             </li>
                             @endcan
                             <li class="nav-item">

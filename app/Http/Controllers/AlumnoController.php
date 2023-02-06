@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\GradoCordinador;
 use App\Models\Persona;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
@@ -13,8 +14,10 @@ class AlumnoController extends Controller
         //select de todos los estudiantes
        // $estudiantes = Estudiante::all();
         //get session user id
-           $id = auth()->user()->persona->id;
-           if (auth()->user()->persona->tipo == 'coordinador'){
+
+        $id = auth()->user()->id;
+        $existe = GradoCordinador::where('id_coordinador', $id)->first();
+        if($existe != null){
               return view('alumno.index');
            }
     }
