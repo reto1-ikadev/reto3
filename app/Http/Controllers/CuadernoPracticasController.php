@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CuadernoPracticas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CuadernoPracticasController extends Controller
 {
@@ -22,9 +24,9 @@ class CuadernoPracticasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('diario.show', ['id' => $id]);
     }
 
     /**
@@ -35,7 +37,18 @@ class CuadernoPracticasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*DB::table('cuaderno_practicas')->insert([
+            'periodo' => Carbon::now()->format('d/m/Y'),
+            'actividades_realizadas' => $request->input('actDesCor'),
+            'actividades_comentario' => $request->input('actDesCom'),
+            'aprendizaje' => $request->input('apreCor'),
+            'aprendizaje_comentario' => $request->input('apreCom'),
+            'problemas' => $request->input('problemCor'),
+            'problemas_comentario' => $request->input('problemCom'),
+            'id_alumno' => 
+        ]);*/
+
+        return "Completado";
     }
 
     /**

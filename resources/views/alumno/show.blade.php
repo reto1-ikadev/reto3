@@ -6,6 +6,7 @@
 
 
 <div class="row mt-4">
+    <p>{{$estudiante->id}}</p>
     <div class="col">
         <h5>Entradas del diario</h5>
     </div>
@@ -38,6 +39,8 @@
             <button type="button" class="btn btn-primary">Filtrar</button>
         </div>
     </div><!--FIN FILTROS-->
+
+    <a href="{{ url('/diario/$estudiante->id') }}">Click para diario</a>
 
     <div class="row mt-4">
         <div class="col">
@@ -120,7 +123,7 @@
                         <tr class="">
                             <td scope="row">12/09/2022</td>
                             <td>No se que comentar. No se que comentar</td>
-                            <td>TA,TE</td>
+                            <td>TA,TE,TO</td>
                             <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
                             </td>
 

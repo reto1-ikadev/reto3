@@ -165,7 +165,7 @@
                         <tr class="">
                             <td scope="row">12/09/2022</td>
                             <td>No se que comentar. No se que comentar</td>
-                            <td>TA,TE</td>
+                            <td>TA,TE,TO</td>
                             <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
                         </td>
                         </tr>

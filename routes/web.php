@@ -67,7 +67,9 @@ Route::middleware(['auth'])->group( function (){
     Route::post('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
     Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
 //Rutas del diario
-    Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
+    Route::get('/diario',[CuadernoPracticasController::class, 'show'])->name('diario.show');
+    Route::get('/diario/{id}',[CuadernoPracticasController::class, 'create'])->name('diario.create');
+    Route::post('/diarioGuardar', [CuadernoPracticasController::class, 'store'])->name('diario.store');
 //Rutas de las reuniones
     Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
 //Rutas de clasificaciones_historial
