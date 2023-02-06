@@ -12,6 +12,7 @@ use App\Http\Controllers\TutorAcademicoController;
 use App\Http\Controllers\TutorEmpresaController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\QueryController;
+use App\Http\Controllers\PHPMailerController;
 //Controlador para developing
 use App\Http\Controllers\CredencialesUsuarioController;
 
@@ -63,6 +64,8 @@ use App\Http\Controllers\CredencialesUsuarioController;
         Route::get('/', [AlumnoController::class, 'index'])->name('index');
 
         Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+        Route::get('/enviarEmail', [PHPMailerController::class, 'enviarEmail'])->name('enviarEmail');
 
     });
 //Rutas de los grados

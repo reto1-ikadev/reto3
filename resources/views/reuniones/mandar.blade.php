@@ -4,5 +4,8 @@
     <div class="col mb-3">
         <h2>Detalles de la reuni&oacute;n</h2>
     </div>
-    <p>{{$array[0]}} y {{$fecha}} y {{$textArea}} y {{$aspectos}}</p>
+    @foreach ($array as $dato)
+        <p>{{$dato}}</p>
+    @endforeach
+    <p>{{$fecha}} y {{$textArea}} y {{$aspectos}}</p>
 @endsection

@@ -50,7 +50,11 @@ class CursoController extends Controller
             $num++;
         }
 
-        
+        //------------------------------------TO-DO-------------------------------------
+            //En estas lineas de código programare el envio de correos con el controlador EmailController.
+
+        //------------------------------------------------------------------------------
+
         //return implode(',', $arr) . "," . Carbon::now()->format('d/m/Y') . "," . $request->input('selectTipoReunion') . " " . $request->input('textArea') . " " . $request->input('aspectos');
         return view('reuniones.mandar', ['array' => $arr, 'fecha' => Carbon::now()->format('d/m/Y'), 'textArea' => $request->input('textArea'), 'aspectos' => $request->input('aspectos')]);
     }
