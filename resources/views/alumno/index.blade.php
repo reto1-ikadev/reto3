@@ -9,13 +9,7 @@
                 <h2>Estudiante</h2>
                 <form id="filtrosEstudiantes" action="" method="get" >
                     <div class="row mb-2" id="filtrosEst">
-                        @can('coordinador')
-                        <div class="col">
-                            <select class="form-select" aria-label="select" id="grado" name="grado">
 
-                            </select>
-                        </div>
-                        @endcan
                         <div class="col">
                             <select class="form-select" aria-label="select" id="curso" name="curso">
 
@@ -54,14 +48,14 @@
                         </div>
             </div>
             <div class="row">
-                        <table class="table mt-2 ">
-                            <thead>
-                            <td>Nombre</td>
-                            <td>Apellido</td>
-                            <td>Grado</td>
-                            <td>Curso</td>
-                            <td>Empresa</td>
-                            <td>Detalles</td>
+                        <table class="table table-light table-striped">
+                            <thead class="th">
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Grado</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Detalles</th>
                             </thead>
                            <tbody id="tabla">
 
@@ -72,10 +66,8 @@
         </div>
     </div>
     @can('coordinador')
-    @vite(['resources/js/buscarEstudiantes.js'])
+        @vite(['resources/js/buscarEstudiantes.js'])
     @endcan
-    @can('tutor_academico')
-        @vite(['resources/js/buscarEstudiantesTutor.js'])
-    @endcan
+
 
 @endsection

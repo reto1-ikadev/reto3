@@ -148,12 +148,14 @@ export function cargarCombos() {
                 comboCursos.innerHTML =
                     "<option selected disabled value='seleccionar'>Curso</option>";
                 data.data.forEach(function mostrar(element) {
-                    comboCursos.innerHTML +=
-                        "<option id='" +
+                    if (comboCursos.innerHTML.indexOf(element.nombre) == -1) {
+                        comboCursos.innerHTML +=
+                            "<option id='" +
                             element.id +
                             "'>" +
                             element.nombre +
                             "</option>";
+                    }
                 });
             });
             var comboGrados = (document.getElementById("grado"));

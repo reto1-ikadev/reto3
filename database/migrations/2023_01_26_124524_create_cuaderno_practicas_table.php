@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('periodo', 100);
             $table->string('actividades_realizadas', 200);
+            $table->string('actividades_comentario', 200);
             $table->string('aprendizaje', 200);
+            $table->string('aprendizaje_comentario', 200);
             $table->string('problemas', 200);
-            $table->string('comentario_tutor', 200);
+            $table->string('problemas_comentario', 200);
             $table->unsignedBigInteger('id_alumno');
             $table->foreign('id_alumno')->references('id_alumno')->on('alumnos')->onDelete('cascade');
             $table->timestamps();

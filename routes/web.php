@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes
     Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
-        
+
 
         Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');

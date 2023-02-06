@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('puntualidad_obs', 200);
             $table->string('responsabilidad_nota', 20);
             $table->string('responsabilidad_obs', 200);
-            $table->string('resolucion_problemas_nota', 20);
-            $table->string('resolucion_problemas_obs', 200);
+            $table->string('resolucion_nota', 20);
+            $table->string('resolucion_obs', 200);
             $table->string('calidad_trabajos_nota', 20);
             $table->string('calidad_trabajos_obs', 200);
             $table->string('implicacion_nota', 20);

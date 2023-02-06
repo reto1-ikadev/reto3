@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
-use App\Models\User;
 use App\Models\TutorAcademico;
 use App\Models\Persona;
 use Illuminate\Http\Request;
@@ -19,7 +18,7 @@ class TutorAcademicoController extends Controller
     {
         //
 
-            return view('alumno.index');
+            return view('tutorAcademico.index');
 
     }
 
@@ -41,28 +40,15 @@ class TutorAcademicoController extends Controller
      */
     public function store(Request $request)
     {
-        $persona = new Persona;
-        $persona->nombre = request('nombre');
-        $persona->apellidos = request('apellido');
-        $persona->dni = request('dni');
-        $persona->telefono = request('telefono');
-        $persona->tipo = request('tipo');
-        $persona->save();
-        $idPersona = $persona->id;
+        $tutorA = new TutorAcademico();
+        $ide_tutorA = Persona::select('id')->latest()->first();
 
-        $usuario = new User;
-        $usuario->id_persona = $idPersona;
-        $usuario->email = request('email');
-        $usuario->password = request('password');
-        $usuario->save();
-
-        $tutorA = new TutorAcademico;
-        $tutorA->id_tutor_academico = $idPersona;
+        $tutorA->id_tutor_academico= $ide_tutorA->id;
         $tutorA->telefono_academico = request('telefono_academico');
 
         $tutorA->save();
         return true;
-    }
+    }//
 
     /**
      * Display the specified resource.
