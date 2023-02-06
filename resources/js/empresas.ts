@@ -67,6 +67,9 @@ function empresasFiltrado(evento:any, pagina = 1) {
                         <div> <b> Email de la persona de contacto:</b> ${element.email_contacto} </div>
                         <div> <b> CIF:</b> ${element.cif} </div>
                         <div> <b> Direccion:</b> ${element.direccion}</div>
+                        <br>
+                        <span id="editar" class="material-symbols-outlined">edit_square</span>
+                        <div class="col-4 offset-8" id="botones"></div>
                     </div>
                 </div>
             </div>
