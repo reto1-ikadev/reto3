@@ -45,6 +45,13 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'cif' => 'string|nullable',
+            'direccion' => 'string|nullable',
+            'email_contacto' => 'string|nullable',
+            'sector' => 'string|nullable'
+        ]);
         $empresa = new Empresa;
         $empresa->nombre = request('nombre');
         $empresa->cif = request('cif');

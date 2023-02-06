@@ -37,6 +37,9 @@ class GradoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'string|nullable'
+        ]);
         $grado = new Grado();
         $grado->nombre = request('nombre');
         $grado->save();
