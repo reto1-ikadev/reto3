@@ -95,7 +95,7 @@ class EmpresasController extends Controller
      */
     public function update(Request $request, Empresa $Empresa)
     {
-        //
+        
     }
 
     /**

@@ -67,13 +67,13 @@
 
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="nombreA" id="nombreA" placeholder="Nombre" value="{{$tutorA->nombre}}" >
+                    <input type="text" class="form-control" name="nombreA" id="nombreA" placeholder="Nombre" value="{{$tutorA->nombre}}" disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="apellidoA" id="apellidoA" placeholder="Apellido" value="{{$tutorA->apellidos}}" >
+                    <input type="text" class="form-control" name="apellidoA" id="apellidoA" placeholder="Apellido" value="{{$tutorA->apellidos}}"  disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="emailA" id="emailA" placeholder="Email" value="{{$tutorA->user->email}}" >
+                    <input type="text" class="form-control" name="emailA" id="emailA" placeholder="Email" value="{{$tutorA->user->email}}"  disabled>
                 </div>
                 <!-- TUTOR EMPRESA -->
                 <div class="col-12 d-flex mb-3">
@@ -83,16 +83,16 @@
 
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="nombreE" id="nombreE" placeholder="Nombre" value="{{$tutorE->nombre}}" >
+                    <input type="text" class="form-control" name="nombreE" id="nombreE" placeholder="Nombre" value="{{$tutorE->nombre}}"  disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="apellidoE" id="apellidoE" placeholder="Apellido" value="{{$tutorE->apellidos}}" >
+                    <input type="text" class="form-control" name="apellidoE" id="apellidoE" placeholder="Apellido" value="{{$tutorE->apellidos}}"  disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="emailE" id="emailE" placeholder="Email" value="{{$tutorE->user->email}}" >
+                    <input type="text" class="form-control" name="emailE" id="emailE" placeholder="Email" value="{{$tutorE->user->email}}"  disabled>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="empresaE" id="empresaE" placeholder="Empresa" value="{{ $tutorE->opcion_tipo->empresa->nombre }}" >
+                    <input type="text" class="form-control" name="empresaE" id="empresaE" placeholder="Empresa" value="{{ $tutorE->opcion_tipo->empresa->nombre }}"  disabled>
                 </div>
                 
             </div>
