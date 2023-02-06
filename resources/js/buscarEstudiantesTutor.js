@@ -1,25 +1,24 @@
-let button = document.getElementById('btn');
-button.addEventListener('click', llamarFiltrado);
-let buttonReset = document.getElementById('btnReset');
-buttonReset.addEventListener('click', resetearFiltros);
-let paginaActual = 1;
-let botonAnterior = document.getElementById('anterior');
-let botonpaginaActual = document.getElementById('paginaActual');
-let botonSiguiente = document.getElementById('siguiente');
-botonAnterior.addEventListener('click', function () {
-    paginaActual--;
-    alumnosFiltrado(null, paginaActual);
+let buttonEstudianteTutor = document.getElementById('btn');
+buttonEstudianteTutor.addEventListener('click', llamarFiltradoEstudianteTutor);
+let buttonResetEstudianteTutor = document.getElementById('btnReset');
+buttonResetEstudianteTutor.addEventListener('click', resetearFiltrosEstudianteTutor);
+let paginaActualEstudianteTutor = 1;
+let botonAnteriorEstudianteTutor = document.getElementById('anterior');
+let botonpaginaActualEstudianteTutor = document.getElementById('paginaActual');
+let botonSiguienteEstudianteTutor = document.getElementById('siguiente');
+botonAnteriorEstudianteTutor.addEventListener('click', function () {
+    paginaActualEstudianteTutor--;
+    alumnosFiltradoEstudianteTutor(null, paginaActualEstudianteTutor);
 });
-botonSiguiente.addEventListener('click', function () {
-    paginaActual++;
-    alumnosFiltrado(null, paginaActual);
+botonSiguienteEstudianteTutor.addEventListener('click', function () {
+    paginaActualEstudianteTutor++;
+    alumnosFiltradoEstudianteTutor(null, paginaActualEstudianteTutor);
 });
-
-function llamarFiltrado(evento) {
-    paginaActual=1;
-    alumnosFiltrado(evento, paginaActual);
+function llamarFiltradoEstudianteTutor(evento) {
+    paginaActualEstudianteTutor = 1;
+    alumnosFiltradoEstudianteTutor(evento, paginaActualEstudianteTutor);
 }
-function alumnosFiltrado(evento, pagina = 1) {
+function alumnosFiltradoEstudianteTutor(evento, pagina = 1) {
     let formulario = new FormData(document.getElementById("filtrosEstudiantes"));
     let parametros = new URLSearchParams(formulario);
     //fecht para enviar los datos
@@ -28,29 +27,28 @@ function alumnosFiltrado(evento, pagina = 1) {
     })
         .then(response => response.json())
         .then(data => {
-            let tabla = document.getElementById('tabla');
-            tabla.innerHTML = '';
-            let paginacion = document.getElementById('pagination');
-            let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
-            botonpaginaActual.innerHTML = data.data['pagina'];
-            if (data.data['pagina'] == 1) {
-                botonAnterior.classList.add('disabled');
-            }
-            else {
-                botonAnterior.classList.remove('disabled');
-            }
-            if (data.data['pagina'] == paginas) {
-                botonSiguiente.classList.add('disabled');
-            }
-            else {
-                botonSiguiente.classList.remove('disabled');
-            }
-            if (data.data['total'] == 0) {
-                botonAnterior.classList.add('disabled');
-                botonSiguiente.classList.add('disabled');
-            }
-            data.data['estudiantes'].forEach(element => {
-                tabla.innerHTML += `
+        let tabla = document.getElementById('tabla');
+        tabla.innerHTML = '';
+        let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
+        botonpaginaActualEstudianteTutor.innerHTML = data.data['pagina'];
+        if (data.data['pagina'] == 1) {
+            botonAnteriorEstudianteTutor.classList.add('disabled');
+        }
+        else {
+            botonAnteriorEstudianteTutor.classList.remove('disabled');
+        }
+        if (data.data['pagina'] == paginas) {
+            botonSiguienteEstudianteTutor.classList.add('disabled');
+        }
+        else {
+            botonSiguienteEstudianteTutor.classList.remove('disabled');
+        }
+        if (data.data['total'] == 0) {
+            botonAnteriorEstudianteTutor.classList.add('disabled');
+            botonSiguienteEstudianteTutor.classList.add('disabled');
+        }
+        data.data['estudiantes'].forEach(function (element) {
+            tabla.innerHTML += `
                 <tr>
                     <td>${element.nombre}</td>
                     <td>${element.apellidos}</td>
@@ -60,15 +58,11 @@ function alumnosFiltrado(evento, pagina = 1) {
                     <td><a href="/estudiantes/detalle/${element.id_alumno}" class="btn btn-primary">Ver</a></td>
                 </tr>
                 `;
-
-            });
-        })
-
-
+        });
+    });
 }
-function resetearFiltros() {
-    document.getElementById("filtrosEstudiantes").reset();
-    alumnosFiltrado(null);
+function resetearFiltrosEstudianteTutor() {
+    let formulario = document.getElementById("filtrosEstudiantes");
+    formulario.reset();
 }
-alumnosFiltrado(null);
-
+alumnosFiltradoEstudianteTutor(null);

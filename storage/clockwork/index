@@ -2845,14 +2845,12 @@
 1675256934-5502-765206043,1675256934.5375,GET,/estudiantes/filtrar?pagina=1&curso=2%C2%BA+SMI&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,40.719032287598,request
 1675256936-7488-1057958358,1675256936.7397,GET,/estudiantes/filtrar?pagina=1&curso=1%C2%BA+SMI&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,31.280994415283,request
 1675256939-6072-2055691556,1675256939.597,GET,/estudiantes/filtrar?pagina=1&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\AlumnoController@selectAllAlumnos",200,36.719083786011,request
-<<<<<<< HEAD
 1675335053-1693-1296128340,1675335053.1551,GET,/,Closure,200,67.490100860596,request
 1675335053-2374-36387375,1675335053.2297,GET,/,Closure,200,34.883975982666,request
 1675335053-2883-219837423,1675335053.2799,GET,/,Closure,200,42.004108428955,request
 1675335053-3389-991958005,1675335053.3294,GET,/,Closure,200,53.308010101318,request
 1675335053-3993-774102888,1675335053.3902,GET,/,Closure,200,37.912130355835,request
 1675335053-4486-259541093,1675335053.4369,GET,/,Closure,200,39.882898330688,request
-=======
 1675262014-4109-2093595104,1675262014.3322,GET,/,Closure,302,132.60197639465,request
 1675262014-4787-1263826694,1675262014.4752,GET,/login,"App\Http\Controllers\Auth\LoginController@showLoginForm",200,19.495010375977,request
 1675262018-9078-1631589459,1675262018.9047,GET,/estudiantes,,404,7.7850818634033,request
@@ -3277,7 +3275,6 @@
 1675334961-4487-1818842042,1675334961.4379,GET,/,"App\Http\Controllers\AlumnoController@index",200,50.628900527954,request
 1675334965-3542-804346871,1675334965.3451,GET,/,"App\Http\Controllers\AlumnoController@index",200,41.923046112061,request
 1675334984-2366-1651197071,1675334984.224,GET,/,"App\Http\Controllers\AlumnoController@index",200,90.764999389648,request
->>>>>>> Arreglos
 1675335134-5031-988811907,1675335134.4863,GET,/,"App\Http\Controllers\AlumnoController@index",200,228.07312011719,request
 1675335134-7348-2089327938,1675335134.7236,GET,/,"App\Http\Controllers\AlumnoController@index",200,61.84196472168,request
 1675335134-8029-839992,1675335134.7934,GET,/,"App\Http\Controllers\AlumnoController@index",200,55.158138275146,request
@@ -3384,7 +3381,6 @@
 1675338979-6520-232891466,1675338979.6436,GET,/estudiantes/index,"App\Http\Controllers\AlumnoController@index",200,36.092042922974,request
 1675338979-6951-1454082236,1675338979.686,GET,/estudiantes/index,"App\Http\Controllers\AlumnoController@index",200,38.51580619812,request
 1675338979-7526-592031875,1675338979.7384,GET,/estudiantes/index,"App\Http\Controllers\AlumnoController@index",200,58.000087738037,request
-<<<<<<< HEAD
 1675412906-7599-618412698,1675412906.7451,GET,/misestudiantes/index,,404,153.67698669434,request
 1675412906-9195-347271185,1675412906.9106,GET,/misestudiantes/index,,404,38.470029830933,request
 1675412906-9686-572179767,1675412906.9574,GET,/misestudiantes/index,,404,44.681072235107,request
@@ -3398,7 +3394,6 @@
 1675412910-5919-1640197372,1675412910.5839,GET,/misestudiantes/index,,404,35.71891784668,request
 1675412910-6395-1523698793,1675412910.6266,GET,/misestudiantes/index,,404,57.682037353516,request
 1675412910-7018-183499838,1675412910.6927,GET,/misestudiantes/index,,404,32.382965087891,request
-=======
 1675339280-6211-736911696,1675339280.6211,,,,,-1675339280621.1,request
 1675339296-9088-1294153207,1675339296.8981,GET,/estudiantes/index,"App\Http\Controllers\AlumnoController@index",200,40.57502746582,request
 1675339299-2877-1167156188,1675339299.2782,GET,/estudiantes/index,"App\Http\Controllers\AlumnoController@index",200,33.543109893799,request
@@ -9649,3 +9644,8 @@
 1675414233-2030-1037737749,1675414233.1938,GET,/misestudiantes/filtrar?pagina=1&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\TutorAcademicoController@selectAllAlumnosIdTutor",200,37.760972976685,request
 1675414240-2200-733776906,1675414240.2097,GET,/misestudiantes/filtrar?pagina=2&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\TutorAcademicoController@selectAllAlumnosIdTutor",200,49.823045730591,request
 1675414241-1124-672230206,1675414241.1043,GET,/misestudiantes/filtrar?pagina=1&nombre=&tipo=filtros_estudiante,"App\Http\Controllers\TutorAcademicoController@selectAllAlumnosIdTutor",200,34.329891204834,request
+1675451145-8687-1853994765,1675451145.8646,GET,/login,"App\Http\Controllers\Auth\LoginController@showLoginForm",200,10.844945907593,request
+1675451146-5208-1741545159,1675451146.5177,GET,/login,"App\Http\Controllers\Auth\LoginController@showLoginForm",200,9.1249942779541,request
+1675451181-8996-12764023,1675451181.8957,POST,/login,"App\Http\Controllers\Auth\LoginController@login",302,119.36402320862,request
+1675451182-0246-649619026,1675451182.0217,GET,/,"App\Http\Controllers\InicioController@index",200,42.485952377319,request
+1675451190-1838-995564940,1675451190.18,GET,/,"App\Http\Controllers\InicioController@index",200,17.983198165894,request
