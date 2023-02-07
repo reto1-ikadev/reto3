@@ -125,7 +125,7 @@ class TutorEmpresaController extends Controller
         $empresas = TutorEmpresa::join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
             ->join('personas', 'tutores_empresas.id_tutor_empresa', '=', 'personas.id')
             ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
-            ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento')
+            ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento', 'users.id as id_user', 'personas.id')
             ->where([
                 ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
                 ['tutores_empresas.departamento', 'like', '%' . $request->departamento . '%'],

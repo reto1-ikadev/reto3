@@ -21,6 +21,7 @@ function llamarFiltradoTutorEmpresa(evento) {
 function tutorEmpresaFiltrado(evento,pagina = 1) {
     let formulario = new FormData(document.getElementById("filtrosTutoresEmpresas"));
     let parametros = new URLSearchParams(formulario);
+    let x =0;
     //fecht para enviar los datos
     fetch('/tutoresEmpresa/filtrar?pagina=' + pagina + "&" + parametros, {
         method: 'GET',
@@ -49,16 +50,39 @@ function tutorEmpresaFiltrado(evento,pagina = 1) {
                 botonSiguienteTutorEmpresa.classList.add('disabled');
             }
             data.data['empresas'].forEach(function mostrar(element) {
+                x++;
                 tabla.innerHTML += `
+                <form action="http://localhost/tutoresEmpresas/update" method="post"> 
+                <input type="hidden" name="_token" value="YV2eawmMbzFbC16rTX4QPAoIwkKkhbYULvCTjWY1">
+                <input type="hidden" name="_method" value="PUT">
             <tr>
-                <td>${element.nombrePersona}</td>
-                <td>${element.apellidos}</td>
-                <td>${element.email}</td>
-                <td>${element.nombre}</td>
-                <td>${element.departamento}</td>
+                <td><input type="text" value="${element.nombrePersona}" name="nombrePersona" class="editable${x}" disabled style="border:none;width:50%;"></td>
+                <td><input type="text" value="${element.apellidos}" name="apellidos" class="editable${x}" disabled style="border:none;width:50%;"></td>
+                <td><input type="text" value="${element.email}" name="email" class="editable${x}" disabled style="border:none;width:50%;"></td>
+                <td><input type="text" value="${element.nombre}" name="nombre" class="editable${x}" disabled style="border:none;width:80%;"></td>
+                <td><input type="text" value="${element.departamento}" name="departamento" class="editable${x}" disabled style="border:none;width:70%;"></td>
+                <input type="text" hidden name="id_user" value="${element.id_user}">
+                <input type="text" hidden name="id" value="${element.id}">
+                <td><button id='${x}' class="btn bg-primary btn-sm">Editar </button></td>
+                <td><div class="col-4 offset-8" id="botones${x}" style="display:flex;justify-content:start;"></div></td>
             </tr>
+            </form>
                 `;
             });
+            for (let x = 1; x <= data.data['empresas'].length; x++) {
+                var lapizEmpresa = document.getElementById(x);
+                console.log(lapizEmpresa);   
+                lapizEmpresa.addEventListener('click', function (e) { 
+                e.preventDefault(); 
+                var editables = document.getElementsByClassName('editable'+e.target.id);
+                var botones = document.getElementById('botones'+e.target.id);
+                botones.innerHTML = "<button type='submit' id='enviar' class='btn bg-primary btn-sm'>Guardar cambios</button><button id='cancelar' type='submit' class=' btn bg-primary btn-sm'>Cancelar</button>";
+                for (var i = 1; i < editables.length; i++) {
+                    editables[i].disabled = false;
+                }
+            });
+
+        }
         });
 }
 function resetearFiltrosTutorEmpresa() {
