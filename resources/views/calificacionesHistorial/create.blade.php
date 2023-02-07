@@ -34,7 +34,7 @@
                             <tr class="">
                                 <td>Esfuerzo y regularidad</td>
                                 <td><select class="form-select" name="regularidad_nota" id="regularidad_nota">
-                                    <option selected value="2">INSUFICIENTE</option>
+                                    <option  value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -45,7 +45,7 @@
                             <tr class="">
                                 <td>Orden, estructura y presentacion</td>
                                 <td><select class="form-select" name="orden_nota" id="orden_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -56,7 +56,7 @@
                             <tr class="">
                                 <td>Contenido</td>
                                 <td><select class="form-select" name="contenido_nota" id="contenido_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -67,7 +67,7 @@
                             <tr class="">
                                 <td>Terminolog&iacute;a y notaci&oacute;n</td>
                                 <td><select class="form-select" name="terminologia_nota" id="terminologia_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -78,7 +78,7 @@
                             <tr class="">
                                 <td>Calidad en el trabajo</td>
                                 <td><select class="form-select" name="calidad_nota" id="calidad_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -89,7 +89,7 @@
                             <tr class="">
                                 <td>Relaciona conceptos</td>
                                 <td><select class="form-select" name="conceptos_nota" id="conceptos_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -100,7 +100,7 @@
                             <tr class="">
                                 <td>Reflexi&oacute;n sobre el aprendizaje</td>
                                 <td><select class="form-select" name="reflexion_nota" id="reflexion_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -136,7 +136,7 @@
                             <tr class="">
                                 <td>Actitud y disposicion para el trabajo</td>
                                 <td><select class="form-select" name="actitud_nota" id="actitud_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -147,7 +147,7 @@
                             <tr class="">
                                 <td>Puntualidad</td>
                                 <td><select class="form-select" name="puntualidad_nota" id="puntualidad_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -158,7 +158,7 @@
                             <tr class="">
                                 <td>Responsabilidad</td>
                                 <td><select class="form-select" name="responsabilidad_nota" id="responsabilidad_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -172,7 +172,7 @@
                             <tr class="">
                                 <td>Capacidad de resoluci&oacute;n de problemas</td>
                                 <td><select class="form-select" name="resolucion_problemas_nota" id="resolucion_problemas_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -183,7 +183,7 @@
                             <tr class="">
                                 <td>Calidad en el trabajo</td>
                                 <td><select class="form-select" name="calidad_trabajos_nota" id="calidad_trabajos_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -194,7 +194,7 @@
                             <tr class="">
                                 <td>Implicaci&oacute;n e integraci&oacute;n en el equipo</td>
                                 <td><select class="form-select" name="implicacion_nota" id="implicacion_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -205,7 +205,7 @@
                             <tr class="">
                                 <td>Toma de decisiones</td>
                                 <td><select class="form-select" name="decisiones_nota" id="decisiones_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -216,7 +216,7 @@
                             <tr class="">
                                 <td>Capacidad de comunicaci&oacute;n oral y escrita</td>
                                 <td><select class="form-select" name="comunicacion_nota" id="comunicacion_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -227,7 +227,7 @@
                             <tr class="">
                                 <td>Capacidad de planificaci&oacute;n y organizaci&oacute;n</td>
                                 <td><select class="form-select" name="planificacion_nota" id="planificacion_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>
@@ -238,7 +238,7 @@
                             <tr class="">
                                 <td>Capacidad de aprendizaje y asimilaci&oacute;n</td>
                                 <td><select class="form-select" name="aprendizaje_nota" id="aprendizaje_nota">
-                                    <option value="2"selected>INSUFICIENTE</option>
+                                    <option value="2">INSUFICIENTE</option>
                                     <option value="5">SUFICIENTE</option>
                                     <option value="6">BIEN</option>
                                     <option value="8">NOTABLE</option>

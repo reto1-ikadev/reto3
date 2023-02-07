@@ -29,16 +29,10 @@
                     <td>{{ $fila->anos_academicos->nombre }}</td>
                     <td>{{ $fila->evaluacion_diario->nota_final }}</td>
                     <td>{{ $fila->evaluacion_empresa->nota_final}}</td>
-                    <td>R1C3</td>
-
-
+                    <td>{{ ($fila->evaluacion_empresa->nota_final + $fila->evaluacion_diario->nota_final )/2 }}</td>
                 </tr>
             @endforeach
-            <tr class="">
-                <td scope="row">Item</td>
-                <td>Item</td>
-                <td>Item</td>
-            </tr>
+            
         </tbody>
     </table>
 </div>
