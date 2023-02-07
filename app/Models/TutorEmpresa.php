@@ -19,7 +19,7 @@ class TutorEmpresa extends Model
 
     public function persona()
     {
-        return $this->belongsTo(Persona::class, 'id_persona');
+        return $this->belongsTo(Persona::class, 'id_tutor_empresa');
     }
 
     public function empresa()

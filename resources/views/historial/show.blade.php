@@ -3,7 +3,7 @@
 
 <h1>HISTORIAL</h1>
     @php
-        echo($historial);   
+        echo($historial);
     @endphp
 <div class="table-responsive">
     <table class="table table-primary">
@@ -19,13 +19,14 @@
                 <th scope="col">Nota del diario</th>
                 <th scope="col">Nota de empresa</th>
                 <th scope="col">Nota media</th>
-                
+
             </tr>
         </thead>
         <tbody>
             @foreach($historial as $fila)
                 <tr class="">
-                    <td scope="row">{{ $fila->tutores_academicos(->telefono_academico }}</td>
+
+                    <td scope="row">{{$fila->tutores_academicos->persona->nombre}}</td>
                     <td>R1C2</td>
                     <td>R1C3</td>
                     <td>R1C2</td>
@@ -35,7 +36,7 @@
                     <td>R1C2</td>
                     <td>R1C3</td>
                     <td>R1C2</td>
-                    
+
                 </tr>
             @endforeach
             <tr class="">
