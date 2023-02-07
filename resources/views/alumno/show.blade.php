@@ -55,6 +55,7 @@
     <div class="col">
         <h5>Seguimiento del alumno/Reuniones</h5>
     </div>
+    <a href="{{ url('/reunion') }}">Clickea aquí para crear una reunion nueva</a>
     <div class="row"> <!-- FILTROS REUNIONES-->
         <div class="col-3">
             <select class="form-select" aria-label="select">

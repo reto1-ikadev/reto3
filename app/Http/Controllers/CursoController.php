@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // Clase que nos permite obtener la fecha
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Persona;
 
 class CursoController extends Controller
 {
@@ -44,8 +46,6 @@ class CursoController extends Controller
                 $arr[$num - 1] = $this->buscarTelefono(trim($request->input('asistente' . $num)));
             }
             
-
-            //$arr[$num - 1] = trim($request->input('asistente' . $num));
             $num++;
         }
 
@@ -55,6 +55,7 @@ class CursoController extends Controller
         //------------------------------------------------------------------------------
 
         //return implode(',', $arr) . "," . Carbon::now()->format('d/m/Y') . "," . $request->input('selectTipoReunion') . " " . $request->input('textArea') . " " . $request->input('aspectos');
+        //return $this->buscarNombre("zsawayn@example.net");
         return view('reuniones.mandar', ['array' => $arr, 'fecha' => Carbon::now()->format('d/m/Y'), 'textArea' => $request->input('textArea'), 'aspectos' => $request->input('aspectos')]);
     }
 
@@ -116,18 +117,43 @@ class CursoController extends Controller
     }
 
     function buscarUsuario($email) {
-        return DB::table('users')->where('email', $email)->value('id_persona');
+        $usuario = new User;
+
+        $resul = $usuario::select('id_persona')->where('email', $email)->get()->first;
+        
+        return $resul->id_persona;
+        //return DB::table('users')->where('email', $email)->value('id_persona');
     }
 
     function buscarNombre($email) {
-        $idPersona = DB::table('users')->where('email', $email)->value('id_persona');
+        //$idPersona = DB::table('users')->where('email', $email)->value('id_persona');
 
-        return DB::table('personas')->where('id', $idPersona)->value('nombre');
+        $usuario = new User;
+
+        $resul = $usuario::select('id_persona')->where('email', $email)->get();
+
+        $personas = new Persona;
+
+        $nombre = $personas::select('nombre')->where('id', $resul[0]->id_persona)->get();
+
+        return $nombre[0]->nombre;
+
+        //return DB::table('personas')->where('id', $idPersona)->value('nombre');
     }
 
     function buscarTelefono($email) {
-        $idPersona = DB::table('users')->where('email', $email)->value('id_persona');
+        //$idPersona = DB::table('users')->where('email', $email)->value('id_persona');
 
-        return DB::table('personas')->where('id', $idPersona)->value('telefono');
+        $usuario = new User;
+
+        $resul = $usuario::select('id_persona')->where('email', $email)->get();
+
+        $personas = new Persona;
+
+        $telefono = $personas::select('telefono')->where('id', $resul[0]->id_persona)->get();
+
+        return $telefono[0]->telefono;
+
+        //return DB::table('personas')->where('id', $idPersona)->value('telefono');
     }
 }

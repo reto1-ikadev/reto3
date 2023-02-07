@@ -5,7 +5,7 @@
         <h2>Detalles de la reuni&oacute;n</h2>
     </div>
     @foreach ($array as $dato)
-        <p>{{$dato}}</p>
+        <p>Persona: {{$dato}}</p>
     @endforeach
     <p>{{$fecha}} y {{$textArea}} y {{$aspectos}}</p>
 @endsection
