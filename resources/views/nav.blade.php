@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <nav class="navbar"><!-- Menu lateral -->
-                <img src="{{ asset('images/logo.svg') }}" id="logoCab" class="img-fluid h-20 w-25" alt="">
+                <img src="{{ asset('images/logo.svg') }}" id="logoCab" class="img-fluid h-50 w-25" alt="">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
