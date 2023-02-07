@@ -17,7 +17,8 @@ class GradoCoordinadores extends Model
     {
         return $this->belongsTo(TutorAcademico::class,'id_tutor_academico');
     }
-    public function grado(){
+    public function grado()
+    {
         return $this->belongsTo(Grado::class,'id_grado');
     }
 }

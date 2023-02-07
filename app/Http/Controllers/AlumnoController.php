@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Grado;
+use App\Models\GradoCoordinadores;
 use App\Models\GradoCordinador;
 use App\Models\Persona;
 use App\Models\User;
@@ -16,15 +17,15 @@ session_start();
 class AlumnoController extends Controller
 {
     public function index(){
-        //select de todos los estudiantes
-       // $estudiantes = Estudiante::all();
-        //get session user id
 
-        return view('alumno.index');
+        $id = auth()->user()->id_persona;
+        $grado = Grado::where('id_coordinador',$id)->first();
+
+        return view('alumno.index', ['grado' => $grado]);
     }
 
     public function show(int $id){
-        //select de un estudiante
+        //
         $estudiante = Persona::find($id);
         $alumno = Alumno::find($id);
         $tutorE = Persona::find($alumno->id_tutor_empresa);
@@ -118,7 +119,7 @@ class AlumnoController extends Controller
         $usuario->update();
 
 
-        //Obtener el id del curso al que se va a cambiar el alumno
+        //
         $nombreNuevoCurso = $request->curso;
 
         $nuevoCurso = Curso::where('nombre','=', $nombreNuevoCurso)->first();
@@ -136,16 +137,6 @@ class AlumnoController extends Controller
 
         $estudiante->update();
 
-
-
-
-
-        // $estudiante->curso->nombre = request('curso');
-        // $estudiante->curso->update();
-
-        // $estudiante->curso->grado->nombre = request('grado');
-        // $estudiante->curso->grado->update();
-        // $estudiante->tutor_academico->id = request($tutorA->id);
 
         return redirect(route('estudiantes.index'));
     }
@@ -171,15 +162,14 @@ class AlumnoController extends Controller
             'pagina' => 'numeric|nullable',
         ]);
         $pagina = $request->pagina;
-        //only grado of the coordinator logged
         $id = auth()->user()->id;
-        $grado = GradoCordinador::where('id_coordinador', $id)->first();
+        $grado = Grado::where('id_coordinador', $id)->first();
 
         $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
-        //query with join id_alumno, id_persona
+
             $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
                 ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
                 ->join('grados', 'cursos.id_grado', '=', 'grados.id')
@@ -189,7 +179,7 @@ class AlumnoController extends Controller
                 ->where([
                     ['personas.nombre', 'like', '%' . $request->nombre . '%'],
                     ['cursos.nombre', 'like', $request->curso],
-                    ['grados.id', "like", $grado->id_grado],
+                    ['grados.id', "like", $grado->id],
                     ['empresas.nombre', 'like', $request->empresa],
 
                 ])

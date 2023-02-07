@@ -6,7 +6,7 @@
     <div class="row justify-content-center mt-1 mb-2">
         <div class="col-11">
             <div class="row mb-3">
-                <h2>Estudiante</h2>
+                <h2>Mis Estudiantes</h2>
                 <form id="filtrosEstudiantes" action="" method="get" >
                     <div class="row mb-2" id="filtrosEst">
                         <div class="col">
@@ -35,14 +35,14 @@
                 </form>
             </div>
             <div class="row">
-                <table class="table mt-2 ">
-                    <thead>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Grado</td>
-                    <td>Curso</td>
-                    <td>Empresa</td>
-                    <td>Detalles</td>
+                <table class="table table-light table-striped mt-2 ">
+                    <thead class="th">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Grado</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Detalles</th>
                     </thead>
                     <tbody id="tabla">
 

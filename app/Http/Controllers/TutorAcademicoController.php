@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
-use App\Models\GradoCordinador;
+use App\Models\GradoCoordinadores;
 use App\Models\TutorAcademico;
 use App\Models\Persona;
 use Illuminate\Http\Request;

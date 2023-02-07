@@ -6,7 +6,7 @@
     <div class="row justify-content-center mt-1 mb-2">
         <div class="col-11">
             <div class="row mb-3">
-                <h2>Estudiante</h2>
+                <h2>Estudiantes del Grado de {{$grado->nombre}}</h2>
                 <form id="filtrosEstudiantes" action="" method="get" >
                     <div class="row mb-2" id="filtrosEst">
 
@@ -39,7 +39,6 @@
                             <th scope="col">Curso</th>
                             <th scope="col">Empresa</th>
                             <th scope="col">Detalles</th>
-                            <th>{{auth()->user()->email}}</th>
                             </thead>
                            <tbody id="tabla">
 

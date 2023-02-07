@@ -62,5 +62,6 @@ function alumnosFiltradoTutorAcademico(evento, pagina = 1) {
 function resetearFiltrosTutorAcademico() {
     let formulario = document.getElementById("filtrosTutoresAcademicos");
     formulario.reset();
+    alumnosFiltradoTutorAcademico(null);
 }
 alumnosFiltradoTutorAcademico(null);
