@@ -39,6 +39,7 @@
                             <th scope="col">Curso</th>
                             <th scope="col">Empresa</th>
                             <th scope="col">Detalles</th>
+                            <th>{{auth()->user()->email}}</th>
                             </thead>
                            <tbody id="tabla">
 

@@ -15,8 +15,14 @@ return new class extends Migration
     {
         Schema::create('reuniones', function (Blueprint $table) {
             $table->id();
-            $table->string('comentario', 200);
-            $table->
+            $table->date('fecha');
+            $table->string('tipo_lugar', 50);
+            $table->string('objetivos', 200);
+            $table->string('aspectos', 100);
+            //foreign key personas id column convocante
+            $table->unsignedBigInteger('convocante_id');
+            $table->foreign('convocante_id')->references('id')->on('personas');
+            $table->string('asistentes', 200);
             $table->timestamps();
         });
     }

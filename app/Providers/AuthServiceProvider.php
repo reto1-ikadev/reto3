@@ -50,7 +50,7 @@ class AuthServiceProvider extends ServiceProvider
             $id = auth()->user()->id;
             $existe = GradoCordinador::where('id_coordinador', $id)->first();
 
-            return $user->persona->tipo == 'tutor_empresa' ||  $user->persona->tipo == 'tutor_academico' || $existe != null;
+            return $user->persona->tipo == 'tutor_academico' || $existe != null;
         });
     }
 }

@@ -4,9 +4,9 @@
     <div id="main-wrapper" class="container ">
         <div class="row justify-content-center ">
             <div class="col-xl-10">
-                <div class="card border-0">
+                <div class="card border-1">
                     <div class="card-body p-0">
-                        <div class="row no-gutters">
+                        <div class="row">
                               <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="mb-5">
@@ -56,13 +56,13 @@
                                         </div>
 
                                         <div class="row mb-0">
-                                            <div class="col-md-8 offset-md-4">
-                                                <button type="submit" class="btn btn-primary">
+                                            <div class="col-8 offset-md-4 d-flex justify-content-center flex-column">
+                                                <button type="submit" class="btn btn-primary mb-2 w-50">
                                                     {{ __('Iniciar Sesión') }}
                                                 </button>
 
                                                 @if (Route::has('password.request'))
-                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    <a class="btn-link" href="{{ route('password.request') }}">
                                                         {{ __('¿Olvidaste la contraseña?') }}
                                                     </a>
                                                 @endif
@@ -71,9 +71,9 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-6  d-lg-inline-block ">
-                                <div class="account-block rounded-right d-flex align-items-center justify-content-center" style="border-top-right-radius: 0.36rem; border-bottom-right-radius:0.36rem; " >
-                                    <div class="account-testimonial d-none d-lg-block ">
+                            <div class="col-lg-6  p-0 d-lg-inline-block ">
+                                <div class="div-logo rounded-right d-flex align-items-center justify-content-center" style="border-top-right-radius: 0.36rem; border-bottom-right-radius:0.36rem; " >
+                                    <div class="logo d-none d-lg-block ">
                                         <img src="{{asset('images/logo.svg')}}" alt="" class="w-75 h-50">
                                     </div>
                                 </div>

@@ -18,7 +18,7 @@ class InicioController extends Controller
         $tutor_empresa = Persona::find($alumno->opcion_tipo->id_tutor_empresa);
         return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa]);}
 
-        if (auth()->user()->persona->tipo == 'tutor_academico' || auth()->user()->persona->tipo == 'coordinador'){
+        if (auth()->user()->persona->tipo == 'tutor_academico' || auth()->user()->persona->tipo == 'coordinador' || auth()->user()->persona->tipo == 'tutor_empresa'){
         $tutor_academico = Persona::find($id);
         $alumnos = Alumno::where('id_tutor_academico', $id)->get();
         return view('index',  ['tutor_academico'=> $tutor_academico, 'alumnos'=> $alumnos]);}
