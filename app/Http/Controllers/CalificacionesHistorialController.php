@@ -100,7 +100,7 @@ class CalificacionesHistorialController extends Controller
         $calificacionesHistorial->id_tutor_empresa = request('id_tutor_empresa');
         $calificacionesHistorial->id_curso = request('id_curso');
         $calificacionesHistorial->id_ano_academico = request('id_ano_academico');
-        $calificacionesHistorial->save(); 
+        $calificacionesHistorial->save();
     }
 
     /**
