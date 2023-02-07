@@ -33,4 +33,8 @@ class Reunion extends Model
         'asistentes',
         'convocante_id'
     ];
+
+    public function persona() {
+        return $this->hasOne(Persona::class, 'id', 'convocante_id');
+    }
 }

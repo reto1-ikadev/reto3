@@ -8,8 +8,9 @@
     <input type="hidden" id="id_alumno" value="{{$estudiante->id}}" />
     <div class="col">
         <h5>Entradas del diario</h5>
+        @can('tutor_empresa') <button id="botonDiario" type="button" class="btn btn-primary">Diario Nuevo</button> @endcan
     </div>
-    @can('tutor_empresa') <a href="{{ url('/diario', $estudiante->id) }}">Clickea aquí para guardar un diario nuevo</a> @endcan
+    <!--@can('tutor_empresa') <a href="{{ url('/diario', $estudiante->id) }}">Clickea aquí para guardar un diario nuevo</a> @endcan-->
     <div class="row"> <!-- FILTROS DIARIO-->
         <div class="col-3">
             <select id="filtroAnio" class="form-select" aria-label="select">
@@ -54,8 +55,11 @@
 <div class="row mt-4">
     <div class="col">
         <h5>Seguimiento del alumno/Reuniones</h5>
+        <button id="botonReunion" type="button" class="btn btn-primary">Reunion Nueva</button>
     </div>
-    <a href="{{ url('/reunion') }}">Clickea aquí para crear una reunion nueva</a>
+    <!--<a href="{{ url('/reunion') }}">Clickea aquí para crear una reunion nueva</a>-->
+
+    
     <div class="row"> <!-- FILTROS REUNIONES-->
         <div class="col-3">
             <select class="form-select" aria-label="select">
@@ -95,25 +99,11 @@
                             <th scope="col">Fecha</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Asistentes</th>
-                            <th scope="col">Detalles</th>
+                            <th scope="col">Objetivos</th>
+                            <th scope="col">Aspectos</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="">
-                            <td scope="row">12/09/2022</td>
-                            <td>No se que comentar. No se que comentar</td>
-                            <td>TA,TE,TO</td>
-                            <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
-                            </td>
-
-                        </tr>
-                        <tr class="">
-                            <td scope="row">12/09/2022</td>
-                            <td>No se que comentar. No se que comentar</td>
-                            <td>TA,TE</td>
-                            <td> <a href="{{ route('reunion.show') }}">Ver m&aacute;s</a>
-                            </td>
-                        </tr>
+                    <tbody id="listaReuniones">
                     </tbody>
                 </table>
             </div>
@@ -126,5 +116,6 @@
 </div>
 
 @vite('resources/js/filtrarDiarios.js')
+@vite('resources/js/filtrarReuniones.js')
 
 @endsection

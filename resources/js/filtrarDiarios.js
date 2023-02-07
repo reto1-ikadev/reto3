@@ -171,3 +171,7 @@ document.getElementById('reset').addEventListener('click', function() {
     lista.innerHTML = '';
     obtenerDiarios();
 });
+
+document.getElementById('botonDiario').addEventListener('click', function() {
+    window.location.href = "/diario/" + document.getElementById("id_alumno").value;
+});
