@@ -31,7 +31,7 @@
                     <td>{{ $fila->evaluacion_empresa->nota_final}}</td>
                     <td>{{ ($fila->evaluacion_empresa->nota_final + $fila->evaluacion_diario->nota_final )/2 }}</td>
                 </tr>
-            @endforeach
+           
             
         </tbody>
     </table>

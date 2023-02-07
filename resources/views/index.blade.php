@@ -4,6 +4,7 @@
     <div class="row justify-content-center mt-5">
         <div class="col-10">
             @can('alumno')
+                @include('alumno.notaFinal')
                 @include('alumno.tabla')
                 @include('diario.show')
             @endcan

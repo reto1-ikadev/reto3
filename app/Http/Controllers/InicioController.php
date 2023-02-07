@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\AnosAcademicos;
+use App\Models\CalificacionesHistorial;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,10 @@ class InicioController extends Controller
         $alumno = Persona::find($id);
         $tutor_academico = Persona::find($alumno->opcion_tipo->id_tutor_academico);
         $tutor_empresa = Persona::find($alumno->opcion_tipo->id_tutor_empresa);
-        return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa]);}
+        
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $alumno->id);
+        
+        return view('index',  ['alumno'=> $alumno, 'tutor_academico'=> $tutor_academico, 'tutor_empresa'=> $tutor_empresa,"historial"=>$calificacionesHistorial]);}
 
         if (auth()->user()->persona->tipo == 'tutor_academico' || auth()->user()->persona->tipo == 'coordinador'){
         $tutor_academico = Persona::find($id);
