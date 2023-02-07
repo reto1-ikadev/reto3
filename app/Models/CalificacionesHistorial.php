@@ -20,10 +20,10 @@ class CalificacionesHistorial extends Model
         'id_ano_academico'
     ];
     public function evaluacion_diario(){
-        return $this->belongsTo(EvaluacionDiario::class,'id');
+        return $this->belongsTo(EvaluacionDiario::class,'id_evaluacion_diario');
     }
     public function evaluacion_empresa(){
-        return $this->belongsTo(EvaluacionEmpresa::class,'id');
+        return $this->belongsTo(EvaluacionEmpresa::class,'id_evaluacion_empresa');
     }
     public function alumnos(){
         return $this->belongsTo(Alumno::class,'id_alumno');
@@ -38,6 +38,6 @@ class CalificacionesHistorial extends Model
         return $this->belongsTo(Curso::class,'id');
     }
     public function anos_academicos(){
-        return $this->belongsTo(AnosAcademicos::class,'id');
+        return $this->belongsTo(AnosAcademicos::class,'id_ano_academico' );
     }
 }
