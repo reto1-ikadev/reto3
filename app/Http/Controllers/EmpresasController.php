@@ -93,9 +93,24 @@ class EmpresasController extends Controller
      * @param  \App\Models\Empresa  $Empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $Empresa)
+    public function update(Request $request)
     {
-        
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'cif' => 'string|nullable',
+            'direccion' => 'string|nullable',
+            'email_contacto' => 'string|nullable',
+            'sector' => 'string|nullable'
+        ]);
+        $empresa = Empresa::find($request->id);
+        $empresa->nombre = request('nombre');
+        $empresa->cif = request('cif');
+        $empresa->direccion = request('direccion');
+        $empresa->email_contacto = request('email');
+        $empresa->sector = request('sector');
+        $empresa->save();
+
+        return redirect(route('empresas.index'));
     }
 
     /**
@@ -123,7 +138,7 @@ class EmpresasController extends Controller
         $request->sector = $request->sector == '' ? '%' : $request->sector;
         $request->page = $request->page == '' ? 1 : $request->page;
 
-        $empresas = Empresa::select('empresas.nombre', 'empresas.cif', 'empresas.email_contacto', 'empresas.direccion', 'empresas.sector')
+        $empresas = Empresa::select('empresas.nombre', 'empresas.cif', 'empresas.email_contacto', 'empresas.direccion', 'empresas.sector', 'empresas.id')
                 ->where([
                     ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
                     ['empresas.sector', 'like', '%' . $request->sector . '%'],

@@ -21,7 +21,7 @@ function llamarFiltrado(evento) {
 function empresasFiltrado(evento, pagina = 1) {
     let formulario = new FormData(document.getElementById("filtrosEmpresas"));
     let parametros = new URLSearchParams(formulario);
-    let x = 1;
+    let x = 0;
     //fetch para enviar los datos
     fetch('/empresas/filtrar?pagina=' + pagina + "&" + parametros, {
         method: 'GET',
@@ -51,29 +51,49 @@ function empresasFiltrado(evento, pagina = 1) {
         data.data['empresas'].forEach(function (element) {
             x++;
             accordion.innerHTML += `
-
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <form action="http://localhost/empresas/update" method="post"> 
+                <input type="hidden" name="_token" value="YV2eawmMbzFbC16rTX4QPAoIwkKkhbYULvCTjWY1">
+                <input type="hidden" name="_method" value="PUT">
+            <div class="accordion accordion-flush" id="accordionFlushExample"> 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne${x}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${x}" aria-expanded="false" aria-controls="flush-collapseOne">
-                        ${element.nombre}
+                    <button id="cabecera${x}"class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${x}" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <input type="text" value="${element.nombre}" class="editable${x}" readonly style="border:none;width:20%;background-color:transparent;">
                     </button>
                 </h2>
                 <div id="flush-collapseOne${x}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne${x}" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <div> <b>Sector:</b> ${element.sector}</div>
-                        <div> <b> Email de la persona de contacto:</b> ${element.email_contacto} </div>
-                        <div> <b> CIF:</b> ${element.cif} </div>
-                        <div> <b> Direccion:</b> ${element.direccion}</div>
+                    
+                        <div> <b>Sector:</b> <input type="text" value="${element.sector}" name="sector" class="editable${x}" disabled style="border:none;width:50%;"></div>
+                        <div> <b> Email de la persona de contacto:</b><input type="text" value="${element.email_contacto}" name="email" class="editable${x}" disabled style="border:none;width:50%;"> </div>
+                        <div> <b> CIF:</b> <input type="text" value="${element.cif}" name="cif" class="editable${x}" disabled style="border:none;width:50%;"> </div>
+                        <div> <b> Direccion:</b> <input type="text" value="${element.direccion}" name="direccion" class="editable${x}" disabled style="border:none;width:50%;"></div>
                         <br>
-                        <span id="editar" class="material-symbols-outlined">edit_square</span>
-                        <div class="col-4 offset-8" id="botones"></div>
+                        <input type="text" hidden name="id" value="${element.id}">
+                        <input type="text" hidden name="nombre" value="${element.nombre}">
+                        <button id='${x}' class="btn bg-primary btn-sm">Editar </button>
+                        <div class="col-4 offset-8" id="botones${x}"></div>
                     </div>
                 </div>
             </div>
         </div>
         `;
         });
+
+        for (let x = 1; x <= data.data['empresas'].length; x++) {
+                var lapizEmpresa = document.getElementById(x);
+                console.log(lapizEmpresa);   
+                lapizEmpresa.addEventListener('click', function (e) { 
+                        e.preventDefault(); 
+                var editables = document.getElementsByClassName('editable'+e.target.id);
+                var botones = document.getElementById('botones'+e.target.id);
+                botones.innerHTML = "<button type='submit' id='enviar' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Guardar cambios</button><button id='cancelar' type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Cancelar</button>";
+                for (var i = 1; i < editables.length; i++) {
+                    editables[i].disabled = false;
+                }
+            });
+
+        }
     })
         .catch(error => {
         console.log(error);

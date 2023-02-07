@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/empresas/filtrar', [EmpresasController::class, 'selectAllEmpresas'])->name('empresas.filtrar');
     Route::post('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
     Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
+    Route::put('/empresas/update',[EmpresasController::class,'update'])->name('empresas.update');
 //Rutas del diario
     Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
 //Rutas de las reuniones
