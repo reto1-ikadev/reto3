@@ -29,7 +29,7 @@ class CalificacionesHistorial extends Model
         return $this->belongsTo(Alumno::class,'id_alumno');
     }
     public function tutores_academicos(){
-        return $this->belongsTo(TutorAcademico::class,'id_tutor_academico', 'id_tutor_academico');
+        return $this->belongsTo(TutorAcademico::class,'id_tutor_academico');
     }
     public function tutores_empresas(){
         return $this->belongsTo(TutorEmpresa::class,'id_tutor_empresa');
