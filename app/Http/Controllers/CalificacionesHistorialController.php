@@ -100,7 +100,7 @@ class CalificacionesHistorialController extends Controller
         $calificacionesHistorial->id_tutor_empresa = request('id_tutor_empresa');
         $calificacionesHistorial->id_curso = request('id_curso');
         $calificacionesHistorial->id_ano_academico = request('id_ano_academico');
-        $calificacionesHistorial->save(); 
+        $calificacionesHistorial->save();
     }
 
     /**
@@ -111,7 +111,7 @@ class CalificacionesHistorialController extends Controller
      */
     public function show(Alumno $estudiante)
     {
-        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $estudiante->id)->ge;
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $estudiante->id_alumno);
 
         return view('historial.show',["historial"=>$calificacionesHistorial]);
     }
