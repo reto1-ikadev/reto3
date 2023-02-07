@@ -5,11 +5,26 @@
 
     <div class="row justify-content-center mt-1 mb-2">
         <div class="col-11">
-            <div class="row">
+            <div class="row mb-3">
                 <h2>Estudiante</h2>
-                <form id="filtrosTutoresAcademicos" action="" method="get" >
-                    <div class="row mb-2" id="filtrosTutAademico">
-                        <div class="col-4">
+                <form id="filtrosEstudiantes" action="" method="get" >
+                    <div class="row mb-2" id="filtrosEst">
+                        <div class="col">
+                            <select class="form-select" aria-label="select" id="grado" name="grado">
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" aria-label="select" id="curso" name="curso">
+
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="form-select" aria-label="select" id="empresa" name="empresa">
+
+                            </select>
+                        </div>
+                        <div class="col">
                             <input class="form-control" name="nombre" placeholder="Buscar por nombre">
                         </div>
                         <div class="col-2 d-flex flex-row">
@@ -24,8 +39,10 @@
                     <thead>
                     <td>Nombre</td>
                     <td>Apellido</td>
-                    <td>Telefono</td>
-                    <td>Email</td>
+                    <td>Grado</td>
+                    <td>Curso</td>
+                    <td>Empresa</td>
+                    <td>Detalles</td>
                     </thead>
                     <tbody id="tabla">
 
@@ -53,7 +70,6 @@
         </div>
     </div>
 
-    @vite('resources/js/buscarTutores.js')
+    @vite(['resources/js/buscarEstudiantesTutor.js'])
 
 @endsection
-

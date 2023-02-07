@@ -29,7 +29,7 @@
                                 <a class="nav-link active" href="{{ route('empresas.index') }}">Empresas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
+                                <a class="nav-link active" href="{{ route('tutoresAcademicos.show') }}">Tutores acad&eacute;micos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
@@ -50,18 +50,12 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('anyo.create') }}">Nuevo año</a>
                             </li>
-                            <li class="nav-item debajo">
-
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Estad&iacute;sticas</a>
-                            </li> @endcan
-                            @can('tutores')
-                            <li class="nav-item debajo">
-                                <hr class="bg-danger border-2 border-top border-primary">
-
                             </li>
                             @endcan
                             <li class="nav-item">
+                                <hr class="bg-danger border-2 border-top border-primary">
                                 <a class="nav-link active" href="/logout">Salir</a>
                             </li>
                         </ul>

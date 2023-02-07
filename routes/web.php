@@ -79,6 +79,9 @@ Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
 Route::post('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
 Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
+Route::get('/tutoresAcademicos/show',[TutorAcademicoController::class,'show'])->name('tutoresAcademicos.show');
+Route::get('/tutoresAcademicos/filtrar',[TutorAcademicoController::class,'selectAllTutores'])->name('tutoresAcademicos.filtrar');
+
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');

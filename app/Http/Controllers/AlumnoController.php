@@ -174,6 +174,7 @@ class AlumnoController extends Controller
         //only grado of the coordinator logged
         $id = auth()->user()->id;
         $grado = GradoCordinador::where('id_coordinador', $id)->first();
+
         $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
@@ -188,8 +189,9 @@ class AlumnoController extends Controller
                 ->where([
                     ['personas.nombre', 'like', '%' . $request->nombre . '%'],
                     ['cursos.nombre', 'like', $request->curso],
-                    ['grados.nombre', "like", "Aeronautica"],
+                    ['grados.id', "like", $grado->id_grado],
                     ['empresas.nombre', 'like', $request->empresa],
+
                 ])
                 ->orderBy('personas.id', 'desc');
             $estudiantesTotal = $estudiantes->count();

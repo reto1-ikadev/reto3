@@ -11,7 +11,6 @@
                 @include('tutorAcademico.tabla')
 
             @endcan
-
         </div>
     </div>
 
