@@ -90,7 +90,6 @@ function sumar(e) {
             arrayNotas[9]= notaAprendizaje;
             break;
         default:
-          
             break;
     }
     var media = arrayNotas.reduce((acumulador,valorActual)=>
@@ -128,14 +127,14 @@ function sumarDiario(e) {
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[0]=notaRegularidad;
-          console.log(arrayNotasDiario);
+          
           break;
       case "orden_nota":
           var notaOrden = parseInt(
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[1]=notaOrden;
-          console.log(arrayNotasDiario);
+          
 
           break;
       case "contenido_nota":
@@ -143,35 +142,35 @@ function sumarDiario(e) {
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[2]= notaContenido;
-          console.log(arrayNotasDiario);
+          
           break;
       case "terminologia_nota":
           var notaTerminologia = parseInt(
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[3]= notaTerminologia;
-          console.log(arrayNotasDiario);
+          
           break;
       case "calidad_nota":
           var notaCalidadD = parseInt(
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[4]=notaCalidadD;
-          console.log(arrayNotasDiario);
+          
           break;
       case "conceptos_nota":
           var notaConceptos = parseInt(
               e.target.options[e.target.selectedIndex].value
           );
           arrayNotasDiario[5]= notaConceptos;
-          console.log(arrayNotasDiario);
+          
           break;
       case "reflexion_nota":
           var notaReflexion = parseInt(
               e.target.options[e.target.selectedIndex].value
           );
-          arrayNotasDiario[6]= notaReflexion;
-          console.log(arrayNotasDiario);
+          arrayNotasDiario[6] = notaReflexion;
+          
           break;
       
       default:

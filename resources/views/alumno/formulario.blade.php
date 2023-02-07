@@ -14,7 +14,7 @@
                 <div class="col col-xl-12">
                     <div class="row">
                         <div class="col d-flex ">
-                            <h5>Datos personales</h5><span id='editar' class="material-symbols-outlined">edit_square</span>
+                            <h5>Datos personales</h5><button id='editar' class="btn bg-primary btn-sm">Editar </button>
                         </div>
                     </div>
                     <div class="row">
@@ -51,55 +51,51 @@
                             <input type="text" class="form-control editable" name="grado" id="grado" placeholder="Grado" value="{{ $estudiante->opcion_tipo->curso->grado->nombre}}" disabled>
                         </div>
                     </div>
-                    <div id= 'combos'></div>
+                    <div id='combos'></div>
                     <div class="col-4 offset-8" id="botones">
-                    
-                </div>
+
+                    </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-12 d-flex mb-3">
-                    <!-- TUTOR ACADEMICO -->
-                    <h5 id = "cambiarTA">Tutor universitario</h5>
-                </div>
-                <div id="TA">
-
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="nombreA" id="nombreA" placeholder="Nombre" value="{{$tutorA->nombre}}" disabled>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="apellidoA" id="apellidoA" placeholder="Apellido" value="{{$tutorA->apellidos}}"  disabled>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="emailA" id="emailA" placeholder="Email" value="{{$tutorA->user->email}}"  disabled>
-                </div>
-                <!-- TUTOR EMPRESA -->
-                <div class="col-12 d-flex mb-3">
-                    <h5 id="cambiarTE">Tutor empresa</h5>
-                </div>
-                <div id="TE">
-
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="nombreE" id="nombreE" placeholder="Nombre" value="{{$tutorE->nombre}}"  disabled>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="apellidoE" id="apellidoE" placeholder="Apellido" value="{{$tutorE->apellidos}}"  disabled>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="emailE" id="emailE" placeholder="Email" value="{{$tutorE->user->email}}"  disabled>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="empresaE" id="empresaE" placeholder="Empresa" value="{{ $tutorE->opcion_tipo->empresa->nombre }}"  disabled>
-                </div>
-                
-            </div>
-
         </form>
+        <div class="row">
+            <div class="col-12 d-flex mb-3">
+                <!-- TUTOR ACADEMICO -->
+                <h5 id="cambiarTA">Tutor universitario</h5>
+            </div>
+            <div id="TA">
 
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="nombreA" id="nombreA" placeholder="Nombre" value="{{$tutorA->nombre}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="apellidoA" id="apellidoA" placeholder="Apellido" value="{{$tutorA->apellidos}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="emailA" id="emailA" placeholder="Email" value="{{$tutorA->user->email}}" disabled>
+            </div>
+            <!-- TUTOR EMPRESA -->
+            <div class="col-12 d-flex mb-3">
+                <h5 id="cambiarTE">Tutor empresa</h5>
+            </div>
+            <div id="TE">
 
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="nombreE" id="nombreE" placeholder="Nombre" value="{{$tutorE->nombre}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="apellidoE" id="apellidoE" placeholder="Apellido" value="{{$tutorE->apellidos}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="emailE" id="emailE" placeholder="Email" value="{{$tutorE->user->email}}" disabled>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="empresaE" id="empresaE" placeholder="Empresa" value="{{ $tutorE->opcion_tipo->empresa->nombre }}" disabled>
+            </div>
+
+        </div>
     </div>
 
 </div>
