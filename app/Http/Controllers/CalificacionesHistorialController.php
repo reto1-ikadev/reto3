@@ -111,11 +111,10 @@ class CalificacionesHistorialController extends Controller
      */
     public function show(Alumno $estudiante)
     {
-        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $estudiante->id)->ge;
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $estudiante->id_alumno);
 
         return view('historial.show',["historial"=>$calificacionesHistorial]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
