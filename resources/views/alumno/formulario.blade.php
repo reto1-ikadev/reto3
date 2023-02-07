@@ -11,7 +11,7 @@
                     <img class="img-fluid" alt="foto estudiante" src="{{ asset('images/campusVitoria.jpg') }}" />
                 </div>
 
-                <div class="col col-xl-12">
+                <div class="col-7">
                     <div class="row">
                         <div class="col d-flex ">
                             <h5>Datos personales</h5><span id='editar' class="material-symbols-outlined">edit_square</span>
@@ -53,7 +53,7 @@
                     </div>
                     <div id= 'combos'></div>
                     <div class="col-4 offset-8" id="botones">
-                    
+
                 </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="empresaE" id="empresaE" placeholder="Empresa" value="{{ $tutorE->opcion_tipo->empresa->nombre }}" >
                 </div>
-                
+
             </div>
 
         </form>
