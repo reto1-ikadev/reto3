@@ -36,9 +36,7 @@ class AlumnoController extends Controller
 
         return view('alumno.show', ['estudiante' => $estudiante,"tutorE"=>$tutorE,"tutorA"=>$tutorA]);
     }
-    public function showTutor(int $id){
-
-    }
+    
 
     /**
      * Funcion que devuelve la vista con el formulario para crear nuevos estudiantes
@@ -115,7 +113,6 @@ class AlumnoController extends Controller
         
         $persona->update();
         
-
         $usuario = User::find($persona->id);
 
         $usuario->email = request('email');

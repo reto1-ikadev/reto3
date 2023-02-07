@@ -24,7 +24,12 @@ selectAprendizaje.addEventListener("click", sumar);
 var inputNota = document.getElementById("nota_final_empresa");
 var resultadoEmpresa = 0;
 inputNota.value = 0;
-var arrayNotas = [0,0,0,0,0,0,0,0,0,0];
+var arrayNotas = [2,2,2,2,2,2,2,2,2,2];
+
+var mediaNotas = arrayNotas.reduce((acumulador,valorActual)=>
+  acumulador + valorActual,0
+ )/10;
+ inputNota.value = mediaNotas.toFixed(1);
 
 
 function sumar(e) {
@@ -116,8 +121,11 @@ inputReflexion.addEventListener("click", sumarDiario);
 
 
 var resultadoDiario = 0;
-inputNotaFinal.value = 0;
-var arrayNotasDiario = [0,0,0,0,0,0,0];
+var arrayNotasDiario = [2,2,2,2,2,2,2];
+var media = arrayNotasDiario.reduce((acumulador,valorActual)=>
+  acumulador + valorActual,0
+ )/7;
+ inputNotaFinal.value = media.toFixed(1);
 
 function sumarDiario(e) {
   switch (e.target.id) {
