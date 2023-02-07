@@ -93,7 +93,19 @@ class TutorEmpresaController extends Controller
      */
     public function update(Request $request, TutorEmpresa $tutorEmpresa)
     {
-        //
+        $request->validate([
+            'nombrePersona' => 'string|nullable',
+            'apellidos' => 'string|nullable',
+            'email' => 'string|nullable'
+        ]);
+        $tutorEmpresa = TutorEmpresa::find($request->id);
+        $tutorEmpresa->nombre = request('nombre');
+        $tutorEmpresa->cif = request('cif');
+        $tutorEmpresa->direccion = request('direccion');
+
+        $empresa->save();
+
+        return redirect(route('empresas.index'));
     }
 
     /**
