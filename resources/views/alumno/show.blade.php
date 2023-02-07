@@ -9,32 +9,18 @@
     <div class="col">
         <h5>Entradas del diario</h5>
     </div>
-    <a href="{{ url('/diario', $estudiante->id) }}">Clickea aquí para guardar un diario nuevo</a>
+    @can('tutor_empresa') <a href="{{ url('/diario', $estudiante->id) }}">Clickea aquí para guardar un diario nuevo</a> @endcan
     <div class="row"> <!-- FILTROS DIARIO-->
         <div class="col-3">
             <select id="filtroAnio" class="form-select" aria-label="select">
                 <option value="no" selected>Filtrar por año</option>
-                <!--<option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>-->
-            </select>
-        </div>
-        <!--<div class="col-3">
-            <select class="form-select" aria-label="select">
-                <option selected>Filtrar por curso</option>
-                <option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>
             </select>
         </div>
         <div class="col-3">
-            <select class="form-select" aria-label="select">
-                <option selected>Filtrar por semana</option>
-                <option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>
+            <select id="filtroSemana" class="form-select" aria-label="select">
+                <option value="no" selected>Filtrar por semana</option>
             </select>
-        </div>-->
+        </div>
         <div class="col">
             <button id="filtrar" type="button" class="btn btn-primary">Filtrar</button>
             <button id="reset" type="button" class="btn btn-primary">Reset</button>
@@ -54,21 +40,9 @@
                             <th scope="col">Aprendizaje Comentario</th>
                             <th scope="col">Problemas</th>
                             <th scope="col">Problemas Comentario</th>
-                            <!--<th scope="col">Detalles</th>-->
                         </tr>
                     </thead>
                     <tbody id="listaDiarios">
-                        <!--<tr class="">
-                            <td scope="row">12/09/2022</td>
-                            <td>No se que comentar. No se que comentar</td>
-                            <td><a href="{{ route('diario.show') }}">Ver m&aacute;s</a></td>
-
-                        </tr>-->
-                        <!--<tr class="">
-                            <td scope="row">12/09/2022</td>
-                            <td>No se que comentar. No se que comentar</td>
-                            <td><a href="{{ route('diario.show') }}">Ver m&aacute;s</a></td>
-                        </tr>-->
                     </tbody>
                 </table>
             </div>

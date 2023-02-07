@@ -4,16 +4,13 @@ let lista = document.getElementById("listaDiarios");
 
 var filtroAnioSelect = document.getElementById("filtroAnio");
 
-async function filtroAnioAplicar(anio) {
-    
-    //Para limpiar la lista de diarios.
-    for(let i = 0; i < lista.childNodes.length; i++) {
-        lista.childNodes[i].remove();
-    }
+var filtroSemanaSelect = document.getElementById("filtroSemana");
+
+async function filtroAplicar(anio, semana) {
 
     await fetch('/diariosObtener?id=' + idAlumno, {method: 'GET'}).then(response => response.json()).then(data => {
         data.forEach(diario => {
-            if(diario.periodo.split("/")[2] === anio) {
+            if(diario.periodo.split("/")[2] === anio || semana == obtenerNumeroSemana(new Date(diario.periodo.split("/")[2] + "-" + diario.periodo.split("/")[1] + "-" + diario.periodo.split("/")[0]))) {
                 var nuevaFila = document.createElement('tr');
 
                 var columnaPeriodo = document.createElement('td');
@@ -54,7 +51,6 @@ async function filtroAnioAplicar(anio) {
 }
 
 async function filtroAnio() {
-
     var fechas = [];
     var num = 0;
     await fetch('/diariosObtener?id=' + idAlumno, {method: 'GET'}).then(response => response.json()).then(data => {
@@ -75,6 +71,47 @@ async function filtroAnio() {
         nuevoOption.appendChild(document.createTextNode(fechasUnicas[i]));
 
         filtroAnioSelect.appendChild(nuevoOption);
+    }
+}
+
+/*
+ESTA FUNCION FUNCIONA PERO NO SE NECESITA
+YA QUE SOLO CONSIGUE EL NUMERO DE SEMANA DE UN MES Y NO 
+UN ANIO
+function getWeekOfMonth(date) {
+    let adjustedDate = date.getDate()+ date.getDay();
+    let prefixes = ['0', '1', '2', '3', '4', '5'];
+    return (parseInt(prefixes[0 | adjustedDate / 7])+1);
+}
+*/
+
+function obtenerNumeroSemana(fecha) {
+    var year = new Date(fecha.getFullYear(), 0, 1);
+    var days = Math.floor((fecha - year) / (24 * 60 * 60 * 1000));
+    return Math.ceil(( fecha.getDay() + 1 + days) / 7);
+}
+
+async function filtroSemana() {
+    var semanas = [];
+    var num = 0;
+    await fetch('/diariosObtener?id=' + idAlumno, {method: 'GET'}).then(response => response.json()).then(data => {
+        data.forEach(diario => {
+            //semanas[num] = getWeekOfMonth(new Date(diario.periodo.split("/")[2] + "-" + diario.periodo.split("/")[1] + "-" + diario.periodo.split("/")[0]));
+            semanas[num] = obtenerNumeroSemana(new Date(diario.periodo.split("/")[2] + "-" + diario.periodo.split("/")[1] + "-" + diario.periodo.split("/")[0]));
+            num++;
+        });
+    });
+
+    let semanasUnicas = semanas.filter((item, index) => semanas.indexOf(item) === index);
+
+    for(let i = 0; i < semanasUnicas.length; i++) {
+        var nuevoOption = document.createElement('option');
+
+        nuevoOption.value = semanasUnicas[i];
+
+        nuevoOption.appendChild(document.createTextNode("Semana " + semanasUnicas[i]));
+
+        filtroSemanaSelect.appendChild(nuevoOption);
     }
 }
 
@@ -121,10 +158,12 @@ obtenerDiarios();
 
 filtroAnio();
 
+filtroSemana();
+
 document.getElementById('filtrar').addEventListener('click', function() {
     lista.innerHTML = '';
-    if(document.getElementById('filtroAnio').value !== "no") {
-        filtroAnioAplicar(document.getElementById('filtroAnio').value);
+    if(document.getElementById('filtroAnio').value !== "no" || document.getElementById('filtroSemana').value !== "no") {
+        filtroAplicar(document.getElementById('filtroAnio').value, document.getElementById('filtroSemana').value);
     }
 });
 
