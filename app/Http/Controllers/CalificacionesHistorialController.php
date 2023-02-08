@@ -21,7 +21,7 @@ class CalificacionesHistorialController extends Controller
     {
         //
         $grado = Grado::where('id_coordinador',auth()->user()->id_persona)->first();
-        $calificacionesHistorial = CalificacionesHistorial::where('id_tutor_academico', auth()->user()->id_persona)->first();
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_tutor_academico', auth()->user()->id_persona);
 
         return view('calificacionesHistorial.show',["calificacionesHistorial"=>$calificacionesHistorial]);
 
