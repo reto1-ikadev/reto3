@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
-use App\Models\User;
+use App\Models\GradoCoordinadores;
 use App\Models\TutorAcademico;
 use App\Models\Persona;
 use Illuminate\Http\Request;
@@ -18,8 +18,7 @@ class TutorAcademicoController extends Controller
     public function index()
     {
         //
-
-            return view('tutorAcademico.index');
+            return view('tutorAcademico.misEstudiantes');
 
     }
 
@@ -41,28 +40,15 @@ class TutorAcademicoController extends Controller
      */
     public function store(Request $request)
     {
-        $persona = new Persona;
-        $persona->nombre = request('nombre');
-        $persona->apellidos = request('apellido');
-        $persona->dni = request('dni');
-        $persona->telefono = request('telefono');
-        $persona->tipo = request('tipo');
-        $persona->save();
-        $idPersona = $persona->id;
+        $tutorA = new TutorAcademico();
+        $ide_tutorA = Persona::select('id')->latest()->first();
 
-        $usuario = new User;
-        $usuario->id_persona = $idPersona;
-        $usuario->email = request('email');
-        $usuario->password = request('password');
-        $usuario->save();
-
-        $tutorA = new TutorAcademico;
-        $tutorA->id_tutor_academico = $idPersona;
+        $tutorA->id_tutor_academico= $ide_tutorA->id;
         $tutorA->telefono_academico = request('telefono_academico');
 
         $tutorA->save();
         return true;
-    }
+    }//
 
     /**
      * Display the specified resource.
@@ -73,6 +59,7 @@ class TutorAcademicoController extends Controller
     public function show(TutorAcademico $tutorAcademico)
     {
         //
+        return view('tutorAcademico.index');
     }
 
     /**
@@ -148,6 +135,38 @@ class TutorAcademicoController extends Controller
         $datos = [
             'estudiantes' => $resultados,
             'total' => $estudiantesTotal,
+            'pagina' => intval($pagina),
+            'por_pagina' => 10,
+        ];
+        return ['success' => true, 'data' => $datos, 'message' => 'Estudiantes obtenidos correctamente'];
+    }
+
+    public static function selectAllTutores(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'string|max:255|nullable',
+        ]);
+        $pagina = $request->pagina;
+        //only grado of the coordinator logged
+
+
+
+        $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
+        //query with join id_alumno, id_persona
+        $tutores = TutorAcademico::join('personas', 'tutores_academicos.id_tutor_academico', '=', 'personas.id')
+            ->join('users', 'users.id_persona', '=', 'personas.id')
+            ->select('personas.*', 'users.email')
+            ->where([
+                ['personas.nombre', 'like', '%' . $request->nombre . '%'],
+            ])
+            ->orderBy('personas.id', 'desc');
+        $tutoresTotal = $tutores->count();
+        $resultados = $tutores->offset(($pagina - 1) * 10)->limit(10)->get();
+
+
+        $datos = [
+            'estudiantes' => $resultados,
+            'total' => $tutoresTotal,
             'pagina' => intval($pagina),
             'por_pagina' => 10,
         ];

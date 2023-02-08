@@ -1,9 +1,9 @@
 <!-- RESUMEN DEL ALUMNO -->
 <h5>Informacion del Tutor Academico</h5>
-<table class="table table-striped mb-3">
+<table class="table table-light table-striped mb-3">
     <tr>
-        <th scope="row">Email</th>
-        <th scope="row">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefono</th>
     </tr>
     <tr>
         <td>{{$tutor_academico->user->email}}</td>
@@ -11,10 +11,10 @@
     </tr>
 </table>
 <h5>Informacion del Tutor Empresa</h5>
-<table class="table table-striped">
+<table class="table table-light table-striped">
     <tr>
-        <th scope="row">Email</th>
-        <th scope="row">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefono</th>
     </tr>
     <tr>
         <td>{{$tutor_empresa->user->email}}</td>

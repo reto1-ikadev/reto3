@@ -1,3 +1,4 @@
+window.onload(alumnosFiltradoEstudiantes(null));
 let buttonEstudiantes = document.getElementById('btn');
 buttonEstudiantes.addEventListener('click', llamarFiltradoEstudiantes);
 let buttonResetEstudiantes = document.getElementById('btnReset');
@@ -66,4 +67,3 @@ function resetearFiltrosEstudiantes() {
     formulario.reset();
     alumnosFiltradoEstudiantes(null);
 }
-alumnosFiltradoEstudiantes(null);

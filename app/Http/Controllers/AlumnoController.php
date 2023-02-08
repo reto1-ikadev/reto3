@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Grado;
+use App\Models\GradoCoordinadores;
+use App\Models\GradoCordinador;
 use App\Models\Persona;
 use App\Models\User;
 use App\Models\Alumno;
-use App\Models\Grado;
 use App\Models\Curso;
 use App\Models\TutorAcademico;
 use App\Models\TutorEmpresa;
@@ -15,17 +17,15 @@ session_start();
 class AlumnoController extends Controller
 {
     public function index(){
-        //select de todos los estudiantes
-       // $estudiantes = Estudiante::all();
-        //get session user id
-           $id = auth()->user()->persona->id;
-           if (auth()->user()->persona->tipo == 'coordinador'){
-              return view('alumno.index');
-           }
+
+        $id = auth()->user()->id_persona;
+        $grado = Grado::where('id_coordinador',$id)->first();
+
+        return view('alumno.index', ['grado' => $grado]);
     }
 
     public function show(int $id){
-        //select de un estudiante
+        //
         $estudiante = Persona::find($id);
         $alumno = Alumno::find($id);
         $tutorE = Persona::find($alumno->id_tutor_empresa);
@@ -109,25 +109,25 @@ class AlumnoController extends Controller
         $persona->apellidos = request('apellido');
         $persona->dni = request('dni');
         $persona->telefono = request('telefono');
-        
+
         $persona->update();
-        
+
 
         $usuario = User::find($persona->id);
 
         $usuario->email = request('email');
         $usuario->update();
 
-        
-        //Obtener el id del curso al que se va a cambiar el alumno
+
+        //
         $nombreNuevoCurso = $request->curso;
-       
+
         $nuevoCurso = Curso::where('nombre','=', $nombreNuevoCurso)->first();
-        
+
         $idNuevoCurso = $nuevoCurso->id;
         $estudiante->id_curso = $idNuevoCurso;
         $estudiante->direccion = $request->direccion;
-       
+
         if(isset($_REQUEST['nombreTA'])){
             $estudiante->id_tutor_academico = $request->nombreTA;
         }
@@ -137,16 +137,6 @@ class AlumnoController extends Controller
 
         $estudiante->update();
 
-        
-        
-
-
-        // $estudiante->curso->nombre = request('curso');
-        // $estudiante->curso->update();
-
-        // $estudiante->curso->grado->nombre = request('grado');
-        // $estudiante->curso->grado->update();
-        // $estudiante->tutor_academico->id = request($tutorA->id);
 
         return redirect(route('estudiantes.index'));
     }
@@ -168,44 +158,45 @@ class AlumnoController extends Controller
         $request->validate([
             'nombre' => 'string|max:255|nullable',
             'curso' => 'string|max:255|nullable',
-            'grado' => 'string|max:255|nullable',
             'empresa' => 'string|max:255|nullable',
             'pagina' => 'numeric|nullable',
         ]);
         $pagina = $request->pagina;
+        $id = auth()->user()->id;
+        $grado = Grado::where('id_coordinador', $id)->first();
 
-        $request->grado = $request->grado == '' ? '%' : $request->grado;
         $request->curso = $request->curso == '' ? '%' : $request->curso;
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
-        //query with join id_alumno, id_persona
-        $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
-            ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
-            ->join('grados', 'cursos.id_grado', '=', 'grados.id')
-            ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
-            ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
-            ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
-            ->where([
-                ['personas.nombre', 'like', '%' . $request->nombre . '%'],
-                ['cursos.nombre', 'like', $request->curso],
-                ['grados.nombre', 'like', $request->grado],
-                ['empresas.nombre', 'like', $request->empresa],
-            ])
 
-            ->orderBy('personas.id', 'desc');
-        $estudiantesTotal = $estudiantes->count();
-        $resultados = $estudiantes->offset(($pagina - 1) * 10)->limit(10)->get();
+            $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
+                ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
+                ->join('grados', 'cursos.id_grado', '=', 'grados.id')
+                ->join('tutores_empresas', 'alumnos.id_tutor_empresa', '=', 'tutores_empresas.id_tutor_empresa')
+                ->join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
+                ->select('alumnos.id_alumno', 'personas.nombre', 'personas.apellidos', 'cursos.nombre as curso', 'grados.nombre as grado', 'empresas.nombre as empresa')
+                ->where([
+                    ['personas.nombre', 'like', '%' . $request->nombre . '%'],
+                    ['cursos.nombre', 'like', $request->curso],
+                    ['grados.id', "like", $grado->id],
+                    ['empresas.nombre', 'like', $request->empresa],
+
+                ])
+                ->orderBy('personas.id', 'desc');
+            $estudiantesTotal = $estudiantes->count();
+            $resultados = $estudiantes->offset(($pagina - 1) * 10)->limit(10)->get();
 
 
-        $datos = [
-            'estudiantes' => $resultados,
-            'total' => $estudiantesTotal,
-            'pagina' => intval($pagina),
-            'por_pagina' => 10,
-        ];
-       return ['success' => true, 'data' => $datos, 'message' => 'Estudiantes obtenidos correctamente'];
-    }
+            $datos = [
+                'estudiantes' => $resultados,
+                'total' => $estudiantesTotal,
+                'pagina' => intval($pagina),
+                'por_pagina' => 10,
+            ];
+            return ['success' => true, 'data' => $datos, 'message' => 'Estudiantes obtenidos correctamente'];
+        }
+
 
 }
 

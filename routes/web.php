@@ -41,10 +41,9 @@ Route::middleware(['auth'])->group( function (){
 //Rutas del coordinador
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
-    Route::get('/coordinador/update',[CoordinadorController::class,'update'])->name('coordinador.update');
 //Rutas de los estudiantes
     Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
-        
+
 
         Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
@@ -79,12 +78,15 @@ Route::middleware(['auth'])->group( function (){
 Route::get('/calificacionesHistorial/create/{estudiante}',[CalificacionesHistorialController::class,'create'])->name('calificacionesHistorial.create');
 Route::post('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
 Route::get('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
-
+Route::get('/calificacionesHistorial/index',[CalificacionesHistorialController::class,'index'])->name('calificacionesHistorial.index');
 //Rutas de los tutores academicos
 Route::get('/tutoresAcademicos/index',[TutorAcademicoController::class,'index'])->name('tutoresAcademicos.index');
 Route::get('/tutoresAcademicos/create',[TutorAcademicoController::class,'create'])->name('tutoresAcademicos.create');
 Route::post('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
 Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
+Route::get('/tutoresAcademicos/show',[TutorAcademicoController::class,'show'])->name('tutoresAcademicos.show');
+Route::get('/tutoresAcademicos/filtrar',[TutorAcademicoController::class,'selectAllTutores'])->name('tutoresAcademicos.filtrar');
+
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');

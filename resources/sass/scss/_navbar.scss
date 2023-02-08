@@ -158,10 +158,11 @@
   @include font-size(var(--#{$prefix}navbar-toggler-font-size));
   line-height: 1;
   color: var(--#{$prefix}navbar-color);
-  background-color: transparent; // remove default button style
+  background-color: #006bb6; // remove default button style
   border: var(--#{$prefix}border-width) solid var(--#{$prefix}navbar-toggler-border-color); // remove default button style
   @include border-radius(var(--#{$prefix}navbar-toggler-border-radius));
   @include transition(var(--#{$prefix}navbar-toggler-transition));
+
 
   &:hover {
     font-size: 1.5em;
@@ -181,10 +182,13 @@
   width: 1.5em;
   height: 1.5em;
   vertical-align: middle;
-  background-image: var(--#{$prefix}navbar-toggler-icon-bg);
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+
 }
 
 .navbar-nav-scroll {
@@ -293,7 +297,7 @@
   }
 }
 .navbar-toggler{
-  
+
   margin-right: 2em;
 }
 

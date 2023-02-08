@@ -20,9 +20,9 @@ class TutorEmpresaSeeder extends Seeder
     public function run()
     {
         //
-        Persona::factory(5)->tutor_empresa()->create();
+        Persona::factory(20)->tutor_empresa()->create();
         //create empresas to add in tutor_empresa
-        Empresa::factory(5)->create();
+        Empresa::factory(10)->create();
         Persona::where('tipo', 'tutor_empresa')->get()->each(function ($persona) {
             User::factory()->create([
                 'id_persona' => $persona->id,
@@ -30,7 +30,7 @@ class TutorEmpresaSeeder extends Seeder
             $tutor_empresa = new TutorEmpresa();
             $tutor_empresa->id_tutor_empresa = $persona->id;
             $tutor_empresa->id_empresa = Empresa::all()->random()->id;
-            $tutor_empresa->departamento = 'Informatica';
+            $tutor_empresa->departamento = "departamento";
             $tutor_empresa->save();
         });
 

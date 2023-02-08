@@ -22,7 +22,7 @@ class Grado extends Model
 
     public function tutor_academico()
     {
-        return $this->hasOne(TutorAcademico::class);
+        return $this->hasOne(TutorAcademico::class, 'id_tutor_academico');
     }
 
 }

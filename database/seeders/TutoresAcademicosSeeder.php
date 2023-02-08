@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Grado;
 use App\Models\Persona;
 use App\Models\TutorAcademico;
 use App\Models\User;
@@ -19,7 +20,7 @@ class TutoresAcademicosSeeder extends Seeder
     public function run()
     {
         //
-        Persona::factory(5)->tutor_academico()->create();
+        Persona::factory(20)->tutor_academico()->create();
         Persona::where('tipo', 'tutor_academico')->get()->each(function ($persona) {
             User::factory()->create([
                 'id_persona' => $persona->id,

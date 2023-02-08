@@ -27,7 +27,7 @@
                         <div class="d-inline-flex p-2">
                             <button style="margin: 20px;" type="button" class="btn btn-primary" name="aniadirAsistente" value="aniadirAsistente" id="aniadirAsistente">Añadir Asistente</button>
                             <button style="margin: 20px;" type="button" class="btn btn-primary" name="quitarAsistente" value="quitarAsistente" id="quitarAsistente">Quitar Asistente</button>
-                        </div>    
+                        </div>
                     </td>
                 </tr>
                 <tr class="">
@@ -66,3 +66,5 @@
     </div>
     @vite(['resources/js/reuniones_script.js'])
 @endsection
+
+

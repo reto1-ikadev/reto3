@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CalificacionesHistorial;
 use App\Models\EvaluacionDiario;
 use App\Models\EvaluacionEmpresa;
+use App\Models\Grado;
 use App\Models\Persona;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class CalificacionesHistorialController extends Controller
     public function index()
     {
         //
+        $grado = Grado::where('id_coordinador',auth()->user()->id_persona)->first();
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_tutor_academico', auth()->user()->id_persona);
+
+        return view('calificacionesHistorial.show',["calificacionesHistorial"=>$calificacionesHistorial]);
+
     }
 
     /**
@@ -97,7 +103,7 @@ class CalificacionesHistorialController extends Controller
     public function show(CalificacionesHistorial $calificacionesHistorial)
     {
         //
-    }
+ }
 
     /**
      * Show the form for editing the specified resource.
