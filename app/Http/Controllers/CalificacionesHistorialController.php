@@ -8,6 +8,7 @@ use App\Models\EvaluacionEmpresa;
 use App\Models\Grado;
 use App\Models\Persona;
 use App\Models\Alumno;
+
 use App\Models\AnosAcademicos;
 use Illuminate\Http\Request;
 
@@ -98,14 +99,16 @@ class CalificacionesHistorialController extends Controller
 
 
         $calificacionesHistorial = new CalificacionesHistorial;
-        $calificacionesHistorial->id_evaluacion_diario = request($idEvaluacionDiario);
-        $calificacionesHistorial->id_evaluacion_empresa = request($idEvaluacionEmpresa);
+        $calificacionesHistorial->id_evaluacion_diario = $idEvaluacionDiario;
+        $calificacionesHistorial->id_evaluacion_empresa =$idEvaluacionEmpresa;
         $calificacionesHistorial->id_alumno = request('id_alumno');
         $calificacionesHistorial->id_tutor_academico = request('id_tutor_academico');
         $calificacionesHistorial->id_tutor_empresa = request('id_tutor_empresa');
         $calificacionesHistorial->id_curso = request('id_curso');
         $calificacionesHistorial->id_ano_academico = request('id_ano_academico');
-        $calificacionesHistorial->save(); 
+        $calificacionesHistorial->save();
+
+        return redirect(route('estudiantes.index'));
     }
 
     /**
@@ -114,11 +117,12 @@ class CalificacionesHistorialController extends Controller
      * @param  \App\Models\CalificacionesHistorial  $calificacionesHistorial
      * @return \Illuminate\Http\Response
      */
-    public function show(CalificacionesHistorial $calificacionesHistorial)
+    public function show(Alumno $estudiante)
     {
-        //
- }
+        $calificacionesHistorial = CalificacionesHistorial::all()->where('id_alumno', '=', $estudiante->id_alumno);
 
+        return view('historial.show',["historial"=>$calificacionesHistorial]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -1,5 +1,5 @@
 <div class="row" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
-    <h1 class="mb-4">FICHA DUAL</h1>
+    <h2>FICHA DUAL</h2><a href="{{ route('historial.show',$estudiante) }}">Ver historial</a>
 
     <div class="col" id="formularioDP">
         <!-- ALUMNO-->

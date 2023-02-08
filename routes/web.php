@@ -21,6 +21,7 @@ use App\Http\Controllers\QueryController;
 use App\Http\Controllers\CredencialesUsuarioController;
 use App\Http\Controllers\GradoCoordinadorController;
 use App\Models\AnosAcademicos;
+use App\Models\CalificacionesHistorial;
 
 Route::middleware(['auth'])->group( function (){
     Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
@@ -99,7 +100,8 @@ Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->nam
 Route::get('/grado/create',[GradoController::class,'create'])->name('grado.create');
 Route::post('/grado/store',[GradoController::class,'store'])->name('grado.store');
 Route::get('/grado/store',[GradoController::class,'store'])->name('grado.store');
-
+//Rutas del historial
+Route::get('historial/{estudiante}',[CalificacionesHistorialController::class,'show'])->name('historial.show');
 //Rutas de los gradosCoordinadores
 Route::post('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');
 Route::get('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');

@@ -5,7 +5,7 @@ var selectActitud = document.getElementById("actitud_nota");
 var selectPuntualidad = document.getElementById("puntualidad_nota");
 var selectResponsabilidad = document.getElementById("responsabilidad_nota");
 var selectResolucion = document.getElementById("resolucion_problemas_nota");
-var selectCalidad = document.getElementById("calidad_nota");
+var selectCalidad = document.getElementById("calidad_trabajos_nota");
 var selectImplicacion = document.getElementById("implicacion_nota");
 var selectDecisiones = document.getElementById("decisiones_nota");
 var selectComunicacion = document.getElementById("comunicacion_nota");
@@ -24,7 +24,12 @@ selectAprendizaje.addEventListener("click", sumar);
 var inputNota = document.getElementById("nota_final_empresa");
 var resultadoEmpresa = 0;
 inputNota.value = 0;
-var arrayNotas = [0,0,0,0,0,0,0,0,0,0];
+var arrayNotas = [2,2,2,2,2,2,2,2,2,2];
+
+var mediaNotas = arrayNotas.reduce((acumulador,valorActual)=>
+  acumulador + valorActual,0
+ )/10;
+ inputNota.value = mediaNotas.toFixed(1);
 
 
 function sumar(e) {
@@ -34,60 +39,70 @@ function sumar(e) {
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[0]=notaActitud;
+            console.log(arrayNotas);
             break;
         case "puntualidad_nota":
             var notaPuntualidad = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[1]=notaPuntualidad;
+            console.log(arrayNotas);
             break;
         case "responsabilidad_nota":
             var notaResponsabilidad = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[2]= notaResponsabilidad;
+            console.log(arrayNotas);
             break;
         case "resolucion_problemas_nota":
             var notaResolucion = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[3]= notaResolucion;
+            console.log(arrayNotas);
             break;
-        case "calidad_trabajo_nota":
+        case "calidad_trabajos_nota":
             var notaCalidad = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[4]=notaCalidad;
+            console.log(arrayNotas);
             break;
         case "implicacion_nota":
             var notaImplicacion = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[5]= notaImplicacion;
+            console.log(arrayNotas);
             break;
         case "decisiones_nota":
             var notaDecisiones = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[6]= notaDecisiones;
+            console.log(arrayNotas);
             break;
         case "comunicacion_nota":
             var notaComunicacion = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[7]= notaComunicacion;
+            console.log(arrayNotas);
             break;
         case "planificacion_nota":
             var notaPlanificacion = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[8]= notaPlanificacion;
+            console.log(arrayNotas);
             break;
         case "aprendizaje_nota":
             var notaAprendizaje = parseInt(
                 e.target.options[e.target.selectedIndex].value
             );
             arrayNotas[9]= notaAprendizaje;
+            console.log(arrayNotas);
             break;
         default:
             break;
@@ -116,8 +131,11 @@ inputReflexion.addEventListener("click", sumarDiario);
 
 
 var resultadoDiario = 0;
-inputNotaFinal.value = 0;
-var arrayNotasDiario = [0,0,0,0,0,0,0];
+var arrayNotasDiario = [2,2,2,2,2,2,2];
+var media = arrayNotasDiario.reduce((acumulador,valorActual)=>
+  acumulador + valorActual,0
+ )/7;
+ inputNotaFinal.value = media.toFixed(1);
 
 function sumarDiario(e) {
   switch (e.target.id) {
