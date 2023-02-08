@@ -35,11 +35,20 @@ class AnosAcademicosController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'fecha_inicio'=>'required',
-            'fecha_fin'=>'required'
-        ]);
-        AnosAcademicos::create($validated);
+         $fechaInicio = request('fecha_inicio');
+       $fechaFin = request('fecha_fin');
+        $fechaFinEntera = strtotime($fechaFin);
+       $fechaInicioEntera = strtotime($fechaInicio);
+       $anyoFin = date('Y',$fechaFinEntera);
+       $anyoInicio = date('Y',$fechaInicioEntera);
+       $nombre = $anyoInicio .'-'.$anyoFin;
+
+        $anyoAcademico = new AnosAcademicos;
+        $anyoAcademico->fecha_inicio = request('fecha_inicio');
+        $anyoAcademico->fecha_fin = request('fecha_fin');
+        $anyoAcademico->nombre = $nombre;
+       $anyoAcademico->save();
+       
         return redirect(route('cursos.index'));
     }
 

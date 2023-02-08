@@ -101,6 +101,8 @@ class CalificacionesHistorialController extends Controller
         $calificacionesHistorial->id_curso = request('id_curso');
         $calificacionesHistorial->id_ano_academico = request('id_ano_academico');
         $calificacionesHistorial->save();
+
+        return redirect(route('estudiantes.index'));
     }
 
     /**
