@@ -6,7 +6,7 @@
     <div class="row justify-content-center mt-1 mb-2">
         <div class="col-11">
             <div class="row">
-                <h2>Estudiante</h2>
+                <h2 class="mb-4">Tutores Academicos</h2>
                 <form id="filtrosTutoresAcademicos" action="" method="get" >
                     <div class="row mb-2" id="filtrosTutAademico">
                         <div class="col-4">

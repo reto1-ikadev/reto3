@@ -6,7 +6,7 @@
     <div class="row justify-content-center mt-1 mb-2">
         <div class="col-10">
             <div class="row">
-                <h2>Tutor empresa</h2>
+                <h2 class="mb-4">Tutor empresa</h2>
                 <form id="filtrosTutoresEmpresas" action="" method="get" >
                     <div class="row mb-2" id="filtrosTutoresEmpresas">
                         <div class="col-3">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-2 d-flex flex-row">
                             <button type="button" id="btn" class="btn btn-primary">Filtrar</button>&nbsp;<button type="button" id="btnReset" class="btn btn-primary">Reset</button>
-                            <input type="hidden" name="tipo" id="tipo" value="filtros_tutorEmpresa">
+                            <input type="hidden" name="tipo" id="tipo" value="tutor_empresa">
                         </div>
                     </div>
                 </form>

@@ -1,17 +1,17 @@
 <div class="row" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
-    <h2>FICHA DUAL</h2>
+    <h1 class="mb-4">FICHA DUAL</h1>
 
     <div class="col" id="formularioDP">
         <!-- ALUMNO-->
         <form action="{{ route('estudiantes.update', $estudiante) }}" method="post" class="row ">
             @csrf
             @method('PUT')
-            <div class="row mb-5">
+            <div class="row col-12 mb-5">
                 <div class="col-4 d-none d-md-block">
                     <img class="img-fluid" alt="foto estudiante" src="{{ asset('images/campusVitoria.jpg') }}" width="80%" height="80%" />
                 </div>
 
-                <div class="col-7">
+                <div class="col ">
                     <div class="row">
                         <div class="col d-flex ">
                             <h5>Datos personales</h5><span id='editar' class="material-symbols-outlined">edit_square</span>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <!-- TUTOR EMPRESA -->
-                <div class="col-md-6 d-flex flex-column">
+                <div class="col-6 col-md-6 d-flex flex-column">
                     <div class="col-12 d-flex mb-3">
                         <h5 id="cambiarTE">Tutor empresa</h5>
                     </div>

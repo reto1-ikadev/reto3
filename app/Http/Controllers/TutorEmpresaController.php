@@ -127,7 +127,7 @@ class TutorEmpresaController extends Controller
             ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
             ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento')
             ->where([
-                ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
+                ['empresas.nombre', 'like',  $request->empresa],
                 ['tutores_empresas.departamento', 'like', '%' . $request->departamento . '%'],
             ])
             ->orderby('tutores_empresas.id_tutor_empresa', 'desc');
