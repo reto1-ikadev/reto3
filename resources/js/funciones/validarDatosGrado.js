@@ -32,7 +32,7 @@ function validarDatosGrado(e){
 
 function enviarDatosGrado(datos) {
     console.log(datos.get("nombre"));
-        let response = fetch("http://localhost/grado/store", {
+        let response = fetch("/grado/store", {
             headers: {
                 'X-CSRF-TOKEN': window.CSRF_TOKEN
             },
@@ -40,7 +40,7 @@ function enviarDatosGrado(datos) {
             body: datos
         });
         if(response){
-            window.location.href = "http://localhost/estudiantes/index";
+            window.location.href = "/estudiantes/index";
         }
 
 }

@@ -67,7 +67,7 @@ function habilitarEdicion(e){
  * @returns devuelve un array con los datos de las personas que hay en la base de datos
  */
 async function pedirTutoresAcademicos(tipo) {
-    let response = await fetch("http://localhost/personas/show/" + tipo, {
+    let response = await fetch("/personas/show/" + tipo, {
         method: "GET",
     });
     let result = await response.json();

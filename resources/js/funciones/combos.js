@@ -214,7 +214,7 @@ export function cargarCombos() {
  */
 export function pedirTutores() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/personas/index", {
+        let response = yield fetch("/personas/index", {
             method: "GET",
         });
         let result = yield response.json();
@@ -223,7 +223,7 @@ export function pedirTutores() {
 }
 export function pedirTutoresAcademicos(tipo) {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/personas/show/" + tipo, {
+        let response = yield fetch("/personas/show/" + tipo, {
             method: "GET",
         });
         let result = yield response.json();
@@ -232,7 +232,7 @@ export function pedirTutoresAcademicos(tipo) {
 }
 export function pedirTutoresLibres(tipo) {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/personas/tutorLibre/" + tipo, {
+        let response = yield fetch("/personas/tutorLibre/" + tipo, {
             method: "GET",
         });
         let result = yield response.json();
@@ -246,7 +246,7 @@ export function pedirTutoresLibres(tipo) {
 export function pedirEmpresas() {
     return __awaiter(this, void 0, void 0, function* () {
         console.log("antes del response");
-        let response = yield fetch("http://localhost/empresas/index/combo", {
+        let response = yield fetch("/empresas/index/combo", {
             method: "GET",
         });
         let result = yield response.json();
@@ -260,7 +260,7 @@ export function pedirEmpresas() {
  */
 export function pedirCursos() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/cursos/index", {
+        let response = yield fetch("/cursos/index", {
             method: "GET",
         });
         let result = yield response.json();
@@ -273,7 +273,7 @@ export function pedirCursos() {
  */
 export function pedirGrados() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch("http://localhost/grados/index", {
+        let response = yield fetch("/grados/index", {
             method: "GET",
         });
         let result = yield response.json();

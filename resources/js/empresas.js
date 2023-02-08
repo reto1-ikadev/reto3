@@ -52,7 +52,7 @@ function empresasFiltrado(evento, pagina = 1) {
             data.data['empresas'].forEach(function (element) {
                 x++;
                 accordion.innerHTML += `
-                <form action="http://localhost/empresas/update" method="post">
+                <form action="/empresas/update" method="post">
                 <input type="hidden" name="_token" value="${token}">
                 <input type="hidden" name="_method" value="PUT">
             <div class="accordion accordion-flush" id="accordionFlushExample">

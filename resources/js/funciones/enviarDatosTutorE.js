@@ -1,6 +1,6 @@
 export function enviarDatosTutorE(datos) {
     console.log(datos.get("departamento"));
-    let response =  fetch("http://localhost/tutoresEmpresa/store", {
+    let response =  fetch("/tutoresEmpresa/store", {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': window.CSRF_TOKEN
@@ -19,7 +19,7 @@ export function enviarDatosTutorE(datos) {
     })
     });
     if(response){
-        window.location.href = "http://localhost/estudiantes/index";
+        window.location.href = "/estudiantes/index";
     }
 ;
 }

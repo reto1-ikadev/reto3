@@ -1,6 +1,6 @@
 export function enviarDatosAlumno(datos) {
-    
-        let response =  fetch("http://localhost/estudiantes/store", {
+
+        let response =  fetch("/estudiantes/store", {
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': window.CSRF_TOKEN
@@ -21,7 +21,7 @@ export function enviarDatosAlumno(datos) {
         })
         });
         if(response){
-            window.location.href = "http://localhost/estudiantes/index";
+            window.location.href = "/estudiantes/index";
         }
     ;
 }

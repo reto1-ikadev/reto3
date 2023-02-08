@@ -7,7 +7,7 @@ export function cargarCombos() {
             var comboCursos: HTMLElement = <HTMLElement>(document.getElementById("curso"));
             var comboTutorEmpresa: HTMLElement = <HTMLElement>(document.getElementById("tutorE"));
             var comboTutorAcademico: HTMLElement = <HTMLElement>(document.getElementById("tutorA"));
-           
+
             var comboGrados: HTMLElement = <HTMLElement>(document.getElementById("grado"));
 
             /**
@@ -93,7 +93,7 @@ export function cargarCombos() {
                 });
             });
 
-            
+
             break;
         case "tutor_empresa":
             var comboEmpresas: HTMLElement = <HTMLElement>(
@@ -123,7 +123,7 @@ export function cargarCombos() {
                 document.getElementById("curso")
             );
             var comboEmpresas: HTMLElement = <HTMLElement>(
-                document.getElementById("empresa") 
+                document.getElementById("empresa")
             );
             /**
              * Empresas recibe los datos que devuelve el servidor de la base de datos
@@ -218,7 +218,7 @@ export function cargarCombos() {
  * @returns devuelve un array con los datos de las personas que hay en la base de datos
  */
 export async function pedirTutores() {
-    let response = await fetch("http://localhost/personas/index", {
+    let response = await fetch("/personas/index", {
         method: "GET",
     });
     let result = await response.json();
@@ -226,7 +226,7 @@ export async function pedirTutores() {
     return result;
 }
 export async function pedirTutoresAcademicos(tipo: string) {
-    let response = await fetch("http://localhost/personas/show/" + tipo, {
+    let response = await fetch("/personas/show/" + tipo, {
         method: "GET",
     });
     let result = await response.json();
@@ -239,7 +239,7 @@ export async function pedirTutoresAcademicos(tipo: string) {
  */
 export async function pedirEmpresas() {
     console.log("antes del response");
-    let response = await fetch("http://localhost/empresas/index/combo", {
+    let response = await fetch("/empresas/index/combo", {
         method: "GET",
     });
     let result = await response.json();
@@ -252,7 +252,7 @@ export async function pedirEmpresas() {
  * @returns Devuelve un array con los cursos que hay en la base de datos
  */
 export async function pedirCursos() {
-    let response = await fetch("http://localhost/cursos/index", {
+    let response = await fetch("/cursos/index", {
         method: "GET",
     });
     let result = await response.json();
@@ -264,7 +264,7 @@ export async function pedirCursos() {
  * @returns Devuelve un array con los grados que hay en la base de datos
  */
 export async function pedirGrados() {
-    let response = await fetch("http://localhost/grados/index", {
+    let response = await fetch("/grados/index", {
         method: "GET",
     });
     let result = await response.json();

@@ -52,7 +52,7 @@ function tutorAcademicoFiltrado(pagina = 1) {
             data.data['tutorAcademico'].forEach(function mostrar(element) {
                 x++;
                 tabla.innerHTML += `
-               <form action="http://localhost/tutoresAcademicos/update" method="post">
+               <form action="/tutoresAcademicos/update" method="post">
                <input type="hidden" name="_token" value="${token}">
                <input type="hidden" name="_method" value="PUT">
                <div class="accordion accordion-flush" id="accordionFlushExample">

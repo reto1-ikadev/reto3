@@ -1,7 +1,7 @@
 export function enviarDatosEmpresa(datos) {
     console.log(datos.get("nombre"));
-    
-        let response = fetch("http://localhost/empresas/store", {
+
+        let response = fetch("/empresas/store", {
             headers: {
                 'X-CSRF-TOKEN': window.CSRF_TOKEN
             },
@@ -9,7 +9,7 @@ export function enviarDatosEmpresa(datos) {
             body: datos
         });
         if(response){
-            window.location.href = "http://localhost/estudiantes/index";
+            window.location.href = "/estudiantes/index";
         }
-    
+
 }

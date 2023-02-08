@@ -16565,3 +16565,6 @@
 1675892379-9021-1565990616,1675892379.8971,GET,/tutoresAcademicos/show,"App\Http\Controllers\TutorAcademicoController@show",200,17.395973205566,request
 1675892382-7404-1457750392,1675892382.7365,GET,/tutoresAcademicos/filtrar?pagina=1&nombre=&tipo=filtros_tutor_academico,"App\Http\Controllers\TutorAcademicoController@selectAllTutores",200,26.997089385986,request
 1675892586-2919-1566843192,1675892586.288,GET,/tutoresAcademicos/show,"App\Http\Controllers\TutorAcademicoController@show",200,15.222072601318,request
+1675893059-7043-2063171148,1675893059.7013,GET,/grados/index,"App\Http\Controllers\GradoController@index",302,7.6751708984375,request
+1675893059-7130-1356352726,1675893059.7101,GET,/cursos/index,"App\Http\Controllers\CursoController@index",302,7.0178508758545,request
+1675893059-7208-1941043465,1675893059.7179,GET,/empresas/index/combo,"App\Http\Controllers\EmpresasController@indexCombo",302,7.8890323638916,request
