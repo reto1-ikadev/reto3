@@ -21,7 +21,7 @@ class TutorEmpresaSeeder extends Seeder
     {
         //
         Persona::factory(20)->tutor_empresa()->create();
-        //create empresas to add in tutor_empresa
+
         Empresa::factory(10)->create();
         Persona::where('tipo', 'tutor_empresa')->get()->each(function ($persona) {
             User::factory()->create([

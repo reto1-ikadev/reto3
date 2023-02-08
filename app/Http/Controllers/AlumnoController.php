@@ -139,7 +139,7 @@ class AlumnoController extends Controller
 
         $estudiante->update();
 
-        //redirect to detalles alumno page with id
+
         return redirect()->route('inicio.index');
     }
 
@@ -154,7 +154,7 @@ class AlumnoController extends Controller
         //
     }
 
-    //funcion select all alumnos
+
     public static function selectAllAlumnos(Request $request)
     {
         $request->validate([

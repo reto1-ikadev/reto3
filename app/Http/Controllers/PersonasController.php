@@ -65,7 +65,6 @@ class PersonasController extends Controller
     }
     public function tutorLibre(string $tipo)
     {
-       //return tutores_academicos que no esten en la tabla grados
         $coordinadores = Grado::all();
         $tutores = Persona::where("tipo",$tipo)->get();
         $tutoresLibres = [];

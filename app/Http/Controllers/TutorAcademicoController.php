@@ -156,7 +156,7 @@ class TutorAcademicoController extends Controller
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
-        //query with join id_alumno, id_persona
+
         $estudiantes = Alumno::join('personas', 'alumnos.id_alumno', '=', 'personas.id')
             ->join('cursos', 'alumnos.id_curso', '=', 'cursos.id')
             ->join('grados', 'cursos.id_grado', '=', 'grados.id')
@@ -192,12 +192,12 @@ class TutorAcademicoController extends Controller
             'nombre' => 'string|max:255|nullable',
         ]);
         $pagina = $request->pagina;
-        //only grado of the coordinator logged
+
 
 
 
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
-        //query with join id_alumno, id_persona
+
         $tutores = TutorAcademico::join('personas', 'tutores_academicos.id_tutor_academico', '=', 'personas.id')
             ->join('users', 'users.id_persona', '=', 'personas.id')
             ->select('personas.*', 'users.email')
