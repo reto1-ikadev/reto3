@@ -59,15 +59,15 @@ function tutorAcademicoFiltrado(pagina = 1) {
            <div class="accordion-item">
                <h2 class="accordion-header" id="flush-headingOne${x}">
                    <button id="cabecera${x}"class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${x}" aria-expanded="false" aria-controls="flush-collapseOne">
-                   <input type="text" value="${element.nombre}" disabled class="editable${x}" disabled style="border:none;width:50%;background-color:transparent">
+                   <input type="text" value="${element.nombre}" disabled class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;">
                   </button>
                </h2>
                <div id="flush-collapseOne${x}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne${x}" data-bs-parent="#accordionFlushExample">
                    <div class="accordion-body">
-                       <div> <b>Nombre:</b> <input type="text" value="${element.nombre}" name="nombre" class="editable${x}" disabled style="border:none;width:50%;"></div>
-                       <div> <b>Apellidos:</b> <input type="text" value="${element.apellidos}" name="apellidos" class="editable${x}" disabled style="border:none;width:50%;"></div>
-                       <div> <b> Email:</b><input type="text" value="${element.email}" name="email" class="editable${x}" disabled style="border:none;width:50%;"> </div>
-                       <div> <b> Telefono:</b> <input type="text" value="${element.telefono}" name="telefono" class="editable${x}" disabled style="border:none;width:50%;"></div>
+                       <div> <b>Nombre:</b> <input type="text" value="${element.nombre}" name="nombre" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
+                       <div> <b>Apellidos:</b> <input type="text" value="${element.apellidos}" name="apellidos" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
+                       <div> <b> Email:</b><input type="text" value="${element.email}" name="email" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"> </div>
+                       <div> <b> Telefono:</b> <input type="text" value="${element.telefono}" name="telefono" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
                        <br>
                        <input type="text" hidden name="id_user" value="${element.id_user}">
                        <input type="text" hidden name="id" value="${element.id}">
