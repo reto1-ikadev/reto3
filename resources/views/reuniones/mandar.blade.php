@@ -11,5 +11,6 @@
     <p>Objetivos: {{$textArea}}</p>
     <p>Aspectos: {{$aspectos}}</p>
 
-    <a href="/misestudiantes/index">Volver</a>
+    <a href="{{route('inicio.index')}}">Volver</a>
+</div>
 @endsection

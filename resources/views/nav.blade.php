@@ -16,6 +16,11 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ route('inicio.index') }}">P&aacute;gina Principal</a>
                             </li>
+                            @can('alumno')
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('diario.show') }}">Entradas al Diario</a>
+                                </li>
+                            @endcan
                             @can('tutores')
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ route('misestudiantes.index') }}">Mis Estudiantes</a>

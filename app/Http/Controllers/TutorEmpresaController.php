@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NuevoUsuario;
 use App\Models\TutorEmpresa;
 use App\Models\Persona;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class TutorEmpresaController extends Controller
 {
@@ -47,18 +50,21 @@ class TutorEmpresaController extends Controller
         $persona->save();
         $idPersona = $persona->id;
 
-        $usuario = new User;
-        $usuario->id_persona = $idPersona;
-        $usuario->email = request('email');
-        $usuario->password = request('password');
-        $usuario->save();
-
         $tutorE = new TutorEmpresa();
         $tutorE->id_tutor_empresa = $idPersona;
         $tutorE->id_empresa = request('id_empresa');
         $tutorE->departamento = request('departamento');
-
         $tutorE->save();
+        
+        $usuario = new User;
+        $usuario->id_persona = $idPersona;
+        $usuario->email = request('email');
+        $password = md5(random_bytes(4));
+        $usuario->password = Hash::make($password);
+        $usuario->save();
+
+
+        Mail::to($usuario->email)->send(new NuevoUsuario(['email'=>$usuario->email, 'password'=>$password]));
         return true;
     }
 

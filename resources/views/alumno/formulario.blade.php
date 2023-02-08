@@ -1,5 +1,13 @@
 <div class="row gy-5" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
-    <h2>FICHA DUAL</h2><a href="{{ route('historial.show',$estudiante) }}">Ver historial</a>
+    <h2>Ficha del Estudiante</h2>
+    <div class="row d-flex flex-column fle mb-3">
+        <div class="col mb-3">
+            <a href="{{ route('historial.show',$estudiante) }}"><button class="btn btn-primary">Ver Historial</button></a>
+        </div>
+        <div class="col">
+            <a href="{{ route('calificacionesHistorial.create',$estudiante) }}"><button class="btn btn-primary">Evaluar</button></a>
+        </div>
+    </div>
 
     <div class="col" id="formularioDP">
         <!-- ALUMNO-->
@@ -105,6 +113,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @vite(['resources/js/cambiarTutores.js'])

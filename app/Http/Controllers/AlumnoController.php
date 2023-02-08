@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\NuevoUsuario;
 use App\Models\Grado;
 use App\Models\GradoCoordinadores;
 use App\Models\GradoCordinador;
@@ -11,6 +12,9 @@ use App\Models\Curso;
 use App\Models\TutorAcademico;
 use App\Models\TutorEmpresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+
 session_start();
 
 
@@ -33,7 +37,7 @@ class AlumnoController extends Controller
 
         return view('alumno.show', ['estudiante' => $estudiante,"tutorE"=>$tutorE,"tutorA"=>$tutorA]);
     }
-    
+
 
     /**
      * Funcion que devuelve la vista con el formulario para crear nuevos estudiantes
@@ -62,13 +66,6 @@ class AlumnoController extends Controller
         $persona->save();
         $idAlumno = $persona->id;
 
-        $usuario = new User;
-        $usuario->id_persona = $idAlumno;
-        $usuario->email = request('email');
-        $usuario->password = request('password');
-        $usuario->save();
-
-
         $alumno = new Alumno;
         $alumno->id_alumno= $idAlumno;
         $alumno->id_curso = request('id_curso');
@@ -77,6 +74,14 @@ class AlumnoController extends Controller
         $alumno->direccion = request('direccion');
         $alumno->save();
 
+        $usuario = new User;
+        $usuario->id_persona = $idAlumno;
+        $usuario->email = request('email');
+        $password = md5(random_bytes(4));
+        $usuario->password = Hash::make($password);
+        $usuario->save();
+
+        Mail::to($usuario->email)->send(new NuevoUsuario(['email'=>$usuario->email, 'password'=>$password]));
         return true;
     }
 
@@ -109,7 +114,7 @@ class AlumnoController extends Controller
         $persona->telefono = request('telefono');
 
         $persona->update();
-        
+
         $usuario = User::find($persona->id);
 
         $usuario->email = request('email');

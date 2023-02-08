@@ -26,7 +26,6 @@ class CuadernoPracticasController extends Controller
      */
     public function create($id)
     {
-        return view('diario.show', ['id' => $id]);
     }
 
     /**
@@ -45,7 +44,7 @@ class CuadernoPracticasController extends Controller
             'aprendizaje_comentario' => $request->input('apreCom'),
             'problemas' => $request->input('problemCor'),
             'problemas_comentario' => $request->input('problemCom'),
-            'id_alumno' => 
+            'id_alumno' =>
         ]);*/
 
         try {
@@ -71,19 +70,19 @@ class CuadernoPracticasController extends Controller
             $cuadernoPracticas->id_alumno = $data['id_alumno'];
 
             $cuadernoPracticas->save();
-        
+
         } catch(Exception $e) {
             return "Error a la hora de guardar en la base de datos el diario.";
         }
 
-        return redirect('/misestudiantes/index');
+        return redirect()->route('inicio.index');
     }
 
     public function obtenerDiarios(Request $request) {
         $cuadernoPracticas = new CuadernoPracticas;
 
         $resul = $cuadernoPracticas::select('periodo', 'actividades_realizadas', 'actividades_comentario', 'aprendizaje', 'aprendizaje_comentario', 'problemas', 'problemas_comentario')->where('id_alumno', $request->input('id'))->get();
-        
+
         return json_encode($resul);
         //return json_encode(array('periodo' => $resul[0]->periodo, 'actividades_realizadas' => $resul[0]->actividades_realizadas, 'actividades_comentario' => $resul[0]->actividades_comentario, 'aprendizaje' => $resul[0]->aprendizaje, 'aprendizaje_comentario' => $resul[0]->aprendizaje_comentario, 'problemas' => $resul[0]->problemas, 'problemas_comentario' => $resul[0]->problemas_comentario));
         //return var_dump($resul);
@@ -97,8 +96,8 @@ class CuadernoPracticasController extends Controller
      */
     public function show()
     {
-        
-        return view('diario.show');
+        //
+        return view('alumno.verdiario');
     }
 
     /**

@@ -6,7 +6,7 @@
             @can('alumno')
                 @include('alumno.notaFinal')
                 @include('alumno.tabla')
-                @include('diario.show')
+                @include('alumno.nuevodiario')
             @endcan
             @can('tutores')
                 @include('tutorAcademico.tabla')

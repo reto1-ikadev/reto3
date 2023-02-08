@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\ReunionesController;
 use App\Mail\NuevoUsuario;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -47,7 +48,11 @@ Route::middleware(['auth'])->group( function (){
 //Rutas de los estudiantes
     Route::get('/', [InicioController::class, 'index'])->name('inicio.index');
 
+Route::middleware(['auth', 'can:alumno'])->group( function() {
+    Route::post('/diarioGuardar', [CuadernoPracticasController::class, 'store'])->name('diario.store');
+    Route::get('/verDiario', [CuadernoPracticasController::class, 'show'])->name('diario.show');
 
+});
         Route::middleware(['auth', 'can:tutores'])->group( function() {
         Route::get('/estudiantes/index', [AlumnoController::class, 'index'])->name('estudiantes.index');
         Route::get('/estudiantes/detalle/{id}', [AlumnoController::class, 'show'])->name('estudiantes.detalle')->where('id', '[0-9]+');
@@ -70,14 +75,13 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
     Route::put('/empresas/update',[EmpresasController::class,'update'])->name('empresas.update');
 //Rutas del diario
-    Route::get('/diario',[CuadernoPracticasController::class, 'show'])->name('diario.show');
+
     Route::get('/diario/{id}',[CuadernoPracticasController::class, 'create'])->name('diario.create');
-    Route::post('/diarioGuardar', [CuadernoPracticasController::class, 'store'])->name('diario.store');
     Route::get('/diariosObtener', [CuadernoPracticasController::class, 'obtenerDiarios'])->name('diarios.obtener');
 //Rutas de las reuniones
-    Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
-    Route::post('/crear_reunion',[CursoController::class,'create'])->name('reunion.create');
-    Route::get('/reunionesObtener', [CursoController::class, 'obtenerReuniones'])->name('reuniones.obtener');
+    Route::get('/reunion',[ReunionesController::class,'show'])->name('reunion.show');
+    Route::post('/crear_reunion',[ReunionesController::class,'create'])->name('reunion.create');
+    Route::get('/reunionesObtener', [ReunionesController::class, 'obtenerReuniones'])->name('reuniones.obtener');
 //Rutas de clasificaciones_historial
 Route::get('/calificacionesHistorial/create/{estudiante}',[CalificacionesHistorialController::class,'create'])->name('calificacionesHistorial.create');
 Route::post('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');

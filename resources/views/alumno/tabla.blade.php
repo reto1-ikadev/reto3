@@ -1,5 +1,5 @@
 <!-- RESUMEN DEL ALUMNO -->
-<h5>Informacion del Tutor Academico</h5>
+<h5 class="mt-3">Informacion del Tutor Academico</h5>
 <table class="table table-light table-striped mb-3">
     <tr>
         <th scope="col">Email</th>

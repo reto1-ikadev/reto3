@@ -17,25 +17,34 @@ async function filtroAplicar(anio, semana) {
                 var columnaPeriodo = document.createElement('td');
                 columnaPeriodo.scope = "row";
                 columnaPeriodo.appendChild(document.createTextNode(diario.periodo));
-                
+
                 var columnaActividadesRealizadas = document.createElement('td');
                 columnaActividadesRealizadas.appendChild(document.createTextNode(diario.actividades_realizadas));
-               
                 var columnaActividadesComentario = document.createElement('td');
-                columnaActividadesComentario.appendChild(document.createTextNode(diario.actividades_comentario));
-    
+                if (diario.actividades_comentario == null) {
+                    columnaActividadesComentario.appendChild(document.createTextNode("No hay comentarios"));
+                }else {
+                    columnaActividadesComentario.appendChild(document.createTextNode(diario.actividades_comentario));
+                }
+
                 var columnaAprendizaje = document.createElement('td');
                 columnaAprendizaje.appendChild(document.createTextNode(diario.aprendizaje));
-    
+
                 var columnaAprendizajeComentario = document.createElement('td');
-                columnaAprendizajeComentario.appendChild(document.createTextNode(diario.aprendizaje_comentario));
-    
+                if (diario.aprendizaje_comentario == null) {
+                    columnaAprendizajeComentario.appendChild(document.createTextNode("No hay comentarios"));
+                }else {
+                    columnaAprendizajeComentario.appendChild(document.createTextNode(diario.aprendizaje_comentario));
+                }
                 var columnaProblemas = document.createElement('td');
                 columnaProblemas.appendChild(document.createTextNode(diario.problemas));
-    
+
                 var columnaProblemasComentario = document.createElement('td');
-                columnaProblemasComentario.appendChild(document.createTextNode(diario.problemas_comentario));
-                
+                if (diario.problemas_comentario == null) {
+                    columnaProblemasComentario.appendChild(document.createTextNode("No hay comentarios"));
+                }else {
+                    columnaProblemasComentario.appendChild(document.createTextNode(diario.problemas_comentario));
+                }
                 nuevaFila.appendChild(columnaPeriodo);
                 nuevaFila.appendChild(columnaActividadesRealizadas);
                 nuevaFila.appendChild(columnaActividadesComentario);
@@ -78,7 +87,7 @@ async function filtroAnio() {
 
 /*
 ESTA FUNCION FUNCIONA PERO NO SE NECESITA
-YA QUE SOLO CONSIGUE EL NUMERO DE SEMANA DE UN MES Y NO 
+YA QUE SOLO CONSIGUE EL NUMERO DE SEMANA DE UN MES Y NO
 UN ANIO
 function getWeekOfMonth(date) {
     let adjustedDate = date.getDate()+ date.getDay();
@@ -129,25 +138,36 @@ function obtenerDiarios() {
             var columnaPeriodo = document.createElement('td');
             columnaPeriodo.scope = "row";
             columnaPeriodo.appendChild(document.createTextNode(diario.periodo));
-            
+
             var columnaActividadesRealizadas = document.createElement('td');
             columnaActividadesRealizadas.appendChild(document.createTextNode(diario.actividades_realizadas));
-           
+
+
             var columnaActividadesComentario = document.createElement('td');
-            columnaActividadesComentario.appendChild(document.createTextNode(diario.actividades_comentario));
+            if (diario.actividades_comentario == null) {
+                columnaActividadesComentario.appendChild(document.createTextNode("No hay comentarios"));
+            }else {
+                columnaActividadesComentario.appendChild(document.createTextNode(diario.actividades_comentario));
+            }
 
             var columnaAprendizaje = document.createElement('td');
             columnaAprendizaje.appendChild(document.createTextNode(diario.aprendizaje));
 
             var columnaAprendizajeComentario = document.createElement('td');
-            columnaAprendizajeComentario.appendChild(document.createTextNode(diario.aprendizaje_comentario));
-
+            if (diario.aprendizaje_comentario == null) {
+                columnaAprendizajeComentario.appendChild(document.createTextNode("No hay comentarios"));
+            }else {
+                columnaAprendizajeComentario.appendChild(document.createTextNode(diario.aprendizaje_comentario));
+            }
             var columnaProblemas = document.createElement('td');
             columnaProblemas.appendChild(document.createTextNode(diario.problemas));
 
             var columnaProblemasComentario = document.createElement('td');
-            columnaProblemasComentario.appendChild(document.createTextNode(diario.problemas_comentario));
-            
+            if (diario.problemas_comentario == null) {
+                columnaProblemasComentario.appendChild(document.createTextNode("No hay comentarios"));
+            }else {
+                columnaProblemasComentario.appendChild(document.createTextNode(diario.problemas_comentario));
+            }
             nuevaFila.appendChild(columnaPeriodo);
             nuevaFila.appendChild(columnaActividadesRealizadas);
             nuevaFila.appendChild(columnaActividadesComentario);
@@ -176,6 +196,9 @@ document.getElementById('filtrar').addEventListener('click', function() {
 document.getElementById('reset').addEventListener('click', function() {
     lista.innerHTML = '';
     obtenerDiarios();
+       document.getElementById('filtroAnio').value = "no";
+        document.getElementById('filtroSemana').value = "no";
+
 });
 
 document.getElementById('botonDiario').addEventListener('click', function() {

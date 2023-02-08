@@ -59,8 +59,10 @@
                     </td>
                 </tr>
             </table>
-            <div class="col">
-                <button class="btn mb-5" type="submit">Guardar cambios</button>
+            <div class="col-3 d-flex flex-column mb-2">
+                <button class="btn mb-2 btn-primary" type="submit">Guardar cambios</button>
+                <a class="btn btn-primary" href="{{route('inicio.index')}}">Volver</a>
+
             </div>
         </form>
     </div>
