@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    @vite(['resources/js/estudiantes/estudianteCreate.js', 'resources/js/componentes/btnValidar.js','resources/js/componentes/btnValidarEmpresa.js' , 'resources/js/formularios/llenarCombos.js', 'resources/sass/app.scss'])
+    @vite([ 'resources/js/componentes/btnValidar.js','resources/js/componentes/btnValidarEmpresa.js' , 'resources/js/formularios/llenarCombos.js', 'resources/sass/app.scss'])
     <style>
 .material-symbols-outlined {
   font-variation-settings:
