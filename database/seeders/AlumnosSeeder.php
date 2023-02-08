@@ -21,7 +21,7 @@ class AlumnosSeeder extends Seeder
     public function run()
     {
         //
-        Persona::factory(50)->create();
+        Persona::factory(500)->create();
         //insert foreign key in alumno
         Persona::where('tipo', 'alumno')->get()->each(function ($persona) {
             User::factory()->create([
