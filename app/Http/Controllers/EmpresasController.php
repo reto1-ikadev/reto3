@@ -23,7 +23,6 @@ class EmpresasController extends Controller
 
     public function indexCombo()
     {
-        //select * from empresas order by nombre
         $empresas = Empresa::select('empresas.nombre', 'empresas.id')
             ->orderby('empresas.nombre', 'asc')
             ->get();
@@ -142,11 +141,11 @@ class EmpresasController extends Controller
         $request->page = $request->page == '' ? 1 : $request->page;
 
         $empresas = Empresa::select('empresas.nombre', 'empresas.cif', 'empresas.email_contacto', 'empresas.direccion', 'empresas.sector', 'empresas.id')
-                ->where([
-                    ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
-                    ['empresas.sector', 'like', '%' . $request->sector . '%'],
-                ])
-                ->orderby('empresas.id', 'desc');
+            ->where([
+                ['empresas.nombre', 'like', '%' . $request->nombre . '%'],
+                ['empresas.sector', 'like', '%' . $request->sector . '%'],
+            ])
+            ->orderby('empresas.id', 'desc');
 
         $empresasTotal = $empresas->count();
         $resultados = $empresas->offset(($pagina -1) * 10)->limit(10)->get();
