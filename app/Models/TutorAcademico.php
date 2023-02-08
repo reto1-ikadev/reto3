@@ -29,4 +29,8 @@ class TutorAcademico extends Model
     public function calificaciones_historial(){
         return $this->hasMany(CalificacionesHistorial::class,'id');
     }
+    public function grado()
+    {
+        return $this->hasOne(Grado::class, 'id_grado');
+    }
 }

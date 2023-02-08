@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col">
             <nav class="navbar"><!-- Menu lateral -->
-                <img src="{{ asset('images/logo.svg') }}" id="logoCab" class="img-fluid h-20 w-25" alt="">
+                <img src="{{ asset('images/logo.svg') }}" id="logoCab" class="img-fluid h-50 w-25" alt="">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon "></span>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
@@ -29,7 +29,7 @@
                                 <a class="nav-link active" href="{{ route('empresas.index') }}">Empresas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('tutoresAcademicos.index') }}">Tutores acad&eacute;micos</a>
+                                <a class="nav-link active" href="{{ route('tutoresAcademicos.show') }}">Tutores acad&eacute;micos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('tutoresEmpresa.index') }}">Tutores de empresa</a>
@@ -50,18 +50,12 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('anyo.create') }}">Nuevo año</a>
                             </li>
-                            <li class="nav-item debajo">
-
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Estad&iacute;sticas</a>
-                            </li> @endcan
-                            @can('tutores')
-                            <li class="nav-item debajo">
-                                <hr class="bg-danger border-2 border-top border-primary">
-
+                                <a class="nav-link active" href="{{ route('calificacionesHistorial.index') }}">Estad&iacute;sticas</a>
                             </li>
                             @endcan
                             <li class="nav-item">
+                                <hr class="bg-danger border-2 border-top border-primary">
                                 <a class="nav-link active" href="/logout">Salir</a>
                             </li>
                         </ul>

@@ -34,5 +34,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AlumnosSeeder::class
         ]);
+        $this->call([
+            AnosAcademicosSeeder::class
+        ]);
     }
 }
