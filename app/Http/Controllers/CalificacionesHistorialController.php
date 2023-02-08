@@ -25,7 +25,19 @@ class CalificacionesHistorialController extends Controller
         $grado = Grado::where('id_coordinador',auth()->user()->id_persona)->first();
         $calificacionesHistorial = CalificacionesHistorial::all()->where('id_tutor_academico', auth()->user()->id_persona);
 
-        return view('calificacionesHistorial.show',["calificacionesHistorial"=>$calificacionesHistorial]);
+        //calcular nota media y mostrar aprobados y suspensos por curso
+        $aprobados = 0;
+        $suspensos = 0;
+        foreach ($calificacionesHistorial as $calificacionHistorial) {
+            $notaMedia = ($calificacionHistorial->evaluacion_diario->nota_final + $calificacionHistorial->evaluacion_empresa->nota_final)/2;
+            $calificacionHistorial->nota_media = $notaMedia;
+            if($notaMedia >= 5){
+                $aprobados++;
+            }else{
+                $suspensos++;
+            }
+        }
+        return view('calificacionesHistorial.show',["aprobados"=>$aprobados, "suspensos"=>$suspensos, "grado"=>$grado]);
 
     }
 

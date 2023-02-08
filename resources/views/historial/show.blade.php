@@ -1,8 +1,9 @@
 @extends('layouts.headerfooter')
 @section('content')
-
-<h1>HISTORIAL</h1>
-
+    <div class="col d-flex justify-content-center">
+<h1 class="mb-3">Historial Academico</h1></div>
+<div class=" col-11 mx-auto">
+<div class="row">
 <div class="table-responsive">
     <table class="table table-primary">
         <thead>
@@ -32,8 +33,10 @@
                     <td>{{ ($fila->evaluacion_empresa->nota_final + $fila->evaluacion_diario->nota_final )/2 }}</td>
                 </tr>
            @endforeach
-            
+
         </tbody>
     </table>
+</div>
+</div>
 </div>
 @endsection

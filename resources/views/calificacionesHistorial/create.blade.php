@@ -1,18 +1,17 @@
 @extends('layouts.headerfooter')
 @section('content')
 
-    <div class="row">
+    <div class="row mb-4">
         <div class="col">
-            <h5>{{$estudiante->nombre}} {{ $estudiante->apellidos }}</h5>
-            <p>Curso: {{ $estudiante->opcion_tipo->curso->nombre }}</p>
-            <p>Tutor de universidad: {{ $tutorA->nombre }}</p>
-            <p>Tutor de empresa: {{ $tutorE->nombre }}</p>
-            <p>Año academico: {{ $anoAcademico->nombre }}</p>
+            <h5 class="mb-3">{{$estudiante->nombre}} {{ $estudiante->apellidos }}</h5>
+            <p><b>Curso:</b> {{ $estudiante->opcion_tipo->curso->nombre }}</p>
+            <p><b>Tutor de universidad:</b> {{ $tutorA->nombre }}</p>
+            <p><b>Tutor de empresa:</b> {{ $tutorE->nombre }}</p>
+            <p><b>Año academico:</b> {{ $anoAcademico->nombre }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col">
-
             <form class="row justify-content-center" action="{{ route('calificacionesHistorial.store') }}" method="post">
                 @csrf
                 <input type="hidden" name="id_alumno" value="{{ $estudiante->id }}">
@@ -20,7 +19,7 @@
                 <input type="hidden" name="id_tutor_empresa" value="{{ $tutorE->id }}">
                 <input type="hidden" name="id_ano_academico" value="{{ $anoAcademico->id }}">
                 <input type="hidden" name="id_curso" value="{{ $estudiante->opcion_tipo->curso->id }}">
-                <div class="table-responsive col-8">
+                <div class="table-responsive col-8 mb-3">
                     <h4>Evaluaci&oacute;n del diario</h4>
                     <table class="table">
                         <thead>
@@ -117,7 +116,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-responsive col-8">
+                <div class="table-responsive col-8 mb-3">
                     <h4>Evaluaci&oacute;n del trabajo en empresa</h4>
                     <table class="table">
                         <thead>
@@ -255,7 +254,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col">
                         <input type="submit" class="btn" value="Enviar valoraciones">
                     </div>

@@ -1,5 +1,5 @@
 <div class="row gy-5" id="datosPersonales"> <!--Este row contiene la foto y los datos personales-->
-    <h2>FICHA DUAL</h2>
+    <h2>FICHA DUAL</h2><a href="{{ route('historial.show',$estudiante) }}">Ver historial</a>
 
     <div class="col" id="formularioDP">
         <!-- ALUMNO-->
@@ -12,9 +12,14 @@
                 </div>
 
                 <div class="col-10 col-md-12 col-lg-10">
-                    <div class="col-3 d-flex justify-content-between">
-                        <h5>Datos personales</h5><button id='editar' class="btn bg-primary btn-sm">Editar </button>
+
+                        <div class="col-3 d-flex justify-content-between">
+                        <h5>Datos personales</h5>
+                            @can('coordinador')
+                                <button id='editar' class="btn bg-primary btn-sm">Editar </button>
+                            @endcan
                     </div>
+
                     <div class="row gy-3 mt-1">
 
                         <div class="col-12 col-md-6">
