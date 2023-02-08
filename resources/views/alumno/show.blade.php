@@ -54,7 +54,7 @@
 
 <div class="row mt-4">
     <div class="col">
-        <h5>Seguimiento del alumno/Reuniones</h5>
+        <h5>Seguimiento de las reuniones</h5>
         <button id="botonReunion" type="button" class="btn btn-primary">Reunion Nueva</button>
     </div>
     <!--<a href="{{ url('/reunion') }}">Clickea aquí para crear una reunion nueva</a>-->
@@ -62,31 +62,18 @@
     
     <div class="row"> <!-- FILTROS REUNIONES-->
         <div class="col-3">
-            <select class="form-select" aria-label="select">
-                <option selected>Filtrar por año</option>
-                <option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>
+            <select id="filtroAnioReunion" class="form-select" aria-label="select">
+                <option value="no" selected>Filtrar por año</option>
             </select>
         </div>
         <div class="col-3">
-            <select class="form-select" aria-label="select">
-                <option selected>Filtrar por curso</option>
-                <option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <select class="form-select" aria-label="select">
-                <option selected>Filtrar por fecha</option>
-                <option value="1">Empresa1</option>
-                <option value="2">Empresa2</option>
-                <option value="3">Empresa3</option>
+            <select id="filtroConvocadores" class="form-select" aria-label="select">
+                <option value="no" selected>Filtrar por convocador</option>
             </select>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary">Filtrar</button>
+            <button id="filtrarReunion" type="button" class="btn btn-primary">Filtrar</button>
+            <button id="resetReunion" type="button" class="btn btn-primary">Reset</button>
         </div>
     </div><!--FIN FILTROS-->
 

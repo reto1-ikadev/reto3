@@ -20,7 +20,7 @@
                     <th>Correo de los asistentes</th>
                     <td>
                         <ul id="lista">
-                            <li><input name="asistente1" type="email" class="form-control" placeholder="Asistente" value="{{auth()->user()->email}}" required></li>
+                            <li><input name="asistente1" type="email" class="form-control" placeholder="Convocador" value="{{auth()->user()->email}}" required></li>
                             <!--<li><input type="text" class="form-control" value="Asistente" disabled></li>
                             <li><input type="text" class="form-control" value="Asistente" disabled></li>-->
                         </ul>

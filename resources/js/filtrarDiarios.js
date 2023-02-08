@@ -6,6 +6,7 @@ var filtroAnioSelect = document.getElementById("filtroAnio");
 
 var filtroSemanaSelect = document.getElementById("filtroSemana");
 
+// Funcion que aplica los filtros y luego los imprime por pantalla.
 async function filtroAplicar(anio, semana) {
 
     await fetch('/diariosObtener?id=' + idAlumno, {method: 'GET'}).then(response => response.json()).then(data => {
@@ -50,6 +51,7 @@ async function filtroAplicar(anio, semana) {
     });
 }
 
+//Funcion que obtiene los años de los diarios y sustituye los duplicados.
 async function filtroAnio() {
     var fechas = [];
     var num = 0;
@@ -85,12 +87,14 @@ function getWeekOfMonth(date) {
 }
 */
 
+//Esta funcion nos devuelve el numero de la semana en año.
 function obtenerNumeroSemana(fecha) {
     var year = new Date(fecha.getFullYear(), 0, 1);
     var days = Math.floor((fecha - year) / (24 * 60 * 60 * 1000));
     return Math.ceil(( fecha.getDay() + 1 + days) / 7);
 }
 
+//Esta funcion almacena la cantidad de semanas que estan guardadas en los diarios.
 async function filtroSemana() {
     var semanas = [];
     var num = 0;
@@ -115,6 +119,8 @@ async function filtroSemana() {
     }
 }
 
+
+//Esta funcion imprime todos los diarios encontrados sin importar los filtros.
 function obtenerDiarios() {
     fetch('/diariosObtener?id=' + idAlumno, {method: 'GET'}).then(response => response.json()).then(data => {
         data.forEach(diario => {
@@ -161,8 +167,8 @@ filtroAnio();
 filtroSemana();
 
 document.getElementById('filtrar').addEventListener('click', function() {
-    lista.innerHTML = '';
     if(document.getElementById('filtroAnio').value !== "no" || document.getElementById('filtroSemana').value !== "no") {
+        lista.innerHTML = '';
         filtroAplicar(document.getElementById('filtroAnio').value, document.getElementById('filtroSemana').value);
     }
 });
