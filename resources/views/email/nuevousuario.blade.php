@@ -9,7 +9,7 @@
 </head>
 <body>
     <h3>Buenas tu usuario para la nueva pagina de duales de Deusto es</h3>
-    <p><label>Correo: </label>{{$datos->email}}</p>
-    <p><label>Contraseña: </label>{{$datos->password}}</p>
+    <p><label>Correo: </label>{{$datos['email']}}</p>
+    <p><label>Contraseña: </label>{{$datos['password']}}</p>
 </body>
 </html>

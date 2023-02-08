@@ -48,8 +48,8 @@ class AnosAcademicosController extends Controller
         $anyoAcademico->fecha_fin = request('fecha_fin');
         $anyoAcademico->nombre = $nombre;
        $anyoAcademico->save();
-       
-        return redirect(route('cursos.index'));
+
+        return redirect(route('inicio.index'));
     }
 
     /**

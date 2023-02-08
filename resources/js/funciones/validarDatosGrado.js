@@ -11,20 +11,17 @@ function validarDatosGrado(e){
         var cadenaValida = false;
         var regExp = new RegExp(/^(?=.{3,15}$)[A-ZÁÉÍÓÚ][a-zñáéíóú]+(?: [A-ZÁÉÍÓÚ][a-zñáéíóú]+)?$/gm);
         if (!regExp.test(datos.get("nombre"))) {
-            
+
             throw datos.get("nombre") + " no tiene el formato adecuado";
         } else {
             cadenaValida = true;
-            
+
         }
        if(cadenaValida){
-            console.log(datos.get("nombre"));
-            enviarDatosGrado(datos);
-            var selectCoordinador = document.getElementById("tutorA");
+            console.log(datos.get("nombre"));var selectCoordinador = document.getElementById("tutorA");
             var idCoordinador = selectCoordinador.options[selectCoordinador.selectedIndex].id;
             datos.set("coordinador",idCoordinador);
-            datos.delete("nombre");
-            enviarDatosGradoCoordinador(datos);
+            enviarDatosGrado(datos);
        }
 
     } catch (error) {
@@ -45,20 +42,7 @@ function enviarDatosGrado(datos) {
         if(response){
             window.location.href = "http://localhost/estudiantes/index";
         }
-    
-}
-function enviarDatosGradoCoordinador(datos){
-    let response = fetch("http://localhost/gradoCoordinadores/store",{
-        headers: {
-            'X-CSRF-TOKEN': window.CSRF_TOKEN
-        },
-        method:'POST',
-        body: datos
-    });
-    if(response.ok){
-        console.log("insertado");
-    }
-}
 
+}
 
 

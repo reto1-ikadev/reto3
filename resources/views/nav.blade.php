@@ -36,19 +36,17 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dar de alta
+                                    Gestiones
                                 </a>
                                 <ul class="dropdown-menu">
 
-                                    <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Tutor acad&eacute;mico/Coordinador</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Tutor de empresa</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Estudiantes</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('empresas.create') }}">Empresa</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('grado.create') }}">Grado</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Nuevo Tutor acad&eacute;mico/Coordinador</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Nuevo Tutor de empresa</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Nuevo Estudiantes</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('empresas.create') }}">Nueva Empresa</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('grado.create') }}">Nuevo Grado</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('anyo.create') }}">Nuevo Año</a></li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('anyo.create') }}">Nuevo año</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('calificacionesHistorial.index') }}">Estad&iacute;sticas</a>

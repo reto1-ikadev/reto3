@@ -13,7 +13,7 @@ class NuevoUsuario extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public array $datos;
+    public  $datos;
 
 
     /**
@@ -29,38 +29,5 @@ class NuevoUsuario extends Mailable
 
     public function  build(){
         return $this->view('email.nuevousuario')->subject('Nuevo Usuario')->with('datos', $this->datos);
-    }
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'Nuevo Usuario',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
     }
 }

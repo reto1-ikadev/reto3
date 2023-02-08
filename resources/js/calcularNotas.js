@@ -1,5 +1,3 @@
-
-
 //Pruebas para mejorar la funcion de calcular nota
 var selectActitud = document.getElementById("actitud_nota");
 var selectPuntualidad = document.getElementById("puntualidad_nota");
@@ -11,106 +9,28 @@ var selectDecisiones = document.getElementById("decisiones_nota");
 var selectComunicacion = document.getElementById("comunicacion_nota");
 var selectPlanificacion = document.getElementById("planificacion_nota");
 var selectAprendizaje = document.getElementById("aprendizaje_nota");
-selectActitud.addEventListener("click", sumar);
-selectPuntualidad.addEventListener("click", sumar);
-selectResponsabilidad.addEventListener("click", sumar);
-selectResolucion.addEventListener("click", sumar);
-selectCalidad.addEventListener("click", sumar);
-selectImplicacion.addEventListener("click", sumar);
-selectDecisiones.addEventListener("click", sumar);
-selectComunicacion.addEventListener("click", sumar);
-selectPlanificacion.addEventListener("click", sumar);
-selectAprendizaje.addEventListener("click", sumar);
 var inputNota = document.getElementById("nota_final_empresa");
-var resultadoEmpresa = 0;
-inputNota.value = 0;
-var arrayNotas = [2,2,2,2,2,2,2,2,2,2];
 
-var mediaNotas = arrayNotas.reduce((acumulador,valorActual)=>
-  acumulador + valorActual,0
- )/10;
- inputNota.value = mediaNotas.toFixed(1);
+inputNota.value=2;
 
+let caluclar = document.getElementById("calcularEmpresa");
+caluclar.addEventListener("click",sumarEmpresa);
+function sumarEmpresa() {
 
-function sumar(e) {
-    switch (e.target.id) {
-        case "actitud_nota":
-            var notaActitud = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[0]=notaActitud;
-            console.log(arrayNotas);
-            break;
-        case "puntualidad_nota":
-            var notaPuntualidad = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[1]=notaPuntualidad;
-            console.log(arrayNotas);
-            break;
-        case "responsabilidad_nota":
-            var notaResponsabilidad = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[2]= notaResponsabilidad;
-            console.log(arrayNotas);
-            break;
-        case "resolucion_problemas_nota":
-            var notaResolucion = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[3]= notaResolucion;
-            console.log(arrayNotas);
-            break;
-        case "calidad_trabajos_nota":
-            var notaCalidad = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[4]=notaCalidad;
-            console.log(arrayNotas);
-            break;
-        case "implicacion_nota":
-            var notaImplicacion = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[5]= notaImplicacion;
-            console.log(arrayNotas);
-            break;
-        case "decisiones_nota":
-            var notaDecisiones = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[6]= notaDecisiones;
-            console.log(arrayNotas);
-            break;
-        case "comunicacion_nota":
-            var notaComunicacion = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[7]= notaComunicacion;
-            console.log(arrayNotas);
-            break;
-        case "planificacion_nota":
-            var notaPlanificacion = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[8]= notaPlanificacion;
-            console.log(arrayNotas);
-            break;
-        case "aprendizaje_nota":
-            var notaAprendizaje = parseInt(
-                e.target.options[e.target.selectedIndex].value
-            );
-            arrayNotas[9]= notaAprendizaje;
-            console.log(arrayNotas);
-            break;
-        default:
-            break;
-    }
-    var media = arrayNotas.reduce((acumulador,valorActual)=>
-    acumulador + valorActual,0
-   )/10;
-   inputNota.value = media;
+    var notaActitud = parseInt( selectActitud.options[selectActitud.selectedIndex].value);
+    var notaPuntualidad = parseInt(selectPuntualidad.options[selectPuntualidad.selectedIndex].value);
+    var notaResponsabilidad = parseInt(selectResponsabilidad.options[selectResponsabilidad.selectedIndex].value);
+    var notaResolucion = parseInt(selectResolucion.options[selectResolucion.selectedIndex].value);
+    var notaCalidad = parseInt(selectCalidad.options[selectCalidad.selectedIndex].value);
+    var notaImplicacion = parseInt(selectImplicacion.options[selectImplicacion.selectedIndex].value);
+    var notaDecisiones = parseInt(selectDecisiones.options[selectDecisiones.selectedIndex].value);
+    var notaComunicacion = parseInt(selectComunicacion.options[selectComunicacion.selectedIndex].value);
+    var notaPlanificacion = parseInt(selectPlanificacion.options[selectPlanificacion.selectedIndex].value);
+    var notaAprendizaje = parseInt(selectAprendizaje.options[selectAprendizaje.selectedIndex].value);
+
+    let notaMedia = (notaActitud + notaPuntualidad + notaResponsabilidad + notaResolucion + notaCalidad + notaImplicacion + notaDecisiones + notaComunicacion + notaPlanificacion + notaAprendizaje)/10;
+
+    inputNota.value = notaMedia.toFixed(2);
 }
 var inputRegularidad = document.getElementById("regularidad_nota");
 var inputOrden = document.getElementById("orden_nota");
@@ -130,75 +50,20 @@ inputConceptos.addEventListener("click", sumarDiario);
 inputReflexion.addEventListener("click", sumarDiario);
 
 
-var resultadoDiario = 0;
-var arrayNotasDiario = [2,2,2,2,2,2,2];
-var media = arrayNotasDiario.reduce((acumulador,valorActual)=>
-  acumulador + valorActual,0
- )/7;
- inputNotaFinal.value = media.toFixed(1);
+inputNotaFinal.value = 2;
 
-function sumarDiario(e) {
-  switch (e.target.id) {
-      case "regularidad_nota":
-        console.log("he elegido regularidad");
-          var notaRegularidad = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[0]=notaRegularidad;
-          
-          break;
-      case "orden_nota":
-          var notaOrden = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[1]=notaOrden;
-          
 
-          break;
-      case "contenido_nota":
-          var notaContenido = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[2]= notaContenido;
-          
-          break;
-      case "terminologia_nota":
-          var notaTerminologia = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[3]= notaTerminologia;
-          
-          break;
-      case "calidad_nota":
-          var notaCalidadD = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[4]=notaCalidadD;
-          
-          break;
-      case "conceptos_nota":
-          var notaConceptos = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[5]= notaConceptos;
-          
-          break;
-      case "reflexion_nota":
-          var notaReflexion = parseInt(
-              e.target.options[e.target.selectedIndex].value
-          );
-          arrayNotasDiario[6] = notaReflexion;
-          
-          break;
-      
-      default:
-        
-          break;
-  }
-  var media = arrayNotasDiario.reduce((acumulador,valorActual)=>
-  acumulador + valorActual,0
- )/7;
- inputNotaFinal.value = media.toFixed(1);
+function sumarDiario() {
+    var notaRegularidad = parseInt(inputRegularidad.options[inputRegularidad.selectedIndex].value);
+    var notaOrden = parseInt(inputOrden.options[inputOrden.selectedIndex].value);
+    var notaContenido = parseInt(inputContenido.options[inputContenido.selectedIndex].value);
+    var notaTerminologia = parseInt(inputTerminologia.options[inputTerminologia.selectedIndex].value);
+    var notaCalidad = parseInt(inputCalidad.options[inputCalidad.selectedIndex].value);
+    var notaConceptos = parseInt(inputConceptos.options[inputConceptos.selectedIndex].value);
+    var notaReflexion = parseInt(inputReflexion.options[inputReflexion.selectedIndex].value);
+
+    let notaMedia = (notaRegularidad + notaOrden + notaContenido + notaTerminologia + notaCalidad + notaConceptos + notaReflexion)/7;
+
+    inputNotaFinal.value = notaMedia.toFixed(2);
 }
-
 
