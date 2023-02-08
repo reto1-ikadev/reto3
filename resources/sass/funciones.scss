@@ -1,0 +1,35 @@
+tbody tr:nth-child(2n) {
+    background-color: #eef3f8;
+}
+.contenido{
+    margin-top: 12em;
+}
+#logoCab{
+    margin-left: 2em;
+}
+input[type=text]:disabled {
+    border: none;
+    border-bottom: black 1px solid;
+    background-color: white;
+}
+input[type=text] {
+    border: none;
+    border-bottom: black 1px solid;
+    background-color: white;
+}
+
+/*Este codigo nos permite quitar espacios hechos por la clase row*/
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.data-picker{
+    padding:0.7em;
+    border-radius: 5px;
+    color:midnightblue;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-color:blue;
+    width: 70%;
+
+}
