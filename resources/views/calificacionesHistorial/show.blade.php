@@ -48,26 +48,27 @@
             left: 50%;
         }
     </style>
-    <div class="col d-flex justify-content-center">
-        <h1 class="mb-3">Estadisticas del grado {{$grado->nombre}} </h1></div>
-
+    <div class="col d-flex mx-auto  flex-column justify-content-center">
+        <div class="row">
+        <h1 class="mb-3">Estadisticas del grado {{$grado->nombre}} </h1>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body ">
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
-                                <tr>
-                                    <th>Curso</th>
-                                    <th>Nota</th>
-                                </tr>
+                                    <tr>
+                                        <th scope="row">Aprobados</th>
+                                        <th scope="row">Suspensos</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                     <tr>
-                                         <td>Aprobados: {{$aprobados}}</td>
-                                         <td>Suspensos: {{$suspensos}}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{$aprobados}}</td>
+                                    <td>{{$suspensos}}</td>
+                                </tr>
                                 </tbody>
                             </table>
 
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

@@ -14,33 +14,33 @@
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-md-6">
-                <input type="text" class="form-control" id="nombre" name="nombre" value="Joseba" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
             </div>
             <div class="col-md-6">
 
-                <input type="text" class="form-control" id="apellido" name="apellido" value="Gomez" required>
-            </div>
-            <div class="row my-2"></div>
-            <div class="col-md-6">
-
-                <input type="text" class="form-control" id="dni" placeholder="Dni" name="dni" value="72738006T" required>
-            </div>
-            <div class="col-md-6">
-
-                <input type="text" class="form-control" id="telefonoAcademico" name="telefonoAcademico" value="666777888">
-
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos" required>
             </div>
             <div class="row my-2"></div>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="telefono" name="telefono" value="999333222" required>
+
+                <input type="text" class="form-control" id="dni" placeholder="Dni" name="dni" placeholder="DNI" required>
+            </div>
+            <div class="col-md-6">
+
+                <input type="text" class="form-control" id="telefonoAcademico" name="telefonoAcademico" placeholder="Telefono Academico">
+
+            </div>
+            <div class="row my-2"></div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono Personal" required>
             </div>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="email" id="email" value="email@gmao.com" required>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
                     <span class="input-group-text" id="prefijo">@</span>
                 </div>
             </div>
-            
+
             <div class="row my-2"></div>
             <div class="col-12 ">
                 <!--AQUI EL BTON COMPONENTE -->

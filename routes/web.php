@@ -42,7 +42,8 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/personas/index',[PersonasController::class,'index'])->name('personas.index');
     Route::post('/personas/store',[PersonasController::class,'store'])->name('personas.store');
     Route::get('/personas/store',[PersonasController::class,'store'])->name('personas.store');
-//Rutas del coordinador
+    Route::get('/personas/tutorLibre/{tipo}',[PersonasController::class,'tutorLibre'])->name('personas.tutorLibre');
+    //Rutas del coordinador
 
     Route::get('/coordinador/create',[CoordinadorController::class,'create'])->name('coordinador.create');
 //Rutas de los estudiantes

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grado;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 use App\Models\Alumno;
@@ -45,7 +46,7 @@ class PersonasController extends Controller
         $persona->telefono = request('telefono');
         $persona->tipo = request('tipo');
         $persona->save();
-        
+
         return true;
     }
 
@@ -61,6 +62,21 @@ class PersonasController extends Controller
 
         $resultado = $resultado = ['sucess' => true, "data" => $tutores];
         return $resultado;
+    }
+    public function tutorLibre(string $tipo)
+    {
+       //return tutores_academicos que no esten en la tabla grados
+        $coordinadores = Grado::all();
+        $tutores = Persona::where("tipo",$tipo)->get();
+        $tutoresLibres = [];
+        foreach ($tutores as $tutor) {
+            $coordinador = $coordinadores->where("id_coordinador",$tutor->id)->first();
+            if($coordinador == null){
+                array_push($tutoresLibres,$tutor);
+            }
+        }
+        $resultado = ['sucess' => true, "data" => $tutoresLibres];
+       return $resultado;
     }
 
     /**

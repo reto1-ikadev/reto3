@@ -11,7 +11,7 @@
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="nombre" id="nombre" value="Nombre" required>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
             </div>
             <div class="col-md-5">
                 <select class="form-select" name="tutorA" id="tutorA" required>
@@ -20,7 +20,7 @@
             </div>
             <div>
                 <input type="hidden" id="tipo" name="tipo" value="grado">
-                <input type="submit" id="altaGrado" name="altaGrado" value="Guardar">
+                <input type="submit" class="btn btn-primary" id="altaGrado" name="altaGrado" value="Guardar">
             </div>
         </div>
     </div>

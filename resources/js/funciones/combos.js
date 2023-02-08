@@ -43,12 +43,14 @@ export function cargarCombos() {
                 comboCursos.innerHTML =
                     "<option selected disabled value='seleccionar'>Curso</option>";
                 data.data.forEach(function mostrar(element) {
-                    comboCursos.innerHTML +=
-                        "<option id='" +
+                    if (comboCursos.innerHTML.indexOf(element.nombre) == -1) {
+                        comboCursos.innerHTML +=
+                            "<option id='" +
                             element.id +
                             "'>" +
                             element.nombre +
                             "</option>";
+                    }
                 });
             });
             var tipo = "tutor_academico";
@@ -184,7 +186,7 @@ export function cargarCombos() {
         case "grado":
             var comboTutorAcademico = (document.getElementById("tutorA"));
             var tipo = "tutor_academico";
-            var tutor = pedirTutoresAcademicos(tipo);
+            var tutor = pedirTutoresLibres(tipo);
             /**
              * Tutor recibe los datos que devuelve el servidor de la base de datos
              * y con esos datos se llenan los combos con los nombres de los tutores
@@ -222,6 +224,15 @@ export function pedirTutores() {
 export function pedirTutoresAcademicos(tipo) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch("http://localhost/personas/show/" + tipo, {
+            method: "GET",
+        });
+        let result = yield response.json();
+        return result;
+    });
+}
+export function pedirTutoresLibres(tipo) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch("http://localhost/personas/tutorLibre/" + tipo, {
             method: "GET",
         });
         let result = yield response.json();

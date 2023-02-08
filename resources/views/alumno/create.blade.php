@@ -15,32 +15,32 @@
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-md-6">
-                <input type="text" class="form-control" name="nombre" id="nombre" value="Nombre" required>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="apellido" id="apellido" value="Apellido" required>
+                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellidos" required>
             </div>
 
             <div class="col-md-6">
-                <input type="text" class="form-control" name="dni" id="dni" value="58018296Z" required>
+                <input type="text" class="form-control" name="dni" id="dni" placeholder="DNI" required>
             </div>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="email" id="email" value="email@gmao.com" required>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="email" required>
                     <span class="input-group-text" id="prefijo">@</span>
                 </div>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="direccion" id="direccion" value="Avda general nº5 piso 7 letra A" required>
+                <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Direccion" required>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="ciudad" id="ciudad" value="Vitoria" required>
+                <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad" required>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="provincia" id="provincia" value="Alava" required>
+                <input type="text" class="form-control" name="provincia" id="provincia" placeholder="Provincia" required>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="cp" id="cp" value="01003" required>
+                <input type="text" class="form-control" name="cp" id="cp" placeholder="CP" required>
             </div>
             <div class="col-md-6    ">
                 <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Tel&eacute;fono" required>

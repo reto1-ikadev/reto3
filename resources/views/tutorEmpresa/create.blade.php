@@ -14,34 +14,34 @@
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-6">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="Aritz" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"  required>
             </div>
             <div class="col-md-6">
 
-                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" value="Castillo" required>
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos"  required>
             </div>
             <div class="row my-2"></div>
             <div class="col-md-6">
 
-                <input type="text" class="form-control" id="dni" name="dni" placeholder="Dni" value="72738006T" required>
+                <input type="text" class="form-control" id="dni" name="dni" placeholder="Dni"  required>
             </div>
             <div class="col-md-6">
 
                 <div class="input-group">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="aritz@gmail.com">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                     <span class="input-group-text" id="prefijo">@</span>
                 </div>
             </div>
             <div class="row my-2"></div>
             <div class="col-md-6">
 
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Tel&eacute;fono" value="666789987" required>
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Tel&eacute;fono"  required>
             </div>
-            
+
             <div class="col-md-2"></div>
             <div class="row my-2"></div>
             <div class="col-md-6 ">
-                <input type="text" class="form-control" id="dept" name="departamento" placeholder="Departamento" value="informatica" required>
+                <input type="text" class="form-control" id="dept" name="departamento" placeholder="Departamento"  required>
             </div>
             <div class="col-md-4">
                 <select class="form-select" id="empresa" name="empresa">

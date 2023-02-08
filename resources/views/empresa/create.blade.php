@@ -15,18 +15,18 @@
             </div>
 
             <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="calle" id="calle" value="Avda general nº5 piso 7 letra A" required>
+                <input type="text" class="form-control" name="calle" id="calle" placeholder="Direccion" required>
             </div>
             <div class="row my-2"></div>
             <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="ciudad" id="ciudad" value="Vitoria" required>
+                <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad" required>
             </div>
             <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="provincia" id="provincia" value="Alava" required>
+                <input type="text" class="form-control" name="provincia" id="provincia" placeholder="Provincia" required>
             </div>
             <div class="row my-2"></div>
             <div class="col-md-6 gy-2">
-                <input type="text" class="form-control" name="cp" id="cp" value="01003" required>
+                <input type="text" class="form-control" name="cp" id="cp" placeholder="CP" required>
             </div>
 
 

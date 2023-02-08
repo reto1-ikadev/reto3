@@ -4,9 +4,6 @@
         <div class="col mb-3">
             <a href="{{ route('historial.show',$estudiante) }}"><button class="btn btn-primary">Ver Historial</button></a>
         </div>
-        <div class="col">
-            <a href="{{ route('calificacionesHistorial.create',$estudiante) }}"><button class="btn btn-primary">Evaluar</button></a>
-        </div>
     </div>
 
     <div class="col" id="formularioDP">

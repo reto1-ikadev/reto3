@@ -3,7 +3,7 @@
 
     <div class="row mb-4">
         <div class="col">
-            <h5 class="mb-3">{{$estudiante->nombre}} {{ $estudiante->apellidos }}</h5>
+            <h5 class="mb-3"><b>Estudiante:</b> {{$estudiante->nombre}} {{ $estudiante->apellidos }}</h5>
             <p><b>Curso:</b> {{ $estudiante->opcion_tipo->curso->nombre }}</p>
             <p><b>Tutor de universidad:</b> {{ $tutorA->nombre }}</p>
             <p><b>Tutor de empresa:</b> {{ $tutorE->nombre }}</p>
@@ -256,7 +256,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="submit" class="btn" value="Enviar valoraciones">
+                        <input type="submit" class="btn btn-primary" value="Enviar valoraciones">
                     </div>
                 </div>
 
