@@ -89,7 +89,7 @@ function tutorEmpresaFiltrado(evento,pagina = 1) {
                     var editables = document.getElementsByClassName('editable'+e.target.id);
                     console.log(editables);
                     var botones = document.getElementById('botones'+e.target.id);
-                    botones.innerHTML = "<button type='submit' id='enviar' class='btn bg-primary btn-sm'>Guardar cambios</button><button id='cancelar' type='submit' class=' btn bg-primary btn-sm'>Cancelar</button>";
+                    botones.innerHTML = "<button type='submit' id='enviar' class='btn bg-primary btn-sm'>Guardar cambios</button>";
                     for (var i = 0; i < editables.length; i++) {
                         editables[i].disabled = false;
                     }
