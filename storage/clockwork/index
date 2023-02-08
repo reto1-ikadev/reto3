@@ -15318,3 +15318,12 @@
 1675880600-2403-1622007409,1675880600.2372,GET,/reunionesObtener,"App\Http\Controllers\ReunionesController@obtenerReuniones",200,12.740850448608,request
 1675880600-2546-1818187930,1675880600.2513,GET,/reunionesObtener,"App\Http\Controllers\ReunionesController@obtenerReuniones",200,13.225078582764,request
 1675880601-9982-454182666,1675880601.9917,GET,/historial/88,"App\Http\Controllers\CalificacionesHistorialController@show",200,17.884969711304,request
+1675880652-0710-762807659,1675880652.0673,GET,/estudiantes/detalle/87,"App\Http\Controllers\AlumnoController@show",200,28.419017791748,request
+1675880652-0993-1927049104,1675880652.0968,GET,/,"App\Http\Controllers\InicioController@index",200,32.875061035156,request
+1675880652-1338-342664902,1675880652.1309,GET,/historial/88,"App\Http\Controllers\CalificacionesHistorialController@show",200,25.234937667847,request
+1675880652-9012-524470077,1675880652.8977,GET,/diariosObtener?id=87,"App\Http\Controllers\CuadernoPracticasController@obtenerDiarios",200,12.446880340576,request
+1675880652-9180-454066522,1675880652.9118,GET,/diariosObtener?id=87,"App\Http\Controllers\CuadernoPracticasController@obtenerDiarios",200,17.024993896484,request
+1675880652-9338-1069419678,1675880652.9301,GET,/diariosObtener?id=87,"App\Http\Controllers\CuadernoPracticasController@obtenerDiarios",200,15.117168426514,request
+1675880652-9523-1374436825,1675880652.9468,GET,/reunionesObtener,"App\Http\Controllers\ReunionesController@obtenerReuniones",200,19.519090652466,request
+1675880652-9713-1550276116,1675880652.9675,GET,/reunionesObtener,"App\Http\Controllers\ReunionesController@obtenerReuniones",200,14.494895935059,request
+1675880652-9862-1218415998,1675880652.9832,GET,/reunionesObtener,"App\Http\Controllers\ReunionesController@obtenerReuniones",200,10.751962661743,request
