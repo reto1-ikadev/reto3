@@ -8,7 +8,7 @@ var editables = document.getElementsByClassName('editable');
 function habilitarEdicion(e){
     e.preventDefault();
     var botones = document.getElementById('botones');
-    botones.innerHTML = "<button type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Guardar cambios</button><button id='cancelar' type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Cancelar</button>"
+    botones.innerHTML = "<button type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Guardar cambios</button>"
 
     for(var i=0;i<editables.length;i++){
         editables[i].disabled=false;
