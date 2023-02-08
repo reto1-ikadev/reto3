@@ -112,7 +112,7 @@
 
                             <td>Nota final</td>
                             <td><input type="text" name="nota_final" id="nota_final" value=""></td>
-                            <td><span id='calcular' class="material-symbols-outlined">calculate</span></td>
+                            <td><span id='calcularDiario' class="material-symbols-outlined">calculate</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -267,5 +267,5 @@
 
     </div>
 
-    @vite(['resources/js/calcularNotas.js'])
+    @vite(['resources/js/calcularMediaNotas.js'])
 @endsection

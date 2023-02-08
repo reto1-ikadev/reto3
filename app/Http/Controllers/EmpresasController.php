@@ -18,12 +18,15 @@ class EmpresasController extends Controller
 
         return view('empresa.index', ['empresas' => $empresas]);
     }
-    
+
 
 
     public function indexCombo()
     {
-        $empresas = Empresa::all();
+        //select * from empresas order by nombre
+        $empresas = Empresa::select('empresas.nombre', 'empresas.id')
+            ->orderby('empresas.nombre', 'asc')
+            ->get();
         $resultado = ['success' => true, 'data' => $empresas];
         return $resultado;
     }

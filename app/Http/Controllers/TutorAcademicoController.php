@@ -107,7 +107,27 @@ class TutorAcademicoController extends Controller
      */
     public function update(Request $request, TutorAcademico $tutorAcademico)
     {
-        //
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'apellido' => 'string|nullable',
+            'email' => 'string|nullable'
+        ]);
+        $persona = Persona::find($request->id);
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellidos');
+        $persona->update();
+
+        $usuario = User::find($request->id);
+        $usuario->email = request('email');
+        $usuario->update();
+
+
+        $tutorAcademico = TutorAcademico::find($request->id);
+        $tutorAcademico->telefono_academico = request('telefono');
+        $tutorAcademico->update();
+
+
+        return redirect(route('tutoresAcademicos.index'));
     }
 
     /**
@@ -190,7 +210,7 @@ class TutorAcademicoController extends Controller
 
 
         $datos = [
-            'estudiantes' => $resultados,
+            'tutorAcademico' => $resultados,
             'total' => $tutoresTotal,
             'pagina' => intval($pagina),
             'por_pagina' => 10,

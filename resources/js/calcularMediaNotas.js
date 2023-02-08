@@ -41,18 +41,10 @@ var inputConceptos = document.getElementById("conceptos_nota");
 var inputReflexion = document.getElementById("reflexion_nota");
 var inputNotaFinal = document.getElementById("nota_final");
 
-inputRegularidad.addEventListener("click", sumarDiario);
-inputOrden.addEventListener("click", sumarDiario);
-inputContenido.addEventListener("click", sumarDiario);
-inputTerminologia.addEventListener("click", sumarDiario);
-inputCalidad.addEventListener("click", sumarDiario);
-inputConceptos.addEventListener("click", sumarDiario);
-inputReflexion.addEventListener("click", sumarDiario);
-
-
 inputNotaFinal.value = 2;
 
-
+let calcular = document.getElementById("calcularDiario");
+calcular.addEventListener("click",sumarDiario);
 function sumarDiario() {
     var notaRegularidad = parseInt(inputRegularidad.options[inputRegularidad.selectedIndex].value);
     var notaOrden = parseInt(inputOrden.options[inputOrden.selectedIndex].value);
