@@ -23,9 +23,10 @@ class CalificacionesHistorialController extends Controller
     {
         //
         $grado = Grado::where('id_coordinador',auth()->user()->id_persona)->first();
+
         $calificacionesHistorial = CalificacionesHistorial::all()->where('id_tutor_academico', auth()->user()->id_persona);
 
-        //calcular nota media y mostrar aprobados y suspensos por curso
+
         $aprobados = 0;
         $suspensos = 0;
         foreach ($calificacionesHistorial as $calificacionHistorial) {
