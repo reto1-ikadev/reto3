@@ -37,14 +37,7 @@ class GradoCoordinadorController extends Controller
     public function store(Request $request)
 
     {
-        $gradoCoordinador = new GradoCoordinadores();
-        $ide_grado = Grado::select('id')->latest()->first();
 
-       
-        $gradoCoordinador->id_grado = $ide_grado->id;
-        $gradoCoordinador->id_coordinador = request('coordinador');
-
-        $gradoCoordinador->save();
 
         return true;
     }

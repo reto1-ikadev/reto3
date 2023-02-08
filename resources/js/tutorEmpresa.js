@@ -21,6 +21,8 @@ function llamarFiltradoTutorEmpresa(evento) {
 function tutorEmpresaFiltrado(evento,pagina = 1) {
     let formulario = new FormData(document.getElementById("filtrosTutoresEmpresas"));
     let parametros = new URLSearchParams(formulario);
+    let x=0;
+    let token = document.querySelector('meta[name=csrf-token]').content;
     //fecht para enviar los datos
     fetch('/tutoresEmpresa/filtrar?pagina=' + pagina + "&" + parametros, {
         method: 'GET',
@@ -28,7 +30,7 @@ function tutorEmpresaFiltrado(evento,pagina = 1) {
         .then(response => response.json())
         .then(data => {
             console.log('dentro');
-            let tabla = document.getElementById('tabla');
+            let tabla = document.getElementById('accordion');
             tabla.innerHTML = '';
             let paginas = Math.ceil(data.data['total'] / data.data['por_pagina']);
             botonpaginaActualTutorEmpresa.innerHTML = data.data['pagina'];
@@ -49,16 +51,50 @@ function tutorEmpresaFiltrado(evento,pagina = 1) {
                 botonSiguienteTutorEmpresa.classList.add('disabled');
             }
             data.data['empresas'].forEach(function mostrar(element) {
-                tabla.innerHTML += `
-            <tr>
-                <td>${element.nombrePersona}</td>
-                <td>${element.apellidos}</td>
-                <td>${element.email}</td>
-                <td>${element.nombre}</td>
-                <td>${element.departamento}</td>
-            </tr>
-                `;
+                x++;
+                accordion.innerHTML += `
+                <form action="http://localhost/tutoresEmpresa/update" method="post">
+                <input type="hidden" name="_token" value="${token}">
+                <input type="hidden" name="_method" value="PUT">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne${x}">
+                    <button id="cabecera${x}"class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne${x}" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <input type="text" value="${element.nombre}" disabled class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;">
+                   </button>
+                </h2>
+                <div id="flush-collapseOne${x}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne${x}" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div> <b>Nombre:</b> <input type="text" value="${element.nombre}" name="nombre" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
+                        <div> <b>Apellidos:</b> <input type="text" value="${element.apellidos}" name="apellidos" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
+                        <div> <b> Email:</b><input type="text" value="${element.email}" name="email" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"> </div>
+                        <div> <b> Empresa:</b> <input type="text" value="${element.nombre}" name="nombre" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"> </div>
+                        <div> <b> Departamento:</b> <input type="text" value="${element.departamento}" name="departamento" class="editable${x}" disabled style="border:none;width:50%;background-color:transparent;"></div>
+                        <br>
+                        <input type="text" hidden name="id_user" value="${element.id_user}">
+                        <input type="text" hidden name="id" value="${element.id}">
+                        <button id='${x}' class="btn bg-primary btn-sm">Editar </button>
+                        <div class="col-4 offset-8" id="botones${x}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        `;
             });
+            for (let x = 1; x <= data.data['empresas'].length; x++) {
+                var lapizEmpresa = document.getElementById(x);
+                lapizEmpresa.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var editables = document.getElementsByClassName('editable'+e.target.id);
+                    console.log(editables);
+                    var botones = document.getElementById('botones'+e.target.id);
+                    botones.innerHTML = "<button type='submit' id='enviar' class='btn bg-primary btn-sm'>Guardar cambios</button>";
+                    for (var i = 0; i < editables.length; i++) {
+                        editables[i].disabled = false;
+                    }
+                });
+            }
         });
 }
 function resetearFiltrosTutorEmpresa() {

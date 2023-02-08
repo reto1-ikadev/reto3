@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NuevoUsuario;
 use App\Models\Alumno;
-use App\Models\GradoCoordinadores;
+
 use App\Models\TutorAcademico;
 use App\Models\Persona;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class TutorAcademicoController extends Controller
 {
@@ -40,13 +44,34 @@ class TutorAcademicoController extends Controller
      */
     public function store(Request $request)
     {
-        $tutorA = new TutorAcademico();
-        $ide_tutorA = Persona::select('id')->latest()->first();
+        $persona = new Persona;
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellido');
+        $persona->dni = request('dni');
+        $persona->telefono = request('telefono');
+        $persona->tipo = request('tipo');
+        $persona->save();
+        $idTutor_Academico = $persona->id;
 
-        $tutorA->id_tutor_academico= $ide_tutorA->id;
-        $tutorA->telefono_academico = request('telefono_academico');
 
-        $tutorA->save();
+        $tutor_academico = new TutorAcademico;
+        $tutor_academico->id_tutor_academico = $idTutor_Academico;
+        $tutor_telefono = request('telefono_academico');
+        $tutor_academico->telefono_academico = $tutor_telefono;
+        $tutor_academico->save();
+
+        $usuario = new User;
+        $usuario->id_persona = $idTutor_Academico;
+        $usuario->email = request('email');
+        $password = md5(random_bytes(4));
+        $usuario->password = Hash::make($password);
+
+        $usuario->save();
+        Mail::to($usuario->email)->send(new NuevoUsuario(['email'=>$usuario->email, 'password'=>$password]));
+
+
+
+
         return true;
     }//
 
@@ -82,7 +107,27 @@ class TutorAcademicoController extends Controller
      */
     public function update(Request $request, TutorAcademico $tutorAcademico)
     {
-        //
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'apellido' => 'string|nullable',
+            'email' => 'string|nullable'
+        ]);
+        $persona = Persona::find($request->id);
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellidos');
+        $persona->update();
+
+        $usuario = User::find($request->id);
+        $usuario->email = request('email');
+        $usuario->update();
+
+
+        $tutorAcademico = TutorAcademico::find($request->id);
+        $tutorAcademico->telefono_academico = request('telefono');
+        $tutorAcademico->update();
+
+
+        return redirect(route('tutoresAcademicos.index'));
     }
 
     /**
@@ -165,7 +210,7 @@ class TutorAcademicoController extends Controller
 
 
         $datos = [
-            'estudiantes' => $resultados,
+            'tutorAcademico' => $resultados,
             'total' => $tutoresTotal,
             'pagina' => intval($pagina),
             'por_pagina' => 10,

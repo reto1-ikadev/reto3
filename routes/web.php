@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\InicioController;
+use App\Mail\NuevoUsuario;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoordinadorController;
 use App\Http\Controllers\EmpresasController;
@@ -21,6 +23,7 @@ use App\Http\Controllers\QueryController;
 use App\Http\Controllers\CredencialesUsuarioController;
 use App\Http\Controllers\GradoCoordinadorController;
 use App\Models\AnosAcademicos;
+use App\Models\CalificacionesHistorial;
 
 Route::middleware(['auth'])->group( function (){
     Route::get('/grados/index',[GradoController::class,'index'])->name('grados.index');
@@ -65,6 +68,7 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/empresas/filtrar', [EmpresasController::class, 'selectAllEmpresas'])->name('empresas.filtrar');
     Route::post('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
     Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
+    Route::put('/empresas/update',[EmpresasController::class,'update'])->name('empresas.update');
 //Rutas del diario
     Route::get('/diario',[CuadernoPracticasController::class, 'show'])->name('diario.show');
     Route::get('/diario/{id}',[CuadernoPracticasController::class, 'create'])->name('diario.create');
@@ -86,14 +90,14 @@ Route::post('/tutoresAcademicos/store',[TutorAcademicoController::class,'store']
 Route::get('/tutoresAcademicos/store',[TutorAcademicoController::class,'store'])->name('tutoresAcademicos.store');
 Route::get('/tutoresAcademicos/show',[TutorAcademicoController::class,'show'])->name('tutoresAcademicos.show');
 Route::get('/tutoresAcademicos/filtrar',[TutorAcademicoController::class,'selectAllTutores'])->name('tutoresAcademicos.filtrar');
-
+Route::put('/tutoresAcademicos/update',[TutorAcademicoController::class,'update'])->name('tutoresAcademicos.update');
 //Rutas de los tutores de empresa
 Route::get('/tutoresEmpresa/index',[TutorEmpresaController::class,'index'])->name('tutoresEmpresa.index');
 Route::get('/tutoresEmpresa/create',[TutorEmpresaController::class,'create'])->name('tutoresEmpresa.create');
 Route::post('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
 Route::get('/tutoresEmpresa/filtrar', [TutorEmpresaController::class, 'selectAllTutoresEmpresas'])->name('tutoresEmpresa.filtrar');
 Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->name('tutoresEmpresa.store');
-
+Route::put('/tutoresEmpresa/update',[TutorEmpresaController::class,'update'])->name('tutoresEmpresa.update');
 //Indicamos en que blade se dirigira el login después de iniciar sesión.
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
@@ -103,7 +107,8 @@ Route::get('/tutoresEmpresa/store',[TutorEmpresaController::class,'store'])->nam
 Route::get('/grado/create',[GradoController::class,'create'])->name('grado.create');
 Route::post('/grado/store',[GradoController::class,'store'])->name('grado.store');
 Route::get('/grado/store',[GradoController::class,'store'])->name('grado.store');
-
+//Rutas del historial
+Route::get('historial/{estudiante}',[CalificacionesHistorialController::class,'show'])->name('historial.show');
 //Rutas de los gradosCoordinadores
 Route::post('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');
 Route::get('/gradoCoordinadores/store',[GradoCoordinadorController::class,'store'])->name('gradoCoordinadores.store');

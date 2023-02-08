@@ -40,11 +40,7 @@
                     <span class="input-group-text" id="prefijo">@</span>
                 </div>
             </div>
-            <div class="col-md-4 form-check form-switch ms-2">
-                <label class="form-check-label" for="coorCheck">Coordinador</label>
-                <input class="form-check-input" type="checkbox" name="coordinador" id="coorCheck">
-
-            </div>
+            
             <div class="row my-2"></div>
             <div class="col-12 ">
                 <!--AQUI EL BTON COMPONENTE -->

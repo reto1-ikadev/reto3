@@ -1,14 +1,10 @@
-var lapiz = document.getElementById('editar');
-lapiz.addEventListener('click', habilitarEdicion);
-var divCombos = document.getElementById('combos');
+var lapizEmpresa:HTMLElement = <HTMLElement>document.getElementById('editar');
+lapizEmpresa.addEventListener('click', habilitarEdicionEmpresa);
 var editables = document.getElementsByClassName('editable');
 
-
-
-function habilitarEdicion(e){
-    e.preventDefault();
-    var botones = document.getElementById('botones');
-    botones.innerHTML = "<button type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Guardar cambios</button>"
+function habilitarEdicionEmpresa(){
+    var botones:HTMLElement = <HTMLElement> document.getElementById('botones');
+    botones.innerHTML = "<button type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Guardar cambios</button><button id='cancelar' type='submit' class='ms-5 align-center btn bg-primary btn-sm ms-2'>Cancelar</button>"
 
     for(var i=0;i<editables.length;i++){
         editables[i].disabled=false;

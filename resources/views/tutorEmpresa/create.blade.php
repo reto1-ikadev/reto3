@@ -37,11 +37,7 @@
 
                 <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Tel&eacute;fono" value="666789987" required>
             </div>
-            <div class="col-md-4">
-                <select class="form-select" id="grado" name="grado">
-
-                </select>
-            </div>
+            
             <div class="col-md-2"></div>
             <div class="row my-2"></div>
             <div class="col-md-6 ">

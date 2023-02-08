@@ -91,10 +91,26 @@ class TutorEmpresaController extends Controller
      * @param  \App\Models\TutorEmpresa  $tutorEmpresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TutorEmpresa $tutorEmpresa)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'string|nullable',
+            'apellido' => 'string|nullable',
+            'email' => 'string|nullable'
+        ]);
+        $persona = Persona::find($request->id);
+        $persona->nombre = request('nombre');
+        $persona->apellidos = request('apellidos');
+        $persona->update();
+
+        $usuario = User::find($request->id_user);
+        $usuario->email = request('email');
+        $usuario->update();
+
+
+        return redirect(route('tutoresEmpresa.index'));
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -107,6 +123,7 @@ class TutorEmpresaController extends Controller
         //
     }
 
+
     public function selectAllTutoresEmpresas(Request $request){
         $request->validate([
             'empresa' => 'string|nullable',
@@ -115,22 +132,26 @@ class TutorEmpresaController extends Controller
             'pagina' => 'numeric|nullable'
         ]);
 
+
         $pagina = $request->pagina;
+
 
         $request->empresa = $request->empresa == '' ? '%' : $request->empresa;
         $request->departamento = $request->departamento == '' ? '%' : $request->departamento;
         $request->nombre = $request->nombre == '' ? '%' : $request->nombre;
         $request->page = $request->page == '' ? 1 : $request->page;
 
+
         $empresas = TutorEmpresa::join('empresas', 'tutores_empresas.id_empresa', '=', 'empresas.id')
             ->join('personas', 'tutores_empresas.id_tutor_empresa', '=', 'personas.id')
             ->join('users', 'tutores_empresas.id_tutor_empresa', '=', 'users.id')
-            ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento')
+            ->select('personas.nombre as nombrePersona', 'personas.apellidos', 'users.email', 'empresas.nombre', 'tutores_empresas.departamento', 'users.id as id_user', 'personas.id')
             ->where([
                 ['empresas.nombre', 'like',  $request->empresa],
                 ['tutores_empresas.departamento', 'like', '%' . $request->departamento . '%'],
             ])
             ->orderby('tutores_empresas.id_tutor_empresa', 'desc');
+
 
         $empresasTotal = $empresas->count();
         $resultados = $empresas->offset(($pagina -1) * 10)->limit(10)->get();
@@ -140,6 +161,7 @@ class TutorEmpresaController extends Controller
             'pagina' => intval($pagina),
             'por_pagina' => 10
         ];
+
 
         return ['success' => true, 'data' => $datos, 'message' => 'Tutores de empresas obtenidos correctamente'];
     }
