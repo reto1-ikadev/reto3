@@ -139,8 +139,8 @@ class AlumnoController extends Controller
 
         $estudiante->update();
 
-
-        return redirect(route('estudiantes.index'));
+        //redirect to detalles alumno page with id
+        return redirect()->route('inicio.index');
     }
 
     /**

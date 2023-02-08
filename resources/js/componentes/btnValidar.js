@@ -8,13 +8,14 @@ import { enviarDatosTutorE } from "../funciones/enviarDatosTutorE.js";
 class btnValidar extends HTMLElement {
     constructor() {
         super();
+        this.attachShadow({ mode: 'open' });
         this.name;
         this.fDatos = this.fDatos.bind(this);
     }
 
     connectedCallback() {
-        this.innerHTML = "<button class='btn btn-primary' type='submit' id='validar' name='validar'>Guardar</button>";
-        var btValidar = this.getElementById('validar');
+        this.shadowRoot.innerHTML = "<button type='submit' id='validar' name='validar'>Guardar</button>";
+        var btValidar = this.shadowRoot.getElementById('validar');
         btValidar.addEventListener("click", this.fDatos);
     }
     static get observedAttributes() {

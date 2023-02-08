@@ -29,13 +29,13 @@
                             </th>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="actDesCor" class="form-label ">Actividades Corrección: </label>
+
                                     <textarea @can('tutor_academico') readonly @endcan class="form-control bg-default" name="actDesCor" id="actDesCor" rows="3"></textarea>
                                 </div>
                             </td>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="actDesCom" class="form-label ">Actividades Comentarios: </label>
+
                                     <textarea @can('alumno') readonly @endcan class="form-control bg-default" name="actDesCom" id="actDesCom" rows="3"></textarea>
                                 </div>
                             </td>
@@ -44,13 +44,13 @@
                             <th scope="row">Reflexi&oacute;n sobre el aprendizaje</th>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="apreCor" class="form-label ">Reflexiones Correciones</label>
+
                                     <textarea @can('tutor_academico') readonly @endcan class="form-control bg-default" name="apreCor" id="apreCor" rows="3"></textarea>
                                 </div>
                             </td>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="apreCom" class="form-label ">Reflexiones Comentarios</label>
+
                                     <textarea @can('alumno') readonly @endcan class="form-control bg-default" name="apreCom" id="apreCom" rows="3"></textarea>
                                 </div>
                             </td>
@@ -59,13 +59,13 @@
                             <th scope="row">Problemas, dificultades, mejora</th>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="problemCor" class="form-label ">Problemas Correciones</label>
+
                                     <textarea @can('tutor_academico') readonly @endcan class="form-control bg-default" name="problemCor" id="problemCor" rows="3"></textarea>
                                 </div>
                             </td>
                             <td width="40%">
                                 <div class="mb-3">
-                                    <label for="problemCom" class="form-label ">Problemas Comentarios</label>
+
                                     <textarea @can('alumno') readonly @endcan class="form-control bg-default" name="problemCom" id="problemCom" rows="3"></textarea>
                                 </div>
                             </td>
@@ -75,7 +75,7 @@
                 </div>
                 @can('alumno')
                 <div class="col">
-                    <button class="btn mb-5" type="submit">Guardar cambios</button>
+                    <button class="btn btn-primary mb-5" type="submit">Guardar cambios</button>
                 </div>
                 @endcan
                 @can('tutores')

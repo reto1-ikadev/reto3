@@ -10,7 +10,9 @@
 
 
 
-<form id="formulario" method="post" action="" class="row my-3 justify-content-center">
+<form id="formulario" method="post" class="row my-3 justify-content-center">
+    @csrf
+    @method('POST')
     <div class="col-6">
         <div class="row gy-3">
             <div class="col-md-6">

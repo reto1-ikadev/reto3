@@ -5,14 +5,14 @@ import { enviarDatosEmpresa} from "../funciones/enviarDatosEmpresa";
 class btnValidarempresa extends HTMLElement {
     constructor() {
         super();
-
+        this.attachShadow({ mode: 'open' });
         this.name;
         this.fDatos = this.fDatos.bind(this);
     }
 
     connectedCallback() {
-        this.innerHTML = "<button class='btn-primary btn' type='submit' id='validarEmpresa' name='validar'>Guardar</button>";
-        var btnValidarEmpresa = this.getElementById('validarEmpresa');
+        this.shadowRoot.innerHTML = "<button type='submit' id='validarEmpresa' name='validar'>Guardar</button>";
+        var btnValidarEmpresa = this.shadowRoot.getElementById('validarEmpresa');
         btnValidarEmpresa.addEventListener("click", this.fDatos);
     }
     static get observedAttributes() {

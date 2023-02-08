@@ -18,29 +18,29 @@
                         </div>
                     </div>
                 </form>
-                <div class="row d-flex justify-content-end">
-                    <nav class="col">
-                        <ul class="pagination" id="pagination">
-                            <li class="page-item">
-                                <button class="page-link" href="#" id="anterior" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </button>
-                            </li>
-                            <li class="page-item"><button disabled id="paginaActual" class="page-link" href="#"></button></li>
-                            <li class="page-item">
-                                <button class="page-link" id="siguiente" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </button>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
             </div>
             <div class="row">
                 <div id="accordion" class="mt-2">
 
 
                 </div>
+            </div>
+            <div class="row">
+                <nav class="col d-flex justify-content-center">
+                    <ul class="pagination" id="pagination">
+                        <li class="page-item">
+                            <button class="page-link" href="#" id="anterior" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </button>
+                        </li>
+                        <li class="page-item"><button disabled id="paginaActual" class="page-link" href="#"></button></li>
+                        <li class="page-item">
+                            <button class="page-link" id="siguiente" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

@@ -45,7 +45,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
 
-                                    <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Nuevo Tutor acad&eacute;mico/Coordinador</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('tutoresAcademicos.create') }}">Nuevo Tutor acad&eacute;mico</a></li>
                                     <li><a class="dropdown-item" href="{{ route('tutoresEmpresa.create') }}">Nuevo Tutor de empresa</a></li>
                                     <li><a class="dropdown-item" href="{{ route('estudiantes.create') }}">Nuevo Estudiantes</a></li>
                                     <li><a class="dropdown-item" href="{{ route('empresas.create') }}">Nueva Empresa</a></li>

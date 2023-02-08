@@ -127,7 +127,7 @@ class TutorAcademicoController extends Controller
         $tutorAcademico->update();
 
 
-        return redirect(route('tutoresAcademicos.index'));
+        return redirect(route('tutoresAcademicos.show'));
     }
 
     /**
