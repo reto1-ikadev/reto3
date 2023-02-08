@@ -70,9 +70,14 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/empresas/store',[EmpresasController::class,'store'])->name('empresas.store');
     Route::put('/empresas/update',[EmpresasController::class,'update'])->name('empresas.update');
 //Rutas del diario
-    Route::get('/diario',[CuadernoPracticasController::class,'show'])->name('diario.show');
+    Route::get('/diario',[CuadernoPracticasController::class, 'show'])->name('diario.show');
+    Route::get('/diario/{id}',[CuadernoPracticasController::class, 'create'])->name('diario.create');
+    Route::post('/diarioGuardar', [CuadernoPracticasController::class, 'store'])->name('diario.store');
+    Route::get('/diariosObtener', [CuadernoPracticasController::class, 'obtenerDiarios'])->name('diarios.obtener');
 //Rutas de las reuniones
     Route::get('/reunion',[CursoController::class,'show'])->name('reunion.show');
+    Route::post('/crear_reunion',[CursoController::class,'create'])->name('reunion.create');
+    Route::get('/reunionesObtener', [CursoController::class, 'obtenerReuniones'])->name('reuniones.obtener');
 //Rutas de clasificaciones_historial
 Route::get('/calificacionesHistorial/create/{estudiante}',[CalificacionesHistorialController::class,'create'])->name('calificacionesHistorial.create');
 Route::post('/calificacionesHistorial/store',[CalificacionesHistorialController::class,'store'])->name('calificacionesHistorial.store');
